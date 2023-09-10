@@ -16,7 +16,7 @@ int check(int num1, int num2, int num3) {
 }
 
 int range(int num, int lower, int upper) {
-  if ((num >= lower) && (num <= upper)) {
+  if ((num >= lower) && (num < upper)) {
     return 0;
   }
   else
