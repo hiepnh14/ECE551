@@ -1,6 +1,6 @@
-Grading at 09/10/2023:07:49:13.636746
-For commit ID 5af5c7b8e646a42f2f7e97b640bf57b3f74d2172
-Grading at Sun Sep 10 03:49:09 AM EDT 2023
+Grading at 09/10/2023:16:21:26.692943
+For commit ID 30623c7d94738cfb24349cb76a06efba1d3bdf70
+Grading at Sun Sep 10 12:21:22 PM EDT 2023
 Checking the syntax of your code in squares.c
 The code is legal, now testing its behavior.
 Checking squares(1,1, 1, 1)
@@ -9,7 +9,7 @@ Checking squares(1,1, 1, 2)
 PASSED
 Checking squares(1,1, 1, 5)
 PASSED
-Checking squares(1,1, 1, 8)
+Checking squares(1,1, 1, 9)
 PASSED
 Checking squares(1,1, 3, 1)
 PASSED
@@ -17,15 +17,15 @@ Checking squares(1,1, 3, 2)
 PASSED
 Checking squares(1,1, 3, 5)
 PASSED
-Checking squares(1,1, 3, 10)
+Checking squares(1,1, 3, 8)
 PASSED
-Checking squares(1,1, 5, 1)
+Checking squares(1,1, 7, 1)
 PASSED
-Checking squares(1,1, 5, 2)
+Checking squares(1,1, 7, 2)
 PASSED
-Checking squares(1,1, 5, 5)
+Checking squares(1,1, 7, 5)
 PASSED
-Checking squares(1,1, 5, 10)
+Checking squares(1,1, 7, 7)
 PASSED
 Checking squares(1,2, 1, 1)
 PASSED
@@ -33,7 +33,7 @@ Checking squares(1,2, 1, 2)
 PASSED
 Checking squares(1,2, 1, 5)
 PASSED
-Checking squares(1,2, 1, 7)
+Checking squares(1,2, 1, 8)
 PASSED
 Checking squares(1,2, 3, 1)
 PASSED
@@ -43,37 +43,37 @@ Checking squares(1,2, 3, 5)
 PASSED
 Checking squares(1,2, 3, 8)
 PASSED
-Checking squares(1,2, 7, 1)
+Checking squares(1,2, 5, 1)
 PASSED
-Checking squares(1,2, 7, 2)
+Checking squares(1,2, 5, 2)
 PASSED
-Checking squares(1,2, 7, 5)
+Checking squares(1,2, 5, 5)
 PASSED
-Checking squares(1,2, 7, 7)
+Checking squares(1,2, 5, 7)
 PASSED
-Checking squares(1,4, 1, 1)
+Checking squares(1,5, 1, 1)
 PASSED
-Checking squares(1,4, 1, 2)
+Checking squares(1,5, 1, 2)
 PASSED
-Checking squares(1,4, 1, 5)
+Checking squares(1,5, 1, 5)
 PASSED
-Checking squares(1,4, 1, 9)
+Checking squares(1,5, 1, 8)
 PASSED
-Checking squares(1,4, 3, 1)
+Checking squares(1,5, 3, 1)
 PASSED
-Checking squares(1,4, 3, 2)
+Checking squares(1,5, 3, 2)
 PASSED
-Checking squares(1,4, 3, 5)
+Checking squares(1,5, 3, 5)
 PASSED
-Checking squares(1,4, 3, 7)
+Checking squares(1,5, 3, 8)
 PASSED
-Checking squares(1,4, 5, 1)
+Checking squares(1,5, 5, 1)
 PASSED
-Checking squares(1,4, 5, 2)
+Checking squares(1,5, 5, 2)
 PASSED
-Checking squares(1,4, 5, 5)
+Checking squares(1,5, 5, 5)
 PASSED
-Checking squares(1,4, 5, 11)
+Checking squares(1,5, 5, 11)
 PASSED
 Checking squares(2,1, 1, 1)
 PASSED
@@ -81,7 +81,7 @@ Checking squares(2,1, 1, 2)
 PASSED
 Checking squares(2,1, 1, 5)
 PASSED
-Checking squares(2,1, 1, 9)
+Checking squares(2,1, 1, 11)
 PASSED
 Checking squares(2,1, 3, 1)
 PASSED
@@ -89,15 +89,15 @@ Checking squares(2,1, 3, 2)
 PASSED
 Checking squares(2,1, 3, 5)
 PASSED
-Checking squares(2,1, 3, 7)
+Checking squares(2,1, 3, 10)
 PASSED
-Checking squares(2,1, 8, 1)
+Checking squares(2,1, 6, 1)
 PASSED
-Checking squares(2,1, 8, 2)
+Checking squares(2,1, 6, 2)
 PASSED
-Checking squares(2,1, 8, 5)
+Checking squares(2,1, 6, 5)
 PASSED
-Checking squares(2,1, 8, 10)
+Checking squares(2,1, 6, 7)
 PASSED
 Checking squares(2,2, 1, 1)
 PASSED
@@ -105,7 +105,7 @@ Checking squares(2,2, 1, 2)
 PASSED
 Checking squares(2,2, 1, 5)
 PASSED
-Checking squares(2,2, 1, 9)
+Checking squares(2,2, 1, 11)
 PASSED
 Checking squares(2,2, 3, 1)
 PASSED
@@ -113,15 +113,15 @@ Checking squares(2,2, 3, 2)
 PASSED
 Checking squares(2,2, 3, 5)
 PASSED
-Checking squares(2,2, 3, 7)
+Checking squares(2,2, 3, 10)
 PASSED
-Checking squares(2,2, 7, 1)
+Checking squares(2,2, 5, 1)
 PASSED
-Checking squares(2,2, 7, 2)
+Checking squares(2,2, 5, 2)
 PASSED
-Checking squares(2,2, 7, 5)
+Checking squares(2,2, 5, 5)
 PASSED
-Checking squares(2,2, 7, 7)
+Checking squares(2,2, 5, 7)
 PASSED
 Checking squares(2,4, 1, 1)
 PASSED
@@ -129,7 +129,7 @@ Checking squares(2,4, 1, 2)
 PASSED
 Checking squares(2,4, 1, 5)
 PASSED
-Checking squares(2,4, 1, 11)
+Checking squares(2,4, 1, 7)
 PASSED
 Checking squares(2,4, 3, 1)
 PASSED
@@ -137,68 +137,47 @@ Checking squares(2,4, 3, 2)
 PASSED
 Checking squares(2,4, 3, 5)
 PASSED
-Checking squares(2,4, 3, 7)
+Checking squares(2,4, 3, 9)
 PASSED
-Checking squares(2,4, 5, 1)
+Checking squares(2,4, 6, 1)
 PASSED
-Checking squares(2,4, 5, 2)
+Checking squares(2,4, 6, 2)
 PASSED
-Checking squares(2,4, 5, 5)
+Checking squares(2,4, 6, 5)
 PASSED
-Checking squares(2,4, 5, 8)
+Checking squares(2,4, 6, 9)
 PASSED
 Checking squares(3,1, 1, 1)
-Your program produced the wrong output!
-Here are the differences:
-###								###
-							      >	#**
-#*#								#*#
-###							      <
+PASSED
 Checking squares(3,1, 1, 2)
 PASSED
 Checking squares(3,1, 1, 5)
 PASSED
-Checking squares(3,1, 1, 8)
+Checking squares(3,1, 1, 7)
 PASSED
 Checking squares(3,1, 3, 1)
-Your program produced the wrong output!
-Here are the differences:
-###								###
-# #								# #
-###								###
- * 							      |	 **
+PASSED
 Checking squares(3,1, 3, 2)
 PASSED
 Checking squares(3,1, 3, 5)
 PASSED
-Checking squares(3,1, 3, 8)
+Checking squares(3,1, 3, 7)
 PASSED
 Checking squares(3,1, 5, 1)
-Your program produced the wrong output!
-Here are the differences:
-###								###
-# #								# #
-###								###
-   								   
-   								   
- * 							      |	 **
+PASSED
 Checking squares(3,1, 5, 2)
 PASSED
 Checking squares(3,1, 5, 5)
 PASSED
-Checking squares(3,1, 5, 10)
+Checking squares(3,1, 5, 9)
 PASSED
 Checking squares(3,2, 1, 1)
-Your program produced the wrong output!
-Here are the differences:
-###								###
-# *								# *
-###							      |	##*
+PASSED
 Checking squares(3,2, 1, 2)
 PASSED
 Checking squares(3,2, 1, 5)
 PASSED
-Checking squares(3,2, 1, 11)
+Checking squares(3,2, 1, 9)
 PASSED
 Checking squares(3,2, 3, 1)
 PASSED
@@ -206,7 +185,7 @@ Checking squares(3,2, 3, 2)
 PASSED
 Checking squares(3,2, 3, 5)
 PASSED
-Checking squares(3,2, 3, 8)
+Checking squares(3,2, 3, 11)
 PASSED
 Checking squares(3,2, 6, 1)
 PASSED
@@ -214,19 +193,15 @@ Checking squares(3,2, 6, 2)
 PASSED
 Checking squares(3,2, 6, 5)
 PASSED
-Checking squares(3,2, 6, 8)
+Checking squares(3,2, 6, 10)
 PASSED
 Checking squares(3,4, 1, 1)
-Your program produced the wrong output!
-Here are the differences:
-###  								###  
-# # *								# # *
-###  							      |	### *
+PASSED
 Checking squares(3,4, 1, 2)
 PASSED
 Checking squares(3,4, 1, 5)
 PASSED
-Checking squares(3,4, 1, 10)
+Checking squares(3,4, 1, 7)
 PASSED
 Checking squares(3,4, 3, 1)
 PASSED
@@ -236,382 +211,86 @@ Checking squares(3,4, 3, 5)
 PASSED
 Checking squares(3,4, 3, 8)
 PASSED
-Checking squares(3,4, 5, 1)
+Checking squares(3,4, 8, 1)
 PASSED
-Checking squares(3,4, 5, 2)
+Checking squares(3,4, 8, 2)
 PASSED
-Checking squares(3,4, 5, 5)
+Checking squares(3,4, 8, 5)
 PASSED
-Checking squares(3,4, 5, 7)
+Checking squares(3,4, 8, 9)
 PASSED
-Checking squares(9,1, 1, 1)
-Your program produced the wrong output!
-Here are the differences:
-#########							#########
-							      >	#**     #
-#*      #							#*      #
-#       #						      <
-#       #							#       #
-#       #							#       #
-#       #							#       #
-#       #							#       #
-#       #							#       #
-#########							#########
-Checking squares(9,1, 1, 2)
-Your program produced the wrong output!
-Here are the differences:
-#########							#########
-							      >	#***    #
-							      >	#***    #
-#**     #							#**     #
-#**     #						      <
-#       #						      <
-#       #							#       #
-#       #							#       #
-#       #							#       #
-#       #							#       #
-#########							#########
-Checking squares(9,1, 1, 5)
-Your program produced the wrong output!
-Here are the differences:
-#########							#########
-#*****  #						      |	#****** #
-#*   *  #							#*   *  #
-#*   *  #							#*   *  #
-#*   *  #							#*   *  #
-#*****  #						      |	#****** #
-#       #						      |	#*   *  #
-#       #							#       #
-#########							#########
-Checking squares(9,1, 1, 10)
+Checking squares(8,1, 1, 1)
 PASSED
-Checking squares(9,1, 3, 1)
-Your program produced the wrong output!
-Here are the differences:
-#########							#########
-#       #							#       #
-#       #							#       #
-							      >	#**     #
-#*      #							#*      #
-#       #						      <
-#       #							#       #
-#       #							#       #
-#       #							#       #
-#########							#########
-Checking squares(9,1, 3, 2)
-Your program produced the wrong output!
-Here are the differences:
-#########							#########
-#       #							#       #
-#       #							#       #
-							      >	#***    #
-							      >	#***    #
-#**     #							#**     #
-#**     #						      <
-#       #						      <
-#       #							#       #
-#       #							#       #
-#########							#########
-Checking squares(9,1, 3, 5)
-Your program produced the wrong output!
-Here are the differences:
-#########							#########
-#       #							#       #
-#       #							#       #
-#*****  #						      |	#****** #
-#*   *  #							#*   *  #
-#*   *  #							#*   *  #
-#*   *  #							#*   *  #
-#*****  #						      |	#****** #
-#########						      |	#*###*###
-Checking squares(9,1, 3, 7)
-Your program produced the wrong output!
-Here are the differences:
-#########							#########
-#       #							#       #
-#       #							#       #
-#*******#						      |	#********
-#*     *#							#*     *#
-#*     *#							#*     *#
-#*     *#							#*     *#
-#*     *#							#*     *#
-#*#####*#							#*#####*#
- ******* 						      |	 ********
-Checking squares(9,1, 6, 1)
-Your program produced the wrong output!
-Here are the differences:
-#########							#########
-#       #							#       #
-#       #							#       #
-#       #							#       #
-#       #							#       #
-#       #							#       #
-							      >	#**     #
-#*      #							#*      #
-#       #						      <
-#########							#########
-Checking squares(9,1, 6, 2)
-Your program produced the wrong output!
-Here are the differences:
-#########							#########
-#       #							#       #
-#       #							#       #
-#       #							#       #
-#       #							#       #
-#       #							#       #
-#**     #						      |	#***    #
-#**     #						      |	#***    #
-#########						      |	#**######
-Checking squares(9,1, 6, 5)
-Your program produced the wrong output!
-Here are the differences:
-#########							#########
-#       #							#       #
-#       #							#       #
-#       #							#       #
-#       #							#       #
-#       #							#       #
-#*****  #						      |	#****** #
-#*   *  #							#*   *  #
-#*###*###							#*###*###
- *   *   							 *   *   
- *****   						      |	 ******  
-Checking squares(9,1, 6, 9)
+Checking squares(8,1, 1, 2)
 PASSED
-Checking squares(9,2, 1, 1)
-Your program produced the wrong output!
-Here are the differences:
-#########							#########
-							      >	# **    #
-# *     #							# *     #
-#       #						      <
-#       #							#       #
-#       #							#       #
-#       #							#       #
-#       #							#       #
-#       #							#       #
-#########							#########
-Checking squares(9,2, 1, 2)
-Your program produced the wrong output!
-Here are the differences:
-#########							#########
-							      >	# ***   #
-							      >	# ***   #
-# **    #							# **    #
-# **    #						      <
-#       #						      <
-#       #							#       #
-#       #							#       #
-#       #							#       #
-#       #							#       #
-#########							#########
-Checking squares(9,2, 1, 5)
-Your program produced the wrong output!
-Here are the differences:
-#########							#########
-# ***** #						      |	# ******#
-# *   * #							# *   * #
-# *   * #							# *   * #
-# *   * #							# *   * #
-# ***** #						      |	# ******#
-#       #						      |	# *   * #
-#       #							#       #
-#########							#########
-Checking squares(9,2, 1, 9)
+Checking squares(8,1, 1, 5)
 PASSED
-Checking squares(9,2, 3, 1)
-Your program produced the wrong output!
-Here are the differences:
-#########							#########
-#       #							#       #
-#       #							#       #
-							      >	# **    #
-# *     #							# *     #
-#       #						      <
-#       #							#       #
-#       #							#       #
-#       #							#       #
-#########							#########
-Checking squares(9,2, 3, 2)
-Your program produced the wrong output!
-Here are the differences:
-#########							#########
-#       #							#       #
-#       #							#       #
-							      >	# ***   #
-							      >	# ***   #
-# **    #							# **    #
-# **    #						      <
-#       #						      <
-#       #							#       #
-#       #							#       #
-#########							#########
-Checking squares(9,2, 3, 5)
-Your program produced the wrong output!
-Here are the differences:
-#########							#########
-#       #							#       #
-#       #							#       #
-# ***** #						      |	# ******#
-# *   * #							# *   * #
-# *   * #							# *   * #
-# *   * #							# *   * #
-# ***** #						      |	# ******#
-#########						      |	##*###*##
-Checking squares(9,2, 3, 7)
+Checking squares(8,1, 1, 9)
 PASSED
-Checking squares(9,2, 6, 1)
-Your program produced the wrong output!
-Here are the differences:
-#########							#########
-#       #							#       #
-#       #							#       #
-#       #							#       #
-#       #							#       #
-#       #							#       #
-							      >	# **    #
-# *     #							# *     #
-#       #						      <
-#########							#########
-Checking squares(9,2, 6, 2)
-Your program produced the wrong output!
-Here are the differences:
-#########							#########
-#       #							#       #
-#       #							#       #
-#       #							#       #
-#       #							#       #
-#       #							#       #
-# **    #						      |	# ***   #
-# **    #						      |	# ***   #
-#########						      |	##**#####
-Checking squares(9,2, 6, 5)
-Your program produced the wrong output!
-Here are the differences:
-#########							#########
-#       #							#       #
-#       #							#       #
-#       #							#       #
-#       #							#       #
-#       #							#       #
-# ***** #						      |	# ******#
-# *   * #							# *   * #
-##*###*##							##*###*##
-  *   *  							  *   *  
-  *****  						      |	  ****** 
-Checking squares(9,2, 6, 10)
+Checking squares(8,1, 3, 1)
 PASSED
-Checking squares(9,4, 1, 1)
-Your program produced the wrong output!
-Here are the differences:
-#########							#########
-							      >	#   **  #
-#   *   #							#   *   #
-#       #						      <
-#       #							#       #
-#       #							#       #
-#       #							#       #
-#       #							#       #
-#       #							#       #
-#########							#########
-Checking squares(9,4, 1, 2)
-Your program produced the wrong output!
-Here are the differences:
-#########							#########
-							      >	#   *** #
-							      >	#   *** #
-#   **  #							#   **  #
-#   **  #						      <
-#       #						      <
-#       #							#       #
-#       #							#       #
-#       #							#       #
-#       #							#       #
-#########							#########
-Checking squares(9,4, 1, 5)
-Your program produced the wrong output!
-Here are the differences:
-#########							#########
-#   *****							#   *****
-#   *   *							#   *   *
-#   *   *							#   *   *
-#   *   *							#   *   *
-#   *****							#   *****
-#       #						      |	#   *   *
-#       #							#       #
-#########							#########
-Checking squares(9,4, 1, 8)
+Checking squares(8,1, 3, 2)
 PASSED
-Checking squares(9,4, 3, 1)
-Your program produced the wrong output!
-Here are the differences:
-#########							#########
-#       #							#       #
-#       #							#       #
-							      >	#   **  #
-#   *   #							#   *   #
-#       #						      <
-#       #							#       #
-#       #							#       #
-#       #							#       #
-#########							#########
-Checking squares(9,4, 3, 2)
-Your program produced the wrong output!
-Here are the differences:
-#########							#########
-#       #							#       #
-#       #							#       #
-							      >	#   *** #
-							      >	#   *** #
-#   **  #							#   **  #
-#   **  #						      <
-#       #						      <
-#       #							#       #
-#       #							#       #
-#########							#########
-Checking squares(9,4, 3, 5)
-Your program produced the wrong output!
-Here are the differences:
-#########							#########
-#       #							#       #
-#       #							#       #
-#   *****							#   *****
-#   *   *							#   *   *
-#   *   *							#   *   *
-#   *   *							#   *   *
-#   *****							#   *****
-#########						      |	####*###*
-Checking squares(9,4, 3, 11)
+Checking squares(8,1, 3, 5)
 PASSED
-Checking squares(9,4, 8, 1)
-Your program produced the wrong output!
-Here are the differences:
-#########							#########
-#       #							#       #
-#       #							#       #
-#       #							#       #
-#       #							#       #
-#       #							#       #
-#       #							#       #
-#       #							#       #
-####*####						      |	####**###
-Checking squares(9,4, 8, 2)
-Your program produced the wrong output!
-Here are the differences:
-#########							#########
-#       #							#       #
-#       #							#       #
-#       #							#       #
-#       #							#       #
-#       #							#       #
-#       #							#       #
-#       #							#       #
-####**###						      |	####***##
-    **   						      |	    ***  
-Checking squares(9,4, 8, 5)
+Checking squares(8,1, 3, 9)
 PASSED
-Checking squares(9,4, 8, 7)
+Checking squares(8,1, 6, 1)
 PASSED
-Passed 112 out of 144 tests
+Checking squares(8,1, 6, 2)
+PASSED
+Checking squares(8,1, 6, 5)
+PASSED
+Checking squares(8,1, 6, 7)
+PASSED
+Checking squares(8,2, 1, 1)
+PASSED
+Checking squares(8,2, 1, 2)
+PASSED
+Checking squares(8,2, 1, 5)
+PASSED
+Checking squares(8,2, 1, 7)
+PASSED
+Checking squares(8,2, 3, 1)
+PASSED
+Checking squares(8,2, 3, 2)
+PASSED
+Checking squares(8,2, 3, 5)
+PASSED
+Checking squares(8,2, 3, 10)
+PASSED
+Checking squares(8,2, 5, 1)
+PASSED
+Checking squares(8,2, 5, 2)
+PASSED
+Checking squares(8,2, 5, 5)
+PASSED
+Checking squares(8,2, 5, 11)
+PASSED
+Checking squares(8,5, 1, 1)
+PASSED
+Checking squares(8,5, 1, 2)
+PASSED
+Checking squares(8,5, 1, 5)
+PASSED
+Checking squares(8,5, 1, 11)
+PASSED
+Checking squares(8,5, 3, 1)
+PASSED
+Checking squares(8,5, 3, 2)
+PASSED
+Checking squares(8,5, 3, 5)
+PASSED
+Checking squares(8,5, 3, 11)
+PASSED
+Checking squares(8,5, 5, 1)
+PASSED
+Checking squares(8,5, 5, 2)
+PASSED
+Checking squares(8,5, 5, 5)
+PASSED
+Checking squares(8,5, 5, 7)
+PASSED
+Passed 144 out of 144 tests
 
-Overall Grade: C
+Overall Grade: A
