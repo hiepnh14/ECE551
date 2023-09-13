@@ -1,12 +1,6 @@
-Grading at 09/13/2023:17:03:46.703945
-For commit ID 97a20e47473faca588b68778471a8d0788bfc1a0
-Grading at Wed Sep 13 01:03:46 PM EDT 2023
+Grading at 09/13/2023:17:15:48.063762
+For commit ID a55c9edaa22cfe12053fed17b6925e1417211837
+Grading at Wed Sep 13 01:15:47 PM EDT 2023
 Reading your quiz answers from answers.txt
-You got 2 questions incorrect.
-You might want to review these concepts:
-------------
-Asserts in testing
-How to test a hypothesis
-------------
 
-Overall Grade: FAILED
+Overall Grade: PASSED
