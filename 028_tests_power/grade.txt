@@ -1,0 +1,67 @@
+Grading at 09/17/2023:19:25:38.912189
+For commit ID 0e9ec6f1780802be06a652d1e11c5bd0b55bc143
+Grading at Sun Sep 17 03:25:37 PM EDT 2023
+**Testing broken implementation 10 **
+-------------------------------------
+
+Computed wrongly at 10 to the power of 6: 10
+
+**Testing broken implementation 11 **
+-------------------------------------
+
+Computed wrongly at 10 to the power of 6: 64
+
+**Testing broken implementation 1 **
+-------------------------------------
+
+Computed wrongly at 0 to the power of 2: 1
+
+**Testing broken implementation 2 **
+-------------------------------------
+
+Computed wrongly at 1 to the power of 0: 0
+
+**Testing broken implementation 3 **
+-------------------------------------
+
+Computed wrongly at 0 to the power of 0: 0
+
+**Testing broken implementation 4 **
+-------------------------------------
+
+Computed wrongly at 10 to the power of 6: 16960
+
+**Testing broken implementation 5 **
+-------------------------------------
+
+Computed wrongly at 1 to the power of 2: 0
+
+**Testing broken implementation 6 **
+-------------------------------------
+
+Computed wrongly at 0 to the power of 2: 4
+
+**Testing broken implementation 7 **
+-------------------------------------
+
+Computed wrongly at 0 to the power of 2: 9
+
+**Testing broken implementation 8 **
+-------------------------------------
+
+Computed wrongly at 1 to the power of 2: 2
+
+**Testing broken implementation 9 **
+-------------------------------------
+
+Computed wrongly at 1 to the power of 2: 0
+
+**Testing correct implementation **
+-------------------------------------
+
+Pass all cases
+
+All tests were ok.
+
+
+Overall Grade: PASSED
