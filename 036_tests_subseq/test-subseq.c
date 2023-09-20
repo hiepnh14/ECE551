@@ -5,7 +5,7 @@ size_t maxSeq(int * array, size_t n);
 
 void checker(int * array, size_t n, size_t expected) {
   if (maxSeq(array, n) != expected) {
-    printf("result = %ld, expected = %ld\n", maxSeq(array, n), expected);
+    printf("len = %ld, result = %ld, expected = %ld\n", n, maxSeq(array, n), expected);
     exit(EXIT_FAILURE);
   }
 }
