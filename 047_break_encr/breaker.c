@@ -4,13 +4,18 @@
 
 void frequency_count(FILE * f, int * frequency) {
   int c;
+  int check_point = 0;
   while ((c = fgetc(f)) != EOF) {
     if (isalpha(c)) {
       c = tolower(c);
       //printf("%c", c);
       c -= 'a';
       frequency[c] += 1;
+      check_point = 1;
     }
+  }
+  if (check_point == 0) {
+    exit(EXIT_FAILURE);
   }
 }
 
