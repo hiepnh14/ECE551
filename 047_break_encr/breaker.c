@@ -15,6 +15,7 @@ void frequency_count(FILE * f, int * frequency) {
     }
   }
   if (check_point == 0) {
+    fprintf(stderr, "No text detected!\n");
     exit(EXIT_FAILURE);
   }
 }
@@ -29,6 +30,10 @@ int most_frequent(int * frequency) {
       index = i;
       // printf("Update index to %d", i);
     }
+  }
+  index -= 4;  // 'e' is the most frequent character
+  if (index < 0) {
+    index += 26;
   }
   return index;
 }
