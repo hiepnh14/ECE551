@@ -1,0 +1,5 @@
+For this problem, you will be writing a program which
+performs a 90 degrees clockwise rotation of a 10x10 matrix.
+There is a nothing special about a 10x10 matrix---I just need
+to fix the matrix size, sinc we do not have the knowledge needed
+to read in any size of matrix.
