@@ -2,14 +2,16 @@ input.txt
 input1.txt
 input2.txt
 input3.txt
-input3.txt input1.txt
-
-2 input.txt
-non.txt
 input4.txt
 input5.txt
-input10.txt
 input6.txt
 input7.txt
 input8.txt
 input9.txt
+input10.txt
+input3.txt input2.txt
+
+2 input.txt
+nofile.txt
+non.txt
+input11.txt
