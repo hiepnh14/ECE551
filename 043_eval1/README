@@ -189,7 +189,7 @@ make printLocalMax
 
 and test
 
-./printLocalMax step3_data/sunspots_data_filtered_part_00.csv
+./printLocalMax step3_data/sunspots_data_filtered_71_part_00.csv
 
 as well as other files in the step3_data.
 
