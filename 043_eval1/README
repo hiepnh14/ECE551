@@ -71,7 +71,7 @@ the program and the original data file, like this:
 
 Look in /usr/local/ece551/sunspots/. You will find additional data files for
 this project. All provided csv files can be used to test your code in this
-step. 
+step.
 
 Of course, you should test with many more inputs than those provided to be
 confident your code works well.
@@ -109,7 +109,7 @@ This is because the left side of the window is out of bound, so we can only
 include 17.0 itself and the other 2 values on the right side in the window to
 calculate the average. Similarly, the second value 18.7 will be replaced by 
 
-(17.0 + 18.7 + 11.3 + 10.8) / 4 = 14.65
+(17.0 + 18.7 + 11.3 + 10.8) / 4 = 14.45
 
 (Note: The calculations above are rounded because they were done by hand. You
 should store your results to double precision without any rounding. Besides,
@@ -189,7 +189,7 @@ make printLocalMax
 
 and test
 
-./printLocalMax step3_data/sunspots_filtered_part_00.csv
+./printLocalMax step3_data/sunspots_data_filtered_part_00.csv
 
 as well as other files in the step3_data.
 
@@ -306,7 +306,7 @@ The next section has a #success header and is followed by test cases that
 should have a success status. For these the pregrader will check that your
 results match ours. 
 
-You may write as many test cases as you like, but you are limited to 20
+You may write as many test cases as you like, but you are limited to 60
 seconds of compute time by the pregrader. 
 
 Reminders
