@@ -1,12 +1,21 @@
 #include "sunspots.h"
 
+#include <stdlib.h>
+#include <string.h>
+
 ss_monthly_t parseLine(char * line) {
   // WRITE ME
   ss_monthly_t ans;
-  ans.year = 0;
-  ans.month = 0;
-  ans.num = 0;
-  return ans;
+  int year, month;
+  float num;
+  if (sscanf(line, "%d-%d,%f", &year, &month, &num) != EOF) {
+    ans.year = year;
+    ans.month = month;
+    ans.num = num;
+    return ans;
+  }
+  else
+    exit(EXIT_FAILURE);
 }
 
 void meanFilter(ss_monthly_t * data, size_t n, ss_monthly_t * mean, unsigned w) {
