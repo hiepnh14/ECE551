@@ -71,5 +71,16 @@ double findLocalMax(ss_monthly_t * data, size_t n) {
 
 double calcSsPeriod(double * timeStamps, size_t n) {
   //WRITE ME
-  return 0;
+
+  if (n <= 1) {
+    fprintf(stderr, "TimeStamps need to has more than 1 data point");
+    exit(EXIT_FAILURE);
+  }
+  double total_differences = 0;
+  size_t number_of_differences = 0;
+  for (size_t i = 1; i < n; i++) {
+    total_differences += timeStamps[i] - timeStamps[i - 1];
+    number_of_differences++;
+  }
+  return total_differences / number_of_differences;
 }
