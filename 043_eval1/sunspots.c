@@ -54,7 +54,19 @@ void meanFilter(ss_monthly_t * data, size_t n, ss_monthly_t * mean, unsigned w) 
 
 double findLocalMax(ss_monthly_t * data, size_t n) {
   // WRITE ME
-  return 0;
+  if (n == 0) {
+    fprintf(stderr, "No data to find Local Max\n");
+    exit(EXIT_FAILURE);
+  }
+  double temp = data[0].num;
+  double time = data[0].year + data[0].month / 12.0;
+  for (size_t i = 0; i < n; i++) {
+    if (data[i].num > temp) {
+      temp = data[i].num;
+      time = data[i].year + data[i].month / 12.0;
+    }
+  }
+  return time;
 }
 
 double calcSsPeriod(double * timeStamps, size_t n) {
