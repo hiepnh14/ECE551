@@ -6,4 +6,6 @@ printFilteredSsData sunspots_small.csv 10
 printSsData sunspots_small.csv
 printFilteredSsData sunspots_small.csv 10
 printLocalMax sunspots_small.csv
-printSsPeriod
+printSsPeriod sunspots_data.csv 70
+printSsPeriod sunspots_178yrs.csv 70
+printSsPeriod sunspots_55yrs.csv 50
