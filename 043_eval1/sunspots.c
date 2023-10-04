@@ -28,6 +28,10 @@ void meanFilter(ss_monthly_t * data, size_t n, ss_monthly_t * mean, unsigned w) 
     fprintf(stderr, "width is no larger than than the length of the sequency");
     exit(EXIT_FAILURE);
   }
+  if (w < 1) {
+    fprintf(stderr, "width must a positive odd number");
+    exit(EXIT_FAILURE);
+  }
 
   double sum = 0;
   unsigned long count = 0;
