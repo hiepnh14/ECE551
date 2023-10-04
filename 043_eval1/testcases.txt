@@ -1,0 +1,7 @@
+#error
+printSsdata invalid.csv
+printFilteredSsdata sunspots_data.csv 10
+
+#success
+printSSdata sunspots_data.csv
+printFilteredssdata sunspots_data.csv 71
