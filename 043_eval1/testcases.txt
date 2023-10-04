@@ -5,5 +5,5 @@ printFilteredSsData sunspots_small.csv 10
 #success
 printSsData sunspots_small.csv
 printFilteredSsData sunspots_small.csv 10
-printLocalmax sunspots_small.csv
+printLocalMax sunspots_small.csv
 printSsPeriod
