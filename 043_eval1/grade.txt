@@ -1,6 +1,6 @@
-Grading at 10/04/2023:18:29:43.298294
-For commit ID f8f6bfe3ecf3d561f034da7d6b2d420bf0c1c9a3
-Grading at Wed Oct  4 02:29:36 PM EDT 2023
+Grading at 10/04/2023:18:32:54.534849
+For commit ID 7d15f1a512adedab6e7e463b8f2bf2ac811deff2
+Grading at Wed Oct  4 02:32:47 PM EDT 2023
 
 Compiling 
 rm -f *~ printSsData printFilteredSsData printLocalMax printSsPeriod
@@ -14,32 +14,7 @@ Test case printSsData invalid.csv
 Your program successfully indicated a failure case
 +-----------------------------------------------------------------------+
 Test case printFilteredSsData sunspots_small.csv 10
-date,number of sunspots
-1755-01,11.6
-1755-02,9.6
-1755-03,10.3
-1755-04,9.7
-1755-05,11.9
-1755-06,14.4
-1755-07,13.6
-1755-08,16.0
-1755-09,17.1
-1755-10,18.4
-1755-11,19.4
-1755-12,19.6
-1756-01,21.3
-1756-02,20.4
-1756-03,16.7
-1756-04,16.6
-1756-05,15.1
-1756-06,15.4
-1756-07,17.3
-1756-08,18.0
-1756-09,18.3
-1756-10,18.0
-1756-11,17.4
-1756-12,19.6
-Your program did not indicate a failure case
+Your program successfully indicated a failure case
 +-----------------------------------------------------------------------+
 Test case printSsData sunspots_data.csv
 Your file matched the expected output
@@ -51,18 +26,15 @@ Test case printLocalMax sunspots_data.csv
 Your file matched the expected output
 +-----------------------------------------------------------------------+
 Test case printSsPeriod sunspots_data.csv 71
-Line_1_did_not_match
-Your file did not match the expected output
+Your file matched the expected output
 +-----------------------------------------------------------------------+
 Test case printSsPeriod sunspots_178yrs.csv 71
-Line_1_did_not_match
-Your file did not match the expected output
+Your file matched the expected output
 +-----------------------------------------------------------------------+
 Test case printSsPeriod sunspots_55yrs.csv 51
-Line_1_did_not_match
-Your file did not match the expected output
+Your file matched the expected output
 
-You have FAILED one or more of your test cases
-Keep debugging
+You have PASSED all of your test cases
+Keep adding test cases until you are satisfied your program is correct
 
 Overall Grade: NO GRADE YET
