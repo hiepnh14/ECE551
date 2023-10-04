@@ -1,6 +1,6 @@
-Grading at 10/04/2023:17:37:41.498796
-For commit ID 4ba15380847e1c093a5baeb3a5e64982b0dbf4a6
-Grading at Wed Oct  4 01:37:40 PM EDT 2023
+Grading at 10/04/2023:17:40:08.799423
+For commit ID 48bc280b36d142ab34bf33026d28f925d0c7a495
+Grading at Wed Oct  4 01:40:07 PM EDT 2023
 
 Compiling 
 rm -f *~ printSsData printFilteredSsData printLocalMax printSsPeriod
@@ -9,7 +9,10 @@ gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 sunspots.c printFilteredSsData.o -
 gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 sunspots.c printLocalMax.o -o printLocalMax
 gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 sunspots.c printSsPeriod.o -o printSsPeriod
 Running your test cases
++-----------------------------------------------------------------------+
+Test case printSsData invalid.csv
+Your program successfully indicated a failure case
 Program must be one of printSsData printFilteredSsData printLocalMax printSsPeriod
-But found "printSsdata"
+But found "printFilteredSsdata"
 
 Overall Grade: NO GRADE YET
