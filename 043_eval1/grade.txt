@@ -1,6 +1,6 @@
-Grading at 10/04/2023:18:16:55.765982
-For commit ID 8b7af8af29406a968a35fb5e4e70214279375ab7
-Grading at Wed Oct  4 02:16:49 PM EDT 2023
+Grading at 10/04/2023:18:29:43.298294
+For commit ID f8f6bfe3ecf3d561f034da7d6b2d420bf0c1c9a3
+Grading at Wed Oct  4 02:29:36 PM EDT 2023
 
 Compiling 
 rm -f *~ printSsData printFilteredSsData printLocalMax printSsPeriod
@@ -41,24 +41,24 @@ date,number of sunspots
 1756-12,19.6
 Your program did not indicate a failure case
 +-----------------------------------------------------------------------+
-Test case printSsData sunspots_small.csv
+Test case printSsData sunspots_data.csv
 Your file matched the expected output
 +-----------------------------------------------------------------------+
-Test case printFilteredSsData sunspots_small.csv 10
+Test case printFilteredSsData sunspots_small.csv 11
 Your file matched the expected output
 +-----------------------------------------------------------------------+
-Test case printLocalMax sunspots_small.csv
+Test case printLocalMax sunspots_data.csv
 Your file matched the expected output
 +-----------------------------------------------------------------------+
-Test case printSsPeriod sunspots_data.csv 70
+Test case printSsPeriod sunspots_data.csv 71
 Line_1_did_not_match
 Your file did not match the expected output
 +-----------------------------------------------------------------------+
-Test case printSsPeriod sunspots_178yrs.csv 70
+Test case printSsPeriod sunspots_178yrs.csv 71
 Line_1_did_not_match
 Your file did not match the expected output
 +-----------------------------------------------------------------------+
-Test case printSsPeriod sunspots_55yrs.csv 50
+Test case printSsPeriod sunspots_55yrs.csv 51
 Line_1_did_not_match
 Your file did not match the expected output
 
