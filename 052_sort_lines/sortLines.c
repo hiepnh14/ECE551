@@ -26,6 +26,10 @@ void read_sortLine(void * f) {
     i++;
   }
   free(curr);
+  if (i == 0) {
+    fprintf(stderr, "No string input");
+    exit(EXIT_FAILURE);
+  }
   sortData(lines, i);
   for (size_t j = 0; j < i; j++) {
     printf("%s", lines[j]);
