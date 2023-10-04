@@ -3,7 +3,10 @@ printSsData invalid.csv
 printFilteredSsData sunspots_small.csv 10
 printFilteredSsData sunspots_small.csv 31
 printSsPeriod sunspots_55yrs.csv 50
-printSsPeriod sunspost_55yrs.csv -11
+printSsPeriod sunspots_55yrs.csv -11
+printSsData
+printSsPeriod
+printSsPeriod invalid.csv
 
 #success
 printSsData sunspots_data.csv
