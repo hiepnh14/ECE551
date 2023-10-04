@@ -1,6 +1,6 @@
-Grading at 10/03/2023:04:27:34.430095
-For commit ID 52f88866b39b0a352d07adfab9bb5c274fea3345
-Grading at Tue Oct  3 12:27:33 AM EDT 2023
+Grading at 10/04/2023:17:37:41.498796
+For commit ID 4ba15380847e1c093a5baeb3a5e64982b0dbf4a6
+Grading at Wed Oct  4 01:37:40 PM EDT 2023
 
 Compiling 
 rm -f *~ printSsData printFilteredSsData printLocalMax printSsPeriod
@@ -9,6 +9,7 @@ gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 sunspots.c printFilteredSsData.o -
 gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 sunspots.c printLocalMax.o -o printLocalMax
 gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 sunspots.c printSsPeriod.o -o printSsPeriod
 Running your test cases
-Cannot proceed without testcases.txt
+Program must be one of printSsData printFilteredSsData printLocalMax printSsPeriod
+But found "printSsdata"
 
 Overall Grade: NO GRADE YET
