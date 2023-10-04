@@ -1,6 +1,6 @@
-Grading at 10/04/2023:17:50:22.165550
-For commit ID 6f7243b743f1a2e9e5cad448a2b6233c36093395
-Grading at Wed Oct  4 01:50:19 PM EDT 2023
+Grading at 10/04/2023:17:59:44.818971
+For commit ID 8f3dfbeb85b4f5a049ab6ce755ce7f621d91e9cd
+Grading at Wed Oct  4 01:59:40 PM EDT 2023
 
 Compiling 
 rm -f *~ printSsData printFilteredSsData printLocalMax printSsPeriod
@@ -46,7 +46,15 @@ Your file matched the expected output
 +-----------------------------------------------------------------------+
 Test case printFilteredSsData sunspots_small.csv 10
 Your file matched the expected output
-Program must be one of printSsData printFilteredSsData printLocalMax printSsPeriod
-But found "printLocalmax"
++-----------------------------------------------------------------------+
+Test case printLocalMax sunspots_small.csv
+Your file matched the expected output
++-----------------------------------------------------------------------+
+Test case printSsPeriod 
+Line_1_did_not_match
+Your file did not match the expected output
+
+You have FAILED one or more of your test cases
+Keep debugging
 
 Overall Grade: NO GRADE YET
