@@ -48,7 +48,7 @@ int main(int argc, char ** argv) {
     for (size_t i = 1; i < argc; i++) {
       FILE * f = fopen(argv[i], "r");
       if (f == NULL) {
-        printf("File %s not found", argv[i]);
+        fprintf(stderr, "File %s not found", argv[i]);
         return EXIT_FAILURE;
       }
       read_sortLine(f);
