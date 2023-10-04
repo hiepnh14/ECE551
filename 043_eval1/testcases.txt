@@ -4,6 +4,6 @@ printFilteredSsdata sunspots_data.csv 10
 
 #success
 printSaData sunspots_data.csv
-printFilteredssdata sunspots_data.csv 71
+printFilteredSsData sunspots_data.csv 71
 printLocalmax sunspots_data.csv
 printSsPeriod
