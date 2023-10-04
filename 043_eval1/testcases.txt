@@ -7,6 +7,10 @@ printSsPeriod sunspots_55yrs.csv -11
 printSsData
 printSsPeriod
 printSsPeriod invalid.csv
+printSsPeriod sunspots_small 5 10
+printLocalMax
+printSsData
+printSsData sunspots_small.csv 10
 
 #success
 printSsData sunspots_data.csv
