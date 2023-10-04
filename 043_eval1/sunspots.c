@@ -20,6 +20,15 @@ ss_monthly_t parseLine(char * line) {
 
 void meanFilter(ss_monthly_t * data, size_t n, ss_monthly_t * mean, unsigned w) {
   // WRITE ME
+  if (w % 2 == 1) {
+    fprintf(stderr, "Width must be odd number");
+    exit(EXIT_FAILURE);
+  }
+  if (w > n) {
+    fprintf(stderr, "width is no larger than than the length of the sequency");
+    exit(EXIT_FAILURE);
+  }
+
   double sum = 0;
   unsigned long count = 0;
   unsigned long radius = (w - 1) / 2;

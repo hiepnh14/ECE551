@@ -3,9 +3,9 @@ printSsData invalid.csv
 printFilteredSsData sunspots_small.csv 10
 
 #success
-printSsData sunspots_small.csv
-printFilteredSsData sunspots_small.csv 10
-printLocalMax sunspots_small.csv
-printSsPeriod sunspots_data.csv 70
-printSsPeriod sunspots_178yrs.csv 70
-printSsPeriod sunspots_55yrs.csv 50
+printSsData sunspots_data.csv
+printFilteredSsData sunspots_small.csv 11
+printLocalMax sunspots_data.csv
+printSsPeriod sunspots_data.csv 71
+printSsPeriod sunspots_178yrs.csv 71
+printSsPeriod sunspots_55yrs.csv 51
