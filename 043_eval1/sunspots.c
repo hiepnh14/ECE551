@@ -20,7 +20,7 @@ ss_monthly_t parseLine(char * line) {
 
 void meanFilter(ss_monthly_t * data, size_t n, ss_monthly_t * mean, unsigned w) {
   // WRITE ME
-  if (w % 2 == 1) {
+  if (w % 2 == 0) {
     fprintf(stderr, "Width must be odd number");
     exit(EXIT_FAILURE);
   }
