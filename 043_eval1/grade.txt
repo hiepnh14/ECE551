@@ -1,6 +1,6 @@
-Grading at 10/04/2023:18:04:30.548896
-For commit ID ffb3c89c24954082a02d2cc345857cabd4cdd4e9
-Grading at Wed Oct  4 02:04:26 PM EDT 2023
+Grading at 10/04/2023:18:16:55.765982
+For commit ID 8b7af8af29406a968a35fb5e4e70214279375ab7
+Grading at Wed Oct  4 02:16:49 PM EDT 2023
 
 Compiling 
 rm -f *~ printSsData printFilteredSsData printLocalMax printSsPeriod
@@ -50,7 +50,15 @@ Your file matched the expected output
 Test case printLocalMax sunspots_small.csv
 Your file matched the expected output
 +-----------------------------------------------------------------------+
-Test case printSsPeriod 
+Test case printSsPeriod sunspots_data.csv 70
+Line_1_did_not_match
+Your file did not match the expected output
++-----------------------------------------------------------------------+
+Test case printSsPeriod sunspots_178yrs.csv 70
+Line_1_did_not_match
+Your file did not match the expected output
++-----------------------------------------------------------------------+
+Test case printSsPeriod sunspots_55yrs.csv 50
 Line_1_did_not_match
 Your file did not match the expected output
 
