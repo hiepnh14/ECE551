@@ -102,12 +102,12 @@ int click(board_t * b, int x, int y) {
 int checkWin(board_t * b) {
   for (int i = 0; i < b->width; i++) {
     for (int j = 0; j < b->height; j++) {
-      if (b->board[j][i] != UNKNOWN) {
-        return 1;
+      if (b->board[j][i] == UNKNOWN) {
+        return 0;
       }
     }
   }
-  return 0;
+  return 1;
 }
 
 /* Read and validate positive integer from player */
@@ -179,7 +179,7 @@ int maybeReveal(board_t * b, int x, int y) {
     for (int dx = -1; dx <= 1; dx++) {
       int nx = x + dx;
       int ny = y + dy;
-      if (nx >= 0 && nx < b->width) {
+      if (nx >= 0 && nx < b->width && ny >= 0 && ny < b->height) {
         if (b->board[ny][nx] == UNKNOWN || b->board[ny][nx] == HAS_MINE) {
           unknownSquares++;
         }
