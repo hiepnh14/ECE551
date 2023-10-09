@@ -1,70 +1,225 @@
-Grading at 10/04/2023:20:33:11.204228
+Grading at 10/09/2023:22:01:45.094122
 For commit ID 5591d9b8ebbf678511822d114582c057d927654c
-Grading at Wed Oct  4 04:32:58 PM EDT 2023
+Grading at Mon Oct  9 06:01:13 PM EDT 2023
 
-Compiling 
+Replacing the object files with ours
+
+Checking that your code compiles
 rm -f *~ printSsData printFilteredSsData printLocalMax printSsPeriod
 gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 sunspots.c printSsData.o -o printSsData
 gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 sunspots.c printFilteredSsData.o -o printFilteredSsData
 gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 sunspots.c printLocalMax.o -o printLocalMax
 gcc -std=gnu99 -Werror -Wall -pedantic -ggdb3 sunspots.c printSsPeriod.o -o printSsPeriod
-Running your test cases
-+-----------------------------------------------------------------------+
-Test case printSsData invalid.csv
-Your program successfully indicated a failure case
-+-----------------------------------------------------------------------+
-Test case printFilteredSsData sunspots_small.csv 10
-Your program successfully indicated a failure case
-+-----------------------------------------------------------------------+
-Test case printFilteredSsData sunspots_small.csv 31
-Your program successfully indicated a failure case
-+-----------------------------------------------------------------------+
-Test case printSsPeriod sunspots_55yrs.csv 50
-Your program successfully indicated a failure case
-+-----------------------------------------------------------------------+
-Test case printSsPeriod sunspots_55yrs.csv -11
-Your program successfully indicated a failure case
-+-----------------------------------------------------------------------+
-Test case printSsData 
-Your program successfully indicated a failure case
-+-----------------------------------------------------------------------+
-Test case printSsPeriod 
-Your program successfully indicated a failure case
-+-----------------------------------------------------------------------+
-Test case printSsPeriod invalid.csv
-Your program successfully indicated a failure case
-+-----------------------------------------------------------------------+
-Test case printSsPeriod sunspots_small 5
-Your program successfully indicated a failure case
-+-----------------------------------------------------------------------+
-Test case printLocalMax 
-Your program successfully indicated a failure case
-+-----------------------------------------------------------------------+
-Test case printSsData 
-Your program successfully indicated a failure case
-+-----------------------------------------------------------------------+
-Test case printSsData sunspots_small.csv 10
-Your program successfully indicated a failure case
-+-----------------------------------------------------------------------+
-Test case printSsData sunspots_data.csv
-Your file matched the expected output
-+-----------------------------------------------------------------------+
-Test case printFilteredSsData sunspots_small.csv 11
-Your file matched the expected output
-+-----------------------------------------------------------------------+
-Test case printLocalMax sunspots_data.csv
-Your file matched the expected output
-+-----------------------------------------------------------------------+
-Test case printSsPeriod sunspots_data.csv 71
-Your file matched the expected output
-+-----------------------------------------------------------------------+
-Test case printSsPeriod sunspots_178yrs.csv 71
-Your file matched the expected output
-+-----------------------------------------------------------------------+
-Test case printSsPeriod sunspots_55yrs.csv 51
-Your file matched the expected output
 
-You have PASSED all of your test cases
-Keep adding test cases until you are satisfied your program is correct
+=========================================================================
+Step 1
 
-Overall Grade: NO GRADE YET
++-----------------------------------------------------------------------+
+Test case 1.1
+Your program did not indicate a failure case
+                                                         [0/1]
++-----------------------------------------------------------------------+
+Test case 1.2
+Your program did not indicate a failure case
+                                                         [0/1]
++-----------------------------------------------------------------------+
+Test case 1.3
+Your program did not indicate a failure case
+                                                         [0/1]
++-----------------------------------------------------------------------+
+Test case 1.4
+Valgrind reported memory errors
+Your program did not indicate a failure case
+                                                         [0/1]
++-----------------------------------------------------------------------+
+Test case 1.5
+Your program did not indicate a failure case
+                                                         [0/1]
++-----------------------------------------------------------------------+
+Test case 1.6
+Your program did not indicate a failure case
+                                                         [0/1]
++-----------------------------------------------------------------------+
+Test case 1.7
+Your program did not indicate a failure case
+                                                         [0/1]
++-----------------------------------------------------------------------+
+Test case 1.8
+Valgrind reported memory errors
+Your program did not indicate a failure case
+                                                         [0/1]
++-----------------------------------------------------------------------+
+Test case 1.9
+Your program did not indicate a failure case
+                                                         [0/1]
++-----------------------------------------------------------------------+
+Test case 1.10
+Your program did not indicate a failure case
+                                                         [0/1]
++-----------------------------------------------------------------------+
+Test case 1.11
+Valgrind reported memory errors
+Your program did not indicate a failure case
+                                                         [0/1]
++-----------------------------------------------------------------------+
+Test case 1.12
+Valgrind reported memory errors
+Your program did not indicate a failure case
+                                                         [0/1]
++-----------------------------------------------------------------------+
+Test case 1.13
+Your file matched the expected output
+                                                         [5/5]
++-----------------------------------------------------------------------+
+Test case 1.14
+Your file matched the expected output
+                                                         [5/5]
++-----------------------------------------------------------------------+
+Test case 1.15
+Line_2_did_not_match
+Your file did not match the expected output
+                                                         [0/1]
++-----------------------------------------------------------------------+
+Test case 1.16
+Your file matched the expected output
+                                                         [1/1]
++-----------------------------------------------------------------------+
+Test case 1.17
+Your file matched the expected output
+                                                         [1/1]
+
+Step 1 total                                             [12/25]
+
+=========================================================================
+Step 2
+
++-----------------------------------------------------------------------+
+Test case 2.1
+Your program successfully indicated a failure case
+                                                         [2/2]
++-----------------------------------------------------------------------+
+Test case 2.2
+Your program successfully indicated a failure case
+                                                         [2/2]
++-----------------------------------------------------------------------+
+Test case 2.3
+Your file matched the expected output
+                                                         [10/10]
++-----------------------------------------------------------------------+
+Test case 2.4
+Your file matched the expected output
+                                                         [5/5]
++-----------------------------------------------------------------------+
+Test case 2.5
+Your file matched the expected output
+                                                         [2/2]
++-----------------------------------------------------------------------+
+Test case 2.6
+Your file matched the expected output
+                                                         [2/2]
++-----------------------------------------------------------------------+
+Test case 2.7
+Your file matched the expected output
+                                                         [2/2]
+
+Step 2 total                                             [25/25]
+
+=========================================================================
+Step 3
+
++-----------------------------------------------------------------------+
+Test case 3.1
+Your program successfully indicated a failure case
+                                                         [2/2]
++-----------------------------------------------------------------------+
+Test case 3.2
+Your file matched the expected output
+                                                         [2/2]
++-----------------------------------------------------------------------+
+Test case 3.3
+Your file matched the expected output
+                                                         [2/2]
++-----------------------------------------------------------------------+
+Test case 3.4
+Your file matched the expected output
+                                                         [2/2]
++-----------------------------------------------------------------------+
+Test case 3.5
+Your file matched the expected output
+                                                         [2/2]
++-----------------------------------------------------------------------+
+Test case 3.6
+Your file matched the expected output
+                                                         [2/2]
++-----------------------------------------------------------------------+
+Test case 3.7
+Your file matched the expected output
+                                                         [2/2]
++-----------------------------------------------------------------------+
+Test case 3.8
+Your file matched the expected output
+                                                         [2/2]
++-----------------------------------------------------------------------+
+Test case 3.9
+Your file matched the expected output
+                                                         [2/2]
++-----------------------------------------------------------------------+
+Test case 3.10
+Your file matched the expected output
+                                                         [2/2]
+
+Step 3 total                                             [20/20]
+
+=========================================================================
+Step 4
+
++-----------------------------------------------------------------------+
+Test case 4.1
+Your file matched the expected output
+                                                         [4/4]
++-----------------------------------------------------------------------+
+Test case 4.2
+Your file matched the expected output
+                                                         [4/4]
++-----------------------------------------------------------------------+
+Test case 4.3
+Your file matched the expected output
+                                                         [4/4]
++-----------------------------------------------------------------------+
+Test case 4.4
+Your file matched the expected output
+                                                         [2/2]
++-----------------------------------------------------------------------+
+Test case 4.5
+Your file matched the expected output
+                                                         [2/2]
++-----------------------------------------------------------------------+
+Test case 4.6
+Your file matched the expected output
+                                                         [2/2]
++-----------------------------------------------------------------------+
+Test case 4.7
+Your file matched the expected output
+                                                         [2/2]
+
+Step 4 total                                             [20/20]
+
+=========================================================================
+Code quality
+
+Abstration:    Excellent
+Naming:        Excellent
+Formatting:    Excellent
+Documentation: OK
+Comments from your grader:
+Nice work! Abstraction is great. Variable names are meaningful. Formatting is 
+standard. Documentation could be improved by adding a comment to each function 
+describing what it does.
+Recommend doing 'make clean' before adding to Git, and abstraction could be 
+improved by moving error checking to helper function.
+
+Quality total                                            [9.3/10]
+
+=========================================================================
+
+Overall Grade: 86
