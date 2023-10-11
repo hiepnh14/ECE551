@@ -47,6 +47,10 @@ void printCounts(counts_t * c, FILE * outFile) {
   if (c->unknownCount != 0) {
     fprintf(outFile, "<unknown> : %ld\n", c->unknownCount);
   }
+  if (fclose(outFile) != 0) {
+    fprintf(stderr, "Fail to close the file");
+    exit(EXIT_FAILURE);
+  }
 }
 void freeCounts(counts_t * c) {
   //WRITE ME
