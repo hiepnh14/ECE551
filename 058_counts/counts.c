@@ -27,7 +27,7 @@ void addCount(counts_t * c, const char * name) {
   c->counts = realloc(c->counts, (len + 1) * sizeof(*c->counts));
   c->counts[len] = malloc(sizeof(*c->counts[len]));
   c->counts[len]->key = name;
-  c->counts[len]->count++;
+  c->counts[len]->count = 1;
   c->numCount++;
 }
 void printCounts(counts_t * c, FILE * outFile) {
@@ -47,10 +47,10 @@ void printCounts(counts_t * c, FILE * outFile) {
   if (c->unknownCount != 0) {
     fprintf(outFile, "<unknown> : %ld\n", c->unknownCount);
   }
-  if (fclose(outFile) != 0) {
-    fprintf(stderr, "Fail to close the file");
-    exit(EXIT_FAILURE);
-  }
+  //if (fclose(outFile) != 0) {
+  //fprintf(stderr, "Fail to close the file");
+  //exit(EXIT_FAILURE);
+  //}
 }
 void freeCounts(counts_t * c) {
   //WRITE ME
