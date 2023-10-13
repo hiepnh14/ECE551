@@ -39,7 +39,7 @@ counts_t * countFile(const char * filename, kvarray_t * kvPairs) {
     char * newline = malloc(strlen(line) * sizeof(*newline));
     strcpy(newline, line);
     stripNewline(newline);
-    printf("%s\n", newline);
+    //printf("%s\n", newline);
     addCount(counts, lookupValue(kvPairs, newline));
     free(newline);
     //free(line);
