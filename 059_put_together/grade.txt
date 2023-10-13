@@ -1,6 +1,6 @@
-Grading at 10/13/2023:14:41:44.607210
-For commit ID b1468f20bcb3fef53a4396a0d033bc41a563e9d2
-Grading at Fri Oct 13 10:41:41 AM EDT 2023
+Grading at 10/13/2023:14:47:38.066731
+For commit ID 2330d3b374ddd2e1cae97d2b303533604d052409
+Grading at Fri Oct 13 10:47:34 AM EDT 2023
 Attempting to compile:
 rm -f  counts.o  kv.o  main.o  outname.o count_values *~
 gcc -c -Wall -Werror -std=gnu99 -pedantic -ggdb3 counts.c
@@ -14,61 +14,12 @@ testcase1 passed, your program successfully indicated a failure
 valgrind was clean
 #################################################
 testcase2:
-apple
-avacado
-raspberry
-blueberry
-cherry
-eggplant
-grapes
-peach
-pineapple
-strawberry
-fig
-kiwi
-lime
-pineapple
-pomegranate
-raisins
-apple
-blueberry
-carrot
-cherry
-dates
 valgrind reported memory errors
 #################################################
 testcase3:
-Will Riker
-Worf
-Tasha Yar
-Guinan
-Ro Laren
-Jean Luc Picard
-Q
-Geordi LaForge
-Some guy in a red shirt
-Reginald Barclay
-Beverly Crusher
-Data
-Worf
-Data
-Geordi LaForge
-Jean Luc Picard
-Tasha Yar
-Ro Laren
-Spock
-James T Kirk
-Katherine Janeway
 valgrind reported memory errors
 #################################################
 testcase4:
-apple
-watermelon
-banana
-avocado
-orange
-lasttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttttt
-unknownone
 valgrind reported memory errors
 
 Overall Grade: F
