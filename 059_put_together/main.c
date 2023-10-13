@@ -36,7 +36,7 @@ counts_t * countFile(const char * filename, kvarray_t * kvPairs) {
     //char * newline = malloc((len + 1) * sizeof(*newline));
     //strncpy(newline, line, p - line);
     //newline[len] = '\0';
-    char * newline = malloc(strlen(line) * sizeof(*newline));
+    char * newline = malloc((strlen(line) + 1) * sizeof(*newline));
     strcpy(newline, line);
     stripNewline(newline);
     //printf("%s\n", newline);
@@ -72,14 +72,16 @@ int main(int argc, char ** argv) {
 
     //compute the output file name from argv[i] (call this outName)
     FILE * f = fopen(outName, "w");
-    //open the file named by outName (call that f)
-    printCounts(c, f);
+    if (f != NULL) {
+      //open the file named by outName (call that f)
+      printCounts(c, f);
+    }
+
     if (fclose(f) != 0) {
-      fprintf(stderr, "CAnnot close output File");
-      return EXIT_FAILURE;
+      fprintf(stderr, "Cannot close output File");
+      //return EXIT_FAILURE;
     }
     //print the counts from c into the FILE f
-
     //close f
     free(outName);
     freeCounts(c);
