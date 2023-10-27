@@ -46,17 +46,18 @@ char * parsing(FILE * f, catarray_t * array) {
       free(category_str);
       // Pass the right _
       c = fgetc(f);
+      size_t len2 = strlen(story);
+      size_t len1 = strlen(fill);
       // Reallocate memory for story then concatenate fill to story
-      story = (char *)realloc(story, (strlen(story) + strlen(fill) + 1) * sizeof(*story));
+      story = (char *)realloc(story, (len2 + len1 + 1) * sizeof(*story));
       strcat(story, fill);
     }
     // Reallocate memory for the story string
     int len = strlen(story);
-    story = realloc(story, (len + 1) * sizeof(*story) + sizeof(c));
+    story = (char *)realloc(story, (len + 1) * sizeof(*story) + sizeof(c));
     story[len] = c;
     story[len + 1] = '\0';
   }
-
   return story;
 }
 catarray_t * init_catarray(void) {
@@ -67,7 +68,6 @@ catarray_t * init_catarray(void) {
 }
 
 void readWords(catarray_t * catarray, char * line) {
-  // category_t * category = NULL;
   char * word = (char *)malloc(0);
   char * category_str = (char *)malloc(0);
   size_t len = strlen(line);
@@ -75,7 +75,7 @@ void readWords(catarray_t * catarray, char * line) {
   size_t sz_word = 0;
   // Parse the category on the left of the :
   while (line[sz] != ':') {
-    category_str = realloc(category_str, (sz + 2) * sizeof(*category_str));
+    category_str = (char *)realloc(category_str, (sz + 2) * sizeof(*category_str));
     category_str[sz] = line[sz];
     category_str[sz + 1] = '\0';
     sz++;
@@ -83,21 +83,18 @@ void readWords(catarray_t * catarray, char * line) {
   // printf("%s\n", category_str);
   sz++;
   // Prase the word on the right of the :
-  while ((isalpha(line[sz]) != 0 || line[sz] == ' ') && sz < len) {
-    word = realloc(word, (sz_word + 2) * sizeof(*word));
+  //while ((isalpha(line[sz]) != 0 || line[sz] == ' ') && sz < len) {
+  while (sz < len && line[sz] != '\n') {
+    word = (char *)realloc(word, (sz_word + 2) * sizeof(*word));
     word[sz_word] = line[sz];
     word[sz_word + 1] = '\0';
     sz++;
     sz_word++;
   }
-  // When there is more special character in the line:
-  if (sz < (len - 1)) {
-    fprintf(stderr, "There is special charcter in the word\n");
-    exit(EXIT_FAILURE);
-  }
+
   // printf("%s\n", word);
-  if (strcmp(word, "") == 0 || strcmp(category_str, "") == 0) {
-    fprintf(stderr, "Read word failure, word or catefory NULL");
+  if (strcmp(category_str, "") == 0) {
+    fprintf(stderr, "Read category failure, catefory NULL\n");
     exit(EXIT_FAILURE);
   }
   int updated = 0;  // Set a flag to update the word to the category
@@ -147,13 +144,17 @@ void readWords(catarray_t * catarray, char * line) {
   }
 }
 
-void readFile(catarray_t * catarray, FILE * f) {
+void readFile(catarray_t * catarray, char * filename) {
   size_t sz = 0;
-  ssize_t len = 0;
   char * line = NULL;
+  FILE * f = fopen(filename, "r");
+  if (f == NULL) {
+    fprintf(stderr, "Cannot open the word file");
+    exit(EXIT_FAILURE);
+  }
   // Read line by line and update to the catarray;
-  while ((len = getline(&line, &sz, f)) >= 0) {
-    if (line != NULL && strlen(line) > 3) {
+  while ((getline(&line, &sz, f)) >= 0) {
+    if (line != NULL && strlen(line) > 2) {
       readWords(catarray, line);
     }
     else {
@@ -162,6 +163,10 @@ void readFile(catarray_t * catarray, FILE * f) {
     }
   }
   free(line);
+  if (fclose(f) != 0) {
+    fprintf(stderr, "Fail to close the file\n");
+    exit(EXIT_FAILURE);
+  }
 }
 
 void freeCat(catarray_t * catarray) {
