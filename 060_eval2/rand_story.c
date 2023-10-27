@@ -33,7 +33,8 @@ char * category(FILE * f) {
 }
 
 char * parsing(FILE * f, catarray_t * array) {
-  char * story = (char *)malloc(0);
+  char * story = malloc(sizeof(*story));
+  story[0] = '\0';
   char c;
   while ((c = fgetc(f)) != EOF) {
     // At the start of the blank (extracting the category)
@@ -53,8 +54,8 @@ char * parsing(FILE * f, catarray_t * array) {
       strcat(story, fill);
     }
     // Reallocate memory for the story string
-    int len = strlen(story);
-    story = (char *)realloc(story, (len + 1) * sizeof(*story) + sizeof(c));
+    size_t len = strlen(story);
+    story = (char *)realloc(story, (len + 2) * sizeof(*story));
     story[len] = c;
     story[len + 1] = '\0';
   }
@@ -80,7 +81,7 @@ void readWords(catarray_t * catarray, char * line) {
     category_str[sz + 1] = '\0';
     sz++;
   }
-  // printf("%s\n", category_str);
+
   sz++;
   // Prase the word on the right of the :
   //while ((isalpha(line[sz]) != 0 || line[sz] == ' ') && sz < len) {
@@ -92,11 +93,23 @@ void readWords(catarray_t * catarray, char * line) {
     sz_word++;
   }
 
-  // printf("%s\n", word);
+  //char * p = strchr(line, ':');
+  //char * category_str = strsep(&line, ":");
+  //if (category_str == NULL) {
+  //fprintf(stderr, "No Category found\n");
+  //exit(EXIT_FAILURE);
+  //}
+  //char * word = p;
+  //strtok(word, "\n");
+  if (word == NULL) {
+    fprintf(stderr, "No name found\n");
+    exit(EXIT_FAILURE);
+  }
   if (strcmp(category_str, "") == 0) {
     fprintf(stderr, "Read category failure, catefory NULL\n");
     exit(EXIT_FAILURE);
   }
+  //printf("%s:%s\n", category_str, word);
   int updated = 0;  // Set a flag to update the word to the category
   for (size_t i = 0; i < catarray->n; i++) {
     // If the catefory exist in the array of catarray
@@ -108,16 +121,17 @@ void readWords(catarray_t * catarray, char * line) {
           break;
         }
       }
-      // Word does not exist in the category
+      // Word does not exist in the category, category exists
       if (updated == 0) {
         size_t n = catarray->arr[i].n_words;
         catarray->arr[i].words =
             realloc(catarray->arr[i].words, (n + 1) * sizeof(*catarray->arr[i].words));
         catarray->arr[i].words[n] = word;
         catarray->arr[i].n_words++;
+
         // Free the category_str
         updated = 1;
-        // printf("Adding %s to %s\n", word, category_str);
+        //printf("Adding %s to %s\n", catarray->arr[i].words[n], catarray->arr[i].name);
         free(category_str);
         break;
       }
@@ -125,7 +139,7 @@ void readWords(catarray_t * catarray, char * line) {
   }
   // When the category does not exist in the current array
   if (updated == 0) {
-    int n = catarray->n;
+    size_t n = catarray->n;
     catarray->arr = realloc(catarray->arr, (n + 1) * sizeof(*catarray->arr));
     catarray->arr[n].name = category_str;
     catarray->arr[n].words = malloc(sizeof(*catarray->arr[n].words));
@@ -135,13 +149,9 @@ void readWords(catarray_t * catarray, char * line) {
     // printf("Adding %s\n", category_str);
     updated = 1;
   }
-  if (updated == 0) {
-    fprintf(stderr, "Fail to handle logic in readWord\n");
-    exit(EXIT_FAILURE);
-    // Handle duplicate name, word, category
-    // Update the array
-    // Free memory if there is any extra that is not stored in the array
-  }
+  // Handle duplicate name, word, category
+  // Update the array
+  // Free memory if there is any extra that is not stored in the array
 }
 
 void readFile(catarray_t * catarray, char * filename) {
