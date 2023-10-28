@@ -1,6 +1,6 @@
-Grading at 10/28/2023:01:29:12.885728
-For commit ID 98e766c6cc25d813c8b79f21fa6c8edc8c04a4f5
-Grading at Fri Oct 27 09:28:54 PM EDT 2023
+Grading at 10/28/2023:01:48:27.789032
+For commit ID ffd80832cb47a4c126be3f37922a6c7fa63ae9f6
+Grading at Fri Oct 27 09:48:09 PM EDT 2023
 Doing some basic checking for your submission
 
 Step 1
@@ -39,9 +39,8 @@ Valgrind was clean
 
 1.5: Current test is story-step1 story5.txt
 -----------------------------
-You considered this a failure case:
-Invalid integer
-But we did not.
+Your output looks good. Lets check valgrind
+Valgrind was clean
 
 1.6: Current test is story-step1 story6.txt
 -----------------------------
@@ -178,9 +177,10 @@ Great: we both considered this an error
 Lets check if it valgrinds:
 Valgrind was clean
 
-3.9: Current test is story-step3 words.txt story.txt
+3.9: Current test is story-step3 words.txt story10.txt
 -----------------------------
-Your output looks good. Lets check valgrind
+Great: we both considered this an error
+Lets check if it valgrinds:
 Valgrind was clean
 
 3.10: Current test is story-step3 words5 story.txt
