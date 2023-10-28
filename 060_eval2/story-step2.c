@@ -6,11 +6,12 @@ int main(int argc, char ** argv) {
   }
   // Initialize the array
   catarray_t * array = init_catarray();
-
+  // Read the wordFile to the array
   readFile(array, argv[1]);
   printWords(array);
 
   // Free memory for the array
   freeCat(array);
   // Closing the file
+  return EXIT_SUCCESS;
 }

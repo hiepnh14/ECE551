@@ -11,7 +11,7 @@ int main(int argc, char ** argv) {
   }
   char * story = NULL;
   // Parsing the story from the input file
-  story = parsing(f, NULL);
+  story = parsing(f, NULL, 0);
   fprintf(stdout, "%s", story);
 
   // Free memory for story
@@ -21,4 +21,5 @@ int main(int argc, char ** argv) {
     fprintf(stderr, "Fail to close the input file");
     return EXIT_FAILURE;
   }
+  return EXIT_SUCCESS;
 }

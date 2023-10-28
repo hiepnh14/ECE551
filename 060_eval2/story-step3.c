@@ -7,19 +7,17 @@ int main(int argc, char ** argv) {
   }
   // Initialize the array
   catarray_t * array = init_catarray();
-
+  // Read the wordFile to the array
   readFile(array, argv[1]);
-  //printWords(array);
-  // Closing the file
+
   // Open story template file
   FILE * file = fopen(argv[2], "r");
   if (file == NULL) {
     fprintf(stderr, "Fail to open the input file\n");
     return EXIT_FAILURE;
   }
-  //char * story = NULL;
-  //freeCat(array);
-  char * story = parsing(file, array);
+  // Parse the story template and fill in the blank with words from the array
+  char * story = parsing(file, array, 0);
   fprintf(stdout, "%s", story);
 
   // Free memory for story
@@ -30,4 +28,5 @@ int main(int argc, char ** argv) {
     fprintf(stderr, "Fail to close the input file2\n");
     return EXIT_FAILURE;
   }
+  return EXIT_SUCCESS;
 }
