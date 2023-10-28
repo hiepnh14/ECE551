@@ -5,10 +5,20 @@
 #include <stdlib.h>
 #include <string.h>
 
+int isPositiveInt(char * str) {
+  char * endptr;
+  long value = strtol(str, &endptr, 10);
+  //Check for conversion errors
+  if (*endptr != '\0' || endptr == str || value <= 0) {
+    return 0;  // Not a valid integer
+  }
+  return 1;
+}
+
 // This function to extract category within 2 "_" characters
 char * category(FILE * f) {
-  char * category_str = (char *)malloc(0);
-  char x;
+  char * category_str = NULL;
+  int x;
   size_t i = 0;
   // While function, it breaks when it reaches '_'
   while ((x = fgetc(f)) != '_') {
@@ -18,7 +28,7 @@ char * category(FILE * f) {
       exit(EXIT_FAILURE);
     }
 
-    category_str = (char *)realloc(category_str, (i + 1) * sizeof(*category_str));
+    category_str = (char *)realloc(category_str, (i + 2) * sizeof(*category_str));
     // Add the character to the category
     if (category_str == NULL) {
       fprintf(stderr, "Cannot reallocate memory for category_str");
@@ -32,35 +42,56 @@ char * category(FILE * f) {
   return category_str;
 }
 
+// To parse the story template and replace the blank with the words
 char * parsing(FILE * f, catarray_t * array) {
   char * story = malloc(sizeof(*story));
+  char ** strArray = NULL;
+  size_t n_array = 0;
   story[0] = '\0';
-  char c;
+  int c;
   while ((c = fgetc(f)) != EOF) {
     // At the start of the blank (extracting the category)
     if (c == '_') {
       char * category_str = category(f);
       // Find the word to fill
       // printf("%s\n", category_str);
-      const char * fill = chooseWord(category_str, array);
+      if (isPositiveInt(category_str) > 0) {
+        size_t index = atoi(category_str);
+        if (index <= 0 || index > n_array) {
+          fprintf(stderr, "Invalid integer\n");
+          exit(EXIT_FAILURE);
+        }
+        strArray = (char **)realloc(strArray, (n_array + 1) * sizeof(*strArray));
+        strArray[n_array] = strArray[n_array - index];
+        n_array++;
+      }
+      else {
+        strArray = (char **)realloc(strArray, (n_array + 1) * sizeof(*strArray));
+        strArray[n_array] = (char *)chooseWord(category_str, array);
+        n_array++;
+      }
       // Free the memory allocate for category
       free(category_str);
       // Pass the right _
       c = fgetc(f);
       size_t len2 = strlen(story);
-      size_t len1 = strlen(fill);
+      size_t len1 = strlen(strArray[n_array - 1]);
       // Reallocate memory for story then concatenate fill to story
       story = (char *)realloc(story, (len2 + len1 + 1) * sizeof(*story));
-      strcat(story, fill);
+      strcat(story, strArray[n_array - 1]);
     }
+
     // Reallocate memory for the story string
     size_t len = strlen(story);
     story = (char *)realloc(story, (len + 2) * sizeof(*story));
     story[len] = c;
     story[len + 1] = '\0';
   }
+  free(strArray);
   return story;
 }
+
+// To initialize catarray pointer
 catarray_t * init_catarray(void) {
   catarray_t * catarray = malloc(sizeof(*catarray));
   catarray->arr = NULL;
@@ -68,6 +99,7 @@ catarray_t * init_catarray(void) {
   return catarray;
 }
 
+// To read one line of Category:word
 void readWords(catarray_t * catarray, char * line) {
   char * word = (char *)malloc(0);
   char * category_str = (char *)malloc(0);
@@ -153,7 +185,7 @@ void readWords(catarray_t * catarray, char * line) {
   // Update the array
   // Free memory if there is any extra that is not stored in the array
 }
-
+// Read the words file
 void readFile(catarray_t * catarray, char * filename) {
   size_t sz = 0;
   char * line = NULL;
@@ -179,6 +211,7 @@ void readFile(catarray_t * catarray, char * filename) {
   }
 }
 
+// To free all the memory of catarray
 void freeCat(catarray_t * catarray) {
   size_t n = catarray->n;
   for (size_t i = 0; i < n; i++) {

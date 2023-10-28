@@ -9,7 +9,7 @@ int main(int argc, char ** argv) {
   catarray_t * array = init_catarray();
 
   readFile(array, argv[1]);
-  printWords(array);
+  //printWords(array);
   // Closing the file
   // Open story template file
   FILE * file = fopen(argv[2], "r");
