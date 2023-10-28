@@ -177,7 +177,7 @@ void readWords(catarray_t * catarray, char * line) {
   size_t sz = 0;
   size_t sz_word = 0;
   // Parse the category on the left of the :
-  while (line[sz] != ':') {
+  while (line[sz] != ':' && sz < len) {
     category_str = (char *)realloc(category_str, (sz + 2) * sizeof(*category_str));
     category_str[sz] = line[sz];
     category_str[sz + 1] = '\0';
@@ -200,7 +200,8 @@ void readWords(catarray_t * catarray, char * line) {
     fprintf(stderr, "No name found\n");
     exit(EXIT_FAILURE);
   }
-  if (strcmp(category_str, "") == 0) {
+  //if (strcmp(category_str, "") == 0) {
+  if (category_str == NULL) {
     fprintf(stderr, "Read category failure, catefory NULL\n");
     exit(EXIT_FAILURE);
   }
