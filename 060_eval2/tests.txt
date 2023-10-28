@@ -24,7 +24,7 @@ story-step3 words.txt story6.txt
 story-step3 words.txt story7.txt
 story-step3 words.txt story8.txt
 story-step3 words.txt story9.txt
-story-step3 words.txt story.txt
+story-step3 words.txt story10.txt
 story-step3 words5 story.txt
 story-step3 words none.txt
 story-step4 words.txt story2.txt

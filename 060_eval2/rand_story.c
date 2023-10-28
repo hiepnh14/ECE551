@@ -55,7 +55,7 @@ char * parsing(FILE * f, catarray_t * array) {
       char * category_str = category(f);
       // Find the word to fill
       // printf("%s\n", category_str);
-      if (isPositiveInt(category_str) > 0) {
+      if (isPositiveInt(category_str) > 0 && array != NULL) {
         size_t index = atoi(category_str);
         if (index <= 0 || index > n_array) {
           fprintf(stderr, "Invalid integer\n");
