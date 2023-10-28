@@ -1,6 +1,6 @@
-Grading at 10/28/2023:16:42:34.788379
-For commit ID 91ecf42af9b65a0f23389681e663a39ef0854c2b
-Grading at Sat Oct 28 12:41:46 PM EDT 2023
+Grading at 10/28/2023:17:19:50.294984
+For commit ID 748350f8c1171ed4eb374aebd7940cbf9546b6a7
+Grading at Sat Oct 28 01:19:07 PM EDT 2023
 Doing some basic checking for your submission
 
 Step 1
@@ -163,46 +163,13 @@ But you did not (exit status was EXIT_SUCCESS).
 
 2.9: Current test is story-step2 words8.txt
 -----------------------------
-Great: we both considered this an error
-Lets check if it valgrinds:
-Valgrind reported errors:
-==1279502== Memcheck, a memory error detector
-==1279502== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==1279502== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==1279502== Command: ./story-step2 words8.txt
-==1279502== Parent PID: 1279501
-==1279502== 
-==1279502== Conditional jump or move depends on uninitialised value(s)
-==1279502==    at 0x109DA0: readWords (rand_story.c:180)
-==1279502==    by 0x10A208: readFile (rand_story.c:262)
-==1279502==    by 0x10942E: main (story-step2.c:10)
-==1279502== 
-==1279502== Invalid read of size 1
-==1279502==    at 0x109D9B: readWords (rand_story.c:180)
-==1279502==    by 0x10A208: readFile (rand_story.c:262)
-==1279502==    by 0x10942E: main (story-step2.c:10)
-==1279502==  Address 0x4a8f328 is 0 bytes after a block of size 120 alloc'd
-==1279502==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1279502==    by 0x48E4122: getdelim (iogetdelim.c:62)
-==1279502==    by 0x10A24E: readFile (rand_story.c:260)
-==1279502==    by 0x10942E: main (story-step2.c:10)
-==1279502== 
-==1279502== Invalid read of size 1
-==1279502==    at 0x109D74: readWords (rand_story.c:182)
-==1279502==    by 0x10A208: readFile (rand_story.c:262)
-==1279502==    by 0x10942E: main (story-step2.c:10)
-==1279502==  Address 0x4a8f328 is 0 bytes after a block of size 120 alloc'd
-==1279502==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1279502==    by 0x48E4122: getdelim (iogetdelim.c:62)
-==1279502==    by 0x10A24E: readFile (rand_story.c:260)
-==1279502==    by 0x10942E: main (story-step2.c:10)
-==1279502== 
+We considered this a failure case.
+But you did not (exit status was EXIT_SUCCESS).
 
 2.10: Current test is story-step2 words9.txt
 -----------------------------
-You considered this a failure case:
-Read category failure, catefory NULL
-But we did not.
+Your output looks good. Lets check valgrind
+Valgrind was clean
 
 2.11: Current test is story-step2 words10.txt
 -----------------------------
@@ -329,48 +296,7 @@ Valgrind was clean
 -----------------------------
 Great: we both considered this an error
 Lets check if it valgrinds:
-Valgrind reported errors:
-==1279962== Memcheck, a memory error detector
-==1279962== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==1279962== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==1279962== Command: ./story-step3 words7.txt story2.txt
-==1279962== Parent PID: 1279961
-==1279962== 
-==1279962== Conditional jump or move depends on uninitialised value(s)
-==1279962==    at 0x109E84: readWords (rand_story.c:180)
-==1279962==    by 0x10A2EC: readFile (rand_story.c:262)
-==1279962==    by 0x109451: main (story-step3.c:11)
-==1279962== 
-==1279962== Invalid read of size 1
-==1279962==    at 0x109E7F: readWords (rand_story.c:180)
-==1279962==    by 0x10A2EC: readFile (rand_story.c:262)
-==1279962==    by 0x109451: main (story-step3.c:11)
-==1279962==  Address 0x4a8f328 is 0 bytes after a block of size 120 alloc'd
-==1279962==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1279962==    by 0x48E4122: getdelim (iogetdelim.c:62)
-==1279962==    by 0x10A332: readFile (rand_story.c:260)
-==1279962==    by 0x109451: main (story-step3.c:11)
-==1279962== 
-==1279962== Invalid read of size 1
-==1279962==    at 0x109E58: readWords (rand_story.c:182)
-==1279962==    by 0x10A2EC: readFile (rand_story.c:262)
-==1279962==    by 0x109451: main (story-step3.c:11)
-==1279962==  Address 0x4a8f328 is 0 bytes after a block of size 120 alloc'd
-==1279962==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1279962==    by 0x48E4122: getdelim (iogetdelim.c:62)
-==1279962==    by 0x10A332: readFile (rand_story.c:260)
-==1279962==    by 0x109451: main (story-step3.c:11)
-==1279962== 
-==1279962== 
-==1279962== HEAP SUMMARY:
-==1279962==     in use at exit: 1,597 bytes in 21 blocks
-==1279962==   total heap usage: 957 allocs, 936 frees, 110,127 bytes allocated
-==1279962== 
-==1279962== For a detailed leak analysis, rerun with: --leak-check=full
-==1279962== 
-==1279962== Use --track-origins=yes to see where uninitialised values come from
-==1279962== For lists of detected and suppressed errors, rerun with: -s
-==1279962== ERROR SUMMARY: 1000 errors from 3 contexts (suppressed: 0 from 0)
+Valgrind was clean
 
 3.19: Current test is story-step3 words5 story.txt
 -----------------------------
@@ -405,8 +331,8 @@ Valgrind was clean
 It looks like you got different output from us on that case.
 Here is the diff (yours on left, ours on right):
 
-Once upon a time, there was a 0Àù¾U. This 0Àù¾U lived in a very     |	Once upon a time, there was a walrus. This walrus lived in a 
- ñ‰/¢»U. One day, it left its  ñ‰/¢»U and met a A‰/¢»U.		      |	peculiar cave. One day, it left its peculiar cave and met a d
+Once upon a time, there was a 0QÐU. This 0QÐU lived in a very   |	Once upon a time, there was a walrus. This walrus lived in a 
+ @ÕU. One day, it left its  @ÕU and met a ðÕU.		      |	peculiar cave. One day, it left its peculiar cave and met a d
 Your file did not match the expected output
 
 
@@ -420,8 +346,8 @@ Valgrind was clean
 It looks like you got different output from us on that case.
 Here is the diff (yours on left, ours on right):
 
-Once upon a time, there was a 0ûæU. This 0ûæU lived in a very     |	Once upon a time, there was a walrus. This walrus lived in a 
- AêšAãU. One day, it left its  AêšAãU and met a ñêšAãU.		      |	peculiar cave. One day, it left its peculiar cave and met a d
+Once upon a time, there was a 0å?*qU. This 0å?*qU lived in a ve |	Once upon a time, there was a walrus. This walrus lived in a 
+ F-}tU. One day, it left its  F-}tU and met a ¾F-}tU.	      |	peculiar cave. One day, it left its peculiar cave and met a d
 Your file did not match the expected output
 
 
@@ -430,7 +356,7 @@ Your file did not match the expected output
 It looks like you got different output from us on that case.
 Here is the diff (yours on left, ours on right):
 
-There is another «ž	˜®U which is in «ž	˜®U then find the corre |	There is another cave which is in cave then find the correct 
+There is another ½‹|U which is in ½‹|U then find the correct .    |	There is another cave which is in cave then find the correct 
 Your file did not match the expected output
 
 
@@ -475,250 +401,250 @@ Valgrind was clean
 Great: we both considered this an error
 Lets check if it valgrinds:
 Valgrind reported errors:
-==1280261== Memcheck, a memory error detector
-==1280261== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==1280261== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==1280261== Command: ./story-step4 -n words.txt story10.txt
-==1280261== Parent PID: 1280260
-==1280261== 
-==1280261== Invalid read of size 1
-==1280261==    at 0x484ED76: __strlen_sse2 (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1280261==    by 0x109D2F: parsing (rand_story.c:144)
-==1280261==    by 0x109526: main (story-step4.c:38)
-==1280261==  Address 0x4a91090 is 0 bytes inside a block of size 5 free'd
-==1280261==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1280261==    by 0x1099CA: delete (rand_story.c:86)
-==1280261==    by 0x109CE6: parsing (rand_story.c:136)
-==1280261==    by 0x109526: main (story-step4.c:38)
-==1280261==  Block was alloc'd at
-==1280261==    at 0x484DCD3: realloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1280261==    by 0x109F0B: readWords (rand_story.c:191)
-==1280261==    by 0x10A354: readFile (rand_story.c:262)
-==1280261==    by 0x1094C2: main (story-step4.c:28)
-==1280261== 
-==1280261== Invalid read of size 1
-==1280261==    at 0x484ED84: __strlen_sse2 (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1280261==    by 0x109D2F: parsing (rand_story.c:144)
-==1280261==    by 0x109526: main (story-step4.c:38)
-==1280261==  Address 0x4a91091 is 1 bytes inside a block of size 5 free'd
-==1280261==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1280261==    by 0x1099CA: delete (rand_story.c:86)
-==1280261==    by 0x109CE6: parsing (rand_story.c:136)
-==1280261==    by 0x109526: main (story-step4.c:38)
-==1280261==  Block was alloc'd at
-==1280261==    at 0x484DCD3: realloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1280261==    by 0x109F0B: readWords (rand_story.c:191)
-==1280261==    by 0x10A354: readFile (rand_story.c:262)
-==1280261==    by 0x1094C2: main (story-step4.c:28)
-==1280261== 
-==1280261== Invalid read of size 1
-==1280261==    at 0x484EA39: strcat (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1280261==    by 0x109D7A: parsing (rand_story.c:147)
-==1280261==    by 0x109526: main (story-step4.c:38)
-==1280261==  Address 0x4a91090 is 0 bytes inside a block of size 5 free'd
-==1280261==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1280261==    by 0x1099CA: delete (rand_story.c:86)
-==1280261==    by 0x109CE6: parsing (rand_story.c:136)
-==1280261==    by 0x109526: main (story-step4.c:38)
-==1280261==  Block was alloc'd at
-==1280261==    at 0x484DCD3: realloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1280261==    by 0x109F0B: readWords (rand_story.c:191)
-==1280261==    by 0x10A354: readFile (rand_story.c:262)
-==1280261==    by 0x1094C2: main (story-step4.c:28)
-==1280261== 
-==1280261== Invalid read of size 1
-==1280261==    at 0x484EA52: strcat (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1280261==    by 0x109D7A: parsing (rand_story.c:147)
-==1280261==    by 0x109526: main (story-step4.c:38)
-==1280261==  Address 0x4a91091 is 1 bytes inside a block of size 5 free'd
-==1280261==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1280261==    by 0x1099CA: delete (rand_story.c:86)
-==1280261==    by 0x109CE6: parsing (rand_story.c:136)
-==1280261==    by 0x109526: main (story-step4.c:38)
-==1280261==  Block was alloc'd at
-==1280261==    at 0x484DCD3: realloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1280261==    by 0x109F0B: readWords (rand_story.c:191)
-==1280261==    by 0x10A354: readFile (rand_story.c:262)
-==1280261==    by 0x1094C2: main (story-step4.c:28)
-==1280261== 
-==1280261== 
-==1280261== HEAP SUMMARY:
-==1280261==     in use at exit: 680 bytes in 15 blocks
-==1280261==   total heap usage: 145 allocs, 130 frees, 10,409 bytes allocated
-==1280261== 
-==1280261== For a detailed leak analysis, rerun with: --leak-check=full
-==1280261== 
-==1280261== For lists of detected and suppressed errors, rerun with: -s
-==1280261== ERROR SUMMARY: 20 errors from 4 contexts (suppressed: 0 from 0)
+==1300694== Memcheck, a memory error detector
+==1300694== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==1300694== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==1300694== Command: ./story-step4 -n words.txt story10.txt
+==1300694== Parent PID: 1300693
+==1300694== 
+==1300694== Invalid read of size 1
+==1300694==    at 0x484ED76: __strlen_sse2 (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1300694==    by 0x109D2F: parsing (rand_story.c:144)
+==1300694==    by 0x109526: main (story-step4.c:38)
+==1300694==  Address 0x4a91090 is 0 bytes inside a block of size 5 free'd
+==1300694==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1300694==    by 0x1099CA: delete (rand_story.c:86)
+==1300694==    by 0x109CE6: parsing (rand_story.c:136)
+==1300694==    by 0x109526: main (story-step4.c:38)
+==1300694==  Block was alloc'd at
+==1300694==    at 0x484DCD3: realloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1300694==    by 0x109F15: readWords (rand_story.c:191)
+==1300694==    by 0x10A357: readFile (rand_story.c:263)
+==1300694==    by 0x1094C2: main (story-step4.c:28)
+==1300694== 
+==1300694== Invalid read of size 1
+==1300694==    at 0x484ED84: __strlen_sse2 (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1300694==    by 0x109D2F: parsing (rand_story.c:144)
+==1300694==    by 0x109526: main (story-step4.c:38)
+==1300694==  Address 0x4a91091 is 1 bytes inside a block of size 5 free'd
+==1300694==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1300694==    by 0x1099CA: delete (rand_story.c:86)
+==1300694==    by 0x109CE6: parsing (rand_story.c:136)
+==1300694==    by 0x109526: main (story-step4.c:38)
+==1300694==  Block was alloc'd at
+==1300694==    at 0x484DCD3: realloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1300694==    by 0x109F15: readWords (rand_story.c:191)
+==1300694==    by 0x10A357: readFile (rand_story.c:263)
+==1300694==    by 0x1094C2: main (story-step4.c:28)
+==1300694== 
+==1300694== Invalid read of size 1
+==1300694==    at 0x484EA39: strcat (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1300694==    by 0x109D7A: parsing (rand_story.c:147)
+==1300694==    by 0x109526: main (story-step4.c:38)
+==1300694==  Address 0x4a91090 is 0 bytes inside a block of size 5 free'd
+==1300694==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1300694==    by 0x1099CA: delete (rand_story.c:86)
+==1300694==    by 0x109CE6: parsing (rand_story.c:136)
+==1300694==    by 0x109526: main (story-step4.c:38)
+==1300694==  Block was alloc'd at
+==1300694==    at 0x484DCD3: realloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1300694==    by 0x109F15: readWords (rand_story.c:191)
+==1300694==    by 0x10A357: readFile (rand_story.c:263)
+==1300694==    by 0x1094C2: main (story-step4.c:28)
+==1300694== 
+==1300694== Invalid read of size 1
+==1300694==    at 0x484EA52: strcat (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1300694==    by 0x109D7A: parsing (rand_story.c:147)
+==1300694==    by 0x109526: main (story-step4.c:38)
+==1300694==  Address 0x4a91091 is 1 bytes inside a block of size 5 free'd
+==1300694==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1300694==    by 0x1099CA: delete (rand_story.c:86)
+==1300694==    by 0x109CE6: parsing (rand_story.c:136)
+==1300694==    by 0x109526: main (story-step4.c:38)
+==1300694==  Block was alloc'd at
+==1300694==    at 0x484DCD3: realloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1300694==    by 0x109F15: readWords (rand_story.c:191)
+==1300694==    by 0x10A357: readFile (rand_story.c:263)
+==1300694==    by 0x1094C2: main (story-step4.c:28)
+==1300694== 
+==1300694== 
+==1300694== HEAP SUMMARY:
+==1300694==     in use at exit: 680 bytes in 15 blocks
+==1300694==   total heap usage: 145 allocs, 130 frees, 10,409 bytes allocated
+==1300694== 
+==1300694== For a detailed leak analysis, rerun with: --leak-check=full
+==1300694== 
+==1300694== For lists of detected and suppressed errors, rerun with: -s
+==1300694== ERROR SUMMARY: 20 errors from 4 contexts (suppressed: 0 from 0)
 
 4.13: Current test is story-step4 -n words.txt story11.txt
 -----------------------------
 Great: we both considered this an error
 Lets check if it valgrinds:
 Valgrind reported errors:
-==1280278== Memcheck, a memory error detector
-==1280278== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==1280278== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==1280278== Command: ./story-step4 -n words.txt story11.txt
-==1280278== Parent PID: 1280277
-==1280278== 
-==1280278== Invalid read of size 1
-==1280278==    at 0x484ED76: __strlen_sse2 (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1280278==    by 0x109D2F: parsing (rand_story.c:144)
-==1280278==    by 0x109526: main (story-step4.c:38)
-==1280278==  Address 0x4a91090 is 0 bytes inside a block of size 5 free'd
-==1280278==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1280278==    by 0x1099CA: delete (rand_story.c:86)
-==1280278==    by 0x109CE6: parsing (rand_story.c:136)
-==1280278==    by 0x109526: main (story-step4.c:38)
-==1280278==  Block was alloc'd at
-==1280278==    at 0x484DCD3: realloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1280278==    by 0x109F0B: readWords (rand_story.c:191)
-==1280278==    by 0x10A354: readFile (rand_story.c:262)
-==1280278==    by 0x1094C2: main (story-step4.c:28)
-==1280278== 
-==1280278== Invalid read of size 1
-==1280278==    at 0x484ED84: __strlen_sse2 (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1280278==    by 0x109D2F: parsing (rand_story.c:144)
-==1280278==    by 0x109526: main (story-step4.c:38)
-==1280278==  Address 0x4a91091 is 1 bytes inside a block of size 5 free'd
-==1280278==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1280278==    by 0x1099CA: delete (rand_story.c:86)
-==1280278==    by 0x109CE6: parsing (rand_story.c:136)
-==1280278==    by 0x109526: main (story-step4.c:38)
-==1280278==  Block was alloc'd at
-==1280278==    at 0x484DCD3: realloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1280278==    by 0x109F0B: readWords (rand_story.c:191)
-==1280278==    by 0x10A354: readFile (rand_story.c:262)
-==1280278==    by 0x1094C2: main (story-step4.c:28)
-==1280278== 
-==1280278== Invalid read of size 1
-==1280278==    at 0x484EA39: strcat (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1280278==    by 0x109D7A: parsing (rand_story.c:147)
-==1280278==    by 0x109526: main (story-step4.c:38)
-==1280278==  Address 0x4a91090 is 0 bytes inside a block of size 5 free'd
-==1280278==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1280278==    by 0x1099CA: delete (rand_story.c:86)
-==1280278==    by 0x109CE6: parsing (rand_story.c:136)
-==1280278==    by 0x109526: main (story-step4.c:38)
-==1280278==  Block was alloc'd at
-==1280278==    at 0x484DCD3: realloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1280278==    by 0x109F0B: readWords (rand_story.c:191)
-==1280278==    by 0x10A354: readFile (rand_story.c:262)
-==1280278==    by 0x1094C2: main (story-step4.c:28)
-==1280278== 
-==1280278== Invalid read of size 1
-==1280278==    at 0x484EA52: strcat (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1280278==    by 0x109D7A: parsing (rand_story.c:147)
-==1280278==    by 0x109526: main (story-step4.c:38)
-==1280278==  Address 0x4a91091 is 1 bytes inside a block of size 5 free'd
-==1280278==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1280278==    by 0x1099CA: delete (rand_story.c:86)
-==1280278==    by 0x109CE6: parsing (rand_story.c:136)
-==1280278==    by 0x109526: main (story-step4.c:38)
-==1280278==  Block was alloc'd at
-==1280278==    at 0x484DCD3: realloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1280278==    by 0x109F0B: readWords (rand_story.c:191)
-==1280278==    by 0x10A354: readFile (rand_story.c:262)
-==1280278==    by 0x1094C2: main (story-step4.c:28)
-==1280278== 
-==1280278== 
-==1280278== HEAP SUMMARY:
-==1280278==     in use at exit: 675 bytes in 15 blocks
-==1280278==   total heap usage: 142 allocs, 127 frees, 10,311 bytes allocated
-==1280278== 
-==1280278== For a detailed leak analysis, rerun with: --leak-check=full
-==1280278== 
-==1280278== For lists of detected and suppressed errors, rerun with: -s
-==1280278== ERROR SUMMARY: 10 errors from 4 contexts (suppressed: 0 from 0)
+==1300717== Memcheck, a memory error detector
+==1300717== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==1300717== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==1300717== Command: ./story-step4 -n words.txt story11.txt
+==1300717== Parent PID: 1300716
+==1300717== 
+==1300717== Invalid read of size 1
+==1300717==    at 0x484ED76: __strlen_sse2 (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1300717==    by 0x109D2F: parsing (rand_story.c:144)
+==1300717==    by 0x109526: main (story-step4.c:38)
+==1300717==  Address 0x4a91090 is 0 bytes inside a block of size 5 free'd
+==1300717==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1300717==    by 0x1099CA: delete (rand_story.c:86)
+==1300717==    by 0x109CE6: parsing (rand_story.c:136)
+==1300717==    by 0x109526: main (story-step4.c:38)
+==1300717==  Block was alloc'd at
+==1300717==    at 0x484DCD3: realloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1300717==    by 0x109F15: readWords (rand_story.c:191)
+==1300717==    by 0x10A357: readFile (rand_story.c:263)
+==1300717==    by 0x1094C2: main (story-step4.c:28)
+==1300717== 
+==1300717== Invalid read of size 1
+==1300717==    at 0x484ED84: __strlen_sse2 (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1300717==    by 0x109D2F: parsing (rand_story.c:144)
+==1300717==    by 0x109526: main (story-step4.c:38)
+==1300717==  Address 0x4a91091 is 1 bytes inside a block of size 5 free'd
+==1300717==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1300717==    by 0x1099CA: delete (rand_story.c:86)
+==1300717==    by 0x109CE6: parsing (rand_story.c:136)
+==1300717==    by 0x109526: main (story-step4.c:38)
+==1300717==  Block was alloc'd at
+==1300717==    at 0x484DCD3: realloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1300717==    by 0x109F15: readWords (rand_story.c:191)
+==1300717==    by 0x10A357: readFile (rand_story.c:263)
+==1300717==    by 0x1094C2: main (story-step4.c:28)
+==1300717== 
+==1300717== Invalid read of size 1
+==1300717==    at 0x484EA39: strcat (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1300717==    by 0x109D7A: parsing (rand_story.c:147)
+==1300717==    by 0x109526: main (story-step4.c:38)
+==1300717==  Address 0x4a91090 is 0 bytes inside a block of size 5 free'd
+==1300717==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1300717==    by 0x1099CA: delete (rand_story.c:86)
+==1300717==    by 0x109CE6: parsing (rand_story.c:136)
+==1300717==    by 0x109526: main (story-step4.c:38)
+==1300717==  Block was alloc'd at
+==1300717==    at 0x484DCD3: realloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1300717==    by 0x109F15: readWords (rand_story.c:191)
+==1300717==    by 0x10A357: readFile (rand_story.c:263)
+==1300717==    by 0x1094C2: main (story-step4.c:28)
+==1300717== 
+==1300717== Invalid read of size 1
+==1300717==    at 0x484EA52: strcat (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1300717==    by 0x109D7A: parsing (rand_story.c:147)
+==1300717==    by 0x109526: main (story-step4.c:38)
+==1300717==  Address 0x4a91091 is 1 bytes inside a block of size 5 free'd
+==1300717==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1300717==    by 0x1099CA: delete (rand_story.c:86)
+==1300717==    by 0x109CE6: parsing (rand_story.c:136)
+==1300717==    by 0x109526: main (story-step4.c:38)
+==1300717==  Block was alloc'd at
+==1300717==    at 0x484DCD3: realloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1300717==    by 0x109F15: readWords (rand_story.c:191)
+==1300717==    by 0x10A357: readFile (rand_story.c:263)
+==1300717==    by 0x1094C2: main (story-step4.c:28)
+==1300717== 
+==1300717== 
+==1300717== HEAP SUMMARY:
+==1300717==     in use at exit: 675 bytes in 15 blocks
+==1300717==   total heap usage: 142 allocs, 127 frees, 10,311 bytes allocated
+==1300717== 
+==1300717== For a detailed leak analysis, rerun with: --leak-check=full
+==1300717== 
+==1300717== For lists of detected and suppressed errors, rerun with: -s
+==1300717== ERROR SUMMARY: 10 errors from 4 contexts (suppressed: 0 from 0)
 
 4.14: Current test is story-step4 -n words.txt story12.txt
 -----------------------------
 Great: we both considered this an error
 Lets check if it valgrinds:
 Valgrind reported errors:
-==1280301== Memcheck, a memory error detector
-==1280301== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==1280301== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==1280301== Command: ./story-step4 -n words.txt story12.txt
-==1280301== Parent PID: 1280300
-==1280301== 
-==1280301== Invalid read of size 1
-==1280301==    at 0x484ED76: __strlen_sse2 (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1280301==    by 0x109D2F: parsing (rand_story.c:144)
-==1280301==    by 0x109526: main (story-step4.c:38)
-==1280301==  Address 0x4a91090 is 0 bytes inside a block of size 5 free'd
-==1280301==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1280301==    by 0x1099CA: delete (rand_story.c:86)
-==1280301==    by 0x109CE6: parsing (rand_story.c:136)
-==1280301==    by 0x109526: main (story-step4.c:38)
-==1280301==  Block was alloc'd at
-==1280301==    at 0x484DCD3: realloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1280301==    by 0x109F0B: readWords (rand_story.c:191)
-==1280301==    by 0x10A354: readFile (rand_story.c:262)
-==1280301==    by 0x1094C2: main (story-step4.c:28)
-==1280301== 
-==1280301== Invalid read of size 1
-==1280301==    at 0x484ED84: __strlen_sse2 (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1280301==    by 0x109D2F: parsing (rand_story.c:144)
-==1280301==    by 0x109526: main (story-step4.c:38)
-==1280301==  Address 0x4a91091 is 1 bytes inside a block of size 5 free'd
-==1280301==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1280301==    by 0x1099CA: delete (rand_story.c:86)
-==1280301==    by 0x109CE6: parsing (rand_story.c:136)
-==1280301==    by 0x109526: main (story-step4.c:38)
-==1280301==  Block was alloc'd at
-==1280301==    at 0x484DCD3: realloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1280301==    by 0x109F0B: readWords (rand_story.c:191)
-==1280301==    by 0x10A354: readFile (rand_story.c:262)
-==1280301==    by 0x1094C2: main (story-step4.c:28)
-==1280301== 
-==1280301== Invalid read of size 1
-==1280301==    at 0x484EA39: strcat (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1280301==    by 0x109D7A: parsing (rand_story.c:147)
-==1280301==    by 0x109526: main (story-step4.c:38)
-==1280301==  Address 0x4a91090 is 0 bytes inside a block of size 5 free'd
-==1280301==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1280301==    by 0x1099CA: delete (rand_story.c:86)
-==1280301==    by 0x109CE6: parsing (rand_story.c:136)
-==1280301==    by 0x109526: main (story-step4.c:38)
-==1280301==  Block was alloc'd at
-==1280301==    at 0x484DCD3: realloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1280301==    by 0x109F0B: readWords (rand_story.c:191)
-==1280301==    by 0x10A354: readFile (rand_story.c:262)
-==1280301==    by 0x1094C2: main (story-step4.c:28)
-==1280301== 
-==1280301== Invalid read of size 1
-==1280301==    at 0x484EA52: strcat (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1280301==    by 0x109D7A: parsing (rand_story.c:147)
-==1280301==    by 0x109526: main (story-step4.c:38)
-==1280301==  Address 0x4a91091 is 1 bytes inside a block of size 5 free'd
-==1280301==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1280301==    by 0x1099CA: delete (rand_story.c:86)
-==1280301==    by 0x109CE6: parsing (rand_story.c:136)
-==1280301==    by 0x109526: main (story-step4.c:38)
-==1280301==  Block was alloc'd at
-==1280301==    at 0x484DCD3: realloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1280301==    by 0x109F0B: readWords (rand_story.c:191)
-==1280301==    by 0x10A354: readFile (rand_story.c:262)
-==1280301==    by 0x1094C2: main (story-step4.c:28)
-==1280301== 
-==1280301== 
-==1280301== HEAP SUMMARY:
-==1280301==     in use at exit: 683 bytes in 15 blocks
-==1280301==   total heap usage: 150 allocs, 135 frees, 10,466 bytes allocated
-==1280301== 
-==1280301== For a detailed leak analysis, rerun with: --leak-check=full
-==1280301== 
-==1280301== For lists of detected and suppressed errors, rerun with: -s
-==1280301== ERROR SUMMARY: 10 errors from 4 contexts (suppressed: 0 from 0)
+==1300740== Memcheck, a memory error detector
+==1300740== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==1300740== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==1300740== Command: ./story-step4 -n words.txt story12.txt
+==1300740== Parent PID: 1300739
+==1300740== 
+==1300740== Invalid read of size 1
+==1300740==    at 0x484ED76: __strlen_sse2 (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1300740==    by 0x109D2F: parsing (rand_story.c:144)
+==1300740==    by 0x109526: main (story-step4.c:38)
+==1300740==  Address 0x4a91090 is 0 bytes inside a block of size 5 free'd
+==1300740==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1300740==    by 0x1099CA: delete (rand_story.c:86)
+==1300740==    by 0x109CE6: parsing (rand_story.c:136)
+==1300740==    by 0x109526: main (story-step4.c:38)
+==1300740==  Block was alloc'd at
+==1300740==    at 0x484DCD3: realloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1300740==    by 0x109F15: readWords (rand_story.c:191)
+==1300740==    by 0x10A357: readFile (rand_story.c:263)
+==1300740==    by 0x1094C2: main (story-step4.c:28)
+==1300740== 
+==1300740== Invalid read of size 1
+==1300740==    at 0x484ED84: __strlen_sse2 (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1300740==    by 0x109D2F: parsing (rand_story.c:144)
+==1300740==    by 0x109526: main (story-step4.c:38)
+==1300740==  Address 0x4a91091 is 1 bytes inside a block of size 5 free'd
+==1300740==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1300740==    by 0x1099CA: delete (rand_story.c:86)
+==1300740==    by 0x109CE6: parsing (rand_story.c:136)
+==1300740==    by 0x109526: main (story-step4.c:38)
+==1300740==  Block was alloc'd at
+==1300740==    at 0x484DCD3: realloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1300740==    by 0x109F15: readWords (rand_story.c:191)
+==1300740==    by 0x10A357: readFile (rand_story.c:263)
+==1300740==    by 0x1094C2: main (story-step4.c:28)
+==1300740== 
+==1300740== Invalid read of size 1
+==1300740==    at 0x484EA39: strcat (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1300740==    by 0x109D7A: parsing (rand_story.c:147)
+==1300740==    by 0x109526: main (story-step4.c:38)
+==1300740==  Address 0x4a91090 is 0 bytes inside a block of size 5 free'd
+==1300740==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1300740==    by 0x1099CA: delete (rand_story.c:86)
+==1300740==    by 0x109CE6: parsing (rand_story.c:136)
+==1300740==    by 0x109526: main (story-step4.c:38)
+==1300740==  Block was alloc'd at
+==1300740==    at 0x484DCD3: realloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1300740==    by 0x109F15: readWords (rand_story.c:191)
+==1300740==    by 0x10A357: readFile (rand_story.c:263)
+==1300740==    by 0x1094C2: main (story-step4.c:28)
+==1300740== 
+==1300740== Invalid read of size 1
+==1300740==    at 0x484EA52: strcat (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1300740==    by 0x109D7A: parsing (rand_story.c:147)
+==1300740==    by 0x109526: main (story-step4.c:38)
+==1300740==  Address 0x4a91091 is 1 bytes inside a block of size 5 free'd
+==1300740==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1300740==    by 0x1099CA: delete (rand_story.c:86)
+==1300740==    by 0x109CE6: parsing (rand_story.c:136)
+==1300740==    by 0x109526: main (story-step4.c:38)
+==1300740==  Block was alloc'd at
+==1300740==    at 0x484DCD3: realloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1300740==    by 0x109F15: readWords (rand_story.c:191)
+==1300740==    by 0x10A357: readFile (rand_story.c:263)
+==1300740==    by 0x1094C2: main (story-step4.c:28)
+==1300740== 
+==1300740== 
+==1300740== HEAP SUMMARY:
+==1300740==     in use at exit: 683 bytes in 15 blocks
+==1300740==   total heap usage: 150 allocs, 135 frees, 10,466 bytes allocated
+==1300740== 
+==1300740== For a detailed leak analysis, rerun with: --leak-check=full
+==1300740== 
+==1300740== For lists of detected and suppressed errors, rerun with: -s
+==1300740== ERROR SUMMARY: 10 errors from 4 contexts (suppressed: 0 from 0)
 
 4.15: Current test is story-step4 -n words.txt story13.txt
 -----------------------------
 It looks like you got different output from us on that case.
 Here is the diff (yours on left, ours on right):
 
-This is ¤_W|ÚU in a ¤_W|ÚU, which is a ¤_W|ÚU, ?		      |	This is cave in a cave, which is a cave, peculiar?
+This is vXºx³U in a vXºx³U, which is a vXºx³U, ?		      |	This is cave in a cave, which is a cave, peculiar?
 Your file did not match the expected output
 
 
@@ -727,81 +653,81 @@ Your file did not match the expected output
 Great: we both considered this an error
 Lets check if it valgrinds:
 Valgrind reported errors:
-==1280352== Memcheck, a memory error detector
-==1280352== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==1280352== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==1280352== Command: ./story-step4 -n words.txt story14.txt
-==1280352== Parent PID: 1280351
-==1280352== 
-==1280352== Invalid read of size 1
-==1280352==    at 0x484ED76: __strlen_sse2 (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1280352==    by 0x109D2F: parsing (rand_story.c:144)
-==1280352==    by 0x109526: main (story-step4.c:38)
-==1280352==  Address 0x4a91090 is 0 bytes inside a block of size 5 free'd
-==1280352==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1280352==    by 0x1099CA: delete (rand_story.c:86)
-==1280352==    by 0x109CE6: parsing (rand_story.c:136)
-==1280352==    by 0x109526: main (story-step4.c:38)
-==1280352==  Block was alloc'd at
-==1280352==    at 0x484DCD3: realloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1280352==    by 0x109F0B: readWords (rand_story.c:191)
-==1280352==    by 0x10A354: readFile (rand_story.c:262)
-==1280352==    by 0x1094C2: main (story-step4.c:28)
-==1280352== 
-==1280352== Invalid read of size 1
-==1280352==    at 0x484ED84: __strlen_sse2 (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1280352==    by 0x109D2F: parsing (rand_story.c:144)
-==1280352==    by 0x109526: main (story-step4.c:38)
-==1280352==  Address 0x4a91091 is 1 bytes inside a block of size 5 free'd
-==1280352==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1280352==    by 0x1099CA: delete (rand_story.c:86)
-==1280352==    by 0x109CE6: parsing (rand_story.c:136)
-==1280352==    by 0x109526: main (story-step4.c:38)
-==1280352==  Block was alloc'd at
-==1280352==    at 0x484DCD3: realloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1280352==    by 0x109F0B: readWords (rand_story.c:191)
-==1280352==    by 0x10A354: readFile (rand_story.c:262)
-==1280352==    by 0x1094C2: main (story-step4.c:28)
-==1280352== 
-==1280352== Invalid read of size 1
-==1280352==    at 0x484EA39: strcat (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1280352==    by 0x109D7A: parsing (rand_story.c:147)
-==1280352==    by 0x109526: main (story-step4.c:38)
-==1280352==  Address 0x4a91090 is 0 bytes inside a block of size 5 free'd
-==1280352==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1280352==    by 0x1099CA: delete (rand_story.c:86)
-==1280352==    by 0x109CE6: parsing (rand_story.c:136)
-==1280352==    by 0x109526: main (story-step4.c:38)
-==1280352==  Block was alloc'd at
-==1280352==    at 0x484DCD3: realloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1280352==    by 0x109F0B: readWords (rand_story.c:191)
-==1280352==    by 0x10A354: readFile (rand_story.c:262)
-==1280352==    by 0x1094C2: main (story-step4.c:28)
-==1280352== 
-==1280352== Invalid read of size 1
-==1280352==    at 0x484EA52: strcat (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1280352==    by 0x109D7A: parsing (rand_story.c:147)
-==1280352==    by 0x109526: main (story-step4.c:38)
-==1280352==  Address 0x4a91091 is 1 bytes inside a block of size 5 free'd
-==1280352==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1280352==    by 0x1099CA: delete (rand_story.c:86)
-==1280352==    by 0x109CE6: parsing (rand_story.c:136)
-==1280352==    by 0x109526: main (story-step4.c:38)
-==1280352==  Block was alloc'd at
-==1280352==    at 0x484DCD3: realloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1280352==    by 0x109F0B: readWords (rand_story.c:191)
-==1280352==    by 0x10A354: readFile (rand_story.c:262)
-==1280352==    by 0x1094C2: main (story-step4.c:28)
-==1280352== 
-==1280352== 
-==1280352== HEAP SUMMARY:
-==1280352==     in use at exit: 670 bytes in 15 blocks
-==1280352==   total heap usage: 137 allocs, 122 frees, 10,214 bytes allocated
-==1280352== 
-==1280352== For a detailed leak analysis, rerun with: --leak-check=full
-==1280352== 
-==1280352== For lists of detected and suppressed errors, rerun with: -s
-==1280352== ERROR SUMMARY: 10 errors from 4 contexts (suppressed: 0 from 0)
+==1300772== Memcheck, a memory error detector
+==1300772== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==1300772== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==1300772== Command: ./story-step4 -n words.txt story14.txt
+==1300772== Parent PID: 1300771
+==1300772== 
+==1300772== Invalid read of size 1
+==1300772==    at 0x484ED76: __strlen_sse2 (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1300772==    by 0x109D2F: parsing (rand_story.c:144)
+==1300772==    by 0x109526: main (story-step4.c:38)
+==1300772==  Address 0x4a91090 is 0 bytes inside a block of size 5 free'd
+==1300772==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1300772==    by 0x1099CA: delete (rand_story.c:86)
+==1300772==    by 0x109CE6: parsing (rand_story.c:136)
+==1300772==    by 0x109526: main (story-step4.c:38)
+==1300772==  Block was alloc'd at
+==1300772==    at 0x484DCD3: realloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1300772==    by 0x109F15: readWords (rand_story.c:191)
+==1300772==    by 0x10A357: readFile (rand_story.c:263)
+==1300772==    by 0x1094C2: main (story-step4.c:28)
+==1300772== 
+==1300772== Invalid read of size 1
+==1300772==    at 0x484ED84: __strlen_sse2 (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1300772==    by 0x109D2F: parsing (rand_story.c:144)
+==1300772==    by 0x109526: main (story-step4.c:38)
+==1300772==  Address 0x4a91091 is 1 bytes inside a block of size 5 free'd
+==1300772==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1300772==    by 0x1099CA: delete (rand_story.c:86)
+==1300772==    by 0x109CE6: parsing (rand_story.c:136)
+==1300772==    by 0x109526: main (story-step4.c:38)
+==1300772==  Block was alloc'd at
+==1300772==    at 0x484DCD3: realloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1300772==    by 0x109F15: readWords (rand_story.c:191)
+==1300772==    by 0x10A357: readFile (rand_story.c:263)
+==1300772==    by 0x1094C2: main (story-step4.c:28)
+==1300772== 
+==1300772== Invalid read of size 1
+==1300772==    at 0x484EA39: strcat (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1300772==    by 0x109D7A: parsing (rand_story.c:147)
+==1300772==    by 0x109526: main (story-step4.c:38)
+==1300772==  Address 0x4a91090 is 0 bytes inside a block of size 5 free'd
+==1300772==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1300772==    by 0x1099CA: delete (rand_story.c:86)
+==1300772==    by 0x109CE6: parsing (rand_story.c:136)
+==1300772==    by 0x109526: main (story-step4.c:38)
+==1300772==  Block was alloc'd at
+==1300772==    at 0x484DCD3: realloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1300772==    by 0x109F15: readWords (rand_story.c:191)
+==1300772==    by 0x10A357: readFile (rand_story.c:263)
+==1300772==    by 0x1094C2: main (story-step4.c:28)
+==1300772== 
+==1300772== Invalid read of size 1
+==1300772==    at 0x484EA52: strcat (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1300772==    by 0x109D7A: parsing (rand_story.c:147)
+==1300772==    by 0x109526: main (story-step4.c:38)
+==1300772==  Address 0x4a91091 is 1 bytes inside a block of size 5 free'd
+==1300772==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1300772==    by 0x1099CA: delete (rand_story.c:86)
+==1300772==    by 0x109CE6: parsing (rand_story.c:136)
+==1300772==    by 0x109526: main (story-step4.c:38)
+==1300772==  Block was alloc'd at
+==1300772==    at 0x484DCD3: realloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1300772==    by 0x109F15: readWords (rand_story.c:191)
+==1300772==    by 0x10A357: readFile (rand_story.c:263)
+==1300772==    by 0x1094C2: main (story-step4.c:28)
+==1300772== 
+==1300772== 
+==1300772== HEAP SUMMARY:
+==1300772==     in use at exit: 670 bytes in 15 blocks
+==1300772==   total heap usage: 137 allocs, 122 frees, 10,214 bytes allocated
+==1300772== 
+==1300772== For a detailed leak analysis, rerun with: --leak-check=full
+==1300772== 
+==1300772== For lists of detected and suppressed errors, rerun with: -s
+==1300772== ERROR SUMMARY: 10 errors from 4 contexts (suppressed: 0 from 0)
 
 4.17: Current test is story-step4 -n words2.txt story2.txt
 -----------------------------
@@ -831,48 +757,7 @@ Valgrind was clean
 -----------------------------
 Great: we both considered this an error
 Lets check if it valgrinds:
-Valgrind reported errors:
-==1280544== Memcheck, a memory error detector
-==1280544== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==1280544== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==1280544== Command: ./story-step4 -n words7.txt story2.txt
-==1280544== Parent PID: 1280543
-==1280544== 
-==1280544== Conditional jump or move depends on uninitialised value(s)
-==1280544==    at 0x109EEC: readWords (rand_story.c:180)
-==1280544==    by 0x10A354: readFile (rand_story.c:262)
-==1280544==    by 0x1094C2: main (story-step4.c:28)
-==1280544== 
-==1280544== Invalid read of size 1
-==1280544==    at 0x109EE7: readWords (rand_story.c:180)
-==1280544==    by 0x10A354: readFile (rand_story.c:262)
-==1280544==    by 0x1094C2: main (story-step4.c:28)
-==1280544==  Address 0x4a8f328 is 0 bytes after a block of size 120 alloc'd
-==1280544==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1280544==    by 0x48E4122: getdelim (iogetdelim.c:62)
-==1280544==    by 0x10A39A: readFile (rand_story.c:260)
-==1280544==    by 0x1094C2: main (story-step4.c:28)
-==1280544== 
-==1280544== Invalid read of size 1
-==1280544==    at 0x109EC0: readWords (rand_story.c:182)
-==1280544==    by 0x10A354: readFile (rand_story.c:262)
-==1280544==    by 0x1094C2: main (story-step4.c:28)
-==1280544==  Address 0x4a8f328 is 0 bytes after a block of size 120 alloc'd
-==1280544==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1280544==    by 0x48E4122: getdelim (iogetdelim.c:62)
-==1280544==    by 0x10A39A: readFile (rand_story.c:260)
-==1280544==    by 0x1094C2: main (story-step4.c:28)
-==1280544== 
-==1280544== 
-==1280544== HEAP SUMMARY:
-==1280544==     in use at exit: 1,597 bytes in 21 blocks
-==1280544==   total heap usage: 957 allocs, 936 frees, 110,127 bytes allocated
-==1280544== 
-==1280544== For a detailed leak analysis, rerun with: --leak-check=full
-==1280544== 
-==1280544== Use --track-origins=yes to see where uninitialised values come from
-==1280544== For lists of detected and suppressed errors, rerun with: -s
-==1280544== ERROR SUMMARY: 1000 errors from 3 contexts (suppressed: 0 from 0)
+Valgrind was clean
 
 4.22: Current test is story-step4 -n words5 story.txt
 -----------------------------
@@ -891,51 +776,51 @@ Valgrind was clean
 Great: we both considered this an error
 Lets check if it valgrinds:
 Valgrind reported errors:
-==1280611== Memcheck, a memory error detector
-==1280611== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==1280611== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==1280611== Command: ./story-step4 -n words5.txt story2.txt
-==1280611== Parent PID: 1280610
-==1280611== 
-==1280611== Invalid read of size 1
-==1280611==    at 0x484ED76: __strlen_sse2 (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1280611==    by 0x109D2F: parsing (rand_story.c:144)
-==1280611==    by 0x109526: main (story-step4.c:38)
-==1280611==  Address 0x4a909b0 is 0 bytes inside a block of size 1 free'd
-==1280611==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1280611==    by 0x1099CA: delete (rand_story.c:86)
-==1280611==    by 0x109CE6: parsing (rand_story.c:136)
-==1280611==    by 0x109526: main (story-step4.c:38)
-==1280611==  Block was alloc'd at
-==1280611==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1280611==    by 0x109E4C: readWords (rand_story.c:172)
-==1280611==    by 0x10A354: readFile (rand_story.c:262)
-==1280611==    by 0x1094C2: main (story-step4.c:28)
-==1280611== 
-==1280611== Invalid read of size 1
-==1280611==    at 0x484EA39: strcat (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1280611==    by 0x109D7A: parsing (rand_story.c:147)
-==1280611==    by 0x109526: main (story-step4.c:38)
-==1280611==  Address 0x4a909b0 is 0 bytes inside a block of size 1 free'd
-==1280611==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1280611==    by 0x1099CA: delete (rand_story.c:86)
-==1280611==    by 0x109CE6: parsing (rand_story.c:136)
-==1280611==    by 0x109526: main (story-step4.c:38)
-==1280611==  Block was alloc'd at
-==1280611==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==1280611==    by 0x109E4C: readWords (rand_story.c:172)
-==1280611==    by 0x10A354: readFile (rand_story.c:262)
-==1280611==    by 0x1094C2: main (story-step4.c:28)
-==1280611== 
-==1280611== 
-==1280611== HEAP SUMMARY:
-==1280611==     in use at exit: 626 bytes in 9 blocks
-==1280611==   total heap usage: 114 allocs, 105 frees, 11,248 bytes allocated
-==1280611== 
-==1280611== For a detailed leak analysis, rerun with: --leak-check=full
-==1280611== 
-==1280611== For lists of detected and suppressed errors, rerun with: -s
-==1280611== ERROR SUMMARY: 4 errors from 2 contexts (suppressed: 0 from 0)
+==1300941== Memcheck, a memory error detector
+==1300941== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==1300941== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==1300941== Command: ./story-step4 -n words5.txt story2.txt
+==1300941== Parent PID: 1300940
+==1300941== 
+==1300941== Invalid read of size 1
+==1300941==    at 0x484ED76: __strlen_sse2 (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1300941==    by 0x109D2F: parsing (rand_story.c:144)
+==1300941==    by 0x109526: main (story-step4.c:38)
+==1300941==  Address 0x4a909b0 is 0 bytes inside a block of size 1 free'd
+==1300941==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1300941==    by 0x1099CA: delete (rand_story.c:86)
+==1300941==    by 0x109CE6: parsing (rand_story.c:136)
+==1300941==    by 0x109526: main (story-step4.c:38)
+==1300941==  Block was alloc'd at
+==1300941==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1300941==    by 0x109E4C: readWords (rand_story.c:172)
+==1300941==    by 0x10A357: readFile (rand_story.c:263)
+==1300941==    by 0x1094C2: main (story-step4.c:28)
+==1300941== 
+==1300941== Invalid read of size 1
+==1300941==    at 0x484EA39: strcat (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1300941==    by 0x109D7A: parsing (rand_story.c:147)
+==1300941==    by 0x109526: main (story-step4.c:38)
+==1300941==  Address 0x4a909b0 is 0 bytes inside a block of size 1 free'd
+==1300941==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1300941==    by 0x1099CA: delete (rand_story.c:86)
+==1300941==    by 0x109CE6: parsing (rand_story.c:136)
+==1300941==    by 0x109526: main (story-step4.c:38)
+==1300941==  Block was alloc'd at
+==1300941==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1300941==    by 0x109E4C: readWords (rand_story.c:172)
+==1300941==    by 0x10A357: readFile (rand_story.c:263)
+==1300941==    by 0x1094C2: main (story-step4.c:28)
+==1300941== 
+==1300941== 
+==1300941== HEAP SUMMARY:
+==1300941==     in use at exit: 626 bytes in 9 blocks
+==1300941==   total heap usage: 114 allocs, 105 frees, 11,248 bytes allocated
+==1300941== 
+==1300941== For a detailed leak analysis, rerun with: --leak-check=full
+==1300941== 
+==1300941== For lists of detected and suppressed errors, rerun with: -s
+==1300941== ERROR SUMMARY: 4 errors from 2 contexts (suppressed: 0 from 0)
 
 4.25: Current test is story-step4 -n
 -----------------------------
