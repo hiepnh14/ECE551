@@ -183,7 +183,10 @@ void readWords(catarray_t * catarray, char * line) {
     category_str[sz + 1] = '\0';
     sz++;
   }
-
+  if (sz == len) {
+    fprintf(stderr, "No : found\n");
+    exit(EXIT_FAILURE);
+  }
   sz++;
   // Prase the word on the right of the :
   // While until it reaches \n or end of the line
@@ -200,8 +203,8 @@ void readWords(catarray_t * catarray, char * line) {
     fprintf(stderr, "No name found\n");
     exit(EXIT_FAILURE);
   }
-  //if (strcmp(category_str, "") == 0) {
-  if (category_str == NULL) {
+  if (category_str == NULL && strcmp(category_str, "") == 0) {
+    //if (category_str == NULL) {
     fprintf(stderr, "Read category failure, catefory NULL\n");
     exit(EXIT_FAILURE);
   }
@@ -259,7 +262,7 @@ void readFile(catarray_t * catarray, char * filename) {
   }
   // Read line by line and update to the catarray;
   while ((getline(&line, &sz, f)) >= 0) {
-    if (line != NULL && strlen(line) > 2) {
+    if (line != NULL) {
       readWords(catarray, line);
     }
     else {
