@@ -4,6 +4,9 @@ story-step1 story3.txt
 story-step1 story4.txt
 story-step1 story5.txt
 story-step1 story6.txt
+story-step1 story7.txt
+story-step1 story8.txt
+story-step1 story9.txt
 story-step1 none.txt
 story-step1 
 story-step2 words.txt
@@ -14,6 +17,13 @@ story-step2 words4.txt
 story-step2 words5.txt
 story-step2 words.txt words.txt
 story-step3 words.txt story2.txt
+story-step3 words.txt story3.txt
+story-step3 words.txt story4.txt
+story-step3 words.txt story5.txt
+story-step3 words.txt story6.txt
+story-step3 words.txt story7.txt
+story-step3 words.txt story8.txt
+story-step3 words.txt story9.txt
 story-step3 words.txt story.txt
 story-step3 words5 story.txt
 story-step3 words none.txt

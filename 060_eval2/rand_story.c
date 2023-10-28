@@ -101,8 +101,10 @@ catarray_t * init_catarray(void) {
 
 // To read one line of Category:word
 void readWords(catarray_t * catarray, char * line) {
-  char * word = (char *)malloc(0);
-  char * category_str = (char *)malloc(0);
+  char * word = (char *)malloc(sizeof(*word));
+  word[0] = '\0';
+  char * category_str = (char *)malloc(sizeof(*category_str));
+  category_str[0] = '\0';
   size_t len = strlen(line);
   size_t sz = 0;
   size_t sz_word = 0;
