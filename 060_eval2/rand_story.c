@@ -9,6 +9,7 @@ int isPositiveInt(char * str) {
   char * endptr;
   long value = strtol(str, &endptr, 10);
   //Check for conversion errors
+  //if (value <= 0) {
   if (*endptr != '\0' || endptr == str || value <= 0) {
     return 0;  // Not a valid integer
   }
@@ -17,7 +18,8 @@ int isPositiveInt(char * str) {
 
 // This function to extract category within 2 "_" characters
 char * category(FILE * f) {
-  char * category_str = NULL;
+  char * category_str = (char *)malloc(sizeof(*category_str));
+  category_str[0] = '\0';
   int x;
   size_t i = 0;
   // While function, it breaks when it reaches '_'
