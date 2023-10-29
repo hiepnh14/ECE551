@@ -134,7 +134,7 @@ char * parsing(FILE * f, catarray_t * array, int no_reuse) {
         strArray[n_array] = (char *)chooseWord(category_str, array);
         //const char * word = chooseWord(category_str, array);
         n_array++;
-        printf("%s\n", strArray[n_array - 1]);
+        // printf("%s\n", strArray[n_array - 1]);
         // Exclude the word from the array
         if (no_reuse == 1) {
           // Check that the word must be delete from the array later
