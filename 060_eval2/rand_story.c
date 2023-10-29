@@ -39,6 +39,14 @@ char * category(FILE * f) {
   }
   return category_str;
 }
+void freeCategory(category_t * category) {
+  for (size_t i = 0; i < category->n_words; i++) {
+    free(category->words[i]);
+  }
+  free(category->name);
+  free(category->words);
+  free(category);
+}
 // To eliminate an element in a dynamically allocated array
 category_t * eliminate_category(category_t * array, size_t size, size_t index) {
   // Allocate a copy array with size of size - 1
@@ -51,6 +59,8 @@ category_t * eliminate_category(category_t * array, size_t size, size_t index) {
     memcpy(temp + index, array + index + 1, (size - index - 1) * sizeof(*temp));
   }
   // Free the older array and return a new one
+  //free(array[index].name);
+  //free(array[index].words);
   free(array);
   return temp;
 }
@@ -64,12 +74,16 @@ char ** eliminate_word(char ** array, size_t size, size_t index) {
     memcpy(temp + index, array + index + 1, (size - index - 1) * sizeof(*temp));
   }
   // Free old array and return a new one
+  //free(array[index]);
   free(array);
   return temp;
 }
 
 // To eliminate a word in a category
-void delete (catarray_t * array, char * category_str, const char * word) {
+void delete (catarray_t * array,
+             char * category_str,
+             const char * word,
+             category_t * words_to_free) {
   int found = 0;
   size_t n_category = array->n;
   for (size_t i = 0; i < n_category; i++) {
@@ -83,8 +97,13 @@ void delete (catarray_t * array, char * category_str, const char * word) {
       for (size_t j = 0; j < n_words; j++) {
         if (strcmp(word, array->arr[i].words[j]) == 0) {
           found = 1;
-          //Cannot free the word here since it is stored in the array of words used
-          // free(array->arr[i].words[j]);
+          //Cannot free the word here, but have to free later so save the address into an array words_to_free
+          size_t n = words_to_free->n_words;
+          words_to_free->words =
+              realloc(words_to_free->words, (n + 1) * sizeof(words_to_free));
+          words_to_free->words[n] = array->arr[i].words[j];
+          //array->arr[i].words = NULL;
+          words_to_free->n_words++;
           // Update the words array with a new one removing the word used
           array->arr[i].words = eliminate_word(array->arr[i].words, n_words, j);
           array->arr[i].n_words -= 1;
@@ -93,7 +112,6 @@ void delete (catarray_t * array, char * category_str, const char * word) {
           if (array->arr[i].n_words == 0) {
             free(array->arr[i].name);
             free(array->arr[i].words);
-
             // Update the category array with a new one that removed eliminated category
             array->arr = eliminate_category(array->arr, n_category, i);
             array->n -= 1;
@@ -111,6 +129,10 @@ char * parsing(FILE * f, catarray_t * array, int no_reuse) {
   size_t n_array = 0;
   story[0] = '\0';
   int c;
+  category_t * words_to_free = malloc(sizeof(*words_to_free));
+  words_to_free->name = NULL;
+  words_to_free->n_words = 0;
+  words_to_free->words = NULL;
   while ((c = fgetc(f)) != EOF) {
     // At the start of the blank (extracting the category)
     //int delete_word = 0;
@@ -138,12 +160,13 @@ char * parsing(FILE * f, catarray_t * array, int no_reuse) {
         // Exclude the word from the array
         if (no_reuse == 1) {
           // Check that the word must be delete from the array later
-          delete (array, category_str, strArray[n_array - 1]);
+          delete (array, category_str, strArray[n_array - 1], words_to_free);
           //delete_word = 1;
         }
       }
       // Pass the right _
       c = fgetc(f);
+
       size_t len2 = strlen(story);
       size_t len1 = strlen(strArray[n_array - 1]);
       // Reallocate memory for story then concatenate fill to story
@@ -162,6 +185,7 @@ char * parsing(FILE * f, catarray_t * array, int no_reuse) {
     story[len + 1] = '\0';
   }
   // Free the array to store the filled words
+  freeCategory(words_to_free);
   free(strArray);
   return story;
 }
