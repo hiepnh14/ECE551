@@ -69,7 +69,7 @@ char ** eliminate_word(char ** array, size_t size, size_t index) {
 }
 
 // To eliminate a word in a category
-void delete (catarray_t * array, char * category_str, char * word) {
+void delete (catarray_t * array, char * category_str, const char * word) {
   int found = 0;
   size_t n_category = array->n;
   for (size_t i = 0; i < n_category; i++) {
@@ -83,7 +83,8 @@ void delete (catarray_t * array, char * category_str, char * word) {
       for (size_t j = 0; j < n_words; j++) {
         if (strcmp(word, array->arr[i].words[j]) == 0) {
           found = 1;
-          free(array->arr[i].words[j]);
+          //Cannot free the word here since it is stored in the array of words used
+          // free(array->arr[i].words[j]);
           // Update the words array with a new one removing the word used
           array->arr[i].words = eliminate_word(array->arr[i].words, n_words, j);
           array->arr[i].n_words -= 1;
@@ -112,6 +113,7 @@ char * parsing(FILE * f, catarray_t * array, int no_reuse) {
   int c;
   while ((c = fgetc(f)) != EOF) {
     // At the start of the blank (extracting the category)
+    //int delete_word = 0;
     if (c == '_') {
       char * category_str = category(f);
       // Find the word to fill
@@ -130,14 +132,16 @@ char * parsing(FILE * f, catarray_t * array, int no_reuse) {
       else {
         strArray = (char **)realloc(strArray, (n_array + 1) * sizeof(*strArray));
         strArray[n_array] = (char *)chooseWord(category_str, array);
+        //const char * word = chooseWord(category_str, array);
         n_array++;
+        printf("%s\n", strArray[n_array - 1]);
         // Exclude the word from the array
         if (no_reuse == 1) {
+          // Check that the word must be delete from the array later
           delete (array, category_str, strArray[n_array - 1]);
+          //delete_word = 1;
         }
       }
-      // Free the memory allocate for category
-      free(category_str);
       // Pass the right _
       c = fgetc(f);
       size_t len2 = strlen(story);
@@ -145,6 +149,9 @@ char * parsing(FILE * f, catarray_t * array, int no_reuse) {
       // Reallocate memory for story then concatenate fill to story
       story = (char *)realloc(story, (len2 + len1 + 1) * sizeof(*story));
       strcat(story, strArray[n_array - 1]);
+
+      // Free memory of the category
+      free(category_str);
     }
 
     // Reallocate memory for the story string
