@@ -1,6 +1,6 @@
-Grading at 10/29/2023:02:26:20.000480
-For commit ID 131f3d4960a065e25f907c6917eebf6483e0054d
-Grading at Sat Oct 28 10:25:30 PM EDT 2023
+Grading at 10/29/2023:02:34:56.870569
+For commit ID 779c4aa168c2511a2cd0e550b2856b2cd15a28a3
+Grading at Sat Oct 28 10:34:05 PM EDT 2023
 Doing some basic checking for your submission
 
 Step 1
@@ -86,9 +86,8 @@ Valgrind was clean
 
 1.14: Current test is story-step1 story12.txt
 -----------------------------
-You considered this a failure case:
-Error with the black
-But we did not.
+Your output looks good. Lets check valgrind
+Valgrind was clean
 
 1.15: Current test is story-step1 story13.txt
 -----------------------------
@@ -265,9 +264,8 @@ Valgrind was clean
 
 3.11: Current test is story-step3 words.txt story12.txt
 -----------------------------
-You considered this a failure case:
-Error with the black
-But we did not.
+Your output looks good. Lets check valgrind
+Valgrind was clean
 
 3.12: Current test is story-step3 words.txt story13.txt
 -----------------------------
@@ -414,9 +412,8 @@ Valgrind was clean
 
 4.14: Current test is story-step4 -n words.txt story12.txt
 -----------------------------
-You considered this a failure case:
-Error with the black
-But we did not.
+Your output looks good. Lets check valgrind
+Valgrind was clean
 
 4.15: Current test is story-step4 -n words.txt story13.txt
 -----------------------------
@@ -494,8 +491,8 @@ Valgrind was clean
 Your output looks good. Lets check valgrind
 Valgrind was clean
 
-You have NOT passed your test cases!
-You should go and figure out/understand where thing went wrong
-And fix the problem(s) before the deadline
+You have passed the test cases YOU provided
+If your tests are good, this is great. 
+If your tests are insufficient, you should do much more testing
 
 Overall Grade: NO GRADE YET
