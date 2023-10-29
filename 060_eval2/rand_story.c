@@ -24,8 +24,8 @@ char * category(FILE * f) {
   size_t i = 0;
   // While function, it breaks when it reaches '_'
   while ((x = fgetc(f)) != '_') {
-    if (x == ' ' || x == EOF) {
-      fprintf(stderr, "Error with the black\n");
+    if (x == EOF) {
+      fprintf(stderr, "Error with the category blank");
       exit(EXIT_FAILURE);
     }
 
