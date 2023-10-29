@@ -42,7 +42,7 @@ story-step3 words.txt story10.txt
 story-step3 words.txt story11.txt
 story-step3 words.txt story12.txt
 story-step3 words.txt story13.txt
-story-step3 words.txt story14.txt
+story-step3 words.txt story15.txt
 story-step3 words2.txt story2.txt
 story-step3 words4.txt story.txt
 story-step3 words3.txt story.txt
