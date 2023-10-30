@@ -5,6 +5,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+// Check if a string a valid positive integer
 int isPositiveInt(char * str) {
   char * endptr;
   long value = strtol(str, &endptr, 10);
@@ -42,14 +43,10 @@ char * category(FILE * f) {
     fprintf(stderr, "Error with the category blank, %s\n", category_str);
     exit(EXIT_FAILURE);
   }
-  //printf("%s\n", category_str);
-  //x = fgetc(f);
-  // Pass the right _
-  //if (x == '_') {
-  //x = fgetc(f);
-  //};
   return category_str;
 }
+
+// Free Category_t dynamic struct
 void freeCategory(category_t * category) {
   for (size_t i = 0; i < category->n_words; i++) {
     free(category->words[i]);
@@ -58,7 +55,7 @@ void freeCategory(category_t * category) {
   free(category->words);
   free(category);
 }
-// To eliminate an element in a dynamically allocated array
+// To eliminate an element in a dynamically allocated array of category_t
 category_t * eliminate_category(category_t * array, size_t size, size_t index) {
   // Allocate a copy array with size of size - 1
   category_t * temp = malloc((size - 1) * sizeof(*temp));
@@ -75,6 +72,7 @@ category_t * eliminate_category(category_t * array, size_t size, size_t index) {
   free(array);
   return temp;
 }
+// To eliminate an element in a  dynaically allocated array of strings
 char ** eliminate_word(char ** array, size_t size, size_t index) {
   // Allocate a copy of an array of string with size -1
   char ** temp = malloc((size - 1) * sizeof(*temp));
@@ -90,7 +88,7 @@ char ** eliminate_word(char ** array, size_t size, size_t index) {
   return temp;
 }
 
-// To eliminate a word in a category
+// To eliminate a word in a category in the catarray_t array
 void delete (catarray_t * array,
              char * category_str,
              const char * word,
@@ -146,7 +144,6 @@ char * parsing(FILE * f, catarray_t * array, int no_reuse) {
   words_to_free->words = NULL;
   while ((c = fgetc(f)) != EOF) {
     // At the start of the blank (extracting the category)
-    //int delete_word = 0;
     if (c == '_') {
       char * category_str = category(f);
       // Find the word to fill
@@ -163,11 +160,11 @@ char * parsing(FILE * f, catarray_t * array, int no_reuse) {
       }
       // When it is not an integer, pass it to the chooseWord function, if cannot it, chooseWord will return error
       else {
+        // Allocate a new word from chooseWord to the strArray
         strArray = (char **)realloc(strArray, (n_array + 1) * sizeof(*strArray));
         strArray[n_array] = (char *)chooseWord(category_str, array);
-        //const char * word = chooseWord(category_str, array);
         n_array++;
-        // Exclude the word from the array
+        // Exclude the word from the array when the option -n is activated
         if (no_reuse == 1) {
           // Check that the word must be delete from the array later
           delete (array, category_str, strArray[n_array - 1], words_to_free);
@@ -184,10 +181,7 @@ char * parsing(FILE * f, catarray_t * array, int no_reuse) {
       // Free memory of the category
       free(category_str);
     }
-    // second '_'
-    //if (c == '_') {
-    //c = fgetc(f);
-    //}
+    // This 'if' to skip the second '_'
     if (c != '_') {
       // Reallocate memory for the story string
       size_t len = strlen(story);
@@ -197,8 +191,9 @@ char * parsing(FILE * f, catarray_t * array, int no_reuse) {
       story[len + 1] = '\0';
     }
   }
-  // Free the array to store the filled words
+  // Free the array to store the garbage of words in the catarray_t array
   freeCategory(words_to_free);
+  // Free the array of strings to store words filled
   free(strArray);
   return story;
 }
@@ -279,7 +274,7 @@ void readWords(catarray_t * catarray, char * line) {
       }
     }
   }
-  // When the category does not exist in the current array
+  // When the category does not exist in the current array, allocate new memory for category and words
   if (updated == 0) {
     size_t n = catarray->n;
     catarray->arr = realloc(catarray->arr, (n + 1) * sizeof(*catarray->arr));
