@@ -1,6 +1,6 @@
-Grading at 10/30/2023:03:10:58.172398
-For commit ID 3e7b3b6210942267925c82d83435c667d982342b
-Grading at Sun Oct 29 11:10:06 PM EDT 2023
+Grading at 10/30/2023:14:21:48.956111
+For commit ID e7cbfc290fbf404b4a65d0e3849e1257fb941db8
+Grading at Mon Oct 30 10:20:57 AM EDT 2023
 Doing some basic checking for your submission
 
 Step 1
@@ -498,7 +498,8 @@ Valgrind was clean
 
 4.28: Current test is story-step4 -n words.txt story17.txt
 -----------------------------
-Your output looks good. Lets check valgrind
+Great: we both considered this an error
+Lets check if it valgrinds:
 Valgrind was clean
 
 You have passed the test cases YOU provided
