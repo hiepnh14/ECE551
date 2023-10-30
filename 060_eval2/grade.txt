@@ -1,6 +1,6 @@
-Grading at 10/30/2023:02:01:40.777300
-For commit ID 8642ca1dfed91acff763b32156b120ad4edd527b
-Grading at Sun Oct 29 10:00:50 PM EDT 2023
+Grading at 10/30/2023:03:10:58.172398
+For commit ID 3e7b3b6210942267925c82d83435c667d982342b
+Grading at Sun Oct 29 11:10:06 PM EDT 2023
 Doing some basic checking for your submission
 
 Step 1
@@ -111,8 +111,8 @@ Valgrind was clean
 
 1.19: Current test is story-step1 story17.txt
 -----------------------------
-You considered this a failure case:
-Error with the category blankBut we did not.
+Your output looks good. Lets check valgrind
+Valgrind was clean
 
 1.20: Current test is story-step1 none.txt
 -----------------------------
@@ -498,12 +498,11 @@ Valgrind was clean
 
 4.28: Current test is story-step4 -n words.txt story17.txt
 -----------------------------
-You considered this a failure case:
-Category  not found
-But we did not.
+Your output looks good. Lets check valgrind
+Valgrind was clean
 
-You have NOT passed your test cases!
-You should go and figure out/understand where thing went wrong
-And fix the problem(s) before the deadline
+You have passed the test cases YOU provided
+If your tests are good, this is great. 
+If your tests are insufficient, you should do much more testing
 
 Overall Grade: NO GRADE YET
