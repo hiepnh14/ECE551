@@ -23,12 +23,11 @@ char * category(FILE * f) {
   int x;
   size_t i = 0;
   // While function, it breaks when it reaches '_'
-  while ((x = fgetc(f)) != '_') {
-    if (x == EOF) {
-      fprintf(stderr, "Error with the category blank");
-      exit(EXIT_FAILURE);
+  while ((x = fgetc(f)) != EOF) {
+    if (x == '_') {
+      //x = fgetc(f);
+      break;
     }
-
     category_str = (char *)realloc(category_str, (i + 2) * sizeof(*category_str));
     // Add the character to the category
     if (category_str == NULL) {
@@ -39,6 +38,16 @@ char * category(FILE * f) {
     category_str[i + 1] = '\0';
     i++;
   }
+  if (x == EOF) {
+    fprintf(stderr, "Error with the category blank, %s\n", category_str);
+    exit(EXIT_FAILURE);
+  }
+  //printf("%s\n", category_str);
+  //x = fgetc(f);
+  // Pass the right _
+  //if (x == '_') {
+  //x = fgetc(f);
+  //};
   return category_str;
 }
 void freeCategory(category_t * category) {
@@ -158,7 +167,6 @@ char * parsing(FILE * f, catarray_t * array, int no_reuse) {
         strArray[n_array] = (char *)chooseWord(category_str, array);
         //const char * word = chooseWord(category_str, array);
         n_array++;
-        // printf("%s\n", strArray[n_array - 1]);
         // Exclude the word from the array
         if (no_reuse == 1) {
           // Check that the word must be delete from the array later
@@ -166,8 +174,6 @@ char * parsing(FILE * f, catarray_t * array, int no_reuse) {
           //delete_word = 1;
         }
       }
-      // Pass the right _
-      c = fgetc(f);
 
       size_t len2 = strlen(story);
       size_t len1 = strlen(strArray[n_array - 1]);
@@ -178,13 +184,18 @@ char * parsing(FILE * f, catarray_t * array, int no_reuse) {
       // Free memory of the category
       free(category_str);
     }
-
-    // Reallocate memory for the story string
-    size_t len = strlen(story);
-    // Concatenate new char to the story string
-    story = (char *)realloc(story, (len + 2) * sizeof(*story));
-    story[len] = c;
-    story[len + 1] = '\0';
+    // second '_'
+    //if (c == '_') {
+    //c = fgetc(f);
+    //}
+    if (c != '_') {
+      // Reallocate memory for the story string
+      size_t len = strlen(story);
+      // Concatenate new char to the story string
+      story = (char *)realloc(story, (len + 2) * sizeof(*story));
+      story[len] = c;
+      story[len + 1] = '\0';
+    }
   }
   // Free the array to store the filled words
   freeCategory(words_to_free);
