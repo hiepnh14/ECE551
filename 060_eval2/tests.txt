@@ -16,6 +16,7 @@ story-step1 story13.txt
 story-step1 story14.txt
 story-step1 story15.txt
 story-step1 story16.txt
+story-step1 story17.txt
 story-step1 none.txt
 story-step1 
 story-step2 words.txt
@@ -78,3 +79,4 @@ story-step4 -n words5.txt story2.txt
 story-step4 -n
 story-step4 -n words.txt story15.txt
 story-step4 -n words.txt story16.txt
+story-step4 -n words.txt story17.txt
