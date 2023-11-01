@@ -12,8 +12,7 @@ IntMatrix::IntMatrix(const IntMatrix & rhs) :
     numRows(rhs.numRows), numColumns(rhs.numColumns) {
   rows = new IntArray *[numRows];
   for (int i = 0; i < numRows; i++) {
-    rows[i] = new IntArray(numColumns);
-    *rows[i] = *rhs.rows[i];
+    rows[i] = new IntArray(rhs[i]);
   }
 }
 IntMatrix::~IntMatrix() {
@@ -28,13 +27,12 @@ IntMatrix & IntMatrix::operator=(const IntMatrix & rhs) {
       delete rows[i];
     }
     delete[] rows;
+    numColumns = rhs.numColumns;
+    numRows = rhs.numRows;
     rows = new IntArray *[rhs.numRows];
     for (int i = 0; i < rhs.numRows; i++) {
       rows[i] = new IntArray(rhs[i]);
     }
-
-    numColumns = rhs.numColumns;
-    numRows = rhs.numRows;
   }
   return *this;
 }
@@ -52,7 +50,6 @@ IntArray & IntMatrix::operator[](int index) {
   assert((0 <= index) && (index < numRows));
   return *rows[index];
 }
-
 bool IntMatrix::operator==(const IntMatrix & rhs) const {
   if (numRows != rhs.numRows) {
     return false;
@@ -61,7 +58,7 @@ bool IntMatrix::operator==(const IntMatrix & rhs) const {
     return false;
   }
   for (int i = 0; i < numRows; i++) {
-    if ((*this)[i] != !rhs.rows[i]) {
+    if ((*this)[i] != *rhs.rows[i]) {
       return false;
     }
   }
@@ -80,10 +77,6 @@ IntMatrix IntMatrix::operator+(const IntMatrix & rhs) const {
 }
 
 std::ostream & operator<<(std::ostream & s, const IntMatrix & rhs) {
-  //if (rhs.getRows() == 0) {
-  //s << "[ ]";
-  //return s;
-  //}
   s << "[ ";
   for (int i = 0; i < rhs.getRows(); i++) {
     s << rhs[i];

@@ -58,25 +58,14 @@ bool IntArray::operator==(const IntArray & rhs) const {
 }
 
 bool IntArray::operator!=(const IntArray & rhs) const {
-  if (numElements != rhs.numElements) {
-    return true;
-  }
-  else {
-    for (int i = 0; i < numElements; i++) {
-      if (data[i] != rhs.data[i]) {
-        return true;
-      }
-    }
-    return false;
-  }
+  return !(*this == rhs);
 }
-
 std::ostream & operator<<(std::ostream & s, const IntArray & rhs) {
   s << "{";
   for (int i = 0; i < rhs.size(); i++) {
     s << rhs[i];
     if (i != rhs.size() - 1) {
-      s << ",";
+      s << ", ";
     }
   }
   s << "}";
