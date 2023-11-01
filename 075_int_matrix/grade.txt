@@ -1,6 +1,6 @@
-Grading at 11/01/2023:04:34:36.077713
-For commit ID e358e127aadfd0aef386f256bfb620f8b9efccd0
-Grading at Wed Nov  1 12:34:19 AM EDT 2023
+Grading at 11/01/2023:04:56:22.655321
+For commit ID b70d06872afefe864b261dc8751da1cfa54c5a84
+Grading at Wed Nov  1 12:56:06 AM EDT 2023
 Attempting to compile:
 rm -f *.o  *~ intMatrixTest
 #################################################
@@ -17,27 +17,31 @@ Your output is correct
 valgrind was clean
 #################################################
 testcase4:
-Your output is incorrect
+Your output is correct
+valgrind was clean
 #################################################
 testcase5:
 Your output is correct
 valgrind was clean
 #################################################
 testcase6:
-Your output is incorrect
+Your output is correct
+valgrind was clean
 #################################################
 testcase7:
 Your output is correct
 valgrind was clean
 #################################################
 testcase8:
-Your output is incorrect
+Your output is correct
+valgrind was clean
 #################################################
 testcase9:
 Your output is correct
 valgrind was clean
 #################################################
 testcase10:
-Your output is incorrect
+Your output is correct
+valgrind was clean
 
-Overall Grade: D
+Overall Grade: A
