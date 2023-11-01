@@ -21,13 +21,13 @@ IntArray::~IntArray() {
 
 IntArray & IntArray::operator=(const IntArray & rhs) {
   if (this != &rhs) {
-    int * ans = new int[rhs.numElements];
-    for (int i = 0; i < numElements; i++) {
-      ans[i] = rhs.data[i];
-    }
     delete[] data;
     numElements = rhs.numElements;
-    data = ans;
+    data = new int[rhs.numElements];
+
+    for (int i = 0; i < numElements; i++) {
+      data[i] = rhs.data[i];
+    }
   }
   return *this;
 }
