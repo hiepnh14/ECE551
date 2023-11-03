@@ -1,7 +1,10 @@
-CFLAGS= -Wall -Werror -std=gnu++98 -pedantic -ggdb3
+CCFLAGS=--std=gnu++98 -pedantic -Wall -Werror -ggdb3
+sort: sort.o
+	g++ -o sort $(CCFLAGS) sortLines.o
 
-sort: sortLines.cpp
-	g++ $(CFLAGS) -o sort sortLines.cpp
+sort.o: sortLines.cpp
+	g++ -c $(CCFLAGS) $<
 
 clean:
-	rm -f sort *~
+	rm -f *.o  *~ sort
+
