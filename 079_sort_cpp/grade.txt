@@ -1,6 +1,6 @@
-Grading at 11/03/2023:04:18:38.619783
-For commit ID 2ed792dc1aafc944d8597cdc566f2a67d8ee3d25
-Grading at Fri Nov  3 12:18:38 AM EDT 2023
+Grading at 11/03/2023:04:30:19.489204
+For commit ID 678dce20eb6dc26ab617ae1252d870aeed791d25
+Grading at Fri Nov  3 12:30:18 AM EDT 2023
 Looking for malloc in your files
 No uses found (good).
 Looking for free in your files
@@ -14,7 +14,8 @@ No uses found (good).
 Looking for printf in your files
 No uses found (good).
 Attempting to compile with make
-g++ -Wall -Werror -std=gnu++98 -pedantic -ggdb3 -o sort sortLines.cpp
+g++ -c --std=gnu++98 -pedantic -Wall -Werror -ggdb3 sortLines.cpp
+g++ -o sort --std=gnu++98 -pedantic -Wall -Werror -ggdb3 sortLines.o
 I couldnt find an executable!
 
 Overall Grade: F
