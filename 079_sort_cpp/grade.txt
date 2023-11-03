@@ -1,0 +1,20 @@
+Grading at 11/03/2023:04:18:38.619783
+For commit ID 2ed792dc1aafc944d8597cdc566f2a67d8ee3d25
+Grading at Fri Nov  3 12:18:38 AM EDT 2023
+Looking for malloc in your files
+No uses found (good).
+Looking for free in your files
+No uses found (good).
+Looking for FILE in your files
+No uses found (good).
+Looking for realloc in your files
+No uses found (good).
+Looking for qsort in your files
+No uses found (good).
+Looking for printf in your files
+No uses found (good).
+Attempting to compile with make
+g++ -Wall -Werror -std=gnu++98 -pedantic -ggdb3 -o sort sortLines.cpp
+I couldnt find an executable!
+
+Overall Grade: F
