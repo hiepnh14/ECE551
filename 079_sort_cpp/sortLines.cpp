@@ -8,7 +8,7 @@
 void sortLine(std::istream & is) {
   std::string str;
   std::vector<std::string> lines;
-  while (getline(is, str)) {
+  while (std::getline(is, str)) {
     lines.push_back(str);
   }
   // checking for errors
@@ -23,17 +23,20 @@ void sortLine(std::istream & is) {
   }
 }
 int main(int argc, char ** argv) {
-  std::vector<std::string> v;
+  // std::cout << "CHECKING Main" << std::endl;
   if (argc == 1) {
     sortLine(std::cin);
   }
-  if (argc > 2) {
+  if (argc >= 2) {
+    // std::cout << "CHECKING 0" << std::endl;
     for (int i = 1; i < argc; i++) {
-      std::ifstream file(argv[i], std::ifstream::in);
-      if (file.is_open()) {
+      // std::cout << "CHECKING 1" << std::endl;
+      std::ifstream file(argv[i]);
+      if (file.fail()) {
         std::cerr << "Cannot open file" << std::endl;
         return EXIT_FAILURE;
       }
+      // std::cout << "CHECKING" << std::endl;
       sortLine(file);
       file.close();
     }
