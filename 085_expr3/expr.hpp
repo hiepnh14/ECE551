@@ -1,6 +1,6 @@
 #include <cstdio>
 #include <cstdlib>
-#include <ostream>
+#include <iostream>
 #include <sstream>
 #include <string>
 
@@ -27,82 +27,62 @@ class NumExpression : public Expression {
   virtual long evaluate() const { return number; }
   virtual ~NumExpression(){};
 };
-class PlusExpression : public Expression {
+
+class Operation : public Expression {
  private:
   Expression * lhs;
   Expression * rhs;
+  const char * operate;
 
  public:
-  PlusExpression(Expression * lhs_in, Expression * rhs_in) : lhs(lhs_in), rhs(rhs_in) {}
+  Operation(Expression * lhs_in, Expression * rhs_in, const char * operate) :
+      lhs(lhs_in), rhs(rhs_in), operate(operate) {}
   virtual std::string toString() const {
     std::stringstream stream;
-    stream << "(" << lhs->toString() << " + " << rhs->toString() << ")";
+    stream << "(" << lhs->toString() << " " << *operate << " " << rhs->toString() << ")";
     std::string result = stream.str();
     return result;
   }
-  virtual long evaluate() const { return lhs->evaluate() + rhs->evaluate(); }
-  virtual ~PlusExpression() {
+  virtual long evaluate() const {
+    switch (*operate) {
+      case '+':
+        return lhs->evaluate() + rhs->evaluate();
+      case '-':
+        return lhs->evaluate() - rhs->evaluate();
+      case '*':
+        return lhs->evaluate() * rhs->evaluate();
+      case '/':
+        return lhs->evaluate() / rhs->evaluate();
+      default:
+        std::cerr << "Cannot operate " << *operate << std::endl;
+        abort();
+    }
+  }
+  virtual ~Operation() {
     delete lhs;
     delete rhs;
   }
 };
-
-class MinusExpression : public Expression {
- private:
-  Expression * lhs;
-  Expression * rhs;
-
+class PlusExpression : public Operation {
  public:
-  MinusExpression(Expression * lhs_in, Expression * rhs_in) : lhs(lhs_in), rhs(rhs_in) {}
-  virtual std::string toString() const {
-    std::stringstream stream;
-    stream << "(" << lhs->toString() << " - " << rhs->toString() << ")";
-    std::string result = stream.str();
-    return result;
-  }
-  virtual long evaluate() const { return lhs->evaluate() - rhs->evaluate(); }
-  virtual ~MinusExpression() {
-    delete lhs;
-    delete rhs;
-  }
+  PlusExpression(Expression * lhs_in, Expression * rhs_in) :
+      Operation(lhs_in, rhs_in, "+") {}
 };
 
-class TimesExpression : public Expression {
- private:
-  Expression * lhs;
-  Expression * rhs;
-
+class MinusExpression : public Operation {
  public:
-  TimesExpression(Expression * lhs_in, Expression * rhs_in) : lhs(lhs_in), rhs(rhs_in) {}
-  virtual std::string toString() const {
-    std::stringstream stream;
-    stream << "(" << lhs->toString() << " * " << rhs->toString() << ")";
-    std::string result = stream.str();
-    return result;
-  }
-  virtual long evaluate() const { return lhs->evaluate() * rhs->evaluate(); }
-  virtual ~TimesExpression() {
-    delete lhs;
-    delete rhs;
-  }
+  MinusExpression(Expression * lhs_in, Expression * rhs_in) :
+      Operation(lhs_in, rhs_in, "-") {}
 };
 
-class DivExpression : public Expression {
- private:
-  Expression * lhs;
-  Expression * rhs;
-
+class TimesExpression : public Operation {
  public:
-  DivExpression(Expression * lhs_in, Expression * rhs_in) : lhs(lhs_in), rhs(rhs_in) {}
-  virtual std::string toString() const {
-    std::stringstream stream;
-    stream << "(" << lhs->toString() << " / " << rhs->toString() << ")";
-    std::string result = stream.str();
-    return result;
-  }
-  virtual long evaluate() const { return lhs->evaluate() / rhs->evaluate(); }
-  virtual ~DivExpression() {
-    delete lhs;
-    delete rhs;
-  }
+  TimesExpression(Expression * lhs_in, Expression * rhs_in) :
+      Operation(lhs_in, rhs_in, "*") {}
+};
+
+class DivExpression : public Operation {
+ public:
+  DivExpression(Expression * lhs_in, Expression * rhs_in) :
+      Operation(lhs_in, rhs_in, "/") {}
 };
