@@ -1,11 +1,11 @@
-Grading at 11/20/2023:22:55:07.112456
-For commit ID c8c5f2d407469aa30288f5fed104217e1953f50b
-Grading at Mon Nov 20 05:55:01 PM EST 2023
+Grading at 11/20/2023:23:14:58.953633
+For commit ID ca7d7d35f38d9c7d51b499b3a5795feba322c5ed
+Grading at Mon Nov 20 06:14:53 PM EST 2023
 Doing some basic checking for your submission
 
 Step 1
 Checking that cyoa-step1 compiles
-rm -f *~ cyoa-step1  cyoa-step1.o cyoa.o
+rm -f *~ cyoa-step1  cyoa-step1.o
 g++    -c -o cyoa-step1.o cyoa-step1.cpp
 g++  -c cyoa.cpp
 g++ -o cyoa-step1 cyoa-step1.o cyoa.o
@@ -77,7 +77,7 @@ You indicated this was a failure, but it was not
 
 Step 2
 Checking that cyoa-step2 compiles
-rm -f *~ cyoa-step1  cyoa-step1.o cyoa.o
+rm -f *~ cyoa-step1  cyoa-step1.o
 The code did not compile!
 
 Overall Grade: NO GRADE YET
