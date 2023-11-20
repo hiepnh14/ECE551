@@ -1,6 +1,6 @@
 CCFLAGS = std-gnu++98 -pedantic -Wall -ggdb3 -Werror
 PROGS=cyoa-step1 #cyoa-step2 cyoa-step3 cyoa-step4
-OBJS=$(patsubst %,%.o,$(PROGS)) cyoa.o
+OBJS=$(patsubst %,%.o,$(PROGS))
 all: $(PROGS)
 cyoa-step%: cyoa-step%.o cyoa.o
 	g++ -o $@ $^
