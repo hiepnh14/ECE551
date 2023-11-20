@@ -155,7 +155,7 @@ void Story::readStory(istream & input, string foldername) {
       Page currentPage(num, type);
       ifstream file;
       string path = foldername;
-      path.append("/");
+      path.push_back('/');
       path.append(pagefile);
       file.open(path);
       if (!file.is_open()) {
