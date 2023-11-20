@@ -1,13 +1,13 @@
-Grading at 11/20/2023:23:33:34.629574
-For commit ID 159ae4f0d0fc9aaaae59ed41fe36889c11008d49
-Grading at Mon Nov 20 06:33:29 PM EST 2023
+Grading at 11/20/2023:23:54:00.475777
+For commit ID 7676bd24a7a71de0eb295999627028d1c96e3ed5
+Grading at Mon Nov 20 06:53:55 PM EST 2023
 Doing some basic checking for your submission
 
 Step 1
 Checking that cyoa-step1 compiles
 rm -f *~ cyoa-step1  cyoa-step1.o cyoa.o
 g++    -c -o cyoa-step1.o cyoa-step1.cpp
-g++  -c cyoa.cpp
+g++ --std=gnu++11 -pedantic -Wall -Werror -ggdb3 -c cyoa.cpp
 g++ -o cyoa-step1 cyoa-step1.o cyoa.o
 rm cyoa.o cyoa-step1.o
 The code compiled (good)
