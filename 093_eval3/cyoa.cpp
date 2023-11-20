@@ -179,7 +179,7 @@ void Story::readStory(istream & input, string foldername) {
       if (line[i] == ':') {
         // Start parsing the choice message
         i++;
-        while (i < line.length() - 1) {
+        while (i < line.length()) {
           choiceText.push_back(line[i]);
           i++;
         }
