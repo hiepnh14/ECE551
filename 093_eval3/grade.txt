@@ -1,6 +1,6 @@
-Grading at 11/20/2023:22:49:21.506230
-For commit ID 3b41b5145987e1833c498f1f3a4b4f731c245a01
-Grading at Mon Nov 20 05:49:17 PM EST 2023
+Grading at 11/20/2023:22:55:07.112456
+For commit ID c8c5f2d407469aa30288f5fed104217e1953f50b
+Grading at Mon Nov 20 05:55:01 PM EST 2023
 Doing some basic checking for your submission
 
 Step 1
@@ -61,7 +61,19 @@ But we did not.
 -----------------------------
 You considered this a failure case:
 But we did not.
-No request to check for intermediate deadline completion on step 1
+------------------------------------
+You have requested that we check for intermediate deadline completion on step 1
+------------------------------------
+
+Step 1 EC intermediate deadline test 1
+===========================================================
+./cyoa-step1 /usr/local/ece551/cyoa/story1
+You indicated this was a failure, but it was not
+
+Step 1 EC intermediate deadline test 2
+===========================================================
+./cyoa-step1 /usr/local/ece551/cyoa/story2
+You indicated this was a failure, but it was not
 
 Step 2
 Checking that cyoa-step2 compiles
