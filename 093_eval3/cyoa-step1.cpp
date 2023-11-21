@@ -6,7 +6,8 @@ int main(int argc, char ** argv) {
   ifstream story_stream;
   string path = argv[1];
   path.append("/story.txt");
-  story_stream.open(path, ios::in);
+  const char * path1 = path.c_str();
+  story_stream.open(path1, ios::in);
   if (!story_stream.is_open()) {
     error("Fail to open story.txt file\n");
   }
@@ -22,5 +23,5 @@ int main(int argc, char ** argv) {
   story_stream.close();
   //error("Fail to close story.txt file\n");
 
-  return EXIT_FAILURE;
+  return EXIT_SUCCESS;
 }
