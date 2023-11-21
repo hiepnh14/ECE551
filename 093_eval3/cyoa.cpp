@@ -157,7 +157,9 @@ void Story::readStory(istream & input, string foldername) {
       string path = foldername;
       path.push_back('/');
       path.append(pagefile);
-      file.open(path);
+      const char * path1 = path.c_str();
+      file.open(path1);
+
       if (!file.is_open()) {
         //cerr << pagefile << endl;
         error("Fail to open File");
