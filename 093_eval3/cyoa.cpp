@@ -15,11 +15,11 @@ bool isDigits(const string & digits) {
   else
     return false;
 }
-
-void Page::printPage() const {
+void Page::printHeader() const {
   cout << "Page " << page_num << endl;
   cout << "==========" << endl;
-
+}
+void Page::printPage() const {
   vector<string>::const_iterator it = content.begin();
   while (it != content.end()) {
     cout << *it << endl;
@@ -115,6 +115,14 @@ size_t toLong(string strNum) {
   stream >> ans;
   return ans;
 }
+string getItem(string line, char delim1, char delim2, size_t & index) {
+  string ans = "";
+  while (index < (line.length()) && line[index] != delim1 && line[index] != delim2) {
+    ans.push_back(line[index]);
+    (index)++;
+  }
+  return ans;
+}
 
 void Story::readStory(istream & input, string foldername) {
   string line;
@@ -127,14 +135,14 @@ void Story::readStory(istream & input, string foldername) {
     string pagefile = "";
     string choiceText = "";
     size_t i = 0;
+    size_t & index = i;
     char type;
-    while (i < (line.length() - 1) && line[i] != '@' && line[i] != ':') {
-      page_num.push_back(line[i]);
-      i++;
-    }
-
+    //while (i < (line.length() ) && line[i] != '@' && line[i] != ':') {
+    //page_num.push_back(line[i]);
+    //i++;
+    //}
+    page_num = getItem(line, '@', ':', index);
     if (!isDigits(page_num)) {
-      //cerr << page_num << endl;
       error("Invalid digits from story.txt");
     }
     size_t num = toLong(page_num);
@@ -148,10 +156,11 @@ void Story::readStory(istream & input, string foldername) {
       if (line[i] != ':')
         error("Format invalid\n");
       i++;
-      while (i < line.length()) {
-        pagefile.push_back(line[i]);
-        i++;
-      }
+      pagefile = getItem(line, '\n', '\n', index);
+      //while (i < line.length()) {
+      //pagefile.push_back(line[i]);
+      //i++;
+      //}
       Page currentPage(num, type);
       ifstream file;
       string path = foldername;
@@ -160,11 +169,8 @@ void Story::readStory(istream & input, string foldername) {
       const char * path1 = path.c_str();
       file.open(path1);
 
-      if (!file.is_open()) {
-        //cerr << pagefile << endl;
+      if (!file.is_open())
         error("Fail to open File");
-      }
-      //cout << pagefile << " opening" << endl;
       currentPage.addLine(file);
       file.close();
       addPage(foldername, pagefile, currentPage);
@@ -172,24 +178,108 @@ void Story::readStory(istream & input, string foldername) {
     // Choice case
     else if (line[i] == ':') {
       i++;
-      while (i < (line.length() - 1) && line[i] != ':') {
-        linkPage.push_back(line[i]);
-        i++;
-      }
+      linkPage = getItem(line, ':', ':', index);
+      //while (i < (line.length() - 1) && line[i] != ':') {
+      //linkPage.push_back(line[i]);
+      //i++;
+      //}
       if (!isDigits(linkPage))
         error("Link page invalid digit\n");
       if (line[i] == ':') {
         // Start parsing the choice message
         i++;
-        while (i < line.length()) {
-          choiceText.push_back(line[i]);
-          i++;
-        }
-        // cout << choiceText << endl;
+        choiceText = getItem(line, '\n', '\n', index);
+        //while (i < line.length()) {
+        //choiceText.push_back(line[i]);
+        //i++;
+        //}
         addChoices(num, choiceText, toLong(linkPage));
       }
     }
     else
       error("Invalid story line\n");
+  }
+}
+long int findPageVector(vector<size_t> vector, size_t item) {
+  for (size_t i = 0; i < vector.size(); i++) {
+    if (vector[i] == item) {
+      return i;
+    }
+  }
+  return -1;
+}
+size_t findMax(vector<size_t> vector) {
+  size_t temp = 0;
+  for (size_t i = 0; i < vector.size(); i++) {
+    if (temp < vector[i])
+      temp = vector[i];
+  }
+  return temp;
+}
+bool Story::conditionCheck() {
+  vector<size_t> pageVector;
+  vector<size_t> referencedVector;
+  bool haveWin = false;
+  bool haveLose = false;
+  for (size_t i = 0; i < pages.size(); i++) {
+    // Add the page to the vector
+    pageVector.push_back(pages[i].getNum());
+    if (pages[i].getType() == 'W')
+      haveWin = true;
+    if (pages[i].getType() == 'L')
+      haveLose = true;
+    for (size_t j = 0; j < pages[i].getChoices().size(); j++) {
+      // Add the referenced page to the vector
+      if (pages[i].getNum() != pages[i].getChoices()[j].first)
+        referencedVector.push_back(pages[i].getChoices()[j].first);
+    }
+  }
+  if (!haveWin || !haveLose)
+    error("The story does not have a Win page or a Lose page\n");
+  size_t lastPage = findMax(pageVector);
+  for (size_t i = 1; i <= lastPage; i++) {
+    if (findPageVector(pageVector, i) == -1 &&
+        findPageVector(referencedVector, i) == -1) {
+      error("Page is missing or is not referenced\n");
+    }
+  }
+  return true;
+}
+Page Story::findPage(size_t page_num) {
+  for (size_t i = 0; i < pages.size(); i++) {
+    if (pages[i].getNum() == page_num)
+      return pages[i];
+  }
+  error("Cannot find the page with page number\n");
+  return pages[0];
+}
+void Story::display(Page current) {
+  current.printPage();
+  current.printFooter();
+  if (current.getType() == 'W' || current.getType() == 'L')
+    exit(EXIT_SUCCESS);
+  bool satisfy = false;
+  string input;
+  while (!satisfy) {
+    cin >> input;
+    if (!isDigits(input)) {
+      cout << "That is not a valid choice, please try again" << endl;
+      continue;
+    }
+    size_t next = toLong(input);
+    if (!cin.good())
+      error("Input is not good\n");
+    //for (size_t i = 0; i < current.getChoices().size(); i++) {
+    //if (next == current.getChoices()[i].first) {
+    //  satisfy = true;
+    //  break;
+    //}
+    if (next > 0 && next <= current.getChoices().size()) {
+      satisfy = true;
+      display(findPage(current.getChoices()[next - 1].first));
+    }
+
+    else
+      cout << "That is not a valid choice, please try again" << endl;
   }
 }

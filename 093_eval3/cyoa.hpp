@@ -22,6 +22,8 @@ class Page {
 
  public:
   Page(size_t num, char type_in) : page_num(num), type(type_in) {}
+  // To print the page number and ===== for step 1
+  void printHeader() const;
   // To print the page
   void printPage() const;
   // To print the choices, notification when winning or losing
@@ -34,6 +36,7 @@ class Page {
   size_t getNum() const { return page_num; }
   // Get page type
   char getType() const { return type; }
+  vector<pair<size_t, string> > getChoices() const { return choices; }
 };
 /*
 class NormalPage : public Page {
@@ -61,11 +64,17 @@ class Story {
   vector<Page> pages;
 
  public:
+  // Read the story.txt, include the foldername to read page files
   void readStory(istream & input, string foldername);
-
+  // Add page to the Story
   void addPage(string foldername, string pagefile, const Page & addingPage);
-
+  // Add choice to the page
   void addChoices(size_t num_page, string choice, size_t linkPage);
+  // Public functions to get the pages data
   vector<Page> getPage() const { return pages; }
+  // Check if the conditions are satisfied?
+  bool conditionCheck();
+  Page findPage(size_t page_num);
+  void display(Page current);
 };
 #endif

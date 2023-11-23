@@ -13,14 +13,7 @@ int main(int argc, char ** argv) {
   }
   Story main;
   main.readStory(story_stream, argv[1]);
-  vector<Page> pages = main.getPage();
-  vector<Page>::const_iterator it = pages.begin();
-  while (it != pages.end()) {
-    it->printHeader();
-    it->printPage();
-    it->printFooter();
-    ++it;
-  }
+  main.display(main.findPage(0));
   story_stream.close();
   //error("Fail to close story.txt file\n");
 
