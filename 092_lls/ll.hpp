@@ -52,8 +52,14 @@ template<typename T>
 LinkedList<T> & LinkedList<T>::operator=(const LinkedList<T> & rhs) {
   if (this != &rhs) {
     LinkedList<T> temp(rhs);
-    std::swap(head, temp.head);
-    std::swap(tail, temp.tail);
+    //std::swap(head, temp.head);
+    //std::swap(tail, temp.tail);
+    Node * temp1 = head;
+    head = temp.head;
+    temp.head = temp1;
+    Node * temp2 = tail;
+    tail = temp.tail;
+    temp.tail = temp2;
   }
   return *this;
 }
