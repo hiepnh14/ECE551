@@ -1,41 +1,23 @@
-Grading at 11/23/2023:07:43:40.484977
-For commit ID 7167c75f33f0f2780613a2721662f2959d44c7d6
-Grading at Thu Nov 23 02:43:39 AM EST 2023
+Grading at 11/23/2023:07:50:13.925596
+For commit ID 8c230cc686e36cf6ac2e2348c69969fc5902b750
+Grading at Thu Nov 23 02:50:10 AM EST 2023
 -----------------------------------------------
 testcase 1 : Testing with LinkedList<int>
 ...compiling...
-In file included from tester.cpp:1:
-ll.hpp: In member function ‘LinkedList<T>& LinkedList<T>::operator=(const LinkedList<T>&)’:
-ll.hpp:55:10: error: ‘swap’ is not a member of ‘std’
-   55 |     std::swap(head, temp.head);
-      |          ^~~~
-ll.hpp:56:10: error: ‘swap’ is not a member of ‘std’
-   56 |     std::swap(tail, temp.tail);
-      |          ^~~~
-The code did not compile.  This test failed.
+The code compiled.
+Your file matched the expected output
+Testcase passed 
 -----------------------------------------------
 testcase 2 : Testing with LinkedList<std::string>
 ...compiling...
-In file included from tester.cpp:1:
-ll.hpp: In member function ‘LinkedList<T>& LinkedList<T>::operator=(const LinkedList<T>&)’:
-ll.hpp:55:10: error: ‘swap’ is not a member of ‘std’
-   55 |     std::swap(head, temp.head);
-      |          ^~~~
-ll.hpp:56:10: error: ‘swap’ is not a member of ‘std’
-   56 |     std::swap(tail, temp.tail);
-      |          ^~~~
-The code did not compile.  This test failed.
+The code compiled.
+Your file matched the expected output
+Testcase passed 
 -----------------------------------------------
 testcase 3 : Testing with LinkedList<(a custom class we wrote)>
 ...compiling...
-In file included from tester.cpp:1:
-ll.hpp: In member function ‘LinkedList<T>& LinkedList<T>::operator=(const LinkedList<T>&)’:
-ll.hpp:55:10: error: ‘swap’ is not a member of ‘std’
-   55 |     std::swap(head, temp.head);
-      |          ^~~~
-ll.hpp:56:10: error: ‘swap’ is not a member of ‘std’
-   56 |     std::swap(tail, temp.tail);
-      |          ^~~~
-The code did not compile.  This test failed.
+The code compiled.
+Your file matched the expected output
+Testcase passed 
 
-Overall Grade: F
+Overall Grade: A
