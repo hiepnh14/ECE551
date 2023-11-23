@@ -13,7 +13,9 @@ int main(int argc, char ** argv) {
   }
   Story main;
   main.readStory(story_stream, argv[1]);
-  main.display(main.findPage(0));
+  bool check = main.conditionCheck();
+  if (check)
+    main.display(main.findPage(0));
   story_stream.close();
   //error("Fail to close story.txt file\n");
 

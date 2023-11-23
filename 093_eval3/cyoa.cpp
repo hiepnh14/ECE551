@@ -257,7 +257,7 @@ void Story::display(Page current) {
   current.printPage();
   current.printFooter();
   if (current.getType() == 'W' || current.getType() == 'L')
-    exit(EXIT_SUCCESS);
+    return;
   bool satisfy = false;
   string input;
   while (!satisfy) {
@@ -269,16 +269,10 @@ void Story::display(Page current) {
     size_t next = toLong(input);
     if (!cin.good())
       error("Input is not good\n");
-    //for (size_t i = 0; i < current.getChoices().size(); i++) {
-    //if (next == current.getChoices()[i].first) {
-    //  satisfy = true;
-    //  break;
-    //}
     if (next > 0 && next <= current.getChoices().size()) {
       satisfy = true;
       display(findPage(current.getChoices()[next - 1].first));
     }
-
     else
       cout << "That is not a valid choice, please try again" << endl;
   }
