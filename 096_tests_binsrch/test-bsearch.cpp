@@ -45,7 +45,7 @@ void check(Function<int, int> * f,
     int f_high = f->invoke(high - 1);
     CountedIntFn counting((log2(high - low)) + 1, f, mesg);
     int f_zero = binarySearchForZero(&counting, low, high);
-    // std::cout << f_low << " " << f_zero << " " << f_high << mesg << std::endl;
+    //std::cout << f_low << " " << f_zero << " " << f_high << mesg << std::endl;
     //int f_zero = binarySearchForZero(f, low, high);
     assert(expected_ans == f_zero);
     assert((f_low < 0 && f_high >= 0 && f_zero == expected_ans) ||
