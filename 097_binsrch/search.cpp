@@ -1,13 +1,16 @@
-#include "function.h"
+#include <cstdlib>
 
+#include "function.h"
 int binarySearchForZero(Function<int, int> * f, int low, int high) {
+  if (high < low)
+    exit(EXIT_FAILURE);
   if (low == high)
     return low;
 
   if (f->invoke(low) >= 0)
     return low;
   high = high - 1;
-  if (f->invoke(high) < 0)
+  if (f->invoke(high) <= 0)
     return high;
   int x = (high + low) / 2;
   int y;
