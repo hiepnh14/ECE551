@@ -277,3 +277,105 @@ void Story::display(Page current) {
       cout << "That is not a valid choice, please try again" << endl;
   }
 }
+// this function to generate a graph of pages that link with other pages from the story
+vector<vector<size_t> > generateGraph(Story main) {
+  vector<vector<size_t> > graph;
+
+  for (size_t pageNum = 0; pageNum < main.getPage().size(); pageNum++) {
+    // Find page that match the order number
+    Page currentPage = main.findPage(pageNum);
+    // Add all linked pages to the vector
+    vector<size_t> linkPages;
+    for (size_t choiceNum = 0; choiceNum < currentPage.getChoices().size(); choiceNum++) {
+      linkPages.push_back(currentPage.getChoices()[choiceNum].first);
+    }
+    graph.push_back(linkPages);
+  }
+
+  return graph;
+}
+vector<size_t> findWinPages(Story main) {
+  vector<size_t> winPages;
+  for (size_t i = 0; i < main.getPage().size(); i++) {
+    if (main.getPage()[i].getType() == 'W') {
+      winPages.push_back(main.getPage()[i].getNum());
+    }
+  }
+  return winPages;
+}
+
+void findPath(const vector<vector<size_t> > & graph,
+              size_t start,
+              size_t end,
+              vector<size_t> & path,
+              unordered_set<size_t> & visited,
+              vector<vector<size_t> > & validPaths) {
+  visited.insert(start);
+  path.push_back(start);
+
+  if (start == end) {
+    validPaths.push_back(path);
+  }
+  else {
+    for (int next : graph[start]) {
+      if (visited.find(next) == visited.end()) {
+        findPath(graph, next, end, path, visited, validPaths);
+      }
+    }
+  }
+  // Remove current node from the path and visited set
+  path.pop_back();
+  visited.erase(start);
+}
+
+void findAllPaths(vector<size_t> winPages,
+                  vector<vector<size_t> > graph,
+                  size_t beginPage,
+                  vector<vector<size_t> > & validPaths) {
+  for (size_t i = 0; i < winPages.size(); i++) {
+    size_t end = winPages[i];
+    vector<size_t> path;
+    unordered_set<size_t> visited;
+    findPath(graph, beginPage, end, path, visited, validPaths);
+  }
+}
+void printGraph(const Story main) {
+  vector<vector<size_t> > graph = generateGraph(main);
+  for (size_t i = 0; i < graph.size(); i++) {
+    cout << "{";
+    for (size_t j = 0; j < graph[i].size(); j++) {
+      cout << graph[i][j] << ", ";
+    }
+    cout << "}\n";
+  }
+}
+
+void printPath(const vector<vector<size_t> > graph, vector<size_t> validPath) {
+  size_t sz = validPath.size();
+  for (size_t i = 0; i < sz - 1; i++) {
+    cout << validPath[i] << "(";
+
+    //Search for the choice to the next page
+    for (size_t choiceOrder = 0; choiceOrder < graph[validPath[i]].size();
+         choiceOrder++) {
+      if (graph[validPath[i]][choiceOrder] == validPath[i + 1]) {
+        size_t choice = choiceOrder + 1;
+        cout << choice;
+      }
+    }
+    cout << "),";
+  }
+  cout << validPath[sz - 1] << "(win)" << endl;
+}
+
+void printAllPaths(const Story main, size_t beginPage) {
+  vector<size_t> winPages = findWinPages(main);
+  vector<vector<size_t> > graph = generateGraph(main);
+  vector<vector<size_t> > validPaths;
+
+  findAllPaths(winPages, graph, beginPage, validPaths);
+
+  for (size_t i = 0; i < validPaths.size(); i++) {
+    printPath(graph, validPaths[i]);
+  }
+}

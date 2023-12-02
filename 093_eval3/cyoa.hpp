@@ -5,9 +5,9 @@
 #include <iostream>
 #include <sstream>
 #include <string>
+#include <unordered_set>
 #include <utility>
 #include <vector>
-
 using namespace std;
 
 void error(const string error);
@@ -77,4 +77,7 @@ class Story {
   Page findPage(size_t page_num);
   void display(Page current);
 };
+
+void printAllPaths(Story main, size_t beginPage);
+void printGraph(Story main);
 #endif
