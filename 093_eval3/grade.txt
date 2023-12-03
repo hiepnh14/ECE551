@@ -1,6 +1,6 @@
-Grading at 12/03/2023:08:33:35.220159
-For commit ID 9f8829a72065e4d321654f2a9e786abd61543f68
-Grading at Sun Dec  3 03:32:27 AM EST 2023
+Grading at 12/03/2023:09:02:16.208563
+For commit ID 9f4ea76ef4afc6f546c08565142fbcdfd2ec6c10
+Grading at Sun Dec  3 04:00:55 AM EST 2023
 Doing some basic checking for your submission
 
 Step 1
@@ -19,10 +19,8 @@ Now running YOUR tests for step 1
 
 1.1: Current test is ./cyoa-step1 story1 < /dev/null
 -----------------------------
-You considered this a failure case:
-Reference to an undeclared page
- 
-But we did not.
+Your output looks good. Lets check valgrind
+Valgrind was clean
 
 
 1.2: Current test is ./cyoa-step1 story2 < /dev/null
@@ -66,7 +64,11 @@ Valgrind was clean
 
 1.6: Current test is ./cyoa-step1 test/NoDelimiter < /dev/null
 -----------------------------
-Your output looks good. Lets check valgrind
+Great: we both considered this an error
+----here is what you printed on stderr---
+Invalid digits from story.txt
+-----------------------------------------
+Lets check if it valgrinds:
 Valgrind was clean
 
 
@@ -116,8 +118,8 @@ Valgrind was clean
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
-Reference to an undeclared page
- 
+Adding choice to Non-Normal page
+
 -----------------------------------------
 Lets check if it valgrinds:
 Valgrind was clean
@@ -146,8 +148,7 @@ Valgrind was clean
 1.14: Current test is ./cyoa-step1 test/story1 < /dev/null
 -----------------------------
 You considered this a failure case:
-Reference to an undeclared page
- 
+Invalid digits from story.txt
 But we did not.
 
 
@@ -165,8 +166,8 @@ Valgrind was clean
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
-Reference to an undeclared page
- 
+Adding choice to Non-Normal page
+
 -----------------------------------------
 Lets check if it valgrinds:
 Valgrind was clean
@@ -186,8 +187,7 @@ Valgrind was clean
 1.18: Current test is ./cyoa-step1 test/story3 < /dev/null
 -----------------------------
 You considered this a failure case:
-Reference to an undeclared page
- 
+Invalid digits from story.txt
 But we did not.
 No request to check for intermediate deadline completion on step 1
 
@@ -229,90 +229,68 @@ Valgrind was clean
 
 2.3: Current test is ./cyoa-step2 story1  <  /usr/local/ece551/cyoa/story1/inputs/input0.txt
 -----------------------------
-You considered this a failure case:
-Reference to an undeclared page
- 
-But we did not.
+Your output looks good. Lets check valgrind
+Valgrind was clean
 
 
 2.4: Current test is ./cyoa-step2 story1  <  /usr/local/ece551/cyoa/story1/inputs/input1.txt
 -----------------------------
-You considered this a failure case:
-Reference to an undeclared page
- 
-But we did not.
+Your output looks good. Lets check valgrind
+Valgrind was clean
 
 
 2.5: Current test is ./cyoa-step2 story1  <  /usr/local/ece551/cyoa/story1/inputs/input2.txt
 -----------------------------
-You considered this a failure case:
-Reference to an undeclared page
- 
-But we did not.
+Your output looks good. Lets check valgrind
+Valgrind was clean
 
 
 2.6: Current test is ./cyoa-step2 story1  <  /usr/local/ece551/cyoa/story1/inputs/input3.txt
 -----------------------------
-You considered this a failure case:
-Reference to an undeclared page
- 
-But we did not.
+Your output looks good. Lets check valgrind
+Valgrind was clean
 
 
 2.7: Current test is ./cyoa-step2 story1  <  /usr/local/ece551/cyoa/story1/inputs/input3.txt
 -----------------------------
-You considered this a failure case:
-Reference to an undeclared page
- 
-But we did not.
+Your output looks good. Lets check valgrind
+Valgrind was clean
 
 
 2.8: Current test is ./cyoa-step2 story1  <  /usr/local/ece551/cyoa/story1/inputs/input5.txt
 -----------------------------
-You considered this a failure case:
-Reference to an undeclared page
- 
-But we did not.
+Your output looks good. Lets check valgrind
+Valgrind was clean
 
 
 2.9: Current test is ./cyoa-step2 story1  <  /usr/local/ece551/cyoa/story1/inputs/input6.txt
 -----------------------------
-You considered this a failure case:
-Reference to an undeclared page
- 
-But we did not.
+Your output looks good. Lets check valgrind
+Valgrind was clean
 
 
 2.10: Current test is ./cyoa-step2 story1  <  /usr/local/ece551/cyoa/story1/inputs/input7.txt
 -----------------------------
-You considered this a failure case:
-Reference to an undeclared page
- 
-But we did not.
+Your output looks good. Lets check valgrind
+Valgrind was clean
 
 
 2.11: Current test is ./cyoa-step2 story1  <  /usr/local/ece551/cyoa/story1/inputs/input8.txt
 -----------------------------
-You considered this a failure case:
-Reference to an undeclared page
- 
-But we did not.
+Your output looks good. Lets check valgrind
+Valgrind was clean
 
 
 2.12: Current test is ./cyoa-step2 story1  <  /usr/local/ece551/cyoa/story1/inputs/input9.txt
 -----------------------------
-You considered this a failure case:
-Reference to an undeclared page
- 
-But we did not.
+Your output looks good. Lets check valgrind
+Valgrind was clean
 
 
 2.13: Current test is ./cyoa-step2 story1  <  /usr/local/ece551/cyoa/story1/inputs/input10.txt
 -----------------------------
-You considered this a failure case:
-Reference to an undeclared page
- 
-But we did not.
+Your output looks good. Lets check valgrind
+Valgrind was clean
 
 
 2.14: Current test is ./cyoa-step2 story2  <  /usr/local/ece551/cyoa/story1/inputs/input0.txt
@@ -347,12 +325,12 @@ timeout: the monitored command dumped core
 -----------------------------------------
 Lets check if it valgrinds:
 Valgrind reported errors:
-==262395== Memcheck, a memory error detector
-==262395== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==262395== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==262395== Command: ./cyoa-step2 story2
-==262395== Parent PID: 262393
-==262395== 
+==266417== Memcheck, a memory error detector
+==266417== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==266417== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==266417== Command: ./cyoa-step2 story2
+==266417== Parent PID: 266416
+==266417== 
 
 
 2.19: Current test is ./cyoa-step2 story2  <  /usr/local/ece551/cyoa/story1/inputs/input6.txt
@@ -363,12 +341,12 @@ timeout: the monitored command dumped core
 -----------------------------------------
 Lets check if it valgrinds:
 Valgrind reported errors:
-==262524== Memcheck, a memory error detector
-==262524== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==262524== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==262524== Command: ./cyoa-step2 story2
-==262524== Parent PID: 262523
-==262524== 
+==266460== Memcheck, a memory error detector
+==266460== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==266460== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==266460== Command: ./cyoa-step2 story2
+==266460== Parent PID: 266459
+==266460== 
 
 
 2.20: Current test is ./cyoa-step2 story2  <  /usr/local/ece551/cyoa/story1/inputs/input7.txt
@@ -396,12 +374,12 @@ timeout: the monitored command dumped core
 -----------------------------------------
 Lets check if it valgrinds:
 Valgrind reported errors:
-==262607== Memcheck, a memory error detector
-==262607== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==262607== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==262607== Command: ./cyoa-step2 story2
-==262607== Parent PID: 262606
-==262607== 
+==266555== Memcheck, a memory error detector
+==266555== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==266555== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==266555== Command: ./cyoa-step2 story2
+==266555== Parent PID: 266554
+==266555== 
 
 
 2.23: Current test is ./cyoa-step2 story2  <  /usr/local/ece551/cyoa/story1/inputs/input10.txt
@@ -429,12 +407,12 @@ timeout: the monitored command dumped core
 -----------------------------------------
 Lets check if it valgrinds:
 Valgrind reported errors:
-==262686== Memcheck, a memory error detector
-==262686== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==262686== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==262686== Command: ./cyoa-step2 story2
-==262686== Parent PID: 262685
-==262686== 
+==266680== Memcheck, a memory error detector
+==266680== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==266680== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==266680== Command: ./cyoa-step2 story2
+==266680== Parent PID: 266679
+==266680== 
 
 
 2.26: Current test is ./cyoa-step2 story1  <  /usr/local/ece551/cyoa/story2/inputs/input11.txt
@@ -445,12 +423,12 @@ Great: we both considered this an error
 -----------------------------------------
 Lets check if it valgrinds:
 Valgrind reported errors:
-==262686== Memcheck, a memory error detector
-==262686== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==262686== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==262686== Command: ./cyoa-step2 story2
-==262686== Parent PID: 262685
-==262686== 
+==266680== Memcheck, a memory error detector
+==266680== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==266680== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==266680== Command: ./cyoa-step2 story2
+==266680== Parent PID: 266679
+==266680== 
 No request to check for intermediate deadline completion on step 2
 
 Step 3
@@ -469,10 +447,8 @@ Now running YOUR tests for step 3
 
 3.1: Current test is ./cyoa-step3 story1 < /dev/null
 -----------------------------
-You considered this a failure case:
-Reference to an undeclared page
- 
-But we did not.
+Your output looks good. Lets check valgrind
+Valgrind was clean
 
 
 3.2: Current test is ./cyoa-step3 story2 < /dev/null
@@ -508,15 +484,15 @@ You have requested that we check for intermediate deadline completion on step 3
 Step 3 EC intermediate deadline test 1
 ===========================================================
 ./cyoa-step3 /usr/local/ece551/cyoa/story1
-You indicated this was a failure, but it was not
-Reference to an undeclared page
- 
+Valgrind was clean for this testcase
+You have passed this test case
 
 Step 3 EC intermediate deadline test 2
 ===========================================================
 ./cyoa-step3 /usr/local/ece551/cyoa/story2
 Valgrind was clean for this testcase
 You have passed this test case
+Intermediate deadline requirements for Step 3 passed at Sun Dec  3 04:02:16 AM EST 2023
 
 Step 4
 Checking that cyoa-step4 compiles
