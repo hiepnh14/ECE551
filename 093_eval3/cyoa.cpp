@@ -48,17 +48,7 @@ void Page::printFooter() const {
     }
   }
 }
-/*
-void WinPage::printFooter() {
-  cout << endl;
-  cout << "Congratulations! You have won. Hooray!" << endl;
-}
 
-void LosePage::printFooter() {
-  cout << endl;
-  cout << "Sorry, you have lost. Better luck next time!" << endl;
-}
-*/
 void Page::addLine(istream & stream) {
   string line;
   while (getline(stream, line)) {
@@ -92,8 +82,6 @@ void NormalPage::printFooter() {
 
 void Story::addPage(string foldername, string pagefile, const Page & addingPage) {
   pages.push_back(addingPage);
-  //cout << endl;
-  //cout << pagefile << " closed" << endl;
 }
 
 void Story::addChoices(size_t num_page, string choice, size_t linkPage) {
@@ -126,6 +114,7 @@ string getItem(string line, char delim1, char delim2, size_t & index) {
 
 void Story::readStory(istream & input, string foldername) {
   string line;
+  size_t orderCheck = 0;  // Ensure the page number is declared in order
   while (getline(input, line)) {
     if (line == "")
       continue;
@@ -157,10 +146,9 @@ void Story::readStory(istream & input, string foldername) {
         error("Format invalid\n");
       i++;
       pagefile = getItem(line, '\n', '\n', index);
-      //while (i < line.length()) {
-      //pagefile.push_back(line[i]);
-      //i++;
-      //}
+      if (num != orderCheck)
+        error("Declaration order incorrect\n");
+      orderCheck++;
       Page currentPage(num, type);
       ifstream file;
       string path = foldername;
@@ -179,20 +167,17 @@ void Story::readStory(istream & input, string foldername) {
     else if (line[i] == ':') {
       i++;
       linkPage = getItem(line, ':', ':', index);
-      //while (i < (line.length() - 1) && line[i] != ':') {
-      //linkPage.push_back(line[i]);
-      //i++;
-      //}
+      if (pages[num].getType() != 'N')
+        error("Adding choice to Non-Normal page\n");
+
       if (!isDigits(linkPage))
         error("Link page invalid digit\n");
+      if (toLong(linkPage) >= orderCheck)
+        error("Reference to an undeclared page\n ");
       if (line[i] == ':') {
         // Start parsing the choice message
         i++;
         choiceText = getItem(line, '\n', '\n', index);
-        //while (i < line.length()) {
-        //choiceText.push_back(line[i]);
-        //i++;
-        //}
         addChoices(num, choiceText, toLong(linkPage));
       }
     }
@@ -224,8 +209,10 @@ bool Story::conditionCheck() {
   for (size_t i = 0; i < pages.size(); i++) {
     // Add the page to the vector
     pageVector.push_back(pages[i].getNum());
+    // Checked if there is Win page
     if (pages[i].getType() == 'W')
       haveWin = true;
+    // Checked if there is Lose Page
     if (pages[i].getType() == 'L')
       haveLose = true;
     for (size_t j = 0; j < pages[i].getChoices().size(); j++) {
@@ -234,8 +221,11 @@ bool Story::conditionCheck() {
         referencedVector.push_back(pages[i].getChoices()[j].first);
     }
   }
-  if (!haveWin || !haveLose)
-    error("The story does not have a Win page or a Lose page\n");
+  if (!haveWin)
+    error("The story does not have a Win page\n");
+  if (!haveLose)
+    error("The story does not have a Lose page\n");
+
   size_t lastPage = findMax(pageVector);
   for (size_t i = 1; i <= lastPage; i++) {
     if (findPageVector(pageVector, i) == -1 &&
@@ -374,7 +364,8 @@ void printAllPaths(const Story main, size_t beginPage) {
   vector<vector<size_t> > validPaths;
 
   findAllPaths(winPages, graph, beginPage, validPaths);
-
+  if (validPaths.size() == 0)
+    cout << "This story is unwinnable!";
   for (size_t i = 0; i < validPaths.size(); i++) {
     printPath(graph, validPaths[i]);
   }
