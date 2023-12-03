@@ -1,6 +1,6 @@
-Grading at 12/02/2023:17:43:23.999054
-For commit ID 2bff6556b9b9a7e4d9104821be0a6876a267e999
-Grading at Sat Dec  2 12:42:51 PM EST 2023
+Grading at 12/03/2023:08:33:35.220159
+For commit ID 9f8829a72065e4d321654f2a9e786abd61543f68
+Grading at Sun Dec  3 03:32:27 AM EST 2023
 Doing some basic checking for your submission
 
 Step 1
@@ -19,8 +19,10 @@ Now running YOUR tests for step 1
 
 1.1: Current test is ./cyoa-step1 story1 < /dev/null
 -----------------------------
-Your output looks good. Lets check valgrind
-Valgrind was clean
+You considered this a failure case:
+Reference to an undeclared page
+ 
+But we did not.
 
 
 1.2: Current test is ./cyoa-step1 story2 < /dev/null
@@ -51,16 +53,142 @@ Lets check if it valgrinds:
 Valgrind was clean
 
 
-1.5: Current test is ./cyoa-step1 /usr/local/ece551/cyoa/story1 < /dev/null
+1.5: Current test is ./cyoa-step1  < /dev/null
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+Invalid input command
+
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+1.6: Current test is ./cyoa-step1 test/NoDelimiter < /dev/null
 -----------------------------
 Your output looks good. Lets check valgrind
 Valgrind was clean
 
 
-1.6: Current test is ./cyoa-step1 /usr/local/ece551/cyoa/story2 < /dev/null
+1.7: Current test is ./cyoa-step1 test/no_story < /dev/null
 -----------------------------
-Your output looks good. Lets check valgrind
+Great: we both considered this an error
+----here is what you printed on stderr---
+Fail to open story.txt file
+
+-----------------------------------------
+Lets check if it valgrinds:
 Valgrind was clean
+
+
+1.8: Current test is ./cyoa-step1 test/pageDeclareOrder < /dev/null
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+Declaration order incorrect
+
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+1.9: Current test is ./cyoa-step1 test/size_t_2 < /dev/null
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+Invalid digits from story.txt
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+1.10: Current test is ./cyoa-step1 test/typeOfPage < /dev/null
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+Story page input format invalid
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+1.11: Current test is ./cyoa-step1 test/WLnoChoice < /dev/null
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+Reference to an undeclared page
+ 
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+1.12: Current test is ./cyoa-step1 test/number < /dev/null
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+Invalid digits from story.txt
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+1.13: Current test is ./cyoa-step1 test/pageNum < /dev/null
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+Invalid digits from story.txt
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+1.14: Current test is ./cyoa-step1 test/story1 < /dev/null
+-----------------------------
+You considered this a failure case:
+Reference to an undeclared page
+ 
+But we did not.
+
+
+1.15: Current test is ./cyoa-step1 test/filename < /dev/null
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+Fail to open File
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+1.16: Current test is ./cyoa-step1 test/orderNum < /dev/null
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+Reference to an undeclared page
+ 
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+1.17: Current test is ./cyoa-step1 test/size_t < /dev/null
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+Declaration order incorrect
+
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+1.18: Current test is ./cyoa-step1 test/story3 < /dev/null
+-----------------------------
+You considered this a failure case:
+Reference to an undeclared page
+ 
+But we did not.
 No request to check for intermediate deadline completion on step 1
 
 Step 2
@@ -77,7 +205,7 @@ Now running YOUR tests for step 2
 ------------------------------------
 
 
-2.1: Current test is ./cyoa-step2 story1 > /usr/local/ece551/cyoa/story1/inputs/input0.txt < /dev/null
+2.1: Current test is ./cyoa-step2  < /dev/null
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
@@ -88,7 +216,7 @@ Lets check if it valgrinds:
 Valgrind was clean
 
 
-2.2: Current test is ./cyoa-step2 story1 > /usr/local/ece551/cyoa/story1/inputs/input1.txt < /dev/null
+2.2: Current test is ./cyoa-step2 story1 story2 < /dev/null
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
@@ -99,246 +227,230 @@ Lets check if it valgrinds:
 Valgrind was clean
 
 
-2.3: Current test is ./cyoa-step2 story1 > /usr/local/ece551/cyoa/story1/inputs/input2.txt < /dev/null
+2.3: Current test is ./cyoa-step2 story1  <  /usr/local/ece551/cyoa/story1/inputs/input0.txt
+-----------------------------
+You considered this a failure case:
+Reference to an undeclared page
+ 
+But we did not.
+
+
+2.4: Current test is ./cyoa-step2 story1  <  /usr/local/ece551/cyoa/story1/inputs/input1.txt
+-----------------------------
+You considered this a failure case:
+Reference to an undeclared page
+ 
+But we did not.
+
+
+2.5: Current test is ./cyoa-step2 story1  <  /usr/local/ece551/cyoa/story1/inputs/input2.txt
+-----------------------------
+You considered this a failure case:
+Reference to an undeclared page
+ 
+But we did not.
+
+
+2.6: Current test is ./cyoa-step2 story1  <  /usr/local/ece551/cyoa/story1/inputs/input3.txt
+-----------------------------
+You considered this a failure case:
+Reference to an undeclared page
+ 
+But we did not.
+
+
+2.7: Current test is ./cyoa-step2 story1  <  /usr/local/ece551/cyoa/story1/inputs/input3.txt
+-----------------------------
+You considered this a failure case:
+Reference to an undeclared page
+ 
+But we did not.
+
+
+2.8: Current test is ./cyoa-step2 story1  <  /usr/local/ece551/cyoa/story1/inputs/input5.txt
+-----------------------------
+You considered this a failure case:
+Reference to an undeclared page
+ 
+But we did not.
+
+
+2.9: Current test is ./cyoa-step2 story1  <  /usr/local/ece551/cyoa/story1/inputs/input6.txt
+-----------------------------
+You considered this a failure case:
+Reference to an undeclared page
+ 
+But we did not.
+
+
+2.10: Current test is ./cyoa-step2 story1  <  /usr/local/ece551/cyoa/story1/inputs/input7.txt
+-----------------------------
+You considered this a failure case:
+Reference to an undeclared page
+ 
+But we did not.
+
+
+2.11: Current test is ./cyoa-step2 story1  <  /usr/local/ece551/cyoa/story1/inputs/input8.txt
+-----------------------------
+You considered this a failure case:
+Reference to an undeclared page
+ 
+But we did not.
+
+
+2.12: Current test is ./cyoa-step2 story1  <  /usr/local/ece551/cyoa/story1/inputs/input9.txt
+-----------------------------
+You considered this a failure case:
+Reference to an undeclared page
+ 
+But we did not.
+
+
+2.13: Current test is ./cyoa-step2 story1  <  /usr/local/ece551/cyoa/story1/inputs/input10.txt
+-----------------------------
+You considered this a failure case:
+Reference to an undeclared page
+ 
+But we did not.
+
+
+2.14: Current test is ./cyoa-step2 story2  <  /usr/local/ece551/cyoa/story1/inputs/input0.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+Valgrind was clean
+
+
+2.15: Current test is ./cyoa-step2 story2  <  /usr/local/ece551/cyoa/story1/inputs/input1.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+Valgrind was clean
+
+
+2.16: Current test is ./cyoa-step2 story2  <  /usr/local/ece551/cyoa/story1/inputs/input3.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+Valgrind was clean
+
+
+2.17: Current test is ./cyoa-step2 story2  <  /usr/local/ece551/cyoa/story1/inputs/input4.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+Valgrind was clean
+
+
+2.18: Current test is ./cyoa-step2 story2  <  /usr/local/ece551/cyoa/story1/inputs/input5.txt
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
-Invalid input command
+timeout: the monitored command dumped core
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind reported errors:
+==262395== Memcheck, a memory error detector
+==262395== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==262395== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==262395== Command: ./cyoa-step2 story2
+==262395== Parent PID: 262393
+==262395== 
+
+
+2.19: Current test is ./cyoa-step2 story2  <  /usr/local/ece551/cyoa/story1/inputs/input6.txt
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+timeout: the monitored command dumped core
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind reported errors:
+==262524== Memcheck, a memory error detector
+==262524== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==262524== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==262524== Command: ./cyoa-step2 story2
+==262524== Parent PID: 262523
+==262524== 
+
+
+2.20: Current test is ./cyoa-step2 story2  <  /usr/local/ece551/cyoa/story1/inputs/input7.txt
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+Input is not good
 
 -----------------------------------------
 Lets check if it valgrinds:
 Valgrind was clean
 
 
-2.4: Current test is ./cyoa-step2 story1 > /usr/local/ece551/cyoa/story1/inputs/input3.txt < /dev/null
+2.21: Current test is ./cyoa-step2 story2  <  /usr/local/ece551/cyoa/story1/inputs/input8.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+Valgrind was clean
+
+
+2.22: Current test is ./cyoa-step2 story2  <  /usr/local/ece551/cyoa/story1/inputs/input9.txt
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
-Invalid input command
+timeout: the monitored command dumped core
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind reported errors:
+==262607== Memcheck, a memory error detector
+==262607== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==262607== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==262607== Command: ./cyoa-step2 story2
+==262607== Parent PID: 262606
+==262607== 
+
+
+2.23: Current test is ./cyoa-step2 story2  <  /usr/local/ece551/cyoa/story1/inputs/input10.txt
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+Input is not good
 
 -----------------------------------------
 Lets check if it valgrinds:
 Valgrind was clean
 
 
-2.5: Current test is ./cyoa-step2 story1 > /usr/local/ece551/cyoa/story1/inputs/input3.txt < /dev/null
+2.24: Current test is ./cyoa-step2 story2  <  /usr/local/ece551/cyoa/story1/inputs/input11.txt
 -----------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-Invalid input command
-
------------------------------------------
-Lets check if it valgrinds:
+Your output looks good. Lets check valgrind
 Valgrind was clean
 
 
-2.6: Current test is ./cyoa-step2 story1 > /usr/local/ece551/cyoa/story1/inputs/input5.txt < /dev/null
+2.25: Current test is ./cyoa-step2 story2  <  /usr/local/ece551/cyoa/story1/inputs/input12.txt
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
-Invalid input command
-
+timeout: the monitored command dumped core
 -----------------------------------------
 Lets check if it valgrinds:
-Valgrind was clean
+Valgrind reported errors:
+==262686== Memcheck, a memory error detector
+==262686== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==262686== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==262686== Command: ./cyoa-step2 story2
+==262686== Parent PID: 262685
+==262686== 
 
 
-2.7: Current test is ./cyoa-step2 story1 > /usr/local/ece551/cyoa/story1/inputs/input6.txt < /dev/null
+2.26: Current test is ./cyoa-step2 story1  <  /usr/local/ece551/cyoa/story2/inputs/input11.txt
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
-Invalid input command
-
+/dev/fd/3: line 528: /usr/local/ece551/cyoa/story2/inputs/input11.txt: No such file or directory
 -----------------------------------------
 Lets check if it valgrinds:
-Valgrind was clean
-
-
-2.8: Current test is ./cyoa-step2 story1 > /usr/local/ece551/cyoa/story1/inputs/input7.txt < /dev/null
------------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-Invalid input command
-
------------------------------------------
-Lets check if it valgrinds:
-Valgrind was clean
-
-
-2.9: Current test is ./cyoa-step2 story1 > /usr/local/ece551/cyoa/story1/inputs/input8.txt < /dev/null
------------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-Invalid input command
-
------------------------------------------
-Lets check if it valgrinds:
-Valgrind was clean
-
-
-2.10: Current test is ./cyoa-step2 story1 > /usr/local/ece551/cyoa/story1/inputs/input9.txt < /dev/null
------------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-Invalid input command
-
------------------------------------------
-Lets check if it valgrinds:
-Valgrind was clean
-
-
-2.11: Current test is ./cyoa-step2 story1 > /usr/local/ece551/cyoa/story1/inputs/input10.txt < /dev/null
------------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-Invalid input command
-
------------------------------------------
-Lets check if it valgrinds:
-Valgrind was clean
-
-
-2.12: Current test is ./cyoa-step2 story2 > /usr/local/ece551/cyoa/story1/inputs/input0.txt < /dev/null
------------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-Invalid input command
-
------------------------------------------
-Lets check if it valgrinds:
-Valgrind was clean
-
-
-2.13: Current test is ./cyoa-step2 story2 > /usr/local/ece551/cyoa/story1/inputs/input1.txt < /dev/null
------------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-Invalid input command
-
------------------------------------------
-Lets check if it valgrinds:
-Valgrind was clean
-
-
-2.14: Current test is ./cyoa-step2 story2 > /usr/local/ece551/cyoa/story1/inputs/input3.txt < /dev/null
------------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-Invalid input command
-
------------------------------------------
-Lets check if it valgrinds:
-Valgrind was clean
-
-
-2.15: Current test is ./cyoa-step2 story2 > /usr/local/ece551/cyoa/story1/inputs/input4.txt < /dev/null
------------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-Invalid input command
-
------------------------------------------
-Lets check if it valgrinds:
-Valgrind was clean
-
-
-2.16: Current test is ./cyoa-step2 story2 > /usr/local/ece551/cyoa/story1/inputs/input5.txt < /dev/null
------------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-Invalid input command
-
------------------------------------------
-Lets check if it valgrinds:
-Valgrind was clean
-
-
-2.17: Current test is ./cyoa-step2 story2 > /usr/local/ece551/cyoa/story1/inputs/input6.txt < /dev/null
------------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-Invalid input command
-
------------------------------------------
-Lets check if it valgrinds:
-Valgrind was clean
-
-
-2.18: Current test is ./cyoa-step2 story2 > /usr/local/ece551/cyoa/story1/inputs/input7.txt < /dev/null
------------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-Invalid input command
-
------------------------------------------
-Lets check if it valgrinds:
-Valgrind was clean
-
-
-2.19: Current test is ./cyoa-step2 story2 > /usr/local/ece551/cyoa/story1/inputs/input8.txt < /dev/null
------------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-Invalid input command
-
------------------------------------------
-Lets check if it valgrinds:
-Valgrind was clean
-
-
-2.20: Current test is ./cyoa-step2 story2 > /usr/local/ece551/cyoa/story1/inputs/input9.txt < /dev/null
------------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-Invalid input command
-
------------------------------------------
-Lets check if it valgrinds:
-Valgrind was clean
-
-
-2.21: Current test is ./cyoa-step2 story2 > /usr/local/ece551/cyoa/story1/inputs/input10.txt < /dev/null
------------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-Invalid input command
-
------------------------------------------
-Lets check if it valgrinds:
-Valgrind was clean
-
-
-2.22: Current test is ./cyoa-step2 story2 > /usr/local/ece551/cyoa/story1/inputs/input11.txt < /dev/null
------------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-Invalid input command
-
------------------------------------------
-Lets check if it valgrinds:
-Valgrind was clean
-
-
-2.23: Current test is ./cyoa-step2 story2 > /usr/local/ece551/cyoa/story1/inputs/input12.txt < /dev/null
------------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-Invalid input command
-
------------------------------------------
-Lets check if it valgrinds:
-Valgrind was clean
-
-
-2.24: Current test is ./cyoa-step2 story1 > /usr/local/ece551/cyoa/story2/inputs/input11.txt < /dev/null
------------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-Invalid input command
-
------------------------------------------
-Lets check if it valgrinds:
-Valgrind was clean
+Valgrind reported errors:
+==262686== Memcheck, a memory error detector
+==262686== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==262686== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==262686== Command: ./cyoa-step2 story2
+==262686== Parent PID: 262685
+==262686== 
 No request to check for intermediate deadline completion on step 2
 
 Step 3
@@ -353,6 +465,42 @@ Executable cyoa-step3 exists (good)
 ------------------------------------
 Now running YOUR tests for step 3
 ------------------------------------
+
+
+3.1: Current test is ./cyoa-step3 story1 < /dev/null
+-----------------------------
+You considered this a failure case:
+Reference to an undeclared page
+ 
+But we did not.
+
+
+3.2: Current test is ./cyoa-step3 story2 < /dev/null
+-----------------------------
+Your output looks good. Lets check valgrind
+Valgrind was clean
+
+
+3.3: Current test is ./cyoa-step3 story1 story2 < /dev/null
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+Invalid input command
+
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+3.4: Current test is ./cyoa-step3  < /dev/null
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+Invalid input command
+
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
 ------------------------------------
 You have requested that we check for intermediate deadline completion on step 3
 ------------------------------------
@@ -360,15 +508,15 @@ You have requested that we check for intermediate deadline completion on step 3
 Step 3 EC intermediate deadline test 1
 ===========================================================
 ./cyoa-step3 /usr/local/ece551/cyoa/story1
-Valgrind was clean for this testcase
-You have passed this test case
+You indicated this was a failure, but it was not
+Reference to an undeclared page
+ 
 
 Step 3 EC intermediate deadline test 2
 ===========================================================
 ./cyoa-step3 /usr/local/ece551/cyoa/story2
 Valgrind was clean for this testcase
 You have passed this test case
-Intermediate deadline requirements for Step 3 passed at Sat Dec  2 12:43:23 PM EST 2023
 
 Step 4
 Checking that cyoa-step4 compiles
