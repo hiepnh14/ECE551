@@ -14,6 +14,7 @@
 0:1:Try to sneak past the sleeping dragon
 0:2:Leave the dragon's cave and go home
 
+No delimiter
 
 1:4:Pick up the ruby
 1:5:Pass the ruby to explore the rest of the hoard

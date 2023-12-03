@@ -172,8 +172,6 @@ void Story::readStory(istream & input, string foldername) {
 
       if (!isDigits(linkPage))
         error("Link page invalid digit\n");
-      if (toLong(linkPage) >= orderCheck)
-        error("Reference to an undeclared page\n ");
       if (line[i] == ':') {
         // Start parsing the choice message
         i++;
@@ -181,8 +179,8 @@ void Story::readStory(istream & input, string foldername) {
         addChoices(num, choiceText, toLong(linkPage));
       }
     }
-    else
-      error("Invalid story line\n");
+    //else
+    //error("Invalid story line\n");
   }
 }
 long int findPageVector(vector<size_t> vector, size_t item) {

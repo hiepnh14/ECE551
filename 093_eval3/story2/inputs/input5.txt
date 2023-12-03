@@ -1,5 +1,44 @@
-1
-2
-2
-2
+==263682== 
+==263682== Process terminating with default action of signal 2 (SIGINT)
+==263682==    at 0x4BC49D2: read (read.c:26)
+==263682==    by 0x4B3CC35: _IO_file_underflow@@GLIBC_2.2.5 (fileops.c:516)
+==263682==    by 0x4B3DD95: _IO_default_uflow (genops.c:362)
+==263682==    by 0x49768C0: __gnu_cxx::stdio_sync_filebuf<char, std::char_traits<char> >::underflow() (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==263682==    by 0x49849D5: std::istream::sentry::sentry(std::istream&, bool) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==263682==    by 0x492C166: std::basic_istream<char, std::char_traits<char> >& std::operator>><char, std::char_traits<char>, std::allocator<char> >(std::basic_istream<char, std::char_traits<char> >&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&) (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.30)
+==263682==    by 0x10EAD2: Story::display(Page) (cyoa.cpp:252)
+==263682==    by 0x10BB84: main (in /home/hhn3/ece551/093_eval3/cyoa-step2)
+==263682== 
+==263682== HEAP SUMMARY:
+==263682==     in use at exit: 90,594 bytes in 90 blocks
+==263682==   total heap usage: 490 allocs, 400 frees, 216,172 bytes allocated
+==263682== 
+==263682== LEAK SUMMARY:
+==263682==    definitely lost: 0 bytes in 0 blocks
+==263682==    indirectly lost: 0 bytes in 0 blocks
+==263682==      possibly lost: 0 bytes in 0 blocks
+==263682==    still reachable: 90,594 bytes in 90 blocks
+==263682==         suppressed: 0 bytes in 0 blocks
+==263682== Rerun with --leak-check=full to see details of leaked memory
+==263682== 
+==263682== For lists of detected and suppressed errors, rerun with: -s
+==263682== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+interrupt
+One bright weekend afternoon, you decide to adventure, putting on your Ring
+of the Niebelungen and traveler's cloak and strapping the famed sword Ice
+to your back.
 
+Half-way up the mountain Matterhorn, you see a cave opening with steam
+coming out. You enter the cave and tiptoe inside, straining your eyes in
+the gloomy mist.
+
+You encounter a dragon.
+
+What would you like to do?
+
+ 1. Try to sneak past the sleeping dragon
+ 2. Leave the dragon's cave and go home
+ 3. Stab the dragon in the neck
+That is not a valid choice, please try again
+That is not a valid choice, please try again
+interrupt
