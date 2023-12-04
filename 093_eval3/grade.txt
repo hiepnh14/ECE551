@@ -1,6 +1,6 @@
-Grading at 12/04/2023:19:55:07.206561
-For commit ID 035faf9bf36ca174467eee592429b2899f918cfe
-Grading at Mon Dec  4 02:54:02 PM EST 2023
+Grading at 12/04/2023:19:58:52.530160
+For commit ID fb462a7cdba9a69b4261165b398945fd55b779fa
+Grading at Mon Dec  4 02:57:47 PM EST 2023
 Doing some basic checking for your submission
 
 Step 1
@@ -317,13 +317,13 @@ Your output looks good. Lets check valgrind
 Valgrind was clean
 
 
-2.18: Current test is ./cyoa-step2 story2  <  /usr/local/ece551/cyoa/story2/inputs/input5.txt
+2.18: Current test is ./cyoa-step2 story2  <  story2/inputs/input5.txt
 -----------------------------
 Your output looks good. Lets check valgrind
 Valgrind was clean
 
 
-2.19: Current test is ./cyoa-step2 story2  <  /usr/local/ece551/cyoa/story2/inputs/input6.txt
+2.19: Current test is ./cyoa-step2 story2  <  story2/inputs/input6.txt
 -----------------------------
 Your output looks good. Lets check valgrind
 Valgrind was clean
@@ -354,12 +354,12 @@ timeout: the monitored command dumped core
 -----------------------------------------
 Lets check if it valgrinds:
 Valgrind reported errors:
-==1073423== Memcheck, a memory error detector
-==1073423== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==1073423== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==1073423== Command: ./cyoa-step2 story2
-==1073423== Parent PID: 1073422
-==1073423== 
+==1076987== Memcheck, a memory error detector
+==1076987== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==1076987== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==1076987== Command: ./cyoa-step2 story2
+==1076987== Parent PID: 1076986
+==1076987== 
 
 
 2.23: Current test is ./cyoa-step2 story2  <  /usr/local/ece551/cyoa/story1/inputs/input10.txt
@@ -387,12 +387,12 @@ timeout: the monitored command dumped core
 -----------------------------------------
 Lets check if it valgrinds:
 Valgrind reported errors:
-==1073621== Memcheck, a memory error detector
-==1073621== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==1073621== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==1073621== Command: ./cyoa-step2 story2
-==1073621== Parent PID: 1073620
-==1073621== 
+==1077132== Memcheck, a memory error detector
+==1077132== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==1077132== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==1077132== Command: ./cyoa-step2 story2
+==1077132== Parent PID: 1077131
+==1077132== 
 
 
 2.26: Current test is ./cyoa-step2 story1  <  /usr/local/ece551/cyoa/story2/inputs/input11.txt
@@ -403,12 +403,12 @@ Great: we both considered this an error
 -----------------------------------------
 Lets check if it valgrinds:
 Valgrind reported errors:
-==1073621== Memcheck, a memory error detector
-==1073621== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==1073621== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==1073621== Command: ./cyoa-step2 story2
-==1073621== Parent PID: 1073620
-==1073621== 
+==1077132== Memcheck, a memory error detector
+==1077132== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==1077132== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==1077132== Command: ./cyoa-step2 story2
+==1077132== Parent PID: 1077131
+==1077132== 
 No request to check for intermediate deadline completion on step 2
 
 Step 3
@@ -472,7 +472,7 @@ Step 3 EC intermediate deadline test 2
 ./cyoa-step3 /usr/local/ece551/cyoa/story2
 Valgrind was clean for this testcase
 You have passed this test case
-Intermediate deadline requirements for Step 3 passed at Mon Dec  4 02:55:07 PM EST 2023
+Intermediate deadline requirements for Step 3 passed at Mon Dec  4 02:58:52 PM EST 2023
 
 Step 4
 Checking that cyoa-step4 compiles
