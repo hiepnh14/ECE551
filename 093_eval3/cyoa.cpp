@@ -263,7 +263,25 @@ void Story::display(Page current) {
     }
     else
       cout << "That is not a valid choice, please try again" << endl;
+    cin.clear();
   }
+  /*size_t input;
+
+  while (!satisfy) {
+    cin >> input;
+    if (!cin.good()) {
+      cin.clear();
+      cout << "That is not a valid choice, please try again" << endl;
+      continue;
+    }
+    else if (input > 0 && input <= current.getChoices().size()) {
+      satisfy = true;
+      display(findPage(current.getChoices()[input - 1].first));
+    }
+    else
+      cout << "That is not a valid choice, please try again" << endl;
+    cin.clear();
+  }*/
 }
 // this function to generate a graph of pages that link with other pages from the story
 vector<vector<size_t> > generateGraph(Story main) {
