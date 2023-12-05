@@ -250,16 +250,16 @@ void Story::display(Page current) {
   string input;
   while (!satisfy) {
     cin >> input;
-    if (!isDigits(input)) {
-      cout << "That is not a valid choice, please try again" << endl;
-      continue;
-    }
-    size_t next = toLong(input);
+
     if (!cin.good())
       error("Input is not good\n");
-    if (next > 0 && next <= current.getChoices().size()) {
-      satisfy = true;
-      display(findPage(current.getChoices()[next - 1].first));
+
+    else if (isDigits(input)) {
+      size_t next = toLong(input);
+      if (next > 0 && next <= current.getChoices().size()) {
+        satisfy = true;
+        display(findPage(current.getChoices()[next - 1].first));
+      }
     }
     else
       cout << "That is not a valid choice, please try again" << endl;
