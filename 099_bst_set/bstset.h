@@ -24,17 +24,6 @@ class BstSet : public Set<T> {
     }
     return NULL;
   }
-
- public:
-  BstSet<T>() : root(NULL) {}
-  BstSet<T>(const BstSet & rhs) { root = copy(rhs.root); }
-  BstSet<T> & operator=(const BstSet<T> & rhs) {
-    if (this != &rhs) {
-      BstSet<T> temp(rhs);
-      std::swap(temp.root, root);
-    }
-    return *this;
-  }
   void destroy(Node * node) {
     if (node != NULL) {
       destroy(node->left);
@@ -72,6 +61,18 @@ class BstSet : public Set<T> {
       return node;
     }
   }
+
+ public:
+  BstSet<T>() : root(NULL) {}
+  BstSet<T>(const BstSet & rhs) { root = copy(rhs.root); }
+  BstSet<T> & operator=(const BstSet<T> & rhs) {
+    if (this != &rhs) {
+      BstSet<T> temp(rhs);
+      std::swap(temp.root, root);
+    }
+    return *this;
+  }
+
   virtual void add(const T & key) {
     Node ** cur = &root;
     while (*cur != NULL) {
@@ -86,22 +87,17 @@ class BstSet : public Set<T> {
     *cur = new Node(key);
   }
   virtual bool contains(const T & key) const {
-    Node * const * temp = &root;
-    Node * traverse = *temp;
-    while (traverse != NULL) {
-      if (key == traverse->key)
-        break;
-      else if (key > traverse->key)
-        traverse = traverse->right;
+    Node * const * traverse = &root;
+    while (*traverse != NULL) {
+      if (key == (*traverse)->key)
+        return true;
+      else if (key > (*traverse)->key)
+        traverse = &(*traverse)->right;
       else
-        traverse = traverse->left;
+        traverse = &(*traverse)->left;
     }
-
-    if (traverse == NULL) {
-      throw false;
-    }
-    else
-      return true;
+    //if (traverse == NULL) {
+    return false;
   }
   virtual void remove(const T & key) { root = removeHelper(root, key); }
   virtual ~BstSet<T>() { destroy(root); }
