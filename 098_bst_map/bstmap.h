@@ -67,9 +67,6 @@ class BstMap : public Map<K, V> {
   }
   virtual void remove(const K & key) { root = removeNode(root, key); }
   Node * removeNode(Node * node, const K & key) {
-    if (node == NULL) {
-      return node;
-    }
     if (node->key == key) {
       if (node->left == NULL) {
         Node * temp = node->right;
@@ -82,11 +79,12 @@ class BstMap : public Map<K, V> {
         return temp;
       }
       else {
-        K keyTarget = findMinKey(node->right);
-        V valueTarget = lookup(keyTarget);
-        node->right = removeNode(node->right, keyTarget);
-        node->key = keyTarget;
-        node->value = valueTarget;
+        Node * replacement = node->right;
+        while (replacement->left != NULL)
+          replacement = replacement->left;
+        node->key = replacement->key;
+        node->value = replacement->value;
+        node->right = removeNode(node->right, replacement->key);
         return node;
       }
     }

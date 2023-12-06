@@ -16,5 +16,5 @@ int main(void) {
   int a = tree.lookup(5);
   tree.remove(0);
   std::cout << "6= " << a << "\n";
-  std::cout << tree.lookup(0) << "\n";
+  //std::cout << tree.lookup(0) << "\n";
 }
