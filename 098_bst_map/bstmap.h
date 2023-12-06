@@ -121,6 +121,13 @@ class BstMap : public Map<K, V> {
     }
     return traverse;
   }
-  virtual ~BstMap<K, V>() {}
+  void destroy(Node * node) {
+    if (node != NULL) {
+      destroy(node->left);
+      destroy(node->right);
+      delete node;
+    }
+  }
+  virtual ~BstMap<K, V>() { destroy(root); }
 };
 #endif
