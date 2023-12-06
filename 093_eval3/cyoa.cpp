@@ -28,12 +28,20 @@ void Page::printPage() const {
 }
 bool conditionSatisfy(vector<pair<string, long int> > inventory,
                       pair<string, long int> condition) {
-  if (condition.first == "" && condition.second == 0)
+  if (condition.first == "")
     return true;
   for (size_t j = 0; j < inventory.size(); j++) {
     if (inventory[j] == condition) {
       return true;
     }
+  }
+  if (condition.second == 0) {
+    for (size_t j = 0; j < inventory.size(); j++) {
+      if (condition.first == inventory[j].first &&
+          condition.second != inventory[j].second)
+        return false;
+    }
+    return true;
   }
   return false;
 }
