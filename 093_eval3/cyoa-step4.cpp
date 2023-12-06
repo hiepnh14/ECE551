@@ -1,5 +1,6 @@
 #include "cyoa.hpp"
 
+// Step 4
 int main(int argc, char ** argv) {
   if (argc != 2)
     error("Invalid input command\n");
@@ -13,15 +14,9 @@ int main(int argc, char ** argv) {
   }
   Story main;
   main.readStory(story_stream, argv[1]);
-  vector<Page> pages = main.getPage();
-  vector<Page>::const_iterator it = pages.begin();
-
-  while (it != pages.end()) {
-    it->printHeader();
-    it->printPage();
-    it->printFooter(main.getInventory());
-    ++it;
-  }
+  bool check = main.conditionCheck();
+  if (check)
+    main.display(main.findPage(0));
   story_stream.close();
   //error("Fail to close story.txt file\n");
 
