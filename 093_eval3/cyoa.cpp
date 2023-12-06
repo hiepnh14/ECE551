@@ -180,6 +180,8 @@ void Story::readStory(istream & input, string foldername) {
     }
     // Choice case with no condition
     else if (line[i] == ':') {
+      if (num > orderCheck)
+        error("Page is not yet declared\n");
       i++;
       linkPage = getItem(line, ':', index);
       if (pages[num].getType() != 'N')
@@ -199,6 +201,8 @@ void Story::readStory(istream & input, string foldername) {
     }
     // Add Variable to page
     else if (line[i] == '$') {
+      if (num > orderCheck)
+        error("Page is not yet declared\n");
       i++;
       string variable_name = getItem(line, '=', index);
       if (line[i] != '=')
@@ -213,6 +217,8 @@ void Story::readStory(istream & input, string foldername) {
     }
     // Add Choice and Condition
     else if (line[i] == '[') {
+      if (num > orderCheck)
+        error("Page is not yet declared\n");
       i++;
       string variable_name = getItem(line, '=', index);
       if (line[i] != '=')
