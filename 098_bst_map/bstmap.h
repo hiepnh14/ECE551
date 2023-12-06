@@ -19,11 +19,41 @@ class BstMap : public Map<K, V> {
     Node(K key, V value) : key(key), value(value), left(NULL), right(NULL) {}
   };
   Node * root;
+  Node * copy(const Node * rhs) {
+    if (rhs != NULL) {
+      Node * cur = new Node(rhs->key, rhs->value);
+      cur->left = copy(rhs->left);
+      cur->right = copy(rhs->right);
+      return cur;
+    }
+    return NULL;
+  }
 
  public:
-  BstMap() : root(NULL) {}
+  BstMap<K, V>() : root(NULL) {}
+  BstMap<K, V>(const BstMap<K, V> & rhs) { root = copy(rhs.root); }
+  BstMap<K, V> & operator=(const BstMap<K, V> & rhs) {
+    if (this != &rhs) {
+      BstMap<K, V> temp(rhs);
+      std::swap(temp.root, root);
+    }
+    return *this;
+  }
   virtual void add(const K & key, const V & value) {
-    if (root == NULL)
+    Node ** cur = &root;
+    while (*cur != NULL) {
+      if (key > (*cur)->key)
+        cur = &(*cur)->right;
+      else if (key < (*cur)->key)
+        cur = &(*cur)->left;
+      else {
+        (*cur)->value = value;
+        return;
+      }
+    }
+    *cur = new Node(key, value);
+  }
+  /* if (root == NULL)
       root = new Node(key, value);
     else {
       Node * traverse = root;
@@ -46,7 +76,7 @@ class BstMap : public Map<K, V> {
         }
       }
     }
-  }
+  }*/
   virtual const V & lookup(const K & key) const throw(std::invalid_argument) {
     Node * const * temp = &root;
     Node * traverse = *temp;
