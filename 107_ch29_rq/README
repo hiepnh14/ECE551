@@ -71,7 +71,6 @@ D. If two parent classes have fields with the same name, we need to use the scop
    operator to access the specified field in parent class.
 
 9. Which of the following is INCORRECT about virtual inheritance?
-
 A. Virtual inheritance is used to avoid two copies of the same grandparent class.
 B. The keyword "virtual" is used in a child class when it tries to inherit two parents, which
    both inherit from the same grandparent class.
