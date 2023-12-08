@@ -1,6 +1,6 @@
-Grading at 12/08/2023:09:44:53.293129
-For commit ID f00e7561aa10c3e1f9f2bbce752ecdf71a81c0d5
-Grading at Fri Dec  8 04:42:00 AM EST 2023
+Grading at 12/08/2023:15:31:48.531337
+For commit ID 19dd83df2b9f175f0b3c7eeb4001591cd28ecd82
+Grading at Fri Dec  8 10:28:50 AM EST 2023
 Doing some basic checking for your submission
 
 Step 1
@@ -323,6 +323,12 @@ Valgrind was clean
 
 
 1.33: Current test is ./cyoa-step1 test/step3_test5 < /dev/null
+-----------------------------
+Your output looks good. Lets check valgrind
+Valgrind was clean
+
+
+1.34: Current test is ./cyoa-step1 test/step3_test7 < /dev/null
 -----------------------------
 Your output looks good. Lets check valgrind
 Valgrind was clean
@@ -793,47 +799,31 @@ Your output looks good. Lets check valgrind
 Valgrind was clean
 
 
-2.56: Current test is ./cyoa-step2 test/step4_test5  <  /usr/local/ece551/cyoa/story3/inputs/input18.txt
+2.56: Current test is ./cyoa-step2 test/step3_test6  <  /usr/local/ece551/cyoa/story3/inputs/input18.txt
 -----------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-Out of range error
+You considered this a failure case:
+Invalid digits from story.txt for value 
 
------------------------------------------
-Lets check if it valgrinds:
+But we did not.
+
+
+2.57: Current test is ./cyoa-step2 test/step3_test6  <  /usr/local/ece551/cyoa/story3/inputs/input19.txt
+-----------------------------
+You considered this a failure case:
+Invalid digits from story.txt for value 
+
+But we did not.
+
+
+2.58: Current test is ./cyoa-step2 test/step3_test7  <  /usr/local/ece551/cyoa/story3/inputs/input0.txt
+-----------------------------
+Your output looks good. Lets check valgrind
 Valgrind was clean
 
 
-2.57: Current test is ./cyoa-step2 test/step4_test5  <  /usr/local/ece551/cyoa/story3/inputs/input19.txt
+2.59: Current test is ./cyoa-step2 test/step3_test7  <  /usr/local/ece551/cyoa/story3/inputs/input1.txt
 -----------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-Out of range error
-
------------------------------------------
-Lets check if it valgrinds:
-Valgrind was clean
-
-
-2.58: Current test is ./cyoa-step2 test/step4_test2  <  /usr/local/ece551/cyoa/story3/inputs/input0.txt
------------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-Invalid digits from story.txt for page 
-
------------------------------------------
-Lets check if it valgrinds:
-Valgrind was clean
-
-
-2.59: Current test is ./cyoa-step2 test/step4_test2  <  /usr/local/ece551/cyoa/story3/inputs/input1.txt
------------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-Invalid digits from story.txt for page 
-
------------------------------------------
-Lets check if it valgrinds:
+Your output looks good. Lets check valgrind
 Valgrind was clean
 
 
@@ -1235,18 +1225,15 @@ Lets check if it valgrinds:
 Valgrind was clean
 
 
-3.31: Current test is ./cyoa-step3 test/step2_test5 < /dev/null
+3.31: Current test is ./cyoa-step3 test/step3_test6 < /dev/null
 -----------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-Page is missing or is not referenced
+You considered this a failure case:
+Invalid digits from story.txt for value 
 
------------------------------------------
-Lets check if it valgrinds:
-Valgrind was clean
+But we did not.
 
 
-3.32: Current test is ./cyoa-step3 test/step3_test5 < /dev/null
+3.32: Current test is ./cyoa-step3 test/step3_test7 < /dev/null
 -----------------------------
 Your output looks good. Lets check valgrind
 Valgrind was clean
@@ -1581,6 +1568,74 @@ Valgrind was clean
 
 
 4.40: Current test is ./cyoa-step4 test/step4_test6  <  /usr/local/ece551/cyoa/story3/inputs/input1.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+Valgrind was clean
+
+
+4.41: Current test is ./cyoa-step4 test/step3_test6  <  /usr/local/ece551/cyoa/story3/inputs/input1.txt
+-----------------------------
+You considered this a failure case:
+Invalid digits from story.txt for value 
+
+But we did not.
+
+
+4.42: Current test is ./cyoa-step4 test/step3_test6  <  /usr/local/ece551/cyoa/story3/inputs/input2.txt
+-----------------------------
+You considered this a failure case:
+Invalid digits from story.txt for value 
+
+But we did not.
+
+
+4.43: Current test is ./cyoa-step4 test/step3_test6  <  /usr/local/ece551/cyoa/story3/inputs/input3.txt
+-----------------------------
+You considered this a failure case:
+Invalid digits from story.txt for value 
+
+But we did not.
+
+
+4.44: Current test is ./cyoa-step4 test/step4_test6  <  /usr/local/ece551/cyoa/story3/inputs/input4.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+Valgrind was clean
+
+
+4.45: Current test is ./cyoa-step4 test/step3_test6  <  /usr/local/ece551/cyoa/story3/inputs/input5.txt
+-----------------------------
+You considered this a failure case:
+Invalid digits from story.txt for value 
+
+But we did not.
+
+
+4.46: Current test is ./cyoa-step4 test/step3_test7  <  /usr/local/ece551/cyoa/story3/inputs/input6.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+Valgrind was clean
+
+
+4.47: Current test is ./cyoa-step4 test/step3_test7  <  /usr/local/ece551/cyoa/story3/inputs/input7.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+Valgrind was clean
+
+
+4.48: Current test is ./cyoa-step4 test/step3_test7  <  /usr/local/ece551/cyoa/story3/inputs/input8.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+Valgrind was clean
+
+
+4.49: Current test is ./cyoa-step4 test/step3_test7  <  /usr/local/ece551/cyoa/story3/inputs/input4.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+Valgrind was clean
+
+
+4.50: Current test is ./cyoa-step4 test/step3_test7  <  /usr/local/ece551/cyoa/story3/inputs/input1.txt
 -----------------------------
 Your output looks good. Lets check valgrind
 Valgrind was clean
