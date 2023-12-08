@@ -2,7 +2,7 @@
 0:1:Purchase a chocolate croissant.
  0:2:Purchase an eclair.
  0: 3:Purchase a muffin.
- 1 0@N:croissant.txt
+ 1@N:croissant.txt
 2@N:eclair.txt
 3@N:muffin.txt
 1$pastry=1
@@ -34,12 +34,12 @@
 
 9@L:dragonsnack.txt
 10@W:coins.txt
-11@L:attack.txt
-12@W:offercroissant.txt
-13@N:squirteclair.txt
-13[broke=0]:16:Fling your last coins at the dragon
-13[sword=1]:17:Attack the dragon with your sword
-13[broke=0]:18:Run for it!
+1 1@L:attack.txt
+1 2@W:offercroissant.txt
+1 3@N:squirteclair.txt
+1 3[broke=0]:16:Fling your last coins at the dragon
+1 3[sword=1]:17:Attack the dragon with your sword
+1 3[broke=0]:18:Run for it!
 13[broke=1]:19:Run for it!
 14@L:throwmuffin.txt
 15@N:jokes.txt
