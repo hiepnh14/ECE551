@@ -7,8 +7,8 @@
 3@N:muffin.txt
 1$pastry=-1
 1$pastry=1
-1$new=100
-2$pastry=2
+1$new= 100
+2$pastry=2  
 3$pastry=3
 3$new=2
 1:4:Leave the store
