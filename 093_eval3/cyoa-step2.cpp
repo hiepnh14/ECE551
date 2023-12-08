@@ -14,10 +14,12 @@ int main(int argc, char ** argv) {
   Story main;
   main.readStory(story_stream, argv[1]);
   bool check = main.conditionCheck();
+  // Check conditions
   if (check)
     main.display(main.findPage(0));
   story_stream.close();
-  //error("Fail to close story.txt file\n");
+  if (story_stream.fail() && !story_stream.eof())
+    error("Fail to close story.txt file\n");
 
   return EXIT_SUCCESS;
 }

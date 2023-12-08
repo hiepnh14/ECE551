@@ -5,15 +5,12 @@
 1@N:croissant.txt
 2@N:eclair.txt
 3@N:muffin.txt
-1$pastry=1
-1$
+1$pastry=1 1
 2$pastry=2
 3$pastry=3
-1:
 1:4:Leave the store
 2:4:Leave the store
 3:4:Leave the store
-4@
 4@N:direction.txt
 4:5:Go east, out of town
 4:6:Go west, into town

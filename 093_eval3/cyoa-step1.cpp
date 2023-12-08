@@ -23,7 +23,8 @@ int main(int argc, char ** argv) {
     ++it;
   }
   story_stream.close();
-  //error("Fail to close story.txt file\n");
+  if (story_stream.fail() && !story_stream.eof())
+    error("Fail to close story.txt file\n");
 
   return EXIT_SUCCESS;
 }

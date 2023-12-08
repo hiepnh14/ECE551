@@ -18,7 +18,7 @@ bool isDigitsOrMinus(const string & digits) {
   }
   else
     return false;
-  while (it != digits.end() && (isdigit(*it) || *it != ' ')) {
+  while (it != digits.end() && (isdigit(*it))) {
     ++it;
   }
   if (!digits.empty() && it == digits.end())
@@ -29,22 +29,24 @@ bool isDigitsOrMinus(const string & digits) {
 bool isDigits(const string & digits) {
   string::const_iterator it = digits.begin();
   //cout << digits << endl;
-  bool last_digit = false;
+  //bool last_digit = false;
   // Ignore initial space
   while (it != digits.end() && (*it == ' ')) {
     ++it;
   }
-  while (it != digits.end() && (isdigit(*it) || *it == ' ')) {
+  //while (it != digits.end() && (isdigit(*it) || *it == ' ')) {
+  while (it != digits.end() && (isdigit(*it))) {
     //cout << "\n  " << *it;
+    /*
     if (isdigit(*it))
       last_digit = true;
     else if (*it == ' ') {
       //cout << "space\n";
       last_digit = false;
-    }
+      }*/
     ++it;
   }
-  if (!digits.empty() && it == digits.end() && last_digit)
+  if (!digits.empty() && it == digits.end())
     return true;
   else
     return false;

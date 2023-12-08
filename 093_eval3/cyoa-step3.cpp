@@ -19,7 +19,8 @@ int main(int argc, char ** argv) {
     error("No satisfied conditions in step 2\n");
   printAllPaths(main, 0);
   story_stream.close();
-  //error("Fail to close story.txt file\n");
+  if (story_stream.fail() && !story_stream.eof())
+    error("Fail to close story.txt file\n");
 
   return EXIT_SUCCESS;
 }
