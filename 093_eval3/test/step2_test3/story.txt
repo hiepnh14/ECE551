@@ -15,22 +15,19 @@
 0:2:Leave the dragon's cave and go home
 
 
-1:4:Pick up the ruby
-1:5:Pass the ruby to explore the rest of the hoard
+5:4:Pick up the ruby
+
 
 5:6:Put on the cloak
 5:7:Open the book
-
+7:5:jijij
 6:8:Go back and take the ruby
 6:9:Go back and open the book
 
-7:10:Exult in your skillset and go home
+6:10:Exult in your skillset and go home
 
 8:11:Take your prize and go home
 
 0:3:Stab the dragon in the neck
-7:3:Stab the dragon in the neck
-8:3:Stab the dragon in the neck
-
 
 

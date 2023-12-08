@@ -111,13 +111,18 @@ void Story::addChoices(size_t page_num,
                        string choice,
                        size_t linkPage,
                        pair<string, long int> condition) {
-  for (size_t i = 0; i < pages.size(); i++) {
-    if (pages[i].getNum() == page_num) {
-      pair<size_t, string> addedChoice(linkPage, choice);
-      pages[i].addChoice(addedChoice, condition);
-      return;
+  // for (size_t i = 0; i < pages.size(); i++) {
+  if (pages[page_num].getNum() == page_num) {
+    pair<size_t, string> addedChoice(linkPage, choice);
+    for (size_t j = 0; j < pages[page_num].getChoices().size(); j++) {
+      if (pages[page_num].getChoices()[j].first == linkPage)
+        //Update message
+        return;
     }
+    pages[page_num].addChoice(addedChoice, condition);
+    return;
   }
+  //}
   error("No Page found for adding choice\n");
 }
 // Convert string to long int

@@ -14,6 +14,9 @@ int main(int argc, char ** argv) {
   Story main;
   main.readStory(story_stream, argv[1]);
   //printGraph(main);
+  bool check = main.conditionCheck();
+  if (!check)
+    error("No satisfied conditions in step 2\n");
   printAllPaths(main, 0);
   story_stream.close();
   //error("Fail to close story.txt file\n");
