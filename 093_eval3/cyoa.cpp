@@ -18,7 +18,7 @@ bool isDigitsOrMinus(const string & digits) {
   }
   else
     return false;
-  while (it != digits.end() && isdigit(*it) && *it != ' ') {
+  while (it != digits.end() && (isdigit(*it) || *it != ' ')) {
     ++it;
   }
   if (!digits.empty() && it == digits.end())
@@ -28,14 +28,23 @@ bool isDigitsOrMinus(const string & digits) {
 }
 bool isDigits(const string & digits) {
   string::const_iterator it = digits.begin();
+  //cout << digits << endl;
+  bool last_digit = false;
   // Ignore initial space
   while (it != digits.end() && (*it == ' ')) {
     ++it;
   }
-  while (it != digits.end() && isdigit(*it)) {
+  while (it != digits.end() && (isdigit(*it) || *it == ' ')) {
+    //cout << "\n  " << *it;
+    if (isdigit(*it))
+      last_digit = true;
+    else if (*it == ' ') {
+      //cout << "space\n";
+      last_digit = false;
+    }
     ++it;
   }
-  if (!digits.empty() && it == digits.end())
+  if (!digits.empty() && it == digits.end() && last_digit)
     return true;
   else
     return false;
@@ -271,8 +280,8 @@ void Story::readStory(istream & input, string foldername) {
         error("Fail to open File");
       currentPage.addLine(file);
       file.close();
-      //if (file.fail())
-      //   error("Fail to close page file\n");
+      if (file.fail() && !file.eof())
+        error("Fail to close page file\n");
       addPage(currentPage);
     }
     // Choice case with no condition
