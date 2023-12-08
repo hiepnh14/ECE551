@@ -1,6 +1,6 @@
-Grading at 12/08/2023:19:06:04.667662
-For commit ID 970be8697820b68790983dfd1097864b0cce578e
-Grading at Fri Dec  8 02:04:22 PM EST 2023
+Grading at 12/08/2023:19:42:42.261528
+For commit ID ee3692314c77c87ad696e5eb59aa08e5d4dcce83
+Grading at Fri Dec  8 02:41:12 PM EST 2023
 Doing some basic checking for your submission
 
 Step 1
@@ -787,42 +787,57 @@ Now running YOUR tests for step 4
 
 4.1: Current test is ./cyoa-step4 test/step4_test6  <  /usr/local/ece551/cyoa/story3/inputs/input7.txt
 -----------------------------
-You considered this a failure case:
+Great: we both considered this an error
+----here is what you printed on stderr---
 Invalid digits from story.txt for page 
 
-But we did not.
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
 
 
 4.2: Current test is ./cyoa-step4 test/step4_test6  <  /usr/local/ece551/cyoa/story3/inputs/input8.txt
 -----------------------------
-You considered this a failure case:
+Great: we both considered this an error
+----here is what you printed on stderr---
 Invalid digits from story.txt for page 
 
-But we did not.
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
 
 
 4.3: Current test is ./cyoa-step4 test/step4_test6  <  /usr/local/ece551/cyoa/story3/inputs/input15.txt
 -----------------------------
-You considered this a failure case:
+Great: we both considered this an error
+----here is what you printed on stderr---
 Invalid digits from story.txt for page 
 
-But we did not.
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
 
 
 4.4: Current test is ./cyoa-step4 test/step4_test6  <  /usr/local/ece551/cyoa/story3/inputs/input16.txt
 -----------------------------
-You considered this a failure case:
+Great: we both considered this an error
+----here is what you printed on stderr---
 Invalid digits from story.txt for page 
 
-But we did not.
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
 
 
 4.5: Current test is ./cyoa-step4 test/step4_test6  <  /usr/local/ece551/cyoa/story3/inputs/input17.txt
 -----------------------------
-You considered this a failure case:
+Great: we both considered this an error
+----here is what you printed on stderr---
 Invalid digits from story.txt for page 
 
-But we did not.
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
 
 
 4.6: Current test is ./cyoa-step4 test/step3_test6  <  /usr/local/ece551/cyoa/story3/inputs/input18.txt
