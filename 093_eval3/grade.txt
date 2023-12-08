@@ -1,6 +1,6 @@
-Grading at 12/08/2023:09:14:25.379263
-For commit ID 487e5429cb1ea701c76995b4e55437def8e5a084
-Grading at Fri Dec  8 04:11:44 AM EST 2023
+Grading at 12/08/2023:09:27:59.773292
+For commit ID 600eb0b1138de383672f976f9030009b2f3b299e
+Grading at Fri Dec  8 04:25:16 AM EST 2023
 Doing some basic checking for your submission
 
 Step 1
@@ -643,6 +643,12 @@ Valgrind was clean
 
 
 1.32: Current test is ./cyoa-step1 test/step2_test5 < /dev/null
+-----------------------------
+Your output looks good. Lets check valgrind
+Valgrind was clean
+
+
+1.33: Current test is ./cyoa-step1 test/step3_test5 < /dev/null
 -----------------------------
 Your output looks good. Lets check valgrind
 Valgrind was clean
@@ -2500,6 +2506,12 @@ Page is missing or is not referenced
 
 -----------------------------------------
 Lets check if it valgrinds:
+Valgrind was clean
+
+
+3.32: Current test is ./cyoa-step3 test/step3_test5 < /dev/null
+-----------------------------
+Your output looks good. Lets check valgrind
 Valgrind was clean
 No request to check for intermediate deadline completion on step 3
 
