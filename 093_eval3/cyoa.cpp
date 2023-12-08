@@ -370,14 +370,22 @@ vector<size_t> findWinPages(Story main) {
   }
   return winPages;
 }
+bool isVisited(const vector<size_t> & visited, size_t node) {
+  for (size_t i = 0; i < visited.size(); i++) {
+    if (visited[i] == node)
+      return true;
+  }
+  return false;
+}
 
 void findPath(const vector<vector<size_t> > & graph,
               size_t start,
               size_t end,
               vector<size_t> & path,
-              unordered_set<size_t> & visited,
+              //unordered_set<size_t> & visited,
+              vector<size_t> & visited,
               vector<vector<size_t> > & validPaths) {
-  visited.insert(start);
+  /*visited.insert(start);  //gnu++11
   path.push_back(start);
 
   if (start == end) {
@@ -392,7 +400,22 @@ void findPath(const vector<vector<size_t> > & graph,
   }
   // Remove current node from the path and visited set
   path.pop_back();
-  visited.erase(start);
+  visited.erase(start);*/
+  visited.push_back(start);
+  path.push_back(start);
+
+  if (start == end)
+    validPaths.push_back(path);
+  else {
+    for (size_t i = 0; i < graph[start].size(); ++i) {
+      size_t neighbor = graph[start][i];
+      if (!isVisited(visited, neighbor))
+        findPath(graph, neighbor, end, path, visited, validPaths);
+    }
+  }
+  // Remove current node from teh path and visited vector
+  path.pop_back();
+  visited.pop_back();
 }
 
 void findAllPaths(vector<size_t> winPages,
@@ -402,7 +425,8 @@ void findAllPaths(vector<size_t> winPages,
   for (size_t i = 0; i < winPages.size(); i++) {
     size_t end = winPages[i];
     vector<size_t> path;
-    unordered_set<size_t> visited;
+    //unordered_set<size_t> visited;
+    vector<size_t> visited;
     findPath(graph, beginPage, end, path, visited, validPaths);
   }
 }

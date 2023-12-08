@@ -89,6 +89,24 @@ cyoa-step3 story1
 cyoa-step3 story2
 cyoa-step3 story1 story2
 cyoa-step3
+cyoa-step3 test/NoDelimiter
+cyoa-step3 test/no_story
+cyoa-step3 test/pageDeclareOrder
+cyoa-step3 test/size_t_2
+cyoa-step3 test/typeOfPage
+cyoa-step3 test/WLnoChoice
+cyoa-step3 test/number
+cyoa-step3 test/pageNum
+cyoa-step3 test/story1
+cyoa-step3 test/filename
+cyoa-step3 test/orderNum
+cyoa-step3 test/size_t
+cyoa-step3 story3
+cyoa-step3 test/step4_test1
+cyoa-step3 test/step4_test2
+cyoa-step3 test/step4_test3
+cyoa-step3 test/step4_test4
+cyoa-step3 test/step4_test5
 
 
 
