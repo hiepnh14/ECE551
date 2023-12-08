@@ -1,13 +1,13 @@
-Grading at 12/08/2023:04:41:30.294979
-For commit ID 714fa53cf521e795cfb1273ef3249a6ad1f562c6
-Grading at Thu Dec  7 11:39:19 PM EST 2023
+Grading at 12/08/2023:05:04:31.703880
+For commit ID 750f2b0aa67763d90ecb944395c8a63aea9e472f
+Grading at Fri Dec  8 12:02:07 AM EST 2023
 Doing some basic checking for your submission
 
 Step 1
 Checking that cyoa-step1 compiles
 rm -f *~ cyoa-step1 cyoa-step2 cyoa-step3 cyoa-step4 cyoa-step1.o cyoa-step2.o cyoa-step3.o cyoa-step4.o cyoa.o
 g++    -c -o cyoa-step1.o cyoa-step1.cpp
-g++ -std=gnu++11 -pedantic -Wall -Werror -ggdb3 -c cyoa.cpp
+g++ -std=gnu++98 -pedantic -Wall -Werror -ggdb3 -c cyoa.cpp
 g++ -o cyoa-step1 cyoa-step1.o cyoa.o
 rm cyoa.o cyoa-step1.o
 The code compiled (good)
@@ -236,7 +236,7 @@ Step 2
 Checking that cyoa-step2 compiles
 rm -f *~ cyoa-step1 cyoa-step2 cyoa-step3 cyoa-step4 cyoa-step1.o cyoa-step2.o cyoa-step3.o cyoa-step4.o cyoa.o
 g++    -c -o cyoa-step2.o cyoa-step2.cpp
-g++ -std=gnu++11 -pedantic -Wall -Werror -ggdb3 -c cyoa.cpp
+g++ -std=gnu++98 -pedantic -Wall -Werror -ggdb3 -c cyoa.cpp
 g++ -o cyoa-step2 cyoa-step2.o cyoa.o
 rm cyoa.o cyoa-step2.o
 The code compiled (good)
@@ -600,7 +600,7 @@ Step 3
 Checking that cyoa-step3 compiles
 rm -f *~ cyoa-step1 cyoa-step2 cyoa-step3 cyoa-step4 cyoa-step1.o cyoa-step2.o cyoa-step3.o cyoa-step4.o cyoa.o
 g++    -c -o cyoa-step3.o cyoa-step3.cpp
-g++ -std=gnu++11 -pedantic -Wall -Werror -ggdb3 -c cyoa.cpp
+g++ -std=gnu++98 -pedantic -Wall -Werror -ggdb3 -c cyoa.cpp
 g++ -o cyoa-step3 cyoa-step3.o cyoa.o
 rm cyoa.o cyoa-step3.o
 The code compiled (good)
@@ -642,13 +642,183 @@ Invalid input command
 -----------------------------------------
 Lets check if it valgrinds:
 Valgrind was clean
+
+
+3.5: Current test is ./cyoa-step3 test/NoDelimiter < /dev/null
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+Invalid digits from story.txt
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+3.6: Current test is ./cyoa-step3 test/no_story < /dev/null
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+Fail to open story.txt file
+
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+3.7: Current test is ./cyoa-step3 test/pageDeclareOrder < /dev/null
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+Declaration order incorrect
+
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+3.8: Current test is ./cyoa-step3 test/size_t_2 < /dev/null
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+Invalid digits from story.txt
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+3.9: Current test is ./cyoa-step3 test/typeOfPage < /dev/null
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+Story page input format invalid
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+3.10: Current test is ./cyoa-step3 test/WLnoChoice < /dev/null
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+Adding choice to Non-Normal page
+
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+3.11: Current test is ./cyoa-step3 test/number < /dev/null
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+Invalid digits from story.txt
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+3.12: Current test is ./cyoa-step3 test/pageNum < /dev/null
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+Invalid digits from story.txt
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+3.13: Current test is ./cyoa-step3 test/story1 < /dev/null
+-----------------------------
+Your output looks good. Lets check valgrind
+Valgrind was clean
+
+
+3.14: Current test is ./cyoa-step3 test/filename < /dev/null
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+Fail to open File
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+3.15: Current test is ./cyoa-step3 test/orderNum < /dev/null
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+Page is not yet declared
+
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+3.16: Current test is ./cyoa-step3 test/size_t < /dev/null
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+Declaration order incorrect
+
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+3.17: Current test is ./cyoa-step3 story3 < /dev/null
+-----------------------------
+Your output looks good. Lets check valgrind
+Valgrind was clean
+
+
+3.18: Current test is ./cyoa-step3 test/step4_test1 < /dev/null
+-----------------------------
+Your output looks good. Lets check valgrind
+Valgrind was clean
+
+
+3.19: Current test is ./cyoa-step3 test/step4_test2 < /dev/null
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+Invalid digits from story.txt
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+3.20: Current test is ./cyoa-step3 test/step4_test3 < /dev/null
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+Story.txt format for variable incorrect
+
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+3.21: Current test is ./cyoa-step3 test/step4_test4 < /dev/null
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+Value of variable must be long int
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+3.22: Current test is ./cyoa-step3 test/step4_test5 < /dev/null
+-----------------------------
+We considered this a failure case.
+But you did not (exit status was EXIT_SUCCESS).
 No request to check for intermediate deadline completion on step 3
 
 Step 4
 Checking that cyoa-step4 compiles
 rm -f *~ cyoa-step1 cyoa-step2 cyoa-step3 cyoa-step4 cyoa-step1.o cyoa-step2.o cyoa-step3.o cyoa-step4.o cyoa.o
 g++    -c -o cyoa-step4.o cyoa-step4.cpp
-g++ -std=gnu++11 -pedantic -Wall -Werror -ggdb3 -c cyoa.cpp
+g++ -std=gnu++98 -pedantic -Wall -Werror -ggdb3 -c cyoa.cpp
 g++ -o cyoa-step4 cyoa-step4.o cyoa.o
 rm cyoa-step4.o cyoa.o
 The code compiled (good)
