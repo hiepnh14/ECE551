@@ -1,6 +1,6 @@
-Grading at 12/08/2023:21:05:33.901458
-For commit ID 580202578d549087bdb8718565bd6d7cccee07c8
-Grading at Fri Dec  8 04:04:01 PM EST 2023
+Grading at 12/08/2023:21:10:59.175858
+For commit ID 493061dfed170984a79c5ad6883e23fe762280b1
+Grading at Fri Dec  8 04:09:20 PM EST 2023
 Doing some basic checking for your submission
 
 Step 1
@@ -787,32 +787,57 @@ Valgrind was clean
 
 4.15: Current test is ./cyoa-step4 test/step4_test6  <  /usr/local/ece551/cyoa/story3/inputs/input7.txt
 -----------------------------
-We considered this a failure case.
-But you did not (exit status was EXIT_SUCCESS).
+Great: we both considered this an error
+----here is what you printed on stderr---
+Declaration order incorrect
+
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
 
 
 4.16: Current test is ./cyoa-step4 test/step4_test6  <  /usr/local/ece551/cyoa/story3/inputs/input8.txt
 -----------------------------
-We considered this a failure case.
-But you did not (exit status was EXIT_SUCCESS).
+Great: we both considered this an error
+----here is what you printed on stderr---
+Declaration order incorrect
+
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
 
 
 4.17: Current test is ./cyoa-step4 test/step4_test6  <  /usr/local/ece551/cyoa/story3/inputs/input15.txt
 -----------------------------
-We considered this a failure case.
-But you did not (exit status was EXIT_SUCCESS).
+Great: we both considered this an error
+----here is what you printed on stderr---
+Declaration order incorrect
+
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
 
 
 4.18: Current test is ./cyoa-step4 test/step4_test6  <  /usr/local/ece551/cyoa/story3/inputs/input16.txt
 -----------------------------
-We considered this a failure case.
-But you did not (exit status was EXIT_SUCCESS).
+Great: we both considered this an error
+----here is what you printed on stderr---
+Declaration order incorrect
+
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
 
 
 4.19: Current test is ./cyoa-step4 test/step4_test6  <  /usr/local/ece551/cyoa/story3/inputs/input17.txt
 -----------------------------
-We considered this a failure case.
-But you did not (exit status was EXIT_SUCCESS).
+Great: we both considered this an error
+----here is what you printed on stderr---
+Declaration order incorrect
+
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
 
 
 4.20: Current test is ./cyoa-step4 test/step3_test6  <  /usr/local/ece551/cyoa/story3/inputs/input18.txt
