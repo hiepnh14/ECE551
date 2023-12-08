@@ -1,6 +1,6 @@
-Grading at 12/08/2023:18:55:25.120187
-For commit ID 26a0a282669e17e8810c1465c78abbee92a8a685
-Grading at Fri Dec  8 01:54:02 PM EST 2023
+Grading at 12/08/2023:18:58:45.844027
+For commit ID ba46d51773187b536da4fc731ce05200a130664c
+Grading at Fri Dec  8 01:57:22 PM EST 2023
 Doing some basic checking for your submission
 
 Step 1
@@ -858,11 +858,22 @@ Lets check if it valgrinds:
 Valgrind was clean
 
 
-4.9: Current test is ./cyoa-step4 test/step3_test6  <  /usr/local/ece551/cyoa/story1/inputs/input1.txt
+4.9: Current test is ./cyoa-step4 test/step3_test6  <  story1/inputs/input1.txt
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
 Invalid digits from story.txt for value 
+
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+4.10: Current test is ./cyoa-step4 story3  <  story1/inputs/input1.txt
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+Input is not good
 
 -----------------------------------------
 Lets check if it valgrinds:
