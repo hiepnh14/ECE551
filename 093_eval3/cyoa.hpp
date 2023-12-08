@@ -1,6 +1,7 @@
 #ifndef __CYOA_HPP__
 #define __CYOA_HPP__
 #include <stdio.h>
+#include <stdlib.h>
 
 #include <cstdlib>
 #include <fstream>

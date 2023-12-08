@@ -1,4 +1,6 @@
 #include "cyoa.hpp"
+
+#include <string>
 // Raise error message and exit
 void error(const string error) {
   cerr << error << endl;
@@ -127,22 +129,38 @@ void Story::addChoices(size_t page_num,
 }
 // Convert string to long int
 long int toLong(string strNum) {
-  stringstream stream;
-  stream << strNum;
-  long int ans = 0;
-  stream >> ans;
-  if (ans < numeric_limits<long int>::min() && ans > numeric_limits<long int>::max())
-    error("Input digits exceed data type limits\n");
+  long int ans;
+  try {
+    ans = stol(strNum);
+  }
+  catch (const invalid_argument & e) {
+    error("Invalid string to convert to long int\n");
+  }
+  catch (const out_of_range & e) {
+    error("Out of range error\n");
+  }
   return ans;
 }
 // Convert string to size_t
 size_t toSize_t(string strNum) {
-  stringstream stream;
+  /*stringstream stream;
   stream << strNum;
   size_t ans = 0;
   stream >> ans;
   if (ans < numeric_limits<size_t>::min() && ans > numeric_limits<size_t>::max())
     error("Input digits exceed data type limits\n");
+  */
+  size_t ans;
+  try {
+    unsigned long num = stoul(strNum);
+    ans = static_cast<size_t>(num);
+  }
+  catch (const invalid_argument & e) {
+    error("Invalid string to convert to long int\n");
+  }
+  catch (const out_of_range & e) {
+    error("Out of range error\n");
+  }
   return ans;
 }
 // get the string item with delimiter delim1
@@ -343,7 +361,7 @@ bool Story::conditionCheck() {
 
   size_t lastPage = findMax(pageVector);
   for (size_t i = 1; i <= lastPage; i++) {
-    if (findPageVector(pageVector, i) == -1 &&
+    if (findPageVector(pageVector, i) == -1 ||
         findPageVector(referencedVector, i) == -1) {
       error("Page is missing or is not referenced\n");
     }
