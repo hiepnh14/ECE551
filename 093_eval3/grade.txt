@@ -1,6 +1,6 @@
-Grading at 12/08/2023:18:58:45.844027
-For commit ID ba46d51773187b536da4fc731ce05200a130664c
-Grading at Fri Dec  8 01:57:22 PM EST 2023
+Grading at 12/08/2023:19:06:04.667662
+For commit ID 970be8697820b68790983dfd1097864b0cce578e
+Grading at Fri Dec  8 02:04:22 PM EST 2023
 Doing some basic checking for your submission
 
 Step 1
@@ -870,6 +870,28 @@ Valgrind was clean
 
 
 4.10: Current test is ./cyoa-step4 story3  <  story1/inputs/input1.txt
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+Input is not good
+
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+4.11: Current test is ./cyoa-step4 story3  < /dev/null
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+Input is not good
+
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+4.12: Current test is ./cyoa-step4 story3 < /dev/null
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
