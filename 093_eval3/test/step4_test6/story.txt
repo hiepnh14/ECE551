@@ -33,7 +33,7 @@
 8[pastry=3]:14:Throw the muffin at the dragon's nose and run for it!
 
 9@L:dragonsnack.txt
-10@W:coins.txt
+1 0@W:coins.txt
 11@L:attack.txt
 12@W:offercroissant.txt
 13@N:squirteclair.txt

@@ -9,12 +9,16 @@ void error(const string error) {
 // check if the string are digits
 bool isDigitsOrMinus(const string & digits) {
   string::const_iterator it = digits.begin();
+  // ignore initial space
+  while (it != digits.end() && (*it == ' ')) {
+    ++it;
+  }
   if (it != digits.end() && (isdigit(*it) || *it == '-')) {
     ++it;
   }
   else
     return false;
-  while (it != digits.end() && isdigit(*it)) {
+  while (it != digits.end() && isdigit(*it) && *it != ' ') {
     ++it;
   }
   if (!digits.empty() && it == digits.end())
@@ -24,6 +28,10 @@ bool isDigitsOrMinus(const string & digits) {
 }
 bool isDigits(const string & digits) {
   string::const_iterator it = digits.begin();
+  // Ignore initial space
+  while (it != digits.end() && (*it == ' ')) {
+    ++it;
+  }
   while (it != digits.end() && isdigit(*it)) {
     ++it;
   }
@@ -190,6 +198,7 @@ size_t getPageNum(string line, size_t & index) {
     page.push_back(line[index]);
     index++;
   }
+  //cout << page << endl;
   if (!isDigits(page)) {
     error("Invalid digits from story.txt for page \n");
   }
