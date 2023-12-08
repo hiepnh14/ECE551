@@ -1,10 +1,10 @@
 #include "cyoa.hpp"
-
+// Raise error message and exit
 void error(const string error) {
   cerr << error << endl;
   exit(EXIT_FAILURE);
 }
-
+// check if the string are digits
 bool isDigits(const string & digits) {
   string::const_iterator it = digits.begin();
   while (it != digits.end() && isdigit(*it)) {
@@ -15,10 +15,12 @@ bool isDigits(const string & digits) {
   else
     return false;
 }
+// Print the page Header
 void Page::printHeader() const {
   cout << "Page " << page_num << endl;
   cout << "==========" << endl;
 }
+// Print the main page
 void Page::printPage() const {
   vector<string>::const_iterator it = content.begin();
   while (it != content.end()) {
@@ -26,9 +28,10 @@ void Page::printPage() const {
     ++it;
   }
 }
+// Check if the variable condition satisfies with current inventory
 bool conditionSatisfy(vector<pair<string, long int> > inventory,
                       pair<string, long int> condition) {
-  if (condition.first == "")
+  if (condition.first == "")  // when no condtion
     return true;
   for (size_t j = 0; j < inventory.size(); j++) {
     if (inventory[j] == condition) {
@@ -37,6 +40,7 @@ bool conditionSatisfy(vector<pair<string, long int> > inventory,
   }
   if (condition.second == 0) {
     for (size_t j = 0; j < inventory.size(); j++) {
+      // When the value of the variables does not match
       if (condition.first == inventory[j].first &&
           condition.second != inventory[j].second)
         return false;
@@ -45,6 +49,7 @@ bool conditionSatisfy(vector<pair<string, long int> > inventory,
   }
   return false;
 }
+// Print Footer of the page (choice, win or lose notifications)
 void Page::printFooter(vector<pair<string, long int> > inventory) const {
   if (type == 'W') {
     cout << endl;
@@ -72,48 +77,70 @@ void Page::printFooter(vector<pair<string, long int> > inventory) const {
     }
   }
 }
-
+// Add a new line to the content of the page
 void Page::addLine(istream & stream) {
   string line;
   while (getline(stream, line)) {
     content.push_back(line);
-    //cout << line << endl;
   }
 }
+// Add choice and condition to choices and conditions
 void Page::addChoice(pair<size_t, string> choice, pair<string, long int> condition) {
   if (type != 'N')
     error("Logic error when adding choice not to type 'N'\n");
   choices.push_back(choice);
   choice_conditions.push_back(condition);
 }
-
-void Story::addPage(string foldername, string pagefile, const Page & addingPage) {
+// Update variables with name and value, add new one if not exist
+void Page::updateVariable(pair<string, long int> variable) {
+  for (size_t i = 0; i < variables.size(); i++) {
+    if (variables[i].first.compare(variable.first) == 0) {
+      variables[i].second = variable.second;
+      return;
+    }
+  }
+  variables.push_back(variable);
+}
+// Add new page to pages in story
+void Story::addPage(const Page & addingPage) {
   pages.push_back(addingPage);
 }
 
-void Story::addChoices(size_t num_page,
+// Story:: add choice to the page[page_num]
+void Story::addChoices(size_t page_num,
                        string choice,
                        size_t linkPage,
                        pair<string, long int> condition) {
-  //vector<Page>::iterator it = pages.begin();
   for (size_t i = 0; i < pages.size(); i++) {
-    if (pages[i].getNum() == num_page) {
-      //cout << choice << endl;
+    if (pages[i].getNum() == page_num) {
       pair<size_t, string> addedChoice(linkPage, choice);
       pages[i].addChoice(addedChoice, condition);
       return;
     }
   }
-  error("No Page found for linkages\n");
+  error("No Page found for adding choice\n");
 }
-
+// Convert string to long int
 long int toLong(string strNum) {
   stringstream stream;
   stream << strNum;
   long int ans = 0;
   stream >> ans;
+  if (ans < numeric_limits<long int>::min() && ans > numeric_limits<long int>::max())
+    error("Input digits exceed data type limits\n");
   return ans;
 }
+// Convert string to size_t
+size_t toSize_t(string strNum) {
+  stringstream stream;
+  stream << strNum;
+  size_t ans = 0;
+  stream >> ans;
+  if (ans < numeric_limits<size_t>::min() && ans > numeric_limits<size_t>::max())
+    error("Input digits exceed data type limits\n");
+  return ans;
+}
+// get the string item with delimiter delim1
 string getItem(string line, char delim1, size_t & index) {
   string ans = "";
   while (index < (line.length()) && line[index] != delim1) {
@@ -122,34 +149,64 @@ string getItem(string line, char delim1, size_t & index) {
   }
   return ans;
 }
-
-string getPageNum(string line, size_t & index) {
+// Get Page Number in size_t
+size_t getPageNum(string line, size_t & index) {
   string page = "";
   while (index < line.length() && line[index] != ':' && line[index] != '@' &&
-         line[index] != '$' && line[index] != '[') {
+         line[index] != '$' && line[index] != '[' && line[index] != ']') {
     page.push_back(line[index]);
     index++;
   }
-  return page;
+  if (!isDigits(page)) {
+    error("Invalid digits from story.txt for page \n");
+  }
+  size_t page_num = toSize_t(page);
+  return page_num;
 }
+// Get value in long int for variable
+long int getValue(string line, char delim, size_t & index) {
+  string value_string = "";
+  while (index < line.length() && line[index] != delim) {
+    value_string.push_back(line[index]);
+    index++;
+  }
+  if (!isDigits(value_string)) {
+    error("Invalid digits from story.txt for value \n");
+  }
+
+  long int value = toLong(value_string);
+  return value;
+}
+// Add variable to the page
+void Story::addVariable_to_Page(size_t page_num, pair<string, long int> variable) {
+  if (page_num >= pages.size())
+    error("Adding variable to page out of range\n");
+  pages[page_num].updateVariable(variable);
+}
+// Add variable to the inventory
+void Story::addInventory(pair<string, long int> variable) {
+  for (size_t i = 0; i < inventory.size(); i++) {
+    if (inventory[i].first.compare(variable.first) == 0) {
+      inventory[i].second = variable.second;  // update the value in the inventory
+    }
+  }
+  inventory.push_back(variable);
+}
+
+// Read story.txt, store pages, choices, conditions
 void Story::readStory(istream & input, string foldername) {
   string line;
   size_t orderCheck = 0;  // Ensure the page number is declared in order
   while (getline(input, line)) {
     if (line == "")
       continue;
-    string page_num = "";
-    string linkPage = "";
     string pagefile = "";
     string choiceText = "";
     size_t i = 0;
     size_t & index = i;
     char type;
-    page_num = getPageNum(line, index);
-    if (!isDigits(page_num)) {
-      error("Invalid digits from story.txt");
-    }
-    size_t num = toLong(page_num);
+    size_t page_num = getPageNum(line, index);
+    // Add new page
     if (line[i] == '@') {
       i++;
       type = line[i];
@@ -161,10 +218,10 @@ void Story::readStory(istream & input, string foldername) {
         error("Format invalid\n");
       i++;
       pagefile = getItem(line, '\n', index);
-      if (num != orderCheck)
+      if (page_num != orderCheck)
         error("Declaration order incorrect\n");
       orderCheck++;
-      Page currentPage(num, type);
+      Page currentPage(page_num, type);
       ifstream file;
       string path = foldername;
       path.push_back('/');
@@ -176,80 +233,66 @@ void Story::readStory(istream & input, string foldername) {
         error("Fail to open File");
       currentPage.addLine(file);
       file.close();
-      addPage(foldername, pagefile, currentPage);
+      addPage(currentPage);
     }
     // Choice case with no condition
     else if (line[i] == ':') {
-      if (num > orderCheck)
+      if (page_num > orderCheck)
         error("Page is not yet declared\n");
       i++;
-      linkPage = getItem(line, ':', index);
-      if (pages[num].getType() != 'N')
-        error("Adding choice to Non-Normal page\n");
-
-      if (!isDigits(linkPage)) {
-        //cout << linkPage << endl;
-        error("Link page invalid digit\n");
-      }
+      size_t linkPage = getPageNum(line, index);
       if (line[i] == ':') {
-        // Start parsing the choice message
         i++;
         choiceText = getItem(line, '\n', index);
         pair<string, long int> noCondition;
-        addChoices(num, choiceText, toLong(linkPage), noCondition);
+        addChoices(page_num, choiceText, linkPage, noCondition);
       }
+      else
+        error("Invalid format for choice case with no condition\n");
     }
-    // Add Variable to page
+    // Add Variable to page '$'
     else if (line[i] == '$') {
-      if (num > orderCheck)
+      if (page_num > orderCheck)
         error("Page is not yet declared\n");
       i++;
       string variable_name = getItem(line, '=', index);
       if (line[i] != '=')
         error("Story.txt format for variable incorrect\n");
       i++;
-      string value = getItem(line, '\n', index);
-      if (!isDigits(value))
-        error("Value of variable must be long int");
-      long int value_int = toLong(value);
+      long int value_int = getValue(line, '\n', index);
       pair<string, long int> variable(variable_name, value_int);
-      addVariable_to_Page(num, variable);
+      addVariable_to_Page(page_num, variable);
     }
-    // Add Choice and Condition
+    // Add Choice and Condition '['
     else if (line[i] == '[') {
-      if (num > orderCheck)
+      if (page_num > orderCheck)
         error("Page is not yet declared\n");
       i++;
       string variable_name = getItem(line, '=', index);
       if (line[i] != '=')
         error("Story.txt format for variable condition incorrect\n");
       i++;
-      string value = getItem(line, ']', index);
+      long int value_int = getValue(line, ']', index);
       if (line[i] != ']' && line[i + 1] != ':')
         error("Story.txt format for variable condition incorrect 2\n");
-      if (!isDigits(value))
-        error("Value of variable must be long int for condition\n");
-      long int value_int = toLong(value);
       i += 2;  // "]:"
-      linkPage = getItem(line, ':', index);
-      if (pages[num].getType() != 'N')
+      size_t linkPage = getPageNum(line, index);
+      if (pages[page_num].getType() != 'N')
         error("Adding choice to Non-Normal page\n");
-
-      if (!isDigits(linkPage)) {
-        cout << num << linkPage << endl;
-        error("Link page invalid digit\n");
-      }
       if (line[i] == ':') {
         // Start parsing the choice message
         i++;
         choiceText = getItem(line, '\n', index);
         pair<string, long int> variable_condition(variable_name, value_int);
-        addChoices(num, choiceText, toLong(linkPage), variable_condition);
+        addChoices(page_num, choiceText, linkPage, variable_condition);
       }
+      else
+        error("Condition Choice format invalid\n");
     }
     //error("Invalid story line\n");
   }
 }
+// Find index of the item in a vector
 long int findPageVector(vector<size_t> vector, size_t item) {
   for (size_t i = 0; i < vector.size(); i++) {
     if (vector[i] == item) {
@@ -258,6 +301,7 @@ long int findPageVector(vector<size_t> vector, size_t item) {
   }
   return -1;
 }
+// Find the max page
 size_t findMax(vector<size_t> vector) {
   size_t temp = 0;
   for (size_t i = 0; i < vector.size(); i++) {
@@ -266,6 +310,7 @@ size_t findMax(vector<size_t> vector) {
   }
   return temp;
 }
+// Check condition for step 2
 bool Story::conditionCheck() {
   vector<size_t> pageVector;
   vector<size_t> referencedVector;
@@ -300,6 +345,7 @@ bool Story::conditionCheck() {
   }
   return true;
 }
+// find the page from pages
 Page Story::findPage(size_t page_num) {
   for (size_t i = 0; i < pages.size(); i++) {
     if (pages[i].getNum() == page_num)
@@ -308,6 +354,7 @@ Page Story::findPage(size_t page_num) {
   error("Cannot find the page with page number\n");
   return pages[0];
 }
+// Display a page with main page, and footer, prompt user to input choices
 void Story::display(Page current) {
   current.printPage();
   current.printFooter(inventory);
@@ -319,10 +366,8 @@ void Story::display(Page current) {
   string input;
   while (!satisfy) {
     cin >> input;
-
     if (!cin.good())
       error("Input is not good\n");
-
     else if (isDigits(input)) {
       size_t next = toLong(input);
       if (next > 0 && next <= current.getChoices().size()) {
@@ -344,7 +389,7 @@ void Story::display(Page current) {
     cin.clear();
   }
 }
-// this function to generate a graph of pages that link with other pages from the story
+// Generate a graph of pages that link with other pages from the story
 vector<vector<size_t> > generateGraph(Story main) {
   vector<vector<size_t> > graph;
 
@@ -361,6 +406,7 @@ vector<vector<size_t> > generateGraph(Story main) {
 
   return graph;
 }
+// Find all win pages for win paths
 vector<size_t> findWinPages(Story main) {
   vector<size_t> winPages;
   for (size_t i = 0; i < main.getPage().size(); i++) {
@@ -370,6 +416,7 @@ vector<size_t> findWinPages(Story main) {
   }
   return winPages;
 }
+// check if the node is visited
 bool isVisited(const vector<size_t> & visited, size_t node) {
   for (size_t i = 0; i < visited.size(); i++) {
     if (visited[i] == node)
@@ -377,30 +424,13 @@ bool isVisited(const vector<size_t> & visited, size_t node) {
   }
   return false;
 }
-
+// find the path from start to end
 void findPath(const vector<vector<size_t> > & graph,
               size_t start,
               size_t end,
               vector<size_t> & path,
-              //unordered_set<size_t> & visited,
               vector<size_t> & visited,
               vector<vector<size_t> > & validPaths) {
-  /*visited.insert(start);  //gnu++11
-  path.push_back(start);
-
-  if (start == end) {
-    validPaths.push_back(path);
-  }
-  else {
-    for (int next : graph[start]) {
-      if (visited.find(next) == visited.end()) {
-        findPath(graph, next, end, path, visited, validPaths);
-      }
-    }
-  }
-  // Remove current node from the path and visited set
-  path.pop_back();
-  visited.erase(start);*/
   visited.push_back(start);
   path.push_back(start);
 
@@ -417,7 +447,7 @@ void findPath(const vector<vector<size_t> > & graph,
   path.pop_back();
   visited.pop_back();
 }
-
+// Find all Paths to all Win Pages
 void findAllPaths(vector<size_t> winPages,
                   vector<vector<size_t> > graph,
                   size_t beginPage,
@@ -425,11 +455,11 @@ void findAllPaths(vector<size_t> winPages,
   for (size_t i = 0; i < winPages.size(); i++) {
     size_t end = winPages[i];
     vector<size_t> path;
-    //unordered_set<size_t> visited;
     vector<size_t> visited;
     findPath(graph, beginPage, end, path, visited, validPaths);
   }
 }
+
 void printGraph(const Story main) {
   vector<vector<size_t> > graph = generateGraph(main);
   for (size_t i = 0; i < graph.size(); i++) {
@@ -440,7 +470,7 @@ void printGraph(const Story main) {
     cout << "}\n";
   }
 }
-
+// print a path
 void printPath(const vector<vector<size_t> > graph, vector<size_t> validPath) {
   size_t sz = validPath.size();
   for (size_t i = 0; i < sz - 1; i++) {
@@ -458,7 +488,7 @@ void printPath(const vector<vector<size_t> > graph, vector<size_t> validPath) {
   }
   cout << validPath[sz - 1] << "(win)" << endl;
 }
-
+// print all paths
 void printAllPaths(const Story main, size_t beginPage) {
   vector<size_t> winPages = findWinPages(main);
   vector<vector<size_t> > graph = generateGraph(main);
