@@ -116,11 +116,11 @@ void Story::addChoices(size_t page_num,
   // for (size_t i = 0; i < pages.size(); i++) {
   if (pages[page_num].getNum() == page_num) {
     pair<size_t, string> addedChoice(linkPage, choice);
-    for (size_t j = 0; j < pages[page_num].getChoices().size(); j++) {
+    /*for (size_t j = 0; j < pages[page_num].getChoices().size(); j++) {
       if (pages[page_num].getChoices()[j].first == linkPage)
         //Update message
         return;
-    }
+     }*/
     pages[page_num].addChoice(addedChoice, condition);
     return;
   }
@@ -412,6 +412,14 @@ void Story::display(Page current) {
     cin.clear();
   }
 }
+// check if the node is visited or inside the vector
+bool isVisited(const vector<size_t> & visited, size_t node) {
+  for (size_t i = 0; i < visited.size(); i++) {
+    if (visited[i] == node)
+      return true;
+  }
+  return false;
+}
 // Generate a graph of pages that link with other pages from the story
 vector<vector<size_t> > generateGraph(Story main) {
   vector<vector<size_t> > graph;
@@ -422,7 +430,9 @@ vector<vector<size_t> > generateGraph(Story main) {
     // Add all linked pages to the vector
     vector<size_t> linkPages;
     for (size_t choiceNum = 0; choiceNum < currentPage.getChoices().size(); choiceNum++) {
-      linkPages.push_back(currentPage.getChoices()[choiceNum].first);
+      if (!isVisited(linkPages, currentPage.getChoices()[choiceNum].first))
+        // Only add to the linkpages when it hasnot existed
+        linkPages.push_back(currentPage.getChoices()[choiceNum].first);
     }
     graph.push_back(linkPages);
   }
@@ -439,14 +449,7 @@ vector<size_t> findWinPages(Story main) {
   }
   return winPages;
 }
-// check if the node is visited
-bool isVisited(const vector<size_t> & visited, size_t node) {
-  for (size_t i = 0; i < visited.size(); i++) {
-    if (visited[i] == node)
-      return true;
-  }
-  return false;
-}
+
 // find the path from start to end
 void findPath(const vector<vector<size_t> > & graph,
               size_t start,
