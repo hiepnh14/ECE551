@@ -7,6 +7,21 @@ void error(const string error) {
   exit(EXIT_FAILURE);
 }
 // check if the string are digits
+bool isDigitsOrMinus(const string & digits) {
+  string::const_iterator it = digits.begin();
+  if (it != digits.end() && (isdigit(*it) || *it == '-')) {
+    ++it;
+  }
+  else
+    return false;
+  while (it != digits.end() && isdigit(*it)) {
+    ++it;
+  }
+  if (!digits.empty() && it == digits.end())
+    return true;
+  else
+    return false;
+}
 bool isDigits(const string & digits) {
   string::const_iterator it = digits.begin();
   while (it != digits.end() && isdigit(*it)) {
@@ -188,8 +203,9 @@ long int getValue(string line, char delim, size_t & index) {
     value_string.push_back(line[index]);
     index++;
   }
-  //if (!isDigits(value_string))
-  //  error("Invalid digits from story.txt for value \n");
+  // must take '-' minus as valid
+  if (!isDigitsOrMinus(value_string))
+    error("Invalid digits from story.txt for value \n");
   long int value = toLong(value_string);
   return value;
 }
