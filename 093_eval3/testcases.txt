@@ -30,7 +30,7 @@ cyoa-step1 test/step2_test2
 cyoa-step1 test/step2_test3
 cyoa-step1 test/step2_test4
 cyoa-step1 test/step2_test5
-
+cyoa-step1 test/step3_test5
 
 cyoa-step2
 cyoa-step2 story1 story2
@@ -143,7 +143,7 @@ cyoa-step3 test/step2_test2
 cyoa-step3 test/step2_test3
 cyoa-step3 test/step2_test4
 cyoa-step3 test/step2_test5
-
+cyoa-step3 test/step3_test5
 
 cyoa-step4 story3 < /usr/local/ece551/cyoa/story3/inputs/input0.txt
 

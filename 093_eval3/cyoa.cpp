@@ -519,7 +519,7 @@ void printAllPaths(const Story main, size_t beginPage) {
 
   findAllPaths(winPages, graph, beginPage, validPaths);
   if (validPaths.size() == 0)
-    cout << "This story is unwinnable!";
+    cout << "This story is unwinnable!\n";
   for (size_t i = 0; i < validPaths.size(); i++) {
     printPath(graph, validPaths[i]);
   }
