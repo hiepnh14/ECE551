@@ -1,6 +1,6 @@
-Grading at 12/08/2023:21:23:38.829458
-For commit ID 6420948fd51580e1120d709a4cc5bd10defb4d3f
-Grading at Fri Dec  8 04:22:05 PM EST 2023
+Grading at 12/08/2023:21:34:46.465047
+For commit ID 5cdef8cc1cdd864d41757a18c4dfa3715f2d3617
+Grading at Fri Dec  8 04:33:14 PM EST 2023
 Doing some basic checking for your submission
 
 Step 1
@@ -460,44 +460,37 @@ Your output looks good. Lets check valgrind
 Valgrind was clean
 
 
-2.12: Current test is ./cyoa-step2 story1  <  nothing
------------------------------
-You considered this a failure case:
-/dev/fd/3: line 528: nothing: No such file or directory
-But we did not.
-
-
-2.13: Current test is ./cyoa-step2 story3  <  /usr/local/ece551/cyoa/story3/inputs/input15.txt
+2.12: Current test is ./cyoa-step2 story3  <  /usr/local/ece551/cyoa/story3/inputs/input15.txt
 -----------------------------
 Your output looks good. Lets check valgrind
 Valgrind was clean
 
 
-2.14: Current test is ./cyoa-step2 story3  <  /usr/local/ece551/cyoa/story3/inputs/input16.txt
+2.13: Current test is ./cyoa-step2 story3  <  /usr/local/ece551/cyoa/story3/inputs/input16.txt
 -----------------------------
 Your output looks good. Lets check valgrind
 Valgrind was clean
 
 
-2.15: Current test is ./cyoa-step2 story3  <  /usr/local/ece551/cyoa/story3/inputs/input17.txt
+2.14: Current test is ./cyoa-step2 story3  <  /usr/local/ece551/cyoa/story3/inputs/input17.txt
 -----------------------------
 Your output looks good. Lets check valgrind
 Valgrind was clean
 
 
-2.16: Current test is ./cyoa-step2 story3  <  /usr/local/ece551/cyoa/story3/inputs/input18.txt
+2.15: Current test is ./cyoa-step2 story3  <  /usr/local/ece551/cyoa/story3/inputs/input18.txt
 -----------------------------
 Your output looks good. Lets check valgrind
 Valgrind was clean
 
 
-2.17: Current test is ./cyoa-step2 story3  <  /usr/local/ece551/cyoa/story3/inputs/input19.txt
+2.16: Current test is ./cyoa-step2 story3  <  /usr/local/ece551/cyoa/story3/inputs/input19.txt
 -----------------------------
 Your output looks good. Lets check valgrind
 Valgrind was clean
 
 
-2.18: Current test is ./cyoa-step2 story3  <  /usr/local/ece551/cyoa/story2/inputs/input0.txt
+2.17: Current test is ./cyoa-step2 story3  <  /usr/local/ece551/cyoa/story2/inputs/input0.txt
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
@@ -508,7 +501,7 @@ Lets check if it valgrinds:
 Valgrind was clean
 
 
-2.19: Current test is ./cyoa-step2 story3  <  /usr/local/ece551/cyoa/story1/inputs/input1.txt
+2.18: Current test is ./cyoa-step2 story3  <  /usr/local/ece551/cyoa/story1/inputs/input1.txt
 -----------------------------
 Your output looks good. Lets check valgrind
 Valgrind was clean
@@ -789,7 +782,7 @@ Valgrind was clean
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
-Invalid digits from story.txt for page 
+Declaration order incorrect
 
 -----------------------------------------
 Lets check if it valgrinds:
@@ -800,7 +793,7 @@ Valgrind was clean
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
-Invalid digits from story.txt for page 
+Declaration order incorrect
 
 -----------------------------------------
 Lets check if it valgrinds:
@@ -811,7 +804,7 @@ Valgrind was clean
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
-Invalid digits from story.txt for page 
+Declaration order incorrect
 
 -----------------------------------------
 Lets check if it valgrinds:
@@ -822,7 +815,7 @@ Valgrind was clean
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
-Invalid digits from story.txt for page 
+Declaration order incorrect
 
 -----------------------------------------
 Lets check if it valgrinds:
@@ -833,7 +826,7 @@ Valgrind was clean
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
-Invalid digits from story.txt for page 
+Declaration order incorrect
 
 -----------------------------------------
 Lets check if it valgrinds:
@@ -917,8 +910,8 @@ Lets check if it valgrinds:
 Valgrind was clean
 No request to check for intermediate deadline completion on step 4
 
-You have NOT passed your test cases!
-You should go and figure out/understand where thing went wrong
-And fix the problem(s) before the deadline
+You have passed the test cases YOU provided
+If your tests are good, this is great. 
+If your tests are insufficient, you should do much more testing
 
 Overall Grade: NO GRADE YET
