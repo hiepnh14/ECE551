@@ -34,7 +34,8 @@
 
 9@L:dragonsnack.txt
 10@W:coins.txt
-1 1@L:attack.txt
+11@L:attack.txt
+11@N:attack.txt
 12@W:offercroissant.txt
 13@N:squirteclair.txt
 13[broke=0]:16:Fling your last coins at the dragon

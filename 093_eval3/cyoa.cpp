@@ -28,22 +28,11 @@ bool isDigitsOrMinus(const string & digits) {
 }
 bool isDigits(const string & digits) {
   string::const_iterator it = digits.begin();
-  //cout << digits << endl;
-  //bool last_digit = false;
-  // Ignore initial space
+  // Ignore initial spaces
   while (it != digits.end() && (*it == ' ')) {
     ++it;
   }
-  //while (it != digits.end() && (isdigit(*it) || *it == ' ')) {
   while (it != digits.end() && (isdigit(*it))) {
-    //cout << "\n  " << *it;
-    /*
-    if (isdigit(*it))
-      last_digit = true;
-    else if (*it == ' ') {
-      //cout << "space\n";
-      last_digit = false;
-      }*/
     ++it;
   }
   if (!digits.empty() && it == digits.end())
@@ -172,13 +161,6 @@ long int toLong(string strNum) {
 }
 // Convert string to size_t
 size_t toSize_t(string strNum) {
-  /*stringstream stream;
-  stream << strNum;
-  size_t ans = 0;
-  stream >> ans;
-  if (ans < numeric_limits<size_t>::min() && ans > numeric_limits<size_t>::max())
-    error("Input digits exceed data type limits\n");
-  */
   size_t ans;
   try {
     unsigned long num = stoul(strNum);
@@ -253,9 +235,9 @@ void Story::readStory(istream & input, string foldername) {
     if (line == "")
       continue;
     size_t i = 0;
-    size_t & index = i;
+    size_t & index = i;  // reference of i to change i in functions
     size_t page_num = getPageNum(line, index);
-    // Add new page
+    // Add new page '@'
     if (line[i] == '@') {
       i++;
       char type = line[i];
@@ -286,7 +268,7 @@ void Story::readStory(istream & input, string foldername) {
         error("Fail to close page file\n");
       addPage(currentPage);
     }
-    // Choice case with no condition
+    // Choice case with no condition ':'
     else if (line[i] == ':') {
       if (page_num > orderCheck)
         error("Page is not yet declared\n");
@@ -423,6 +405,7 @@ void Story::display(Page current) {
       size_t next = toLong(input);
       if (next > 0 && next <= current.getChoices().size()) {
         if (conditionSatisfy(inventory, current.getCondition()[next - 1])) {
+          // display and prompt in the next page
           display(findPage(current.getChoices()[next - 1].first));
           satisfy = true;
         }
@@ -478,7 +461,7 @@ vector<size_t> findWinPages(Story main) {
   return winPages;
 }
 
-// find the path from start to end
+// find all paths from a start to an end
 void findPath(const vector<vector<size_t> > & graph,
               size_t start,
               size_t end,
@@ -513,7 +496,7 @@ void findAllPaths(vector<size_t> winPages,
     findPath(graph, beginPage, end, path, visited, validPaths);
   }
 }
-
+// Helper function to print the Graph
 void printGraph(const Story main) {
   vector<vector<size_t> > graph = generateGraph(main);
   for (size_t i = 0; i < graph.size(); i++) {

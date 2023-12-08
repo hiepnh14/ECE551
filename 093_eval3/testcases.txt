@@ -47,7 +47,6 @@ cyoa-step2 test/step3_test1 < /usr/local/ece551/cyoa/story1/inputs/input0.txt
 cyoa-step2 story2 < /usr/local/ece551/cyoa/story1/inputs/input9.txt
 cyoa-step2 story2 < /usr/local/ece551/cyoa/story1/inputs/input10.txt
 cyoa-step2 story2 < /usr/local/ece551/cyoa/story1/inputs/input12.txt
-cyoa-step2 story1 < nothing
 cyoa-step2 story3 < /usr/local/ece551/cyoa/story3/inputs/input15.txt
 cyoa-step2 story3 < /usr/local/ece551/cyoa/story3/inputs/input16.txt
 cyoa-step2 story3 < /usr/local/ece551/cyoa/story3/inputs/input17.txt
