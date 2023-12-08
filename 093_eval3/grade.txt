@@ -1,6 +1,6 @@
-Grading at 12/06/2023:08:02:21.917313
-For commit ID 8fd7e0c08d72a3670986ca6819e226bae1d15be0
-Grading at Wed Dec  6 03:01:04 AM EST 2023
+Grading at 12/08/2023:04:41:30.294979
+For commit ID 714fa53cf521e795cfb1273ef3249a6ad1f562c6
+Grading at Thu Dec  7 11:39:19 PM EST 2023
 Doing some basic checking for your submission
 
 Step 1
@@ -165,44 +165,11 @@ Valgrind was clean
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
-Adding choice to Non-Normal page
+Page is not yet declared
 
 -----------------------------------------
 Lets check if it valgrinds:
-Valgrind reported errors:
-==2676832== Memcheck, a memory error detector
-==2676832== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==2676832== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==2676832== Command: ./cyoa-step1 test/orderNum
-==2676832== Parent PID: 2676831
-==2676832== 
-==2676832== Invalid read of size 1
-==2676832==    at 0x113542: Page::getType() const (cyoa.hpp:40)
-==2676832==    by 0x1104B5: Story::readStory(std::istream&, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >) (cyoa.cpp:185)
-==2676832==    by 0x10BBB1: main (in /home/ece551db/graderbase/work/hhn3.093_eval3.LBdIsY/cyoa-step1)
-==2676832==  Address 0x4de0150 is 16 bytes after a block of size 64 alloc'd
-==2676832==    at 0x4849013: operator new(unsigned long) (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==2676832==    by 0x10EE31: __gnu_cxx::new_allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >::allocate(unsigned long, void const*) (in /home/ece551db/graderbase/work/hhn3.093_eval3.LBdIsY/cyoa-step1)
-==2676832==    by 0x10ECCC: std::allocator_traits<std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::allocate(std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > >&, unsigned long) (alloc_traits.h:464)
-==2676832==    by 0x10EBCB: std::_Vector_base<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_allocate(unsigned long) (stl_vector.h:346)
-==2676832==    by 0x10EAEA: std::_Vector_base<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_M_create_storage(unsigned long) (stl_vector.h:361)
-==2676832==    by 0x10E968: std::_Vector_base<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::_Vector_base(unsigned long, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > const&) (stl_vector.h:305)
-==2676832==    by 0x10E7EA: std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > >::vector(std::vector<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >, std::allocator<std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> > > > const&) (stl_vector.h:555)
-==2676832==    by 0x10E487: Page::Page(Page const&) (cyoa.hpp:17)
-==2676832==    by 0x11787A: void __gnu_cxx::new_allocator<Page>::construct<Page, Page const&>(Page*, Page const&) (new_allocator.h:162)
-==2676832==    by 0x115A25: void std::allocator_traits<std::allocator<Page> >::construct<Page, Page const&>(std::allocator<Page>&, Page*, Page const&) (alloc_traits.h:516)
-==2676832==    by 0x115B4C: void std::vector<Page, std::allocator<Page> >::_M_realloc_insert<Page const&>(__gnu_cxx::__normal_iterator<Page*, std::vector<Page, std::allocator<Page> > >, Page const&) (vector.tcc:449)
-==2676832==    by 0x1142E7: std::vector<Page, std::allocator<Page> >::push_back(Page const&) (stl_vector.h:1198)
-==2676832== 
-==2676832== 
-==2676832== HEAP SUMMARY:
-==2676832==     in use at exit: 10,593 bytes in 25 blocks
-==2676832==   total heap usage: 74 allocs, 49 frees, 120,982 bytes allocated
-==2676832== 
-==2676832== For a detailed leak analysis, rerun with: --leak-check=full
-==2676832== 
-==2676832== For lists of detected and suppressed errors, rerun with: -s
-==2676832== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+Valgrind was clean
 
 
 1.17: Current test is ./cyoa-step1 test/size_t < /dev/null
@@ -216,10 +183,53 @@ Lets check if it valgrinds:
 Valgrind was clean
 
 
-1.18: Current test is ./cyoa-step1 test/story3 < /dev/null
+1.18: Current test is ./cyoa-step1 story3 < /dev/null
 -----------------------------
 Your output looks good. Lets check valgrind
 Valgrind was clean
+
+
+1.19: Current test is ./cyoa-step1 test/step4_test1 < /dev/null
+-----------------------------
+Your output looks good. Lets check valgrind
+Valgrind was clean
+
+
+1.20: Current test is ./cyoa-step1 test/step4_test2 < /dev/null
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+Invalid digits from story.txt
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+1.21: Current test is ./cyoa-step1 test/step4_test3 < /dev/null
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+Story.txt format for variable incorrect
+
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+1.22: Current test is ./cyoa-step1 test/step4_test4 < /dev/null
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+Value of variable must be long int
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+1.23: Current test is ./cyoa-step1 test/step4_test5 < /dev/null
+-----------------------------
+We considered this a failure case.
+But you did not (exit status was EXIT_SUCCESS).
 No request to check for intermediate deadline completion on step 1
 
 Step 2
@@ -424,6 +434,166 @@ Great: we both considered this an error
 -----------------------------------------
 Lets check if it valgrinds:
 Valgrind was clean
+
+
+2.27: Current test is ./cyoa-step2 test/step4_test3  <  /usr/local/ece551/cyoa/story3/inputs/input1.txt
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+Story.txt format for variable incorrect
+
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+2.28: Current test is ./cyoa-step2 test/step4_test3  <  /usr/local/ece551/cyoa/story3/inputs/input2.txt
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+Story.txt format for variable incorrect
+
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+2.29: Current test is ./cyoa-step2 test/step4_test4  <  /usr/local/ece551/cyoa/story3/inputs/input3.txt
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+Value of variable must be long int
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+2.30: Current test is ./cyoa-step2 test/step4_test3  <  /usr/local/ece551/cyoa/story3/inputs/input4.txt
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+Story.txt format for variable incorrect
+
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+2.31: Current test is ./cyoa-step2 test/step4_test5  <  /usr/local/ece551/cyoa/story3/inputs/input5.txt
+-----------------------------
+We considered this a failure case.
+But you did not (exit status was EXIT_SUCCESS).
+
+
+2.32: Current test is ./cyoa-step2 test/step4_test3  <  /usr/local/ece551/cyoa/story3/inputs/input6.txt
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+Story.txt format for variable incorrect
+
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+2.33: Current test is ./cyoa-step2 test/step4_test5  <  /usr/local/ece551/cyoa/story3/inputs/input7.txt
+-----------------------------
+We considered this a failure case.
+But you did not (exit status was EXIT_SUCCESS).
+
+
+2.34: Current test is ./cyoa-step2 test/step4_test4  <  /usr/local/ece551/cyoa/story3/inputs/input8.txt
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+Value of variable must be long int
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+2.35: Current test is ./cyoa-step2 test/step4_test4  <  /usr/local/ece551/cyoa/story3/inputs/input15.txt
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+Value of variable must be long int
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+2.36: Current test is ./cyoa-step2 test/step4_test1  <  /usr/local/ece551/cyoa/story3/inputs/input1.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+Valgrind was clean
+
+
+2.37: Current test is ./cyoa-step2 test/step4_test1  <  /usr/local/ece551/cyoa/story3/inputs/input17.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+Valgrind was clean
+
+
+2.38: Current test is ./cyoa-step2 test/step4_test5  <  /usr/local/ece551/cyoa/story3/inputs/input18.txt
+-----------------------------
+We considered this a failure case.
+But you did not (exit status was EXIT_SUCCESS).
+
+
+2.39: Current test is ./cyoa-step2 test/step4_test5  <  /usr/local/ece551/cyoa/story3/inputs/input19.txt
+-----------------------------
+We considered this a failure case.
+But you did not (exit status was EXIT_SUCCESS).
+
+
+2.40: Current test is ./cyoa-step2 test/step4_test2  <  /usr/local/ece551/cyoa/story3/inputs/input0.txt
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+Invalid digits from story.txt
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+2.41: Current test is ./cyoa-step2 test/step4_test2  <  /usr/local/ece551/cyoa/story3/inputs/input1.txt
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+Invalid digits from story.txt
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+2.42: Current test is ./cyoa-step2 test/step4_test1  <  /usr/local/ece551/cyoa/story3/inputs/input1.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+Valgrind was clean
+
+
+2.43: Current test is ./cyoa-step2 test/step4_test1  <  /usr/local/ece551/cyoa/story3/inputs/input2.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+Valgrind was clean
+
+
+2.44: Current test is ./cyoa-step2 test/step4_test1  <  /usr/local/ece551/cyoa/story3/inputs/input3.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+Valgrind was clean
+
+
+2.45: Current test is ./cyoa-step2 test/step4_test1  <  /usr/local/ece551/cyoa/story3/inputs/input4.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+Valgrind was clean
+
+
+2.46: Current test is ./cyoa-step2 test/step4_test1  <  /usr/local/ece551/cyoa/story3/inputs/input5.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+Valgrind was clean
 No request to check for intermediate deadline completion on step 2
 
 Step 3
@@ -486,166 +656,450 @@ Executable cyoa-step4 exists (good)
 ------------------------------------
 Now running YOUR tests for step 4
 ------------------------------------
-------------------------------------
-You have requested that we check for intermediate deadline completion on step 4
-------------------------------------
 
-Step 4 EC intermediate deadline test 1
-===========================================================
-./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input0.txt
-Valgrind was clean for this testcase
-You have passed this test case
 
-Step 4 EC intermediate deadline test 2
-===========================================================
-./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input10.txt
-Valgrind was clean for this testcase
-You have passed this test case
+4.1: Current test is ./cyoa-step4 story3  <  /usr/local/ece551/cyoa/story3/inputs/input15.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+Valgrind was clean
 
-Step 4 EC intermediate deadline test 3
-===========================================================
-./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input11.txt
-Valgrind was clean for this testcase
-You have passed this test case
 
-Step 4 EC intermediate deadline test 4
-===========================================================
-./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input12.txt
-Valgrind was clean for this testcase
-You have passed this test case
+4.2: Current test is ./cyoa-step4 story3  <  /usr/local/ece551/cyoa/story3/inputs/input16.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+Valgrind was clean
 
-Step 4 EC intermediate deadline test 5
-===========================================================
-./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input13.txt
-Valgrind was clean for this testcase
-You have passed this test case
 
-Step 4 EC intermediate deadline test 6
-===========================================================
-./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input14.txt
-Valgrind was clean for this testcase
-You have passed this test case
+4.3: Current test is ./cyoa-step4 story3  <  /usr/local/ece551/cyoa/story3/inputs/input17.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+Valgrind was clean
 
-Step 4 EC intermediate deadline test 7
-===========================================================
-./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input15.txt
-Valgrind was clean for this testcase
-You have passed this test case
 
-Step 4 EC intermediate deadline test 8
-===========================================================
-./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input16.txt
-Valgrind was clean for this testcase
-You have passed this test case
+4.4: Current test is ./cyoa-step4 story3  <  /usr/local/ece551/cyoa/story3/inputs/input18.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+Valgrind was clean
 
-Step 4 EC intermediate deadline test 9
-===========================================================
-./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input17.txt
-Valgrind was clean for this testcase
-You have passed this test case
 
-Step 4 EC intermediate deadline test 10
-===========================================================
-./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input18.txt
-Valgrind was clean for this testcase
-You have passed this test case
+4.5: Current test is ./cyoa-step4 story3  <  /usr/local/ece551/cyoa/story3/inputs/input19.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+Valgrind was clean
 
-Step 4 EC intermediate deadline test 11
-===========================================================
-./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input19.txt
-Valgrind was clean for this testcase
-You have passed this test case
 
-Step 4 EC intermediate deadline test 12
-===========================================================
-./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input1.txt
-Valgrind was clean for this testcase
-You have passed this test case
+4.6: Current test is ./cyoa-step4 story3  <  /usr/local/ece551/cyoa/story2/inputs/input0.txt
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+Input is not good
 
-Step 4 EC intermediate deadline test 13
-===========================================================
-./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input20.txt
-Valgrind was clean for this testcase
-You have passed this test case
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
 
-Step 4 EC intermediate deadline test 14
-===========================================================
-./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input21.txt
-Valgrind was clean for this testcase
-You have passed this test case
 
-Step 4 EC intermediate deadline test 15
-===========================================================
-./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input22.txt
-Valgrind was clean for this testcase
-You have passed this test case
+4.7: Current test is ./cyoa-step4 story3  <  /usr/local/ece551/cyoa/story1/inputs/input1.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+Valgrind was clean
 
-Step 4 EC intermediate deadline test 16
-===========================================================
-./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input23.txt
-Valgrind was clean for this testcase
-You have passed this test case
 
-Step 4 EC intermediate deadline test 17
-===========================================================
-./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input24.txt
-Valgrind was clean for this testcase
-You have passed this test case
+4.8: Current test is ./cyoa-step4 story3  <  /usr/local/ece551/cyoa/story3/inputs/input0.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+Valgrind was clean
 
-Step 4 EC intermediate deadline test 18
-===========================================================
-./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input25.txt
-Valgrind was clean for this testcase
-You have passed this test case
 
-Step 4 EC intermediate deadline test 19
-===========================================================
-./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input2.txt
-Valgrind was clean for this testcase
-You have passed this test case
+4.9: Current test is ./cyoa-step4 story3  <  /usr/local/ece551/cyoa/story3/inputs/input1.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+Valgrind was clean
 
-Step 4 EC intermediate deadline test 20
-===========================================================
-./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input3.txt
-Valgrind was clean for this testcase
-You have passed this test case
 
-Step 4 EC intermediate deadline test 21
-===========================================================
-./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input4.txt
-Valgrind was clean for this testcase
-You have passed this test case
+4.10: Current test is ./cyoa-step4 story3  <  /usr/local/ece551/cyoa/story3/inputs/input2.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+Valgrind was clean
 
-Step 4 EC intermediate deadline test 22
-===========================================================
-./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input5.txt
-Valgrind was clean for this testcase
-You have passed this test case
 
-Step 4 EC intermediate deadline test 23
-===========================================================
-./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input6.txt
-Valgrind was clean for this testcase
-You have passed this test case
+4.11: Current test is ./cyoa-step4 story3  <  /usr/local/ece551/cyoa/story3/inputs/input3.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+Valgrind was clean
 
-Step 4 EC intermediate deadline test 24
-===========================================================
-./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input7.txt
-Valgrind was clean for this testcase
-You have passed this test case
 
-Step 4 EC intermediate deadline test 25
-===========================================================
-./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input8.txt
-Valgrind was clean for this testcase
-You have passed this test case
+4.12: Current test is ./cyoa-step4 story3  <  /usr/local/ece551/cyoa/story3/inputs/input4.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+Valgrind was clean
 
-Step 4 EC intermediate deadline test 26
-===========================================================
-./cyoa-step4 /usr/local/ece551/cyoa/story3 < /usr/local/ece551/cyoa/story3/inputs/input9.txt
-Valgrind was clean for this testcase
-You have passed this test case
-Intermediate deadline requirements for Step 4 passed at Wed Dec  6 03:02:21 AM EST 2023
+
+4.13: Current test is ./cyoa-step4 story3  <  /usr/local/ece551/cyoa/story3/inputs/input5.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+Valgrind was clean
+
+
+4.14: Current test is ./cyoa-step4 story3  <  /usr/local/ece551/cyoa/story3/inputs/input6.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+Valgrind was clean
+
+
+4.15: Current test is ./cyoa-step4 story3  <  /usr/local/ece551/cyoa/story3/inputs/input7.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+Valgrind was clean
+
+
+4.16: Current test is ./cyoa-step4 story3  <  /usr/local/ece551/cyoa/story3/inputs/input8.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+Valgrind was clean
+
+
+4.17: Current test is ./cyoa-step4 story3  <  /usr/local/ece551/cyoa/story3/inputs/input9.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+Valgrind was clean
+
+
+4.18: Current test is ./cyoa-step4 story3  <  /usr/local/ece551/cyoa/story3/inputs/input10.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+Valgrind was clean
+
+
+4.19: Current test is ./cyoa-step4 story3  <  /usr/local/ece551/cyoa/story3/inputs/input11.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+Valgrind was clean
+
+
+4.20: Current test is ./cyoa-step4 story3  <  /usr/local/ece551/cyoa/story3/inputs/input12.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+Valgrind was clean
+
+
+4.21: Current test is ./cyoa-step4 story3  <  /usr/local/ece551/cyoa/story3/inputs/input14.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+Valgrind was clean
+
+
+4.22: Current test is ./cyoa-step4 story3  <  /usr/local/ece551/cyoa/story3/inputs/input13.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+Valgrind was clean
+
+
+4.23: Current test is ./cyoa-step4 story3  <  /usr/local/ece551/cyoa/story3/inputs/input15.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+Valgrind was clean
+
+
+4.24: Current test is ./cyoa-step4 story3  <  /usr/local/ece551/cyoa/story3/inputs/input16.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+Valgrind was clean
+
+
+4.25: Current test is ./cyoa-step4 story3  <  /usr/local/ece551/cyoa/story3/inputs/input17.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+Valgrind was clean
+
+
+4.26: Current test is ./cyoa-step4 story3  <  /usr/local/ece551/cyoa/story3/inputs/input18.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+Valgrind was clean
+
+
+4.27: Current test is ./cyoa-step4 story3  <  /usr/local/ece551/cyoa/story3/inputs/input19.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+Valgrind was clean
+
+
+4.28: Current test is ./cyoa-step4 story3  <  /usr/local/ece551/cyoa/story2/inputs/input0.txt
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+Input is not good
+
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+4.29: Current test is ./cyoa-step4 story3  <  /usr/local/ece551/cyoa/story1/inputs/input1.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+Valgrind was clean
+
+
+4.30: Current test is ./cyoa-step4 test/step4_test3  <  /usr/local/ece551/cyoa/story3/inputs/input1.txt
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+Story.txt format for variable incorrect
+
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+4.31: Current test is ./cyoa-step4 test/step4_test3  <  /usr/local/ece551/cyoa/story3/inputs/input2.txt
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+Story.txt format for variable incorrect
+
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+4.32: Current test is ./cyoa-step4 test/step4_test3  <  /usr/local/ece551/cyoa/story3/inputs/input3.txt
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+Story.txt format for variable incorrect
+
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+4.33: Current test is ./cyoa-step4 test/step4_test3  <  /usr/local/ece551/cyoa/story3/inputs/input4.txt
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+Story.txt format for variable incorrect
+
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+4.34: Current test is ./cyoa-step4 test/step4_test3  <  /usr/local/ece551/cyoa/story3/inputs/input5.txt
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+Story.txt format for variable incorrect
+
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+4.35: Current test is ./cyoa-step4 test/step4_test3  <  /usr/local/ece551/cyoa/story3/inputs/input6.txt
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+Story.txt format for variable incorrect
+
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+4.36: Current test is ./cyoa-step4 test/step4_test3  <  /usr/local/ece551/cyoa/story3/inputs/input7.txt
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+Story.txt format for variable incorrect
+
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+4.37: Current test is ./cyoa-step4 test/step4_test4  <  /usr/local/ece551/cyoa/story3/inputs/input8.txt
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+Value of variable must be long int
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+4.38: Current test is ./cyoa-step4 test/step4_test4  <  /usr/local/ece551/cyoa/story3/inputs/input15.txt
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+Value of variable must be long int
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+4.39: Current test is ./cyoa-step4 test/step4_test4  <  /usr/local/ece551/cyoa/story3/inputs/input1.txt
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+Value of variable must be long int
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+4.40: Current test is ./cyoa-step4 test/step4_test4  <  /usr/local/ece551/cyoa/story3/inputs/input17.txt
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+Value of variable must be long int
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+4.41: Current test is ./cyoa-step4 test/step4_test5  <  /usr/local/ece551/cyoa/story3/inputs/input18.txt
+-----------------------------
+We considered this a failure case.
+But you did not (exit status was EXIT_SUCCESS).
+
+
+4.42: Current test is ./cyoa-step4 test/step4_test5  <  /usr/local/ece551/cyoa/story3/inputs/input19.txt
+-----------------------------
+We considered this a failure case.
+But you did not (exit status was EXIT_SUCCESS).
+
+
+4.43: Current test is ./cyoa-step4 test/step4_test5  <  /usr/local/ece551/cyoa/story3/inputs/input0.txt
+-----------------------------
+We considered this a failure case.
+But you did not (exit status was EXIT_SUCCESS).
+
+
+4.44: Current test is ./cyoa-step4 test/step4_test5  <  /usr/local/ece551/cyoa/story3/inputs/input1.txt
+-----------------------------
+We considered this a failure case.
+But you did not (exit status was EXIT_SUCCESS).
+
+
+4.45: Current test is ./cyoa-step4 test/step4_test1  <  /usr/local/ece551/cyoa/story3/inputs/input1.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+Valgrind was clean
+
+
+4.46: Current test is ./cyoa-step4 test/step4_test1  <  /usr/local/ece551/cyoa/story3/inputs/input2.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+Valgrind was clean
+
+
+4.47: Current test is ./cyoa-step4 test/step4_test1  <  /usr/local/ece551/cyoa/story3/inputs/input3.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+Valgrind was clean
+
+
+4.48: Current test is ./cyoa-step4 test/step4_test1  <  /usr/local/ece551/cyoa/story3/inputs/input4.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+Valgrind was clean
+
+
+4.49: Current test is ./cyoa-step4 test/step4_test1  <  /usr/local/ece551/cyoa/story3/inputs/input5.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+Valgrind was clean
+
+
+4.50: Current test is ./cyoa-step4 test/step4_test1  <  /usr/local/ece551/cyoa/story3/inputs/input6.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+Valgrind was clean
+
+
+4.51: Current test is ./cyoa-step4 test/step4_test1  <  /usr/local/ece551/cyoa/story3/inputs/input7.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+Valgrind was clean
+
+
+4.52: Current test is ./cyoa-step4 test/step4_test1  <  /usr/local/ece551/cyoa/story3/inputs/input8.txt
+-----------------------------
+Your output looks good. Lets check valgrind
+Valgrind was clean
+
+
+4.53: Current test is ./cyoa-step4 test/step4_test2  <  /usr/local/ece551/cyoa/story3/inputs/input15.txt
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+Invalid digits from story.txt
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+4.54: Current test is ./cyoa-step4 test/step4_test2  <  /usr/local/ece551/cyoa/story3/inputs/input16.txt
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+Invalid digits from story.txt
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+4.55: Current test is ./cyoa-step4 test/step4_test2  <  /usr/local/ece551/cyoa/story3/inputs/input17.txt
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+Invalid digits from story.txt
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+4.56: Current test is ./cyoa-step4 test/step4_test2  <  /usr/local/ece551/cyoa/story3/inputs/input18.txt
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+Invalid digits from story.txt
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+4.57: Current test is ./cyoa-step4 test/step4_test2  <  /usr/local/ece551/cyoa/story3/inputs/input19.txt
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+Invalid digits from story.txt
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+4.58: Current test is ./cyoa-step4 test/step4_test2  <  /usr/local/ece551/cyoa/story2/inputs/input0.txt
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+Invalid digits from story.txt
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+
+
+4.59: Current test is ./cyoa-step4 test/step4_test2  <  /usr/local/ece551/cyoa/story1/inputs/input1.txt
+-----------------------------
+Great: we both considered this an error
+----here is what you printed on stderr---
+Invalid digits from story.txt
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
+No request to check for intermediate deadline completion on step 4
 
 You have NOT passed your test cases!
 You should go and figure out/understand where thing went wrong
