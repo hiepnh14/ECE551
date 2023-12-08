@@ -1,13 +1,13 @@
-Grading at 12/08/2023:08:27:57.570311
-For commit ID ea8f57d01bf80f811d43d1e0e1ca6b93bf418d3c
-Grading at Fri Dec  8 03:25:05 AM EST 2023
+Grading at 12/08/2023:09:14:25.379263
+For commit ID 487e5429cb1ea701c76995b4e55437def8e5a084
+Grading at Fri Dec  8 04:11:44 AM EST 2023
 Doing some basic checking for your submission
 
 Step 1
 Checking that cyoa-step1 compiles
 rm -f *~ cyoa-step1 cyoa-step2 cyoa-step3 cyoa-step4 cyoa-step1.o cyoa-step2.o cyoa-step3.o cyoa-step4.o cyoa.o
 g++    -c -o cyoa-step1.o cyoa-step1.cpp
-g++ -std=gnu++98 -pedantic -Wall -Werror -ggdb3 -c cyoa.cpp
+g++ -std=gnu++11 -pedantic -Wall -Werror -ggdb3 -c cyoa.cpp
 g++ -o cyoa-step1 cyoa-step1.o cyoa.o
 rm cyoa.o cyoa-step1.o
 The code compiled (good)
@@ -190,7 +190,7 @@ Valgrind was clean
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
-Declaration order incorrect
+Out of range error
 
 -----------------------------------------
 Lets check if it valgrinds:
@@ -244,8 +244,13 @@ Valgrind was clean
 
 1.23: Current test is ./cyoa-step1 test/step4_test5 < /dev/null
 -----------------------------
-We considered this a failure case.
-But you did not (exit status was EXIT_SUCCESS).
+Great: we both considered this an error
+----here is what you printed on stderr---
+Out of range error
+
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
 
 
 1.24: Current test is ./cyoa-step1 test/step3_test1 < /dev/null
@@ -647,7 +652,7 @@ Step 2
 Checking that cyoa-step2 compiles
 rm -f *~ cyoa-step1 cyoa-step2 cyoa-step3 cyoa-step4 cyoa-step1.o cyoa-step2.o cyoa-step3.o cyoa-step4.o cyoa.o
 g++    -c -o cyoa-step2.o cyoa-step2.cpp
-g++ -std=gnu++98 -pedantic -Wall -Werror -ggdb3 -c cyoa.cpp
+g++ -std=gnu++11 -pedantic -Wall -Werror -ggdb3 -c cyoa.cpp
 g++ -o cyoa-step2 cyoa-step2.o cyoa.o
 rm cyoa.o cyoa-step2.o
 The code compiled (good)
@@ -800,37 +805,1040 @@ Lets check if it valgrinds:
 Valgrind was clean
 
 
-2.14: Current test is ./cyoa-step2 story2  <  /usr/local/ece551/cyoa/story1/inputs/input0.txt
+2.14: Current test is ./cyoa-step2 test/step3_test1  <  /usr/local/ece551/cyoa/story1/inputs/input0.txt
+-----------------------------
+It looks like you got different output from us on that case.
+Here is the diff (yours on left, ours on right):
+
+Welcome to choose your own adventure.				Welcome to choose your own adventure.
+Get ready for the thrilling tale of dragons and brunches.	Get ready for the thrilling tale of dragons and brunches.
+Will you get help from Grew and/or Denevieve?			Will you get help from Grew and/or Denevieve?
+Will you be eaten by a dragon?					Will you be eaten by a dragon?
+
+Only you can decide....						Only you can decide....
+
+What would you like to do?					What would you like to do?
+
+ 1.I am ready for this story!					 1. I am ready for this story!
+							      >	 2. I am ready for this story second time!
+One day, a strange old wizard comes to your village and tells	One day, a strange old wizard comes to your village and tells
+there is an evil dragon lurking in the hills. This wizard's s	there is an evil dragon lurking in the hills. This wizard's s
+why the village's goats and cows have been going missing late	why the village's goats and cows have been going missing late
+
+The wizard tells you: "It is up to you, hero, to stop this dr	The wizard tells you: "It is up to you, hero, to stop this dr
+else in this village is foolish...errrr I mean brave enough t	else in this village is foolish...errrr I mean brave enough t
+dragon." 							dragon." 
+
+The wizard offers you a choice of one of three magic items to	The wizard offers you a choice of one of three magic items to
+your quest. 							your quest. 
+
+The first is a magic whistle that lets you make any bird call	The first is a magic whistle that lets you make any bird call
+want. The second is a pair of magic shoes that let you jump 1	want. The second is a pair of magic shoes that let you jump 1
+air. The third is a magic toaster, which can take any item th	air. The third is a magic toaster, which can take any item th
+into it, and turn it into perfectly cooked toast (optionally 	into it, and turn it into perfectly cooked toast (optionally 
+and/or jam). 							and/or jam). 
+
+"Choose wisely, for your quest and your village depend on you	"Choose wisely, for your quest and your village depend on you
+
+What would you like to do?					What would you like to do?
+
+ 1.Choose the magic whistle.					 1. Choose the magic whistle.
+ 2.Choose the magic shoes.					 2. Choose the magic shoes.
+ 3.Choose the magic toaster.					 3. Choose the magic toaster.
+As you take the magic whistle from the wizard's hand, he disa	As you take the magic whistle from the wizard's hand, he disa
+puff of smoke. You decide that you should give the whistle a 	puff of smoke. You decide that you should give the whistle a 
+set off to deal with the dragon (after all, if you learned no	set off to deal with the dragon (after all, if you learned no
+school, it was that testing is VERY important). 		school, it was that testing is VERY important). 
+
+You think of a raven and blow on the whistle "CAW CAW CAW CAW	You think of a raven and blow on the whistle "CAW CAW CAW CAW
+think of a chicken and blow "COCKADOODLEDOOOO". It seems like	think of a chicken and blow "COCKADOODLEDOOOO". It seems like
+works great, though you wonder how many different birds you c	works great, though you wonder how many different birds you c
+and how they would help you deal with the dragon. 		and how they would help you deal with the dragon. 
+
+Putting that question in the back of your mind, you contempla	Putting that question in the back of your mind, you contempla
+not you should get some help before you set out. On the one h	not you should get some help before you set out. On the one h
+alone, you might be able to better sneak into the dragon's la	alone, you might be able to better sneak into the dragon's la
+other hand, help might be useful.				other hand, help might be useful.
+
+Fortunately for you, the two wisest people you know, Deneviev	Fortunately for you, the two wisest people you know, Deneviev
+live in the next village over. Thinking about it for several 	live in the next village over. Thinking about it for several 
+decide whom to go to for help.					decide whom to go to for help.
+
+What would you like to do?					What would you like to do?
+
+ 1.Go to Denevieve for help.					 1. Go to Denevieve for help.
+ 2.Go to Grew for help.						 2. Go to Grew for help.
+ 3.Go alone.							 3. Go alone.
+After thinking about it a bit, you decide that Denevieve is p	After thinking about it a bit, you decide that Denevieve is p
+better choice. After all, her singing skills are likely to co	better choice. After all, her singing skills are likely to co
+especially with your magic whistle. Maybe dragons can be tame	especially with your magic whistle. Maybe dragons can be tame
+music and bird calls? That could be right, but you aren't sur	music and bird calls? That could be right, but you aren't sur
+through that day of Magical Creature Biology class. 		through that day of Magical Creature Biology class. 
+
+After knocking on the door, Denevieve is surprised to hear ab	After knocking on the door, Denevieve is surprised to hear ab
+threat but is happy to help you. After all, you were her best	threat but is happy to help you. After all, you were her best
+tested every piece of code extensively and incrementally. Sur	tested every piece of code extensively and incrementally. Sur
+trusted with a quest about dragons.				trusted with a quest about dragons.
+
+The two of you set off into the hills and find the cave of th	The two of you set off into the hills and find the cave of th
+take a minute to confer about your musical options and come u	take a minute to confer about your musical options and come u
+list of three possible combinations to tame the dragon. 	list of three possible combinations to tame the dragon. 
+
+What would you like to do?					What would you like to do?
+
+ 1.Silent Night, accompanied by raven calls			 1. Silent Night, accompanied by raven calls
+ 2.Angels We Have Heard on High, accompanied by roosters crow	 2. Angels We Have Heard on High, accompanied by roosters cro
+ 3.Bohemian Rhapsody, accompanied by the magestic call of a b	 3. Bohemian Rhapsody, accompanied by the magestic call of a 
+You take out your whistle and Denevieve starts to sing		You take out your whistle and Denevieve starts to sing
+
+"Si--iii-lent niiight" (CAW CAW CAW)				"Si--iii-lent niiight" (CAW CAW CAW)
+"Ho--oly night" (CAW CAW).					"Ho--oly night" (CAW CAW).
+"Aaaalll iiss calm aaaalll is bright" (CAW CAW).		"Aaaalll iiss calm aaaalll is bright" (CAW CAW).
+
+As Denevieve sings and you make bird calls, the dragon comes 	As Denevieve sings and you make bird calls, the dragon comes 
+cave looking quite angry. 					cave looking quite angry. 
+
+"WHO DARES DISTURB MY SLUMBER... Oh hello. You look tasty."	"WHO DARES DISTURB MY SLUMBER... Oh hello. You look tasty."
+
+The dragon eats you.						The dragon eats you.
+
+Sorry, you have lost. Better luck next time!			Sorry, you have lost. Better luck next time!
+Your file did not match the expected output
+
+
+
+2.15: Current test is ./cyoa-step2 test/step3_test1  <  /usr/local/ece551/cyoa/story1/inputs/input1.txt
+-----------------------------
+It looks like you got different output from us on that case.
+Here is the diff (yours on left, ours on right):
+
+Welcome to choose your own adventure.				Welcome to choose your own adventure.
+Get ready for the thrilling tale of dragons and brunches.	Get ready for the thrilling tale of dragons and brunches.
+Will you get help from Grew and/or Denevieve?			Will you get help from Grew and/or Denevieve?
+Will you be eaten by a dragon?					Will you be eaten by a dragon?
+
+Only you can decide....						Only you can decide....
+
+What would you like to do?					What would you like to do?
+
+ 1.I am ready for this story!					 1. I am ready for this story!
+							      >	 2. I am ready for this story second time!
+One day, a strange old wizard comes to your village and tells	One day, a strange old wizard comes to your village and tells
+there is an evil dragon lurking in the hills. This wizard's s	there is an evil dragon lurking in the hills. This wizard's s
+why the village's goats and cows have been going missing late	why the village's goats and cows have been going missing late
+
+The wizard tells you: "It is up to you, hero, to stop this dr	The wizard tells you: "It is up to you, hero, to stop this dr
+else in this village is foolish...errrr I mean brave enough t	else in this village is foolish...errrr I mean brave enough t
+dragon." 							dragon." 
+
+The wizard offers you a choice of one of three magic items to	The wizard offers you a choice of one of three magic items to
+your quest. 							your quest. 
+
+The first is a magic whistle that lets you make any bird call	The first is a magic whistle that lets you make any bird call
+want. The second is a pair of magic shoes that let you jump 1	want. The second is a pair of magic shoes that let you jump 1
+air. The third is a magic toaster, which can take any item th	air. The third is a magic toaster, which can take any item th
+into it, and turn it into perfectly cooked toast (optionally 	into it, and turn it into perfectly cooked toast (optionally 
+and/or jam). 							and/or jam). 
+
+"Choose wisely, for your quest and your village depend on you	"Choose wisely, for your quest and your village depend on you
+
+What would you like to do?					What would you like to do?
+
+ 1.Choose the magic whistle.					 1. Choose the magic whistle.
+ 2.Choose the magic shoes.					 2. Choose the magic shoes.
+ 3.Choose the magic toaster.					 3. Choose the magic toaster.
+As you take the magic whistle from the wizard's hand, he disa	As you take the magic whistle from the wizard's hand, he disa
+puff of smoke. You decide that you should give the whistle a 	puff of smoke. You decide that you should give the whistle a 
+set off to deal with the dragon (after all, if you learned no	set off to deal with the dragon (after all, if you learned no
+school, it was that testing is VERY important). 		school, it was that testing is VERY important). 
+
+You think of a raven and blow on the whistle "CAW CAW CAW CAW	You think of a raven and blow on the whistle "CAW CAW CAW CAW
+think of a chicken and blow "COCKADOODLEDOOOO". It seems like	think of a chicken and blow "COCKADOODLEDOOOO". It seems like
+works great, though you wonder how many different birds you c	works great, though you wonder how many different birds you c
+and how they would help you deal with the dragon. 		and how they would help you deal with the dragon. 
+
+Putting that question in the back of your mind, you contempla	Putting that question in the back of your mind, you contempla
+not you should get some help before you set out. On the one h	not you should get some help before you set out. On the one h
+alone, you might be able to better sneak into the dragon's la	alone, you might be able to better sneak into the dragon's la
+other hand, help might be useful.				other hand, help might be useful.
+
+Fortunately for you, the two wisest people you know, Deneviev	Fortunately for you, the two wisest people you know, Deneviev
+live in the next village over. Thinking about it for several 	live in the next village over. Thinking about it for several 
+decide whom to go to for help.					decide whom to go to for help.
+
+What would you like to do?					What would you like to do?
+
+ 1.Go to Denevieve for help.					 1. Go to Denevieve for help.
+ 2.Go to Grew for help.						 2. Go to Grew for help.
+ 3.Go alone.							 3. Go alone.
+After thinking about it a bit, you decide that Denevieve is p	After thinking about it a bit, you decide that Denevieve is p
+better choice. After all, her singing skills are likely to co	better choice. After all, her singing skills are likely to co
+especially with your magic whistle. Maybe dragons can be tame	especially with your magic whistle. Maybe dragons can be tame
+music and bird calls? That could be right, but you aren't sur	music and bird calls? That could be right, but you aren't sur
+through that day of Magical Creature Biology class. 		through that day of Magical Creature Biology class. 
+
+After knocking on the door, Denevieve is surprised to hear ab	After knocking on the door, Denevieve is surprised to hear ab
+threat but is happy to help you. After all, you were her best	threat but is happy to help you. After all, you were her best
+tested every piece of code extensively and incrementally. Sur	tested every piece of code extensively and incrementally. Sur
+trusted with a quest about dragons.				trusted with a quest about dragons.
+
+The two of you set off into the hills and find the cave of th	The two of you set off into the hills and find the cave of th
+take a minute to confer about your musical options and come u	take a minute to confer about your musical options and come u
+list of three possible combinations to tame the dragon. 	list of three possible combinations to tame the dragon. 
+
+What would you like to do?					What would you like to do?
+
+ 1.Silent Night, accompanied by raven calls			 1. Silent Night, accompanied by raven calls
+ 2.Angels We Have Heard on High, accompanied by roosters crow	 2. Angels We Have Heard on High, accompanied by roosters cro
+ 3.Bohemian Rhapsody, accompanied by the magestic call of a b	 3. Bohemian Rhapsody, accompanied by the magestic call of a 
+LOSE								LOSE
+#angels we have heard on high					#angels we have heard on high
+You take out your whistle and Denevieve starts to sing		You take out your whistle and Denevieve starts to sing
+
+"Angels we have heard on high" (COCKADOODLEDO)			"Angels we have heard on high" (COCKADOODLEDO)
+"Sweetly singing o'er the plains" (COCKADOODLEDO).		"Sweetly singing o'er the plains" (COCKADOODLEDO).
+"And the mountains in reply" (COCKADOODLEDO).			"And the mountains in reply" (COCKADOODLEDO).
+"Echoing their joyous strains" (COCKADOODLEDO).			"Echoing their joyous strains" (COCKADOODLEDO).
+
+As Denevieve sings and you make bird calls, the dragon comes 	As Denevieve sings and you make bird calls, the dragon comes 
+cave looking quite angry. 					cave looking quite angry. 
+
+"WHO DARES DISTURB MY SLUMBER... Oh hello. You look tasty."	"WHO DARES DISTURB MY SLUMBER... Oh hello. You look tasty."
+
+The dragon eats you.						The dragon eats you.
+
+Sorry, you have lost. Better luck next time!			Sorry, you have lost. Better luck next time!
+Your file did not match the expected output
+
+
+
+2.16: Current test is ./cyoa-step2 test/step3_test1  <  /usr/local/ece551/cyoa/story1/inputs/input2.txt
+-----------------------------
+It looks like you got different output from us on that case.
+Here is the diff (yours on left, ours on right):
+
+Welcome to choose your own adventure.				Welcome to choose your own adventure.
+Get ready for the thrilling tale of dragons and brunches.	Get ready for the thrilling tale of dragons and brunches.
+Will you get help from Grew and/or Denevieve?			Will you get help from Grew and/or Denevieve?
+Will you be eaten by a dragon?					Will you be eaten by a dragon?
+
+Only you can decide....						Only you can decide....
+
+What would you like to do?					What would you like to do?
+
+ 1.I am ready for this story!					 1. I am ready for this story!
+							      >	 2. I am ready for this story second time!
+One day, a strange old wizard comes to your village and tells	One day, a strange old wizard comes to your village and tells
+there is an evil dragon lurking in the hills. This wizard's s	there is an evil dragon lurking in the hills. This wizard's s
+why the village's goats and cows have been going missing late	why the village's goats and cows have been going missing late
+
+The wizard tells you: "It is up to you, hero, to stop this dr	The wizard tells you: "It is up to you, hero, to stop this dr
+else in this village is foolish...errrr I mean brave enough t	else in this village is foolish...errrr I mean brave enough t
+dragon." 							dragon." 
+
+The wizard offers you a choice of one of three magic items to	The wizard offers you a choice of one of three magic items to
+your quest. 							your quest. 
+
+The first is a magic whistle that lets you make any bird call	The first is a magic whistle that lets you make any bird call
+want. The second is a pair of magic shoes that let you jump 1	want. The second is a pair of magic shoes that let you jump 1
+air. The third is a magic toaster, which can take any item th	air. The third is a magic toaster, which can take any item th
+into it, and turn it into perfectly cooked toast (optionally 	into it, and turn it into perfectly cooked toast (optionally 
+and/or jam). 							and/or jam). 
+
+"Choose wisely, for your quest and your village depend on you	"Choose wisely, for your quest and your village depend on you
+
+What would you like to do?					What would you like to do?
+
+ 1.Choose the magic whistle.					 1. Choose the magic whistle.
+ 2.Choose the magic shoes.					 2. Choose the magic shoes.
+ 3.Choose the magic toaster.					 3. Choose the magic toaster.
+As you take the magic whistle from the wizard's hand, he disa	As you take the magic whistle from the wizard's hand, he disa
+puff of smoke. You decide that you should give the whistle a 	puff of smoke. You decide that you should give the whistle a 
+set off to deal with the dragon (after all, if you learned no	set off to deal with the dragon (after all, if you learned no
+school, it was that testing is VERY important). 		school, it was that testing is VERY important). 
+
+You think of a raven and blow on the whistle "CAW CAW CAW CAW	You think of a raven and blow on the whistle "CAW CAW CAW CAW
+think of a chicken and blow "COCKADOODLEDOOOO". It seems like	think of a chicken and blow "COCKADOODLEDOOOO". It seems like
+works great, though you wonder how many different birds you c	works great, though you wonder how many different birds you c
+and how they would help you deal with the dragon. 		and how they would help you deal with the dragon. 
+
+Putting that question in the back of your mind, you contempla	Putting that question in the back of your mind, you contempla
+not you should get some help before you set out. On the one h	not you should get some help before you set out. On the one h
+alone, you might be able to better sneak into the dragon's la	alone, you might be able to better sneak into the dragon's la
+other hand, help might be useful.				other hand, help might be useful.
+
+Fortunately for you, the two wisest people you know, Deneviev	Fortunately for you, the two wisest people you know, Deneviev
+live in the next village over. Thinking about it for several 	live in the next village over. Thinking about it for several 
+decide whom to go to for help.					decide whom to go to for help.
+
+What would you like to do?					What would you like to do?
+
+ 1.Go to Denevieve for help.					 1. Go to Denevieve for help.
+ 2.Go to Grew for help.						 2. Go to Grew for help.
+ 3.Go alone.							 3. Go alone.
+After thinking about it a bit, you decide that Denevieve is p	After thinking about it a bit, you decide that Denevieve is p
+better choice. After all, her singing skills are likely to co	better choice. After all, her singing skills are likely to co
+especially with your magic whistle. Maybe dragons can be tame	especially with your magic whistle. Maybe dragons can be tame
+music and bird calls? That could be right, but you aren't sur	music and bird calls? That could be right, but you aren't sur
+through that day of Magical Creature Biology class. 		through that day of Magical Creature Biology class. 
+
+After knocking on the door, Denevieve is surprised to hear ab	After knocking on the door, Denevieve is surprised to hear ab
+threat but is happy to help you. After all, you were her best	threat but is happy to help you. After all, you were her best
+tested every piece of code extensively and incrementally. Sur	tested every piece of code extensively and incrementally. Sur
+trusted with a quest about dragons.				trusted with a quest about dragons.
+
+The two of you set off into the hills and find the cave of th	The two of you set off into the hills and find the cave of th
+take a minute to confer about your musical options and come u	take a minute to confer about your musical options and come u
+list of three possible combinations to tame the dragon. 	list of three possible combinations to tame the dragon. 
+
+What would you like to do?					What would you like to do?
+
+ 1.Silent Night, accompanied by raven calls			 1. Silent Night, accompanied by raven calls
+ 2.Angels We Have Heard on High, accompanied by roosters crow	 2. Angels We Have Heard on High, accompanied by roosters cro
+ 3.Bohemian Rhapsody, accompanied by the magestic call of a b	 3. Bohemian Rhapsody, accompanied by the magestic call of a 
+You take out your whistle and Denevieve starts to sing		You take out your whistle and Denevieve starts to sing
+
+"Mama, just killed a man"					"Mama, just killed a man"
+"Put a gun against his head"					"Put a gun against his head"
+"Pulled my trigger, now he's dead"				"Pulled my trigger, now he's dead"
+"Mama, life had just begun"					"Mama, life had just begun"
+"But now I've gone and thrown it all away"			"But now I've gone and thrown it all away"
+
+As Denevieve sings and you make bird calls, the dragon comes 	As Denevieve sings and you make bird calls, the dragon comes 
+cave looking quite amused. He sings along with you all for a 	cave looking quite amused. He sings along with you all for a 
+when you hit "Gotta leave you all behind and face the truth"	when you hit "Gotta leave you all behind and face the truth"
+
+the dragon roars "INDEED YOU DO! AND THE TRUTH IS YOU LOOK TA	the dragon roars "INDEED YOU DO! AND THE TRUTH IS YOU LOOK TA
+
+The dragon eats you.						The dragon eats you.
+
+Sorry, you have lost. Better luck next time!			Sorry, you have lost. Better luck next time!
+Your file did not match the expected output
+
+
+
+2.17: Current test is ./cyoa-step2 test/step3_test1  <  /usr/local/ece551/cyoa/story1/inputs/input3.txt
+-----------------------------
+It looks like you got different output from us on that case.
+Here is the diff (yours on left, ours on right):
+
+Welcome to choose your own adventure.				Welcome to choose your own adventure.
+Get ready for the thrilling tale of dragons and brunches.	Get ready for the thrilling tale of dragons and brunches.
+Will you get help from Grew and/or Denevieve?			Will you get help from Grew and/or Denevieve?
+Will you be eaten by a dragon?					Will you be eaten by a dragon?
+
+Only you can decide....						Only you can decide....
+
+What would you like to do?					What would you like to do?
+
+ 1.I am ready for this story!					 1. I am ready for this story!
+							      >	 2. I am ready for this story second time!
+One day, a strange old wizard comes to your village and tells	One day, a strange old wizard comes to your village and tells
+there is an evil dragon lurking in the hills. This wizard's s	there is an evil dragon lurking in the hills. This wizard's s
+why the village's goats and cows have been going missing late	why the village's goats and cows have been going missing late
+
+The wizard tells you: "It is up to you, hero, to stop this dr	The wizard tells you: "It is up to you, hero, to stop this dr
+else in this village is foolish...errrr I mean brave enough t	else in this village is foolish...errrr I mean brave enough t
+dragon." 							dragon." 
+
+The wizard offers you a choice of one of three magic items to	The wizard offers you a choice of one of three magic items to
+your quest. 							your quest. 
+
+The first is a magic whistle that lets you make any bird call	The first is a magic whistle that lets you make any bird call
+want. The second is a pair of magic shoes that let you jump 1	want. The second is a pair of magic shoes that let you jump 1
+air. The third is a magic toaster, which can take any item th	air. The third is a magic toaster, which can take any item th
+into it, and turn it into perfectly cooked toast (optionally 	into it, and turn it into perfectly cooked toast (optionally 
+and/or jam). 							and/or jam). 
+
+"Choose wisely, for your quest and your village depend on you	"Choose wisely, for your quest and your village depend on you
+
+What would you like to do?					What would you like to do?
+
+ 1.Choose the magic whistle.					 1. Choose the magic whistle.
+ 2.Choose the magic shoes.					 2. Choose the magic shoes.
+ 3.Choose the magic toaster.					 3. Choose the magic toaster.
+As you take the magic whistle from the wizard's hand, he disa	As you take the magic whistle from the wizard's hand, he disa
+puff of smoke. You decide that you should give the whistle a 	puff of smoke. You decide that you should give the whistle a 
+set off to deal with the dragon (after all, if you learned no	set off to deal with the dragon (after all, if you learned no
+school, it was that testing is VERY important). 		school, it was that testing is VERY important). 
+
+You think of a raven and blow on the whistle "CAW CAW CAW CAW	You think of a raven and blow on the whistle "CAW CAW CAW CAW
+think of a chicken and blow "COCKADOODLEDOOOO". It seems like	think of a chicken and blow "COCKADOODLEDOOOO". It seems like
+works great, though you wonder how many different birds you c	works great, though you wonder how many different birds you c
+and how they would help you deal with the dragon. 		and how they would help you deal with the dragon. 
+
+Putting that question in the back of your mind, you contempla	Putting that question in the back of your mind, you contempla
+not you should get some help before you set out. On the one h	not you should get some help before you set out. On the one h
+alone, you might be able to better sneak into the dragon's la	alone, you might be able to better sneak into the dragon's la
+other hand, help might be useful.				other hand, help might be useful.
+
+Fortunately for you, the two wisest people you know, Deneviev	Fortunately for you, the two wisest people you know, Deneviev
+live in the next village over. Thinking about it for several 	live in the next village over. Thinking about it for several 
+decide whom to go to for help.					decide whom to go to for help.
+
+What would you like to do?					What would you like to do?
+
+ 1.Go to Denevieve for help.					 1. Go to Denevieve for help.
+ 2.Go to Grew for help.						 2. Go to Grew for help.
+ 3.Go alone.							 3. Go alone.
+After thinking about it for a bit, you decide that Grew is th	After thinking about it for a bit, you decide that Grew is th
+choice. You go to visit him, and explain your plan: Grew will	choice. You go to visit him, and explain your plan: Grew will
+cinnamon almond cupcakes with dark chocolate ganache, and you	cinnamon almond cupcakes with dark chocolate ganache, and you
+the dragon with your bird calls. Together, you will put the d	the dragon with your bird calls. Together, you will put the d
+a good mood that you can befriend him and convince him to lea	a good mood that you can befriend him and convince him to lea
+villages alone. 						villages alone. 
+
+Sadly, while the dragon does find the cupcakes delicious, he 	Sadly, while the dragon does find the cupcakes delicious, he 
+something else to go with them. 				something else to go with them. 
+
+You have been eaten by a dragon.				You have been eaten by a dragon.
+
+Sorry, you have lost. Better luck next time!			Sorry, you have lost. Better luck next time!
+Your file did not match the expected output
+
+
+
+2.18: Current test is ./cyoa-step2 test/step3_test1  <  /usr/local/ece551/cyoa/story1/inputs/input3.txt
+-----------------------------
+It looks like you got different output from us on that case.
+Here is the diff (yours on left, ours on right):
+
+Welcome to choose your own adventure.				Welcome to choose your own adventure.
+Get ready for the thrilling tale of dragons and brunches.	Get ready for the thrilling tale of dragons and brunches.
+Will you get help from Grew and/or Denevieve?			Will you get help from Grew and/or Denevieve?
+Will you be eaten by a dragon?					Will you be eaten by a dragon?
+
+Only you can decide....						Only you can decide....
+
+What would you like to do?					What would you like to do?
+
+ 1.I am ready for this story!					 1. I am ready for this story!
+							      >	 2. I am ready for this story second time!
+One day, a strange old wizard comes to your village and tells	One day, a strange old wizard comes to your village and tells
+there is an evil dragon lurking in the hills. This wizard's s	there is an evil dragon lurking in the hills. This wizard's s
+why the village's goats and cows have been going missing late	why the village's goats and cows have been going missing late
+
+The wizard tells you: "It is up to you, hero, to stop this dr	The wizard tells you: "It is up to you, hero, to stop this dr
+else in this village is foolish...errrr I mean brave enough t	else in this village is foolish...errrr I mean brave enough t
+dragon." 							dragon." 
+
+The wizard offers you a choice of one of three magic items to	The wizard offers you a choice of one of three magic items to
+your quest. 							your quest. 
+
+The first is a magic whistle that lets you make any bird call	The first is a magic whistle that lets you make any bird call
+want. The second is a pair of magic shoes that let you jump 1	want. The second is a pair of magic shoes that let you jump 1
+air. The third is a magic toaster, which can take any item th	air. The third is a magic toaster, which can take any item th
+into it, and turn it into perfectly cooked toast (optionally 	into it, and turn it into perfectly cooked toast (optionally 
+and/or jam). 							and/or jam). 
+
+"Choose wisely, for your quest and your village depend on you	"Choose wisely, for your quest and your village depend on you
+
+What would you like to do?					What would you like to do?
+
+ 1.Choose the magic whistle.					 1. Choose the magic whistle.
+ 2.Choose the magic shoes.					 2. Choose the magic shoes.
+ 3.Choose the magic toaster.					 3. Choose the magic toaster.
+As you take the magic whistle from the wizard's hand, he disa	As you take the magic whistle from the wizard's hand, he disa
+puff of smoke. You decide that you should give the whistle a 	puff of smoke. You decide that you should give the whistle a 
+set off to deal with the dragon (after all, if you learned no	set off to deal with the dragon (after all, if you learned no
+school, it was that testing is VERY important). 		school, it was that testing is VERY important). 
+
+You think of a raven and blow on the whistle "CAW CAW CAW CAW	You think of a raven and blow on the whistle "CAW CAW CAW CAW
+think of a chicken and blow "COCKADOODLEDOOOO". It seems like	think of a chicken and blow "COCKADOODLEDOOOO". It seems like
+works great, though you wonder how many different birds you c	works great, though you wonder how many different birds you c
+and how they would help you deal with the dragon. 		and how they would help you deal with the dragon. 
+
+Putting that question in the back of your mind, you contempla	Putting that question in the back of your mind, you contempla
+not you should get some help before you set out. On the one h	not you should get some help before you set out. On the one h
+alone, you might be able to better sneak into the dragon's la	alone, you might be able to better sneak into the dragon's la
+other hand, help might be useful.				other hand, help might be useful.
+
+Fortunately for you, the two wisest people you know, Deneviev	Fortunately for you, the two wisest people you know, Deneviev
+live in the next village over. Thinking about it for several 	live in the next village over. Thinking about it for several 
+decide whom to go to for help.					decide whom to go to for help.
+
+What would you like to do?					What would you like to do?
+
+ 1.Go to Denevieve for help.					 1. Go to Denevieve for help.
+ 2.Go to Grew for help.						 2. Go to Grew for help.
+ 3.Go alone.							 3. Go alone.
+After thinking about it for a bit, you decide that Grew is th	After thinking about it for a bit, you decide that Grew is th
+choice. You go to visit him, and explain your plan: Grew will	choice. You go to visit him, and explain your plan: Grew will
+cinnamon almond cupcakes with dark chocolate ganache, and you	cinnamon almond cupcakes with dark chocolate ganache, and you
+the dragon with your bird calls. Together, you will put the d	the dragon with your bird calls. Together, you will put the d
+a good mood that you can befriend him and convince him to lea	a good mood that you can befriend him and convince him to lea
+villages alone. 						villages alone. 
+
+Sadly, while the dragon does find the cupcakes delicious, he 	Sadly, while the dragon does find the cupcakes delicious, he 
+something else to go with them. 				something else to go with them. 
+
+You have been eaten by a dragon.				You have been eaten by a dragon.
+
+Sorry, you have lost. Better luck next time!			Sorry, you have lost. Better luck next time!
+Your file did not match the expected output
+
+
+
+2.19: Current test is ./cyoa-step2 test/step3_test1  <  /usr/local/ece551/cyoa/story1/inputs/input5.txt
+-----------------------------
+It looks like you got different output from us on that case.
+Here is the diff (yours on left, ours on right):
+
+Welcome to choose your own adventure.				Welcome to choose your own adventure.
+Get ready for the thrilling tale of dragons and brunches.	Get ready for the thrilling tale of dragons and brunches.
+Will you get help from Grew and/or Denevieve?			Will you get help from Grew and/or Denevieve?
+Will you be eaten by a dragon?					Will you be eaten by a dragon?
+
+Only you can decide....						Only you can decide....
+
+What would you like to do?					What would you like to do?
+
+ 1.I am ready for this story!					 1. I am ready for this story!
+							      >	 2. I am ready for this story second time!
+One day, a strange old wizard comes to your village and tells	One day, a strange old wizard comes to your village and tells
+there is an evil dragon lurking in the hills. This wizard's s	there is an evil dragon lurking in the hills. This wizard's s
+why the village's goats and cows have been going missing late	why the village's goats and cows have been going missing late
+
+The wizard tells you: "It is up to you, hero, to stop this dr	The wizard tells you: "It is up to you, hero, to stop this dr
+else in this village is foolish...errrr I mean brave enough t	else in this village is foolish...errrr I mean brave enough t
+dragon." 							dragon." 
+
+The wizard offers you a choice of one of three magic items to	The wizard offers you a choice of one of three magic items to
+your quest. 							your quest. 
+
+The first is a magic whistle that lets you make any bird call	The first is a magic whistle that lets you make any bird call
+want. The second is a pair of magic shoes that let you jump 1	want. The second is a pair of magic shoes that let you jump 1
+air. The third is a magic toaster, which can take any item th	air. The third is a magic toaster, which can take any item th
+into it, and turn it into perfectly cooked toast (optionally 	into it, and turn it into perfectly cooked toast (optionally 
+and/or jam). 							and/or jam). 
+
+"Choose wisely, for your quest and your village depend on you	"Choose wisely, for your quest and your village depend on you
+
+What would you like to do?					What would you like to do?
+
+ 1.Choose the magic whistle.					 1. Choose the magic whistle.
+ 2.Choose the magic shoes.					 2. Choose the magic shoes.
+ 3.Choose the magic toaster.					 3. Choose the magic toaster.
+As you take the magic shoes from the wizard's hand, he disapp	As you take the magic shoes from the wizard's hand, he disapp
+of smoke. You decide that you should give the shoes a try bef	of smoke. You decide that you should give the shoes a try bef
+off to deal with the dragon (after all, if you learned nothin	off to deal with the dragon (after all, if you learned nothin
+school, it was that testing is VERY important). 		school, it was that testing is VERY important). 
+
+You put on the shoes and start jumping all over the village. 	You put on the shoes and start jumping all over the village. 
+over fences and onto the roofs of small houses, your fellow v	over fences and onto the roofs of small houses, your fellow v
+at you in awe. You are sure you could win any basketball game	at you in awe. You are sure you could win any basketball game
+little more worried about how you will deal with a dragon.	little more worried about how you will deal with a dragon.
+
+Putting that question in the back of your mind, you contempla	Putting that question in the back of your mind, you contempla
+not you should get some help before you set out. On the one h	not you should get some help before you set out. On the one h
+alone, you might be able to better sneak into the dragon's la	alone, you might be able to better sneak into the dragon's la
+other hand, help might be useful.				other hand, help might be useful.
+
+Fortunately for you, the two wisest people you know, Deneviev	Fortunately for you, the two wisest people you know, Deneviev
+live in the next village over. Thinking about it for several 	live in the next village over. Thinking about it for several 
+decide whom to go to for help.					decide whom to go to for help.
+
+What would you like to do?					What would you like to do?
+
+ 1.Go to Denevieve for help.					 1. Go to Denevieve for help.
+ 2.Go to Grew for help.						 2. Go to Grew for help.
+ 3.Go alone.							 3. Go alone.
+After thinking about it for a bit, you decide Denevieve is a 	After thinking about it for a bit, you decide Denevieve is a 
+choice. After all she teaches undergraduate Dynamics, so sure	choice. After all she teaches undergraduate Dynamics, so sure
+help you fight a dragon? 					help you fight a dragon? 
+
+After you explain your quest and demonstrate your magic shoes	After you explain your quest and demonstrate your magic shoes
+pulls out a whiteboard and explains how to make it work: 	pulls out a whiteboard and explains how to make it work: 
+
+"First, we need to model the dragon as a rigid body and your 	"First, we need to model the dragon as a rigid body and your 
+a point mass. Then we apply Lagrange’s Equations and... hmm t	a point mass. Then we apply Lagrange’s Equations and... hmm t
+much easier if the dragon's cave were a frictionless surface,	much easier if the dragon's cave were a frictionless surface,
+probably can't assume that, so instead (she writes big compli	probably can't assume that, so instead (she writes big compli
+and does a bunch of calculus)... Ok, you need to jump right h	and does a bunch of calculus)... Ok, you need to jump right h
+of the dragon's head." She says, indicating a point on the dr	of the dragon's head." She says, indicating a point on the dr
+her free-body diagram. 						her free-body diagram. 
+
+The two of you set off to the dragon's cave, and you carefull	The two of you set off to the dragon's cave, and you carefull
+exactly the right place while Denevieve distracts the dragon 	exactly the right place while Denevieve distracts the dragon 
+about Coulomb friction. Your mighty jump knocks the dragon	about Coulomb friction. Your mighty jump knocks the dragon
+unconscious. While the dragon is passed out, you tie him up.	unconscious. While the dragon is passed out, you tie him up.
+
+When the dragon wakes up, you work out an agreement where the	When the dragon wakes up, you work out an agreement where the
+learn C++ programming and earn his food by writing software i	learn C++ programming and earn his food by writing software i
+stealing it. 							stealing it. 
+
+Everyone lives happily ever after.				Everyone lives happily ever after.
+
+Congratulations! You have won. Hooray!				Congratulations! You have won. Hooray!
+Your file did not match the expected output
+
+
+
+2.20: Current test is ./cyoa-step2 test/step3_test1  <  /usr/local/ece551/cyoa/story1/inputs/input6.txt
+-----------------------------
+It looks like you got different output from us on that case.
+Here is the diff (yours on left, ours on right):
+
+Welcome to choose your own adventure.				Welcome to choose your own adventure.
+Get ready for the thrilling tale of dragons and brunches.	Get ready for the thrilling tale of dragons and brunches.
+Will you get help from Grew and/or Denevieve?			Will you get help from Grew and/or Denevieve?
+Will you be eaten by a dragon?					Will you be eaten by a dragon?
+
+Only you can decide....						Only you can decide....
+
+What would you like to do?					What would you like to do?
+
+ 1.I am ready for this story!					 1. I am ready for this story!
+							      >	 2. I am ready for this story second time!
+One day, a strange old wizard comes to your village and tells	One day, a strange old wizard comes to your village and tells
+there is an evil dragon lurking in the hills. This wizard's s	there is an evil dragon lurking in the hills. This wizard's s
+why the village's goats and cows have been going missing late	why the village's goats and cows have been going missing late
+
+The wizard tells you: "It is up to you, hero, to stop this dr	The wizard tells you: "It is up to you, hero, to stop this dr
+else in this village is foolish...errrr I mean brave enough t	else in this village is foolish...errrr I mean brave enough t
+dragon." 							dragon." 
+
+The wizard offers you a choice of one of three magic items to	The wizard offers you a choice of one of three magic items to
+your quest. 							your quest. 
+
+The first is a magic whistle that lets you make any bird call	The first is a magic whistle that lets you make any bird call
+want. The second is a pair of magic shoes that let you jump 1	want. The second is a pair of magic shoes that let you jump 1
+air. The third is a magic toaster, which can take any item th	air. The third is a magic toaster, which can take any item th
+into it, and turn it into perfectly cooked toast (optionally 	into it, and turn it into perfectly cooked toast (optionally 
+and/or jam). 							and/or jam). 
+
+"Choose wisely, for your quest and your village depend on you	"Choose wisely, for your quest and your village depend on you
+
+What would you like to do?					What would you like to do?
+
+ 1.Choose the magic whistle.					 1. Choose the magic whistle.
+ 2.Choose the magic shoes.					 2. Choose the magic shoes.
+ 3.Choose the magic toaster.					 3. Choose the magic toaster.
+As you take the magic shoes from the wizard's hand, he disapp	As you take the magic shoes from the wizard's hand, he disapp
+of smoke. You decide that you should give the shoes a try bef	of smoke. You decide that you should give the shoes a try bef
+off to deal with the dragon (after all, if you learned nothin	off to deal with the dragon (after all, if you learned nothin
+school, it was that testing is VERY important). 		school, it was that testing is VERY important). 
+
+You put on the shoes and start jumping all over the village. 	You put on the shoes and start jumping all over the village. 
+over fences and onto the roofs of small houses, your fellow v	over fences and onto the roofs of small houses, your fellow v
+at you in awe. You are sure you could win any basketball game	at you in awe. You are sure you could win any basketball game
+little more worried about how you will deal with a dragon.	little more worried about how you will deal with a dragon.
+
+Putting that question in the back of your mind, you contempla	Putting that question in the back of your mind, you contempla
+not you should get some help before you set out. On the one h	not you should get some help before you set out. On the one h
+alone, you might be able to better sneak into the dragon's la	alone, you might be able to better sneak into the dragon's la
+other hand, help might be useful.				other hand, help might be useful.
+
+Fortunately for you, the two wisest people you know, Deneviev	Fortunately for you, the two wisest people you know, Deneviev
+live in the next village over. Thinking about it for several 	live in the next village over. Thinking about it for several 
+decide whom to go to for help.					decide whom to go to for help.
+
+What would you like to do?					What would you like to do?
+
+ 1.Go to Denevieve for help.					 1. Go to Denevieve for help.
+ 2.Go to Grew for help.						 2. Go to Grew for help.
+ 3.Go alone.							 3. Go alone.
+After thinking about it for a bit, you decide to go to Grew f	After thinking about it for a bit, you decide to go to Grew f
+thinks about your problem for a while, and the best idea he c	thinks about your problem for a while, and the best idea he c
+with is to challenge the dragon to a game of basketball. Afte	with is to challenge the dragon to a game of basketball. Afte
+have magic shoes that would let you dunk quite easily. 		have magic shoes that would let you dunk quite easily. 
+
+The two of you set off to the dragon's cave, and the dragon a	The two of you set off to the dragon's cave, and the dragon a
+challenge. Unfortunately, even being able to jump 10 feet in 	challenge. Unfortunately, even being able to jump 10 feet in 
+dragon, who is 20 feet tall and can fly, can still block all 	dragon, who is 20 feet tall and can fly, can still block all 
+dunk over your head. The dragon wins the game and eats both y	dunk over your head. The dragon wins the game and eats both y
+
+You have been eaten by a dragon.				You have been eaten by a dragon.
+
+Sorry, you have lost. Better luck next time!			Sorry, you have lost. Better luck next time!
+Your file did not match the expected output
+
+
+
+2.21: Current test is ./cyoa-step2 test/step3_test1  <  /usr/local/ece551/cyoa/story1/inputs/input7.txt
+-----------------------------
+It looks like you got different output from us on that case.
+Here is the diff (yours on left, ours on right):
+
+Welcome to choose your own adventure.				Welcome to choose your own adventure.
+Get ready for the thrilling tale of dragons and brunches.	Get ready for the thrilling tale of dragons and brunches.
+Will you get help from Grew and/or Denevieve?			Will you get help from Grew and/or Denevieve?
+Will you be eaten by a dragon?					Will you be eaten by a dragon?
+
+Only you can decide....						Only you can decide....
+
+What would you like to do?					What would you like to do?
+
+ 1.I am ready for this story!					 1. I am ready for this story!
+							      >	 2. I am ready for this story second time!
+One day, a strange old wizard comes to your village and tells	One day, a strange old wizard comes to your village and tells
+there is an evil dragon lurking in the hills. This wizard's s	there is an evil dragon lurking in the hills. This wizard's s
+why the village's goats and cows have been going missing late	why the village's goats and cows have been going missing late
+
+The wizard tells you: "It is up to you, hero, to stop this dr	The wizard tells you: "It is up to you, hero, to stop this dr
+else in this village is foolish...errrr I mean brave enough t	else in this village is foolish...errrr I mean brave enough t
+dragon." 							dragon." 
+
+The wizard offers you a choice of one of three magic items to	The wizard offers you a choice of one of three magic items to
+your quest. 							your quest. 
+
+The first is a magic whistle that lets you make any bird call	The first is a magic whistle that lets you make any bird call
+want. The second is a pair of magic shoes that let you jump 1	want. The second is a pair of magic shoes that let you jump 1
+air. The third is a magic toaster, which can take any item th	air. The third is a magic toaster, which can take any item th
+into it, and turn it into perfectly cooked toast (optionally 	into it, and turn it into perfectly cooked toast (optionally 
+and/or jam). 							and/or jam). 
+
+"Choose wisely, for your quest and your village depend on you	"Choose wisely, for your quest and your village depend on you
+
+What would you like to do?					What would you like to do?
+
+ 1.Choose the magic whistle.					 1. Choose the magic whistle.
+ 2.Choose the magic shoes.					 2. Choose the magic shoes.
+ 3.Choose the magic toaster.					 3. Choose the magic toaster.
+As you take the magic shoes from the wizard's hand, he disapp	As you take the magic shoes from the wizard's hand, he disapp
+of smoke. You decide that you should give the shoes a try bef	of smoke. You decide that you should give the shoes a try bef
+off to deal with the dragon (after all, if you learned nothin	off to deal with the dragon (after all, if you learned nothin
+school, it was that testing is VERY important). 		school, it was that testing is VERY important). 
+
+You put on the shoes and start jumping all over the village. 	You put on the shoes and start jumping all over the village. 
+over fences and onto the roofs of small houses, your fellow v	over fences and onto the roofs of small houses, your fellow v
+at you in awe. You are sure you could win any basketball game	at you in awe. You are sure you could win any basketball game
+little more worried about how you will deal with a dragon.	little more worried about how you will deal with a dragon.
+
+Putting that question in the back of your mind, you contempla	Putting that question in the back of your mind, you contempla
+not you should get some help before you set out. On the one h	not you should get some help before you set out. On the one h
+alone, you might be able to better sneak into the dragon's la	alone, you might be able to better sneak into the dragon's la
+other hand, help might be useful.				other hand, help might be useful.
+
+Fortunately for you, the two wisest people you know, Deneviev	Fortunately for you, the two wisest people you know, Deneviev
+live in the next village over. Thinking about it for several 	live in the next village over. Thinking about it for several 
+decide whom to go to for help.					decide whom to go to for help.
+
+What would you like to do?					What would you like to do?
+
+ 1.Go to Denevieve for help.					 1. Go to Denevieve for help.
+ 2.Go to Grew for help.						 2. Go to Grew for help.
+ 3.Go alone.							 3. Go alone.
+After thinking about it for a bit, you decide to go alone. Yo	After thinking about it for a bit, you decide to go alone. Yo
+into the hills by yourself in search of the dragon. Unfortuna	into the hills by yourself in search of the dragon. Unfortuna
+you are walking and trying to think up a plan, the dragon swo	you are walking and trying to think up a plan, the dragon swo
+behind you and devours you. 					behind you and devours you. 
+
+You have been eaten by a dragon.				You have been eaten by a dragon.
+
+Sorry, you have lost. Better luck next time!			Sorry, you have lost. Better luck next time!
+Your file did not match the expected output
+
+
+
+2.22: Current test is ./cyoa-step2 test/step3_test1  <  /usr/local/ece551/cyoa/story1/inputs/input8.txt
+-----------------------------
+It looks like you got different output from us on that case.
+Here is the diff (yours on left, ours on right):
+
+Welcome to choose your own adventure.				Welcome to choose your own adventure.
+Get ready for the thrilling tale of dragons and brunches.	Get ready for the thrilling tale of dragons and brunches.
+Will you get help from Grew and/or Denevieve?			Will you get help from Grew and/or Denevieve?
+Will you be eaten by a dragon?					Will you be eaten by a dragon?
+
+Only you can decide....						Only you can decide....
+
+What would you like to do?					What would you like to do?
+
+ 1.I am ready for this story!					 1. I am ready for this story!
+							      >	 2. I am ready for this story second time!
+One day, a strange old wizard comes to your village and tells	One day, a strange old wizard comes to your village and tells
+there is an evil dragon lurking in the hills. This wizard's s	there is an evil dragon lurking in the hills. This wizard's s
+why the village's goats and cows have been going missing late	why the village's goats and cows have been going missing late
+
+The wizard tells you: "It is up to you, hero, to stop this dr	The wizard tells you: "It is up to you, hero, to stop this dr
+else in this village is foolish...errrr I mean brave enough t	else in this village is foolish...errrr I mean brave enough t
+dragon." 							dragon." 
+
+The wizard offers you a choice of one of three magic items to	The wizard offers you a choice of one of three magic items to
+your quest. 							your quest. 
+
+The first is a magic whistle that lets you make any bird call	The first is a magic whistle that lets you make any bird call
+want. The second is a pair of magic shoes that let you jump 1	want. The second is a pair of magic shoes that let you jump 1
+air. The third is a magic toaster, which can take any item th	air. The third is a magic toaster, which can take any item th
+into it, and turn it into perfectly cooked toast (optionally 	into it, and turn it into perfectly cooked toast (optionally 
+and/or jam). 							and/or jam). 
+
+"Choose wisely, for your quest and your village depend on you	"Choose wisely, for your quest and your village depend on you
+
+What would you like to do?					What would you like to do?
+
+ 1.Choose the magic whistle.					 1. Choose the magic whistle.
+ 2.Choose the magic shoes.					 2. Choose the magic shoes.
+ 3.Choose the magic toaster.					 3. Choose the magic toaster.
+As you take the magic toaster from the wizard's hand, he disa	As you take the magic toaster from the wizard's hand, he disa
+puff of smoke. You decide that you should give the toaster a 	puff of smoke. You decide that you should give the toaster a 
+set off to deal with the dragon (after all, if you learned no	set off to deal with the dragon (after all, if you learned no
+school, it was that testing is VERY important). 		school, it was that testing is VERY important). 
+
+Having not had any breakfast, you are quite hungry, so testin	Having not had any breakfast, you are quite hungry, so testin
+seems like a great solution to two problems. You grab a rock 	seems like a great solution to two problems. You grab a rock 
+ground, stuff it in, and think of delicious toast with raspbe	ground, stuff it in, and think of delicious toast with raspbe
+seconds later, out pops the most perfectly done toast with ju	seconds later, out pops the most perfectly done toast with ju
+amount of butter and jam. Wow that is good! You spend a while	amount of butter and jam. Wow that is good! You spend a while
+testing the toaster again and again "just to be sure". After 	testing the toaster again and again "just to be sure". After 
+stuffed on toast, you start to wonder how this will help you 	stuffed on toast, you start to wonder how this will help you 
+dragon. 							dragon. 
+
+Putting that question in the back of your mind, you contempla	Putting that question in the back of your mind, you contempla
+not you should get some help before you set out. On the one h	not you should get some help before you set out. On the one h
+alone, you might be able to better sneak into the dragon's la	alone, you might be able to better sneak into the dragon's la
+other hand, help might be useful.				other hand, help might be useful.
+
+Fortunately for you, the two wisest people you know, Deneviev	Fortunately for you, the two wisest people you know, Deneviev
+live in the next village over. Thinking about it for several 	live in the next village over. Thinking about it for several 
+decide whom to go to for help.					decide whom to go to for help.
+
+What would you like to do?					What would you like to do?
+
+ 1.Go to Denevieve for help.					 1. Go to Denevieve for help.
+ 2.Go to Grew for help.						 2. Go to Grew for help.
+ 3.Go alone.							 3. Go alone.
+After thinking about it for a bit, you decide that Denevieve 	After thinking about it for a bit, you decide that Denevieve 
+choice. You go to her house and explain your quest. 		choice. You go to her house and explain your quest. 
+
+"Why don't we make some mimosas to go with the toast, and tak	"Why don't we make some mimosas to go with the toast, and tak
+dragon? That would surely placate him," she suggests. 		dragon? That would surely placate him," she suggests. 
+
+You agree that mimosas are a great idea. Of course, it seems 	You agree that mimosas are a great idea. Of course, it seems 
+should probably make quite a lot of mimosas for a dragon. The	should probably make quite a lot of mimosas for a dragon. The
+set off to the local grocery store, Troll Foods (yes, run by 	set off to the local grocery store, Troll Foods (yes, run by 
+trolls--but they are nice) and acquire supplies. You decide o	trolls--but they are nice) and acquire supplies. You decide o
+orange juice and 20 liters of sparkling wine.			orange juice and 20 liters of sparkling wine.
+
+You take the supplies back to your house and start making mim	You take the supplies back to your house and start making mim
+do this, you remember the most important thing you learned in	do this, you remember the most important thing you learned in
+class: testing is important. The first mimosa is great, but y	class: testing is important. The first mimosa is great, but y
+that one test case is not enough. After 10 mimosas worth of t	that one test case is not enough. After 10 mimosas worth of t
+are very sure that they are good, but also that you are reall	are very sure that they are good, but also that you are reall
+
+You take your remaining mimosas to the dragon's cave and call	You take your remaining mimosas to the dragon's cave and call
+
+"Hey dagron. I've gotss some drinkss and toasht for you."	"Hey dagron. I've gotss some drinkss and toasht for you."
+
+The dragon slithers out of his cave intrigued by your offer. 	The dragon slithers out of his cave intrigued by your offer. 
+make toast, you realize you are too drunk to operate your mag	make toast, you realize you are too drunk to operate your mag
+
+The dragon eats you instead, while sipping on a mimosa.		The dragon eats you instead, while sipping on a mimosa.
+
+You have been eaten by a dragon.				You have been eaten by a dragon.
+
+Sorry, you have lost. Better luck next time!			Sorry, you have lost. Better luck next time!
+Your file did not match the expected output
+
+
+
+2.23: Current test is ./cyoa-step2 test/step3_test1  <  /usr/local/ece551/cyoa/story1/inputs/input9.txt
+-----------------------------
+It looks like you got different output from us on that case.
+Here is the diff (yours on left, ours on right):
+
+Welcome to choose your own adventure.				Welcome to choose your own adventure.
+Get ready for the thrilling tale of dragons and brunches.	Get ready for the thrilling tale of dragons and brunches.
+Will you get help from Grew and/or Denevieve?			Will you get help from Grew and/or Denevieve?
+Will you be eaten by a dragon?					Will you be eaten by a dragon?
+
+Only you can decide....						Only you can decide....
+
+What would you like to do?					What would you like to do?
+
+ 1.I am ready for this story!					 1. I am ready for this story!
+							      >	 2. I am ready for this story second time!
+One day, a strange old wizard comes to your village and tells	One day, a strange old wizard comes to your village and tells
+there is an evil dragon lurking in the hills. This wizard's s	there is an evil dragon lurking in the hills. This wizard's s
+why the village's goats and cows have been going missing late	why the village's goats and cows have been going missing late
+
+The wizard tells you: "It is up to you, hero, to stop this dr	The wizard tells you: "It is up to you, hero, to stop this dr
+else in this village is foolish...errrr I mean brave enough t	else in this village is foolish...errrr I mean brave enough t
+dragon." 							dragon." 
+
+The wizard offers you a choice of one of three magic items to	The wizard offers you a choice of one of three magic items to
+your quest. 							your quest. 
+
+The first is a magic whistle that lets you make any bird call	The first is a magic whistle that lets you make any bird call
+want. The second is a pair of magic shoes that let you jump 1	want. The second is a pair of magic shoes that let you jump 1
+air. The third is a magic toaster, which can take any item th	air. The third is a magic toaster, which can take any item th
+into it, and turn it into perfectly cooked toast (optionally 	into it, and turn it into perfectly cooked toast (optionally 
+and/or jam). 							and/or jam). 
+
+"Choose wisely, for your quest and your village depend on you	"Choose wisely, for your quest and your village depend on you
+
+What would you like to do?					What would you like to do?
+
+ 1.Choose the magic whistle.					 1. Choose the magic whistle.
+ 2.Choose the magic shoes.					 2. Choose the magic shoes.
+ 3.Choose the magic toaster.					 3. Choose the magic toaster.
+As you take the magic toaster from the wizard's hand, he disa	As you take the magic toaster from the wizard's hand, he disa
+puff of smoke. You decide that you should give the toaster a 	puff of smoke. You decide that you should give the toaster a 
+set off to deal with the dragon (after all, if you learned no	set off to deal with the dragon (after all, if you learned no
+school, it was that testing is VERY important). 		school, it was that testing is VERY important). 
+
+Having not had any breakfast, you are quite hungry, so testin	Having not had any breakfast, you are quite hungry, so testin
+seems like a great solution to two problems. You grab a rock 	seems like a great solution to two problems. You grab a rock 
+ground, stuff it in, and think of delicious toast with raspbe	ground, stuff it in, and think of delicious toast with raspbe
+seconds later, out pops the most perfectly done toast with ju	seconds later, out pops the most perfectly done toast with ju
+amount of butter and jam. Wow that is good! You spend a while	amount of butter and jam. Wow that is good! You spend a while
+testing the toaster again and again "just to be sure". After 	testing the toaster again and again "just to be sure". After 
+stuffed on toast, you start to wonder how this will help you 	stuffed on toast, you start to wonder how this will help you 
+dragon. 							dragon. 
+
+Putting that question in the back of your mind, you contempla	Putting that question in the back of your mind, you contempla
+not you should get some help before you set out. On the one h	not you should get some help before you set out. On the one h
+alone, you might be able to better sneak into the dragon's la	alone, you might be able to better sneak into the dragon's la
+other hand, help might be useful.				other hand, help might be useful.
+
+Fortunately for you, the two wisest people you know, Deneviev	Fortunately for you, the two wisest people you know, Deneviev
+live in the next village over. Thinking about it for several 	live in the next village over. Thinking about it for several 
+decide whom to go to for help.					decide whom to go to for help.
+
+What would you like to do?					What would you like to do?
+
+ 1.Go to Denevieve for help.					 1. Go to Denevieve for help.
+ 2.Go to Grew for help.						 2. Go to Grew for help.
+ 3.Go alone.							 3. Go alone.
+After thinking about it for a bit, you decide to go to Grew f	After thinking about it for a bit, you decide to go to Grew f
+you explain your quest, and that you have a magic toaster, Gr	you explain your quest, and that you have a magic toaster, Gr
+idea. 								idea. 
+
+"Well, dragons really love to eat, so lets just give them a b	"Well, dragons really love to eat, so lets just give them a b
+than the animals in the area!" Grew exclaims. He goes on to e	than the animals in the area!" Grew exclaims. He goes on to e
+will create the best all-you-can-eat brunch buffet ever. Grew	will create the best all-you-can-eat brunch buffet ever. Grew
+for berries, smoked salmon, pastries, and you will provide li	for berries, smoked salmon, pastries, and you will provide li
+all-you-can-eat toast with the magic toaster. 			all-you-can-eat toast with the magic toaster. 
+
+You swing by Troll Foods, the local grocery store (yes, run b	You swing by Troll Foods, the local grocery store (yes, run b
+trolls--but they are nice trolls) and pick up the supplies: 1	trolls--but they are nice trolls) and pick up the supplies: 1
+salmon, 20 kg of mixed berries, and 100 pastries.		salmon, 20 kg of mixed berries, and 100 pastries.
+
+Upon arriving at the dragon's cave, you lay out the buffet an	Upon arriving at the dragon's cave, you lay out the buffet an
+toast. The dragon is so happy with the food, and thrilled tha	toast. The dragon is so happy with the food, and thrilled tha
+all the toast he wants, that he agrees to stop eating people'	all the toast he wants, that he agrees to stop eating people'
+animals, on one condition: you and Grew have to come back eac	animals, on one condition: you and Grew have to come back eac
+have brunch with him.						have brunch with him.
+
+You all live happily ever after.				You all live happily ever after.
+
+Congratulations! You have won. Hooray!				Congratulations! You have won. Hooray!
+Your file did not match the expected output
+
+
+
+2.24: Current test is ./cyoa-step2 test/step3_test1  <  /usr/local/ece551/cyoa/story1/inputs/input10.txt
+-----------------------------
+It looks like you got different output from us on that case.
+Here is the diff (yours on left, ours on right):
+
+Welcome to choose your own adventure.				Welcome to choose your own adventure.
+Get ready for the thrilling tale of dragons and brunches.	Get ready for the thrilling tale of dragons and brunches.
+Will you get help from Grew and/or Denevieve?			Will you get help from Grew and/or Denevieve?
+Will you be eaten by a dragon?					Will you be eaten by a dragon?
+
+Only you can decide....						Only you can decide....
+
+What would you like to do?					What would you like to do?
+
+ 1.I am ready for this story!					 1. I am ready for this story!
+							      >	 2. I am ready for this story second time!
+One day, a strange old wizard comes to your village and tells	One day, a strange old wizard comes to your village and tells
+there is an evil dragon lurking in the hills. This wizard's s	there is an evil dragon lurking in the hills. This wizard's s
+why the village's goats and cows have been going missing late	why the village's goats and cows have been going missing late
+
+The wizard tells you: "It is up to you, hero, to stop this dr	The wizard tells you: "It is up to you, hero, to stop this dr
+else in this village is foolish...errrr I mean brave enough t	else in this village is foolish...errrr I mean brave enough t
+dragon." 							dragon." 
+
+The wizard offers you a choice of one of three magic items to	The wizard offers you a choice of one of three magic items to
+your quest. 							your quest. 
+
+The first is a magic whistle that lets you make any bird call	The first is a magic whistle that lets you make any bird call
+want. The second is a pair of magic shoes that let you jump 1	want. The second is a pair of magic shoes that let you jump 1
+air. The third is a magic toaster, which can take any item th	air. The third is a magic toaster, which can take any item th
+into it, and turn it into perfectly cooked toast (optionally 	into it, and turn it into perfectly cooked toast (optionally 
+and/or jam). 							and/or jam). 
+
+"Choose wisely, for your quest and your village depend on you	"Choose wisely, for your quest and your village depend on you
+
+What would you like to do?					What would you like to do?
+
+ 1.Choose the magic whistle.					 1. Choose the magic whistle.
+ 2.Choose the magic shoes.					 2. Choose the magic shoes.
+ 3.Choose the magic toaster.					 3. Choose the magic toaster.
+As you take the magic toaster from the wizard's hand, he disa	As you take the magic toaster from the wizard's hand, he disa
+puff of smoke. You decide that you should give the toaster a 	puff of smoke. You decide that you should give the toaster a 
+set off to deal with the dragon (after all, if you learned no	set off to deal with the dragon (after all, if you learned no
+school, it was that testing is VERY important). 		school, it was that testing is VERY important). 
+
+Having not had any breakfast, you are quite hungry, so testin	Having not had any breakfast, you are quite hungry, so testin
+seems like a great solution to two problems. You grab a rock 	seems like a great solution to two problems. You grab a rock 
+ground, stuff it in, and think of delicious toast with raspbe	ground, stuff it in, and think of delicious toast with raspbe
+seconds later, out pops the most perfectly done toast with ju	seconds later, out pops the most perfectly done toast with ju
+amount of butter and jam. Wow that is good! You spend a while	amount of butter and jam. Wow that is good! You spend a while
+testing the toaster again and again "just to be sure". After 	testing the toaster again and again "just to be sure". After 
+stuffed on toast, you start to wonder how this will help you 	stuffed on toast, you start to wonder how this will help you 
+dragon. 							dragon. 
+
+Putting that question in the back of your mind, you contempla	Putting that question in the back of your mind, you contempla
+not you should get some help before you set out. On the one h	not you should get some help before you set out. On the one h
+alone, you might be able to better sneak into the dragon's la	alone, you might be able to better sneak into the dragon's la
+other hand, help might be useful.				other hand, help might be useful.
+
+Fortunately for you, the two wisest people you know, Deneviev	Fortunately for you, the two wisest people you know, Deneviev
+live in the next village over. Thinking about it for several 	live in the next village over. Thinking about it for several 
+decide whom to go to for help.					decide whom to go to for help.
+
+What would you like to do?					What would you like to do?
+
+ 1.Go to Denevieve for help.					 1. Go to Denevieve for help.
+ 2.Go to Grew for help.						 2. Go to Grew for help.
+ 3.Go alone.							 3. Go alone.
+After thinking about it for a bit, you decide to go alone. Yo	After thinking about it for a bit, you decide to go alone. Yo
+into the hills by yourself in search of the dragon. Unfortuna	into the hills by yourself in search of the dragon. Unfortuna
+you are walking and trying to think up a plan, the dragon swo	you are walking and trying to think up a plan, the dragon swo
+behind you and devours you. 					behind you and devours you. 
+
+You have been eaten by a dragon.				You have been eaten by a dragon.
+
+Sorry, you have lost. Better luck next time!			Sorry, you have lost. Better luck next time!
+Your file did not match the expected output
+
+
+
+2.25: Current test is ./cyoa-step2 story2  <  /usr/local/ece551/cyoa/story1/inputs/input0.txt
 -----------------------------
 Your output looks good. Lets check valgrind
 Valgrind was clean
 
 
-2.15: Current test is ./cyoa-step2 story2  <  /usr/local/ece551/cyoa/story1/inputs/input1.txt
+2.26: Current test is ./cyoa-step2 story2  <  /usr/local/ece551/cyoa/story1/inputs/input1.txt
 -----------------------------
 Your output looks good. Lets check valgrind
 Valgrind was clean
 
 
-2.16: Current test is ./cyoa-step2 story2  <  /usr/local/ece551/cyoa/story1/inputs/input3.txt
+2.27: Current test is ./cyoa-step2 story2  <  /usr/local/ece551/cyoa/story1/inputs/input3.txt
 -----------------------------
 Your output looks good. Lets check valgrind
 Valgrind was clean
 
 
-2.17: Current test is ./cyoa-step2 story2  <  /usr/local/ece551/cyoa/story1/inputs/input4.txt
+2.28: Current test is ./cyoa-step2 story2  <  /usr/local/ece551/cyoa/story1/inputs/input4.txt
 -----------------------------
 Your output looks good. Lets check valgrind
 Valgrind was clean
 
 
-2.18: Current test is ./cyoa-step2 story2  <  story2/inputs/input5.txt
+2.29: Current test is ./cyoa-step2 story2  <  story2/inputs/input5.txt
 -----------------------------
 Your output looks good. Lets check valgrind
 Valgrind was clean
 
 
-2.19: Current test is ./cyoa-step2 story2  <  story2/inputs/input6.txt
+2.30: Current test is ./cyoa-step2 story2  <  story2/inputs/input6.txt
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
@@ -841,80 +1849,80 @@ Lets check if it valgrinds:
 Valgrind was clean
 
 
-2.20: Current test is ./cyoa-step2 story2  <  /usr/local/ece551/cyoa/story1/inputs/input7.txt
+2.31: Current test is ./cyoa-step2 story2  <  /usr/local/ece551/cyoa/story1/inputs/input7.txt
 -----------------------------
 Your output looks good. Lets check valgrind
 Valgrind was clean
 
 
-2.21: Current test is ./cyoa-step2 story2  <  /usr/local/ece551/cyoa/story1/inputs/input8.txt
+2.32: Current test is ./cyoa-step2 story2  <  /usr/local/ece551/cyoa/story1/inputs/input8.txt
 -----------------------------
 Your output looks good. Lets check valgrind
 Valgrind was clean
 
 
-2.22: Current test is ./cyoa-step2 story2  <  /usr/local/ece551/cyoa/story1/inputs/input9.txt
+2.33: Current test is ./cyoa-step2 story2  <  /usr/local/ece551/cyoa/story1/inputs/input9.txt
 -----------------------------
 Your output looks good. Lets check valgrind
 Valgrind was clean
 
 
-2.23: Current test is ./cyoa-step2 story2  <  /usr/local/ece551/cyoa/story1/inputs/input10.txt
+2.34: Current test is ./cyoa-step2 story2  <  /usr/local/ece551/cyoa/story1/inputs/input10.txt
 -----------------------------
 Your output looks good. Lets check valgrind
 Valgrind was clean
 
 
-2.24: Current test is ./cyoa-step2 story2  <  /usr/local/ece551/cyoa/story1/inputs/input11.txt
+2.35: Current test is ./cyoa-step2 story2  <  /usr/local/ece551/cyoa/story1/inputs/input11.txt
 -----------------------------
 Your output looks good. Lets check valgrind
 Valgrind was clean
 
 
-2.25: Current test is ./cyoa-step2 story2  <  /usr/local/ece551/cyoa/story1/inputs/input12.txt
+2.36: Current test is ./cyoa-step2 story2  <  /usr/local/ece551/cyoa/story1/inputs/input12.txt
 -----------------------------
 Your output looks good. Lets check valgrind
 Valgrind was clean
 
 
-2.26: Current test is ./cyoa-step2 story1  <  /usr/local/ece551/cyoa/story2/inputs/input11.txt
+2.37: Current test is ./cyoa-step2 story1  <  /usr/local/ece551/cyoa/story2/inputs/input11.txt
 -----------------------------
 You considered this a failure case:
 /dev/fd/3: line 528: /usr/local/ece551/cyoa/story2/inputs/input11.txt: No such file or directory
 But we did not.
 
 
-2.27: Current test is ./cyoa-step2 story3  <  /usr/local/ece551/cyoa/story3/inputs/input15.txt
+2.38: Current test is ./cyoa-step2 story3  <  /usr/local/ece551/cyoa/story3/inputs/input15.txt
 -----------------------------
 Your output looks good. Lets check valgrind
 Valgrind was clean
 
 
-2.28: Current test is ./cyoa-step2 story3  <  /usr/local/ece551/cyoa/story3/inputs/input16.txt
+2.39: Current test is ./cyoa-step2 story3  <  /usr/local/ece551/cyoa/story3/inputs/input16.txt
 -----------------------------
 Your output looks good. Lets check valgrind
 Valgrind was clean
 
 
-2.29: Current test is ./cyoa-step2 story3  <  /usr/local/ece551/cyoa/story3/inputs/input17.txt
+2.40: Current test is ./cyoa-step2 story3  <  /usr/local/ece551/cyoa/story3/inputs/input17.txt
 -----------------------------
 Your output looks good. Lets check valgrind
 Valgrind was clean
 
 
-2.30: Current test is ./cyoa-step2 story3  <  /usr/local/ece551/cyoa/story3/inputs/input18.txt
+2.41: Current test is ./cyoa-step2 story3  <  /usr/local/ece551/cyoa/story3/inputs/input18.txt
 -----------------------------
 Your output looks good. Lets check valgrind
 Valgrind was clean
 
 
-2.31: Current test is ./cyoa-step2 story3  <  /usr/local/ece551/cyoa/story3/inputs/input19.txt
+2.42: Current test is ./cyoa-step2 story3  <  /usr/local/ece551/cyoa/story3/inputs/input19.txt
 -----------------------------
 Your output looks good. Lets check valgrind
 Valgrind was clean
 
 
-2.32: Current test is ./cyoa-step2 story3  <  /usr/local/ece551/cyoa/story2/inputs/input0.txt
+2.43: Current test is ./cyoa-step2 story3  <  /usr/local/ece551/cyoa/story2/inputs/input0.txt
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
@@ -925,13 +1933,13 @@ Lets check if it valgrinds:
 Valgrind was clean
 
 
-2.33: Current test is ./cyoa-step2 story3  <  /usr/local/ece551/cyoa/story1/inputs/input1.txt
+2.44: Current test is ./cyoa-step2 story3  <  /usr/local/ece551/cyoa/story1/inputs/input1.txt
 -----------------------------
 Your output looks good. Lets check valgrind
 Valgrind was clean
 
 
-2.34: Current test is ./cyoa-step2 test/step4_test3  <  /usr/local/ece551/cyoa/story3/inputs/input1.txt
+2.45: Current test is ./cyoa-step2 test/step4_test3  <  /usr/local/ece551/cyoa/story3/inputs/input1.txt
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
@@ -942,7 +1950,7 @@ Lets check if it valgrinds:
 Valgrind was clean
 
 
-2.35: Current test is ./cyoa-step2 test/step4_test3  <  /usr/local/ece551/cyoa/story3/inputs/input2.txt
+2.46: Current test is ./cyoa-step2 test/step4_test3  <  /usr/local/ece551/cyoa/story3/inputs/input2.txt
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
@@ -953,7 +1961,7 @@ Lets check if it valgrinds:
 Valgrind was clean
 
 
-2.36: Current test is ./cyoa-step2 test/step4_test4  <  /usr/local/ece551/cyoa/story3/inputs/input3.txt
+2.47: Current test is ./cyoa-step2 test/step4_test4  <  /usr/local/ece551/cyoa/story3/inputs/input3.txt
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
@@ -964,7 +1972,7 @@ Lets check if it valgrinds:
 Valgrind was clean
 
 
-2.37: Current test is ./cyoa-step2 test/step4_test3  <  /usr/local/ece551/cyoa/story3/inputs/input4.txt
+2.48: Current test is ./cyoa-step2 test/step4_test3  <  /usr/local/ece551/cyoa/story3/inputs/input4.txt
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
@@ -975,13 +1983,18 @@ Lets check if it valgrinds:
 Valgrind was clean
 
 
-2.38: Current test is ./cyoa-step2 test/step4_test5  <  /usr/local/ece551/cyoa/story3/inputs/input5.txt
+2.49: Current test is ./cyoa-step2 test/step4_test5  <  /usr/local/ece551/cyoa/story3/inputs/input5.txt
 -----------------------------
-We considered this a failure case.
-But you did not (exit status was EXIT_SUCCESS).
+Great: we both considered this an error
+----here is what you printed on stderr---
+Out of range error
+
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
 
 
-2.39: Current test is ./cyoa-step2 test/step4_test3  <  /usr/local/ece551/cyoa/story3/inputs/input6.txt
+2.50: Current test is ./cyoa-step2 test/step4_test3  <  /usr/local/ece551/cyoa/story3/inputs/input6.txt
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
@@ -992,13 +2005,18 @@ Lets check if it valgrinds:
 Valgrind was clean
 
 
-2.40: Current test is ./cyoa-step2 test/step4_test5  <  /usr/local/ece551/cyoa/story3/inputs/input7.txt
+2.51: Current test is ./cyoa-step2 test/step4_test5  <  /usr/local/ece551/cyoa/story3/inputs/input7.txt
 -----------------------------
-We considered this a failure case.
-But you did not (exit status was EXIT_SUCCESS).
+Great: we both considered this an error
+----here is what you printed on stderr---
+Out of range error
+
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
 
 
-2.41: Current test is ./cyoa-step2 test/step4_test4  <  /usr/local/ece551/cyoa/story3/inputs/input8.txt
+2.52: Current test is ./cyoa-step2 test/step4_test4  <  /usr/local/ece551/cyoa/story3/inputs/input8.txt
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
@@ -1009,7 +2027,7 @@ Lets check if it valgrinds:
 Valgrind was clean
 
 
-2.42: Current test is ./cyoa-step2 test/step4_test4  <  /usr/local/ece551/cyoa/story3/inputs/input15.txt
+2.53: Current test is ./cyoa-step2 test/step4_test4  <  /usr/local/ece551/cyoa/story3/inputs/input15.txt
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
@@ -1020,31 +2038,41 @@ Lets check if it valgrinds:
 Valgrind was clean
 
 
-2.43: Current test is ./cyoa-step2 test/step4_test1  <  /usr/local/ece551/cyoa/story3/inputs/input1.txt
+2.54: Current test is ./cyoa-step2 test/step4_test1  <  /usr/local/ece551/cyoa/story3/inputs/input1.txt
 -----------------------------
 Your output looks good. Lets check valgrind
 Valgrind was clean
 
 
-2.44: Current test is ./cyoa-step2 test/step4_test1  <  /usr/local/ece551/cyoa/story3/inputs/input17.txt
+2.55: Current test is ./cyoa-step2 test/step4_test1  <  /usr/local/ece551/cyoa/story3/inputs/input17.txt
 -----------------------------
 Your output looks good. Lets check valgrind
 Valgrind was clean
 
 
-2.45: Current test is ./cyoa-step2 test/step4_test5  <  /usr/local/ece551/cyoa/story3/inputs/input18.txt
+2.56: Current test is ./cyoa-step2 test/step4_test5  <  /usr/local/ece551/cyoa/story3/inputs/input18.txt
 -----------------------------
-We considered this a failure case.
-But you did not (exit status was EXIT_SUCCESS).
+Great: we both considered this an error
+----here is what you printed on stderr---
+Out of range error
+
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
 
 
-2.46: Current test is ./cyoa-step2 test/step4_test5  <  /usr/local/ece551/cyoa/story3/inputs/input19.txt
+2.57: Current test is ./cyoa-step2 test/step4_test5  <  /usr/local/ece551/cyoa/story3/inputs/input19.txt
 -----------------------------
-We considered this a failure case.
-But you did not (exit status was EXIT_SUCCESS).
+Great: we both considered this an error
+----here is what you printed on stderr---
+Out of range error
+
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
 
 
-2.47: Current test is ./cyoa-step2 test/step4_test2  <  /usr/local/ece551/cyoa/story3/inputs/input0.txt
+2.58: Current test is ./cyoa-step2 test/step4_test2  <  /usr/local/ece551/cyoa/story3/inputs/input0.txt
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
@@ -1055,7 +2083,7 @@ Lets check if it valgrinds:
 Valgrind was clean
 
 
-2.48: Current test is ./cyoa-step2 test/step4_test2  <  /usr/local/ece551/cyoa/story3/inputs/input1.txt
+2.59: Current test is ./cyoa-step2 test/step4_test2  <  /usr/local/ece551/cyoa/story3/inputs/input1.txt
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
@@ -1066,37 +2094,37 @@ Lets check if it valgrinds:
 Valgrind was clean
 
 
-2.49: Current test is ./cyoa-step2 test/step4_test1  <  /usr/local/ece551/cyoa/story3/inputs/input1.txt
+2.60: Current test is ./cyoa-step2 test/step4_test1  <  /usr/local/ece551/cyoa/story3/inputs/input1.txt
 -----------------------------
 Your output looks good. Lets check valgrind
 Valgrind was clean
 
 
-2.50: Current test is ./cyoa-step2 test/step4_test1  <  /usr/local/ece551/cyoa/story3/inputs/input2.txt
+2.61: Current test is ./cyoa-step2 test/step4_test1  <  /usr/local/ece551/cyoa/story3/inputs/input2.txt
 -----------------------------
 Your output looks good. Lets check valgrind
 Valgrind was clean
 
 
-2.51: Current test is ./cyoa-step2 test/step4_test1  <  /usr/local/ece551/cyoa/story3/inputs/input3.txt
+2.62: Current test is ./cyoa-step2 test/step4_test1  <  /usr/local/ece551/cyoa/story3/inputs/input3.txt
 -----------------------------
 Your output looks good. Lets check valgrind
 Valgrind was clean
 
 
-2.52: Current test is ./cyoa-step2 test/step4_test1  <  /usr/local/ece551/cyoa/story3/inputs/input4.txt
+2.63: Current test is ./cyoa-step2 test/step4_test1  <  /usr/local/ece551/cyoa/story3/inputs/input4.txt
 -----------------------------
 Your output looks good. Lets check valgrind
 Valgrind was clean
 
 
-2.53: Current test is ./cyoa-step2 test/step4_test1  <  /usr/local/ece551/cyoa/story3/inputs/input5.txt
+2.64: Current test is ./cyoa-step2 test/step4_test1  <  /usr/local/ece551/cyoa/story3/inputs/input5.txt
 -----------------------------
 Your output looks good. Lets check valgrind
 Valgrind was clean
 
 
-2.54: Current test is ./cyoa-step2 test/step3_test4  <  /usr/local/ece551/cyoa/story3/inputs/input5.txt
+2.65: Current test is ./cyoa-step2 test/step3_test4  <  /usr/local/ece551/cyoa/story3/inputs/input5.txt
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
@@ -1107,7 +2135,7 @@ Lets check if it valgrinds:
 Valgrind was clean
 
 
-2.55: Current test is ./cyoa-step2 test/step2_test1  <  /usr/local/ece551/cyoa/story3/inputs/input5.txt
+2.66: Current test is ./cyoa-step2 test/step2_test1  <  /usr/local/ece551/cyoa/story3/inputs/input5.txt
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
@@ -1118,27 +2146,37 @@ Lets check if it valgrinds:
 Valgrind was clean
 
 
-2.56: Current test is ./cyoa-step2 test/step2_test2  <  /usr/local/ece551/cyoa/story3/inputs/input5.txt
+2.67: Current test is ./cyoa-step2 test/step2_test2  <  /usr/local/ece551/cyoa/story3/inputs/input5.txt
 -----------------------------
 Your output looks good. Lets check valgrind
 Valgrind was clean
 
 
-2.57: Current test is ./cyoa-step2 test/step2_test3  <  /usr/local/ece551/cyoa/story3/inputs/input5.txt
+2.68: Current test is ./cyoa-step2 test/step2_test3  <  /usr/local/ece551/cyoa/story3/inputs/input5.txt
 -----------------------------
 Your output looks good. Lets check valgrind
 Valgrind was clean
 
 
-2.58: Current test is ./cyoa-step2 test/step2_test4  <  /usr/local/ece551/cyoa/story3/inputs/input5.txt
+2.69: Current test is ./cyoa-step2 test/step2_test4  <  /usr/local/ece551/cyoa/story3/inputs/input5.txt
 -----------------------------
-We considered this a failure case.
-But you did not (exit status was EXIT_SUCCESS).
+Great: we both considered this an error
+----here is what you printed on stderr---
+Page is missing or is not referenced
+
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
 
 
-2.59: Current test is ./cyoa-step2 test/step2_test5  <  /usr/local/ece551/cyoa/story3/inputs/input5.txt
+2.70: Current test is ./cyoa-step2 test/step2_test5  <  /usr/local/ece551/cyoa/story3/inputs/input5.txt
 -----------------------------
-Your output looks good. Lets check valgrind
+Great: we both considered this an error
+----here is what you printed on stderr---
+Page is missing or is not referenced
+
+-----------------------------------------
+Lets check if it valgrinds:
 Valgrind was clean
 No request to check for intermediate deadline completion on step 2
 
@@ -1146,7 +2184,7 @@ Step 3
 Checking that cyoa-step3 compiles
 rm -f *~ cyoa-step1 cyoa-step2 cyoa-step3 cyoa-step4 cyoa-step1.o cyoa-step2.o cyoa-step3.o cyoa-step4.o cyoa.o
 g++    -c -o cyoa-step3.o cyoa-step3.cpp
-g++ -std=gnu++98 -pedantic -Wall -Werror -ggdb3 -c cyoa.cpp
+g++ -std=gnu++11 -pedantic -Wall -Werror -ggdb3 -c cyoa.cpp
 g++ -o cyoa-step3 cyoa-step3.o cyoa.o
 rm cyoa.o cyoa-step3.o
 The code compiled (good)
@@ -1318,7 +2356,7 @@ Valgrind was clean
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
-Declaration order incorrect
+Out of range error
 
 -----------------------------------------
 Lets check if it valgrinds:
@@ -1372,8 +2410,13 @@ Valgrind was clean
 
 3.22: Current test is ./cyoa-step3 test/step4_test5 < /dev/null
 -----------------------------
-We considered this a failure case.
-But you did not (exit status was EXIT_SUCCESS).
+Great: we both considered this an error
+----here is what you printed on stderr---
+Out of range error
+
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
 
 
 3.23: Current test is ./cyoa-step3 test/step3_test1 < /dev/null
@@ -1440,13 +2483,23 @@ Valgrind was clean
 
 3.30: Current test is ./cyoa-step3 test/step2_test4 < /dev/null
 -----------------------------
-We considered this a failure case.
-But you did not (exit status was EXIT_SUCCESS).
+Great: we both considered this an error
+----here is what you printed on stderr---
+Page is missing or is not referenced
+
+-----------------------------------------
+Lets check if it valgrinds:
+Valgrind was clean
 
 
 3.31: Current test is ./cyoa-step3 test/step2_test5 < /dev/null
 -----------------------------
-Your output looks good. Lets check valgrind
+Great: we both considered this an error
+----here is what you printed on stderr---
+Page is missing or is not referenced
+
+-----------------------------------------
+Lets check if it valgrinds:
 Valgrind was clean
 No request to check for intermediate deadline completion on step 3
 
@@ -1454,7 +2507,7 @@ Step 4
 Checking that cyoa-step4 compiles
 rm -f *~ cyoa-step1 cyoa-step2 cyoa-step3 cyoa-step4 cyoa-step1.o cyoa-step2.o cyoa-step3.o cyoa-step4.o cyoa.o
 g++    -c -o cyoa-step4.o cyoa-step4.cpp
-g++ -std=gnu++98 -pedantic -Wall -Werror -ggdb3 -c cyoa.cpp
+g++ -std=gnu++11 -pedantic -Wall -Werror -ggdb3 -c cyoa.cpp
 g++ -o cyoa-step4 cyoa-step4.o cyoa.o
 rm cyoa-step4.o cyoa.o
 The code compiled (good)
@@ -1494,97 +2547,13 @@ Your output looks good. Lets check valgrind
 Valgrind was clean
 
 
-4.6: Current test is ./cyoa-step4 story3  <  /usr/local/ece551/cyoa/story3/inputs/input5.txt
+4.6: Current test is ./cyoa-step4 story3  <  /usr/local/ece551/cyoa/story3/inputs/input19.txt
 -----------------------------
 Your output looks good. Lets check valgrind
 Valgrind was clean
 
 
-4.7: Current test is ./cyoa-step4 story3  <  /usr/local/ece551/cyoa/story3/inputs/input6.txt
------------------------------
-Your output looks good. Lets check valgrind
-Valgrind was clean
-
-
-4.8: Current test is ./cyoa-step4 story3  <  /usr/local/ece551/cyoa/story3/inputs/input7.txt
------------------------------
-Your output looks good. Lets check valgrind
-Valgrind was clean
-
-
-4.9: Current test is ./cyoa-step4 story3  <  /usr/local/ece551/cyoa/story3/inputs/input8.txt
------------------------------
-Your output looks good. Lets check valgrind
-Valgrind was clean
-
-
-4.10: Current test is ./cyoa-step4 story3  <  /usr/local/ece551/cyoa/story3/inputs/input9.txt
------------------------------
-Your output looks good. Lets check valgrind
-Valgrind was clean
-
-
-4.11: Current test is ./cyoa-step4 story3  <  /usr/local/ece551/cyoa/story3/inputs/input10.txt
------------------------------
-Your output looks good. Lets check valgrind
-Valgrind was clean
-
-
-4.12: Current test is ./cyoa-step4 story3  <  /usr/local/ece551/cyoa/story3/inputs/input11.txt
------------------------------
-Your output looks good. Lets check valgrind
-Valgrind was clean
-
-
-4.13: Current test is ./cyoa-step4 story3  <  /usr/local/ece551/cyoa/story3/inputs/input12.txt
------------------------------
-Your output looks good. Lets check valgrind
-Valgrind was clean
-
-
-4.14: Current test is ./cyoa-step4 story3  <  /usr/local/ece551/cyoa/story3/inputs/input14.txt
------------------------------
-Your output looks good. Lets check valgrind
-Valgrind was clean
-
-
-4.15: Current test is ./cyoa-step4 story3  <  /usr/local/ece551/cyoa/story3/inputs/input13.txt
------------------------------
-Your output looks good. Lets check valgrind
-Valgrind was clean
-
-
-4.16: Current test is ./cyoa-step4 story3  <  /usr/local/ece551/cyoa/story3/inputs/input15.txt
------------------------------
-Your output looks good. Lets check valgrind
-Valgrind was clean
-
-
-4.17: Current test is ./cyoa-step4 story3  <  /usr/local/ece551/cyoa/story3/inputs/input16.txt
------------------------------
-Your output looks good. Lets check valgrind
-Valgrind was clean
-
-
-4.18: Current test is ./cyoa-step4 story3  <  /usr/local/ece551/cyoa/story3/inputs/input17.txt
------------------------------
-Your output looks good. Lets check valgrind
-Valgrind was clean
-
-
-4.19: Current test is ./cyoa-step4 story3  <  /usr/local/ece551/cyoa/story3/inputs/input18.txt
------------------------------
-Your output looks good. Lets check valgrind
-Valgrind was clean
-
-
-4.20: Current test is ./cyoa-step4 story3  <  /usr/local/ece551/cyoa/story3/inputs/input19.txt
------------------------------
-Your output looks good. Lets check valgrind
-Valgrind was clean
-
-
-4.21: Current test is ./cyoa-step4 story3  <  /usr/local/ece551/cyoa/story2/inputs/input0.txt
+4.7: Current test is ./cyoa-step4 story3  <  /usr/local/ece551/cyoa/story2/inputs/input0.txt
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
@@ -1595,13 +2564,13 @@ Lets check if it valgrinds:
 Valgrind was clean
 
 
-4.22: Current test is ./cyoa-step4 story3  <  /usr/local/ece551/cyoa/story1/inputs/input1.txt
+4.8: Current test is ./cyoa-step4 story3  <  /usr/local/ece551/cyoa/story1/inputs/input1.txt
 -----------------------------
 Your output looks good. Lets check valgrind
 Valgrind was clean
 
 
-4.23: Current test is ./cyoa-step4 test/step4_test3  <  /usr/local/ece551/cyoa/story3/inputs/input1.txt
+4.9: Current test is ./cyoa-step4 test/step4_test3  <  /usr/local/ece551/cyoa/story3/inputs/input1.txt
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
@@ -1612,7 +2581,7 @@ Lets check if it valgrinds:
 Valgrind was clean
 
 
-4.24: Current test is ./cyoa-step4 test/step4_test3  <  /usr/local/ece551/cyoa/story3/inputs/input2.txt
+4.10: Current test is ./cyoa-step4 test/step4_test3  <  /usr/local/ece551/cyoa/story3/inputs/input2.txt
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
@@ -1623,178 +2592,99 @@ Lets check if it valgrinds:
 Valgrind was clean
 
 
-4.25: Current test is ./cyoa-step4 test/step4_test3  <  /usr/local/ece551/cyoa/story3/inputs/input3.txt
+4.11: Current test is ./cyoa-step4 test/step4_test5  <  /usr/local/ece551/cyoa/story3/inputs/input18.txt
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
-Story.txt format for variable incorrect
+Out of range error
 
 -----------------------------------------
 Lets check if it valgrinds:
 Valgrind was clean
 
 
-4.26: Current test is ./cyoa-step4 test/step4_test3  <  /usr/local/ece551/cyoa/story3/inputs/input4.txt
+4.12: Current test is ./cyoa-step4 test/step4_test5  <  /usr/local/ece551/cyoa/story3/inputs/input19.txt
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
-Story.txt format for variable incorrect
+Out of range error
 
 -----------------------------------------
 Lets check if it valgrinds:
 Valgrind was clean
 
 
-4.27: Current test is ./cyoa-step4 test/step4_test3  <  /usr/local/ece551/cyoa/story3/inputs/input5.txt
+4.13: Current test is ./cyoa-step4 test/step4_test5  <  /usr/local/ece551/cyoa/story3/inputs/input0.txt
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
-Story.txt format for variable incorrect
+Out of range error
 
 -----------------------------------------
 Lets check if it valgrinds:
 Valgrind was clean
 
 
-4.28: Current test is ./cyoa-step4 test/step4_test3  <  /usr/local/ece551/cyoa/story3/inputs/input6.txt
+4.14: Current test is ./cyoa-step4 test/step4_test5  <  /usr/local/ece551/cyoa/story3/inputs/input1.txt
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
-Story.txt format for variable incorrect
+Out of range error
 
 -----------------------------------------
 Lets check if it valgrinds:
 Valgrind was clean
 
 
-4.29: Current test is ./cyoa-step4 test/step4_test3  <  /usr/local/ece551/cyoa/story3/inputs/input7.txt
------------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-Story.txt format for variable incorrect
-
------------------------------------------
-Lets check if it valgrinds:
-Valgrind was clean
-
-
-4.30: Current test is ./cyoa-step4 test/step4_test4  <  /usr/local/ece551/cyoa/story3/inputs/input8.txt
------------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-Invalid digits from story.txt for value 
-
------------------------------------------
-Lets check if it valgrinds:
-Valgrind was clean
-
-
-4.31: Current test is ./cyoa-step4 test/step4_test4  <  /usr/local/ece551/cyoa/story3/inputs/input15.txt
------------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-Invalid digits from story.txt for value 
-
------------------------------------------
-Lets check if it valgrinds:
-Valgrind was clean
-
-
-4.32: Current test is ./cyoa-step4 test/step4_test4  <  /usr/local/ece551/cyoa/story3/inputs/input1.txt
------------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-Invalid digits from story.txt for value 
-
------------------------------------------
-Lets check if it valgrinds:
-Valgrind was clean
-
-
-4.33: Current test is ./cyoa-step4 test/step4_test4  <  /usr/local/ece551/cyoa/story3/inputs/input17.txt
------------------------------
-Great: we both considered this an error
-----here is what you printed on stderr---
-Invalid digits from story.txt for value 
-
------------------------------------------
-Lets check if it valgrinds:
-Valgrind was clean
-
-
-4.34: Current test is ./cyoa-step4 test/step4_test5  <  /usr/local/ece551/cyoa/story3/inputs/input18.txt
------------------------------
-We considered this a failure case.
-But you did not (exit status was EXIT_SUCCESS).
-
-
-4.35: Current test is ./cyoa-step4 test/step4_test5  <  /usr/local/ece551/cyoa/story3/inputs/input19.txt
------------------------------
-We considered this a failure case.
-But you did not (exit status was EXIT_SUCCESS).
-
-
-4.36: Current test is ./cyoa-step4 test/step4_test5  <  /usr/local/ece551/cyoa/story3/inputs/input0.txt
------------------------------
-We considered this a failure case.
-But you did not (exit status was EXIT_SUCCESS).
-
-
-4.37: Current test is ./cyoa-step4 test/step4_test5  <  /usr/local/ece551/cyoa/story3/inputs/input1.txt
------------------------------
-We considered this a failure case.
-But you did not (exit status was EXIT_SUCCESS).
-
-
-4.38: Current test is ./cyoa-step4 test/step4_test1  <  /usr/local/ece551/cyoa/story3/inputs/input1.txt
+4.15: Current test is ./cyoa-step4 test/step4_test1  <  /usr/local/ece551/cyoa/story3/inputs/input1.txt
 -----------------------------
 Your output looks good. Lets check valgrind
 Valgrind was clean
 
 
-4.39: Current test is ./cyoa-step4 test/step4_test1  <  /usr/local/ece551/cyoa/story3/inputs/input2.txt
+4.16: Current test is ./cyoa-step4 test/step4_test1  <  /usr/local/ece551/cyoa/story3/inputs/input2.txt
 -----------------------------
 Your output looks good. Lets check valgrind
 Valgrind was clean
 
 
-4.40: Current test is ./cyoa-step4 test/step4_test1  <  /usr/local/ece551/cyoa/story3/inputs/input3.txt
+4.17: Current test is ./cyoa-step4 test/step4_test1  <  /usr/local/ece551/cyoa/story3/inputs/input3.txt
 -----------------------------
 Your output looks good. Lets check valgrind
 Valgrind was clean
 
 
-4.41: Current test is ./cyoa-step4 test/step4_test1  <  /usr/local/ece551/cyoa/story3/inputs/input4.txt
+4.18: Current test is ./cyoa-step4 test/step4_test1  <  /usr/local/ece551/cyoa/story3/inputs/input4.txt
 -----------------------------
 Your output looks good. Lets check valgrind
 Valgrind was clean
 
 
-4.42: Current test is ./cyoa-step4 test/step4_test1  <  /usr/local/ece551/cyoa/story3/inputs/input5.txt
+4.19: Current test is ./cyoa-step4 test/step4_test1  <  /usr/local/ece551/cyoa/story3/inputs/input5.txt
 -----------------------------
 Your output looks good. Lets check valgrind
 Valgrind was clean
 
 
-4.43: Current test is ./cyoa-step4 test/step4_test1  <  /usr/local/ece551/cyoa/story3/inputs/input6.txt
+4.20: Current test is ./cyoa-step4 test/step4_test1  <  /usr/local/ece551/cyoa/story3/inputs/input6.txt
 -----------------------------
 Your output looks good. Lets check valgrind
 Valgrind was clean
 
 
-4.44: Current test is ./cyoa-step4 test/step4_test1  <  /usr/local/ece551/cyoa/story3/inputs/input7.txt
+4.21: Current test is ./cyoa-step4 test/step4_test1  <  /usr/local/ece551/cyoa/story3/inputs/input7.txt
 -----------------------------
 Your output looks good. Lets check valgrind
 Valgrind was clean
 
 
-4.45: Current test is ./cyoa-step4 test/step4_test1  <  /usr/local/ece551/cyoa/story3/inputs/input8.txt
+4.22: Current test is ./cyoa-step4 test/step4_test1  <  /usr/local/ece551/cyoa/story3/inputs/input8.txt
 -----------------------------
 Your output looks good. Lets check valgrind
 Valgrind was clean
 
 
-4.46: Current test is ./cyoa-step4 test/step4_test2  <  /usr/local/ece551/cyoa/story3/inputs/input15.txt
+4.23: Current test is ./cyoa-step4 test/step4_test2  <  /usr/local/ece551/cyoa/story3/inputs/input15.txt
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
@@ -1805,7 +2695,7 @@ Lets check if it valgrinds:
 Valgrind was clean
 
 
-4.47: Current test is ./cyoa-step4 test/step4_test2  <  /usr/local/ece551/cyoa/story3/inputs/input16.txt
+4.24: Current test is ./cyoa-step4 test/step4_test2  <  /usr/local/ece551/cyoa/story3/inputs/input16.txt
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
@@ -1816,7 +2706,7 @@ Lets check if it valgrinds:
 Valgrind was clean
 
 
-4.48: Current test is ./cyoa-step4 test/step4_test2  <  /usr/local/ece551/cyoa/story3/inputs/input17.txt
+4.25: Current test is ./cyoa-step4 test/step4_test2  <  /usr/local/ece551/cyoa/story3/inputs/input17.txt
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
@@ -1827,7 +2717,7 @@ Lets check if it valgrinds:
 Valgrind was clean
 
 
-4.49: Current test is ./cyoa-step4 test/step4_test2  <  /usr/local/ece551/cyoa/story3/inputs/input18.txt
+4.26: Current test is ./cyoa-step4 test/step4_test2  <  /usr/local/ece551/cyoa/story3/inputs/input18.txt
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
@@ -1838,7 +2728,7 @@ Lets check if it valgrinds:
 Valgrind was clean
 
 
-4.50: Current test is ./cyoa-step4 test/step4_test2  <  /usr/local/ece551/cyoa/story3/inputs/input19.txt
+4.27: Current test is ./cyoa-step4 test/step4_test2  <  /usr/local/ece551/cyoa/story3/inputs/input19.txt
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
@@ -1849,7 +2739,7 @@ Lets check if it valgrinds:
 Valgrind was clean
 
 
-4.51: Current test is ./cyoa-step4 test/step4_test2  <  /usr/local/ece551/cyoa/story2/inputs/input0.txt
+4.28: Current test is ./cyoa-step4 test/step4_test2  <  /usr/local/ece551/cyoa/story2/inputs/input0.txt
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
@@ -1860,7 +2750,7 @@ Lets check if it valgrinds:
 Valgrind was clean
 
 
-4.52: Current test is ./cyoa-step4 test/step4_test2  <  /usr/local/ece551/cyoa/story1/inputs/input1.txt
+4.29: Current test is ./cyoa-step4 test/step4_test2  <  /usr/local/ece551/cyoa/story1/inputs/input1.txt
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
@@ -1871,7 +2761,7 @@ Lets check if it valgrinds:
 Valgrind was clean
 
 
-4.53: Current test is ./cyoa-step4 test/step4_test0  <  /usr/local/ece551/cyoa/story3/inputs/input4.txt
+4.30: Current test is ./cyoa-step4 test/step4_test0  <  /usr/local/ece551/cyoa/story3/inputs/input4.txt
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
@@ -1882,49 +2772,49 @@ Lets check if it valgrinds:
 Valgrind was clean
 
 
-4.54: Current test is ./cyoa-step4 test/step4_test6  <  /usr/local/ece551/cyoa/story3/inputs/input5.txt
+4.31: Current test is ./cyoa-step4 test/step4_test6  <  /usr/local/ece551/cyoa/story3/inputs/input5.txt
 -----------------------------
 Your output looks good. Lets check valgrind
 Valgrind was clean
 
 
-4.55: Current test is ./cyoa-step4 test/step4_test6  <  /usr/local/ece551/cyoa/story3/inputs/input6.txt
+4.32: Current test is ./cyoa-step4 test/step4_test6  <  /usr/local/ece551/cyoa/story3/inputs/input6.txt
 -----------------------------
 Your output looks good. Lets check valgrind
 Valgrind was clean
 
 
-4.56: Current test is ./cyoa-step4 test/step4_test6  <  /usr/local/ece551/cyoa/story3/inputs/input7.txt
+4.33: Current test is ./cyoa-step4 test/step4_test6  <  /usr/local/ece551/cyoa/story3/inputs/input7.txt
 -----------------------------
 Your output looks good. Lets check valgrind
 Valgrind was clean
 
 
-4.57: Current test is ./cyoa-step4 test/step4_test6  <  /usr/local/ece551/cyoa/story3/inputs/input8.txt
+4.34: Current test is ./cyoa-step4 test/step4_test6  <  /usr/local/ece551/cyoa/story3/inputs/input8.txt
 -----------------------------
 Your output looks good. Lets check valgrind
 Valgrind was clean
 
 
-4.58: Current test is ./cyoa-step4 test/step4_test6  <  /usr/local/ece551/cyoa/story3/inputs/input15.txt
+4.35: Current test is ./cyoa-step4 test/step4_test6  <  /usr/local/ece551/cyoa/story3/inputs/input15.txt
 -----------------------------
 Your output looks good. Lets check valgrind
 Valgrind was clean
 
 
-4.59: Current test is ./cyoa-step4 test/step4_test6  <  /usr/local/ece551/cyoa/story3/inputs/input17.txt
+4.36: Current test is ./cyoa-step4 test/step4_test6  <  /usr/local/ece551/cyoa/story3/inputs/input17.txt
 -----------------------------
 Your output looks good. Lets check valgrind
 Valgrind was clean
 
 
-4.60: Current test is ./cyoa-step4 test/step4_test6  <  /usr/local/ece551/cyoa/story3/inputs/input18.txt
+4.37: Current test is ./cyoa-step4 test/step4_test6  <  /usr/local/ece551/cyoa/story3/inputs/input18.txt
 -----------------------------
 Your output looks good. Lets check valgrind
 Valgrind was clean
 
 
-4.61: Current test is ./cyoa-step4 test/step4_test6  <  /usr/local/ece551/cyoa/story3/inputs/input19.txt
+4.38: Current test is ./cyoa-step4 test/step4_test6  <  /usr/local/ece551/cyoa/story3/inputs/input19.txt
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
@@ -1935,13 +2825,13 @@ Lets check if it valgrinds:
 Valgrind was clean
 
 
-4.62: Current test is ./cyoa-step4 test/step4_test6  <  /usr/local/ece551/cyoa/story3/inputs/input0.txt
+4.39: Current test is ./cyoa-step4 test/step4_test6  <  /usr/local/ece551/cyoa/story3/inputs/input0.txt
 -----------------------------
 Your output looks good. Lets check valgrind
 Valgrind was clean
 
 
-4.63: Current test is ./cyoa-step4 test/step4_test6  <  /usr/local/ece551/cyoa/story3/inputs/input1.txt
+4.40: Current test is ./cyoa-step4 test/step4_test6  <  /usr/local/ece551/cyoa/story3/inputs/input1.txt
 -----------------------------
 Your output looks good. Lets check valgrind
 Valgrind was clean
