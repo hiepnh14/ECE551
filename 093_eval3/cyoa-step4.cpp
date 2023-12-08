@@ -18,7 +18,5 @@ int main(int argc, char ** argv) {
   if (check)
     main.display(main.findPage(0));
   story_stream.close();
-  //error("Fail to close story.txt file\n");
-
   return EXIT_SUCCESS;
 }

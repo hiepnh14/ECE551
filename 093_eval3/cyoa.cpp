@@ -116,11 +116,6 @@ void Story::addChoices(size_t page_num,
   // for (size_t i = 0; i < pages.size(); i++) {
   if (pages[page_num].getNum() == page_num) {
     pair<size_t, string> addedChoice(linkPage, choice);
-    /*for (size_t j = 0; j < pages[page_num].getChoices().size(); j++) {
-      if (pages[page_num].getChoices()[j].first == linkPage)
-        //Update message
-        return;
-     }*/
     pages[page_num].addChoice(addedChoice, condition);
     return;
   }
@@ -223,16 +218,13 @@ void Story::readStory(istream & input, string foldername) {
   while (getline(input, line)) {
     if (line == "")
       continue;
-    string pagefile = "";
-    string choiceText = "";
     size_t i = 0;
     size_t & index = i;
-    char type;
     size_t page_num = getPageNum(line, index);
     // Add new page
     if (line[i] == '@') {
       i++;
-      type = line[i];
+      char type = line[i];
       if (type != 'N' && type != 'W' && type != 'L')
         error("Story page input format invalid");
       // Prasing the file
@@ -240,7 +232,7 @@ void Story::readStory(istream & input, string foldername) {
       if (line[i] != ':')
         error("Format invalid\n");
       i++;
-      pagefile = getItem(line, '\n', index);
+      string pagefile = getItem(line, '\n', index);
       if (page_num != orderCheck)
         error("Declaration order incorrect\n");
       orderCheck++;
@@ -256,6 +248,8 @@ void Story::readStory(istream & input, string foldername) {
         error("Fail to open File");
       currentPage.addLine(file);
       file.close();
+      //if (file.fail())
+      //   error("Fail to close page file\n");
       addPage(currentPage);
     }
     // Choice case with no condition
@@ -266,7 +260,7 @@ void Story::readStory(istream & input, string foldername) {
       size_t linkPage = getPageNum(line, index);
       if (line[i] == ':') {
         i++;
-        choiceText = getItem(line, '\n', index);
+        string choiceText = getItem(line, '\n', index);
         pair<string, long int> noCondition;
         addChoices(page_num, choiceText, linkPage, noCondition);
       }
@@ -305,7 +299,7 @@ void Story::readStory(istream & input, string foldername) {
       if (line[i] == ':') {
         // Start parsing the choice message
         i++;
-        choiceText = getItem(line, '\n', index);
+        string choiceText = getItem(line, '\n', index);
         pair<string, long int> variable_condition(variable_name, value_int);
         addChoices(page_num, choiceText, linkPage, variable_condition);
       }

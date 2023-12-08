@@ -33,7 +33,9 @@
 8:15:Ask the dragon if he has heard any good jokes lately.
 9@L:dragonsnack.txt
 10@W:coins.txt
+10$broke=1
 11@L:attack.txt
+11$sword=2
 12@W:offercroissant.txt
 13@N:squirteclair.txt
 13[broke=0]:16:Fling your last coins at the dragon
