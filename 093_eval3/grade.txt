@@ -1,6 +1,6 @@
-Grading at 12/08/2023:19:42:42.261528
-For commit ID ee3692314c77c87ad696e5eb59aa08e5d4dcce83
-Grading at Fri Dec  8 02:41:12 PM EST 2023
+Grading at 12/08/2023:20:56:37.844501
+For commit ID 5649dd7883fa88cd063ed6af61a5730d9e16f495
+Grading at Fri Dec  8 03:54:57 PM EST 2023
 Doing some basic checking for your submission
 
 Step 1
@@ -789,7 +789,7 @@ Now running YOUR tests for step 4
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
-Invalid digits from story.txt for page 
+Declaration order incorrect
 
 -----------------------------------------
 Lets check if it valgrinds:
@@ -800,7 +800,7 @@ Valgrind was clean
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
-Invalid digits from story.txt for page 
+Declaration order incorrect
 
 -----------------------------------------
 Lets check if it valgrinds:
@@ -811,7 +811,7 @@ Valgrind was clean
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
-Invalid digits from story.txt for page 
+Declaration order incorrect
 
 -----------------------------------------
 Lets check if it valgrinds:
@@ -822,7 +822,7 @@ Valgrind was clean
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
-Invalid digits from story.txt for page 
+Declaration order incorrect
 
 -----------------------------------------
 Lets check if it valgrinds:
@@ -833,7 +833,7 @@ Valgrind was clean
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
-Invalid digits from story.txt for page 
+Declaration order incorrect
 
 -----------------------------------------
 Lets check if it valgrinds:
