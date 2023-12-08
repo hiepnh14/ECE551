@@ -188,10 +188,8 @@ long int getValue(string line, char delim, size_t & index) {
     value_string.push_back(line[index]);
     index++;
   }
-  if (!isDigits(value_string)) {
-    error("Invalid digits from story.txt for value \n");
-  }
-
+  //if (!isDigits(value_string))
+  //  error("Invalid digits from story.txt for value \n");
   long int value = toLong(value_string);
   return value;
 }
