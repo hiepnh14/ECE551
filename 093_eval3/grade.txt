@@ -1,6 +1,6 @@
-Grading at 12/08/2023:21:10:59.175858
-For commit ID 493061dfed170984a79c5ad6883e23fe762280b1
-Grading at Fri Dec  8 04:09:20 PM EST 2023
+Grading at 12/08/2023:21:23:38.829458
+For commit ID 6420948fd51580e1120d709a4cc5bd10defb4d3f
+Grading at Fri Dec  8 04:22:05 PM EST 2023
 Doing some basic checking for your submission
 
 Step 1
@@ -230,7 +230,7 @@ Valgrind was clean
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
-Story.txt format for variable incorrect
+Invalid digits from story.txt for value 
 
 -----------------------------------------
 Lets check if it valgrinds:
@@ -252,7 +252,7 @@ Valgrind was clean
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
-Out of range error
+Invalid digits from story.txt for page 
 
 -----------------------------------------
 Lets check if it valgrinds:
@@ -640,7 +640,7 @@ Now running YOUR tests for step 4
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
-Story.txt format for variable incorrect
+Invalid digits from story.txt for value 
 
 -----------------------------------------
 Lets check if it valgrinds:
@@ -651,7 +651,7 @@ Valgrind was clean
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
-Story.txt format for variable incorrect
+Invalid digits from story.txt for value 
 
 -----------------------------------------
 Lets check if it valgrinds:
@@ -673,7 +673,7 @@ Valgrind was clean
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
-Story.txt format for variable incorrect
+Invalid digits from story.txt for value 
 
 -----------------------------------------
 Lets check if it valgrinds:
@@ -684,7 +684,7 @@ Valgrind was clean
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
-Out of range error
+Invalid digits from story.txt for page 
 
 -----------------------------------------
 Lets check if it valgrinds:
@@ -695,7 +695,7 @@ Valgrind was clean
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
-Story.txt format for variable incorrect
+Invalid digits from story.txt for value 
 
 -----------------------------------------
 Lets check if it valgrinds:
@@ -706,7 +706,7 @@ Valgrind was clean
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
-Out of range error
+Invalid digits from story.txt for page 
 
 -----------------------------------------
 Lets check if it valgrinds:
@@ -789,7 +789,7 @@ Valgrind was clean
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
-Declaration order incorrect
+Invalid digits from story.txt for page 
 
 -----------------------------------------
 Lets check if it valgrinds:
@@ -800,7 +800,7 @@ Valgrind was clean
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
-Declaration order incorrect
+Invalid digits from story.txt for page 
 
 -----------------------------------------
 Lets check if it valgrinds:
@@ -811,7 +811,7 @@ Valgrind was clean
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
-Declaration order incorrect
+Invalid digits from story.txt for page 
 
 -----------------------------------------
 Lets check if it valgrinds:
@@ -822,7 +822,7 @@ Valgrind was clean
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
-Declaration order incorrect
+Invalid digits from story.txt for page 
 
 -----------------------------------------
 Lets check if it valgrinds:
@@ -833,7 +833,7 @@ Valgrind was clean
 -----------------------------
 Great: we both considered this an error
 ----here is what you printed on stderr---
-Declaration order incorrect
+Invalid digits from story.txt for page 
 
 -----------------------------------------
 Lets check if it valgrinds:
